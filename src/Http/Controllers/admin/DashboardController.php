@@ -13,7 +13,7 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Igs_auth;
@@ -22,11 +22,11 @@ class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Igs_auth::class);
+        // $this->middleware(Igs_auth::class);
     }
 
     public function index()
     {
-        return view('admin.dashboard.index');
+        return view('ignitedcms::admin.dashboard.index');
     }
 }
