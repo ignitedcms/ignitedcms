@@ -13,7 +13,7 @@
 | @since: 1.0
 */
 
-namespace App\Http\Middleware;
+namespace Ignitedcms\Ignitedcms\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
