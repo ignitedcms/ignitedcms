@@ -12,7 +12,7 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Login;
@@ -26,7 +26,7 @@ class LoginController extends Controller
     {
         //Login::foo();
 
-        return view('admin.login.index');
+        return view('ignitedcms::admin.login.index');
     }
 
     public function logout(Request $request)
