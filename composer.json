@@ -1,0 +1,54 @@
+{
+    "name": "ignitedcms/ignitedcms",
+    "description": "Laravel CMS",
+    "keywords": [
+        "ignitedcms",
+        "ignitedcms"
+    ],
+    "homepage": "https://github.com/ignitedcms/ignitedcms",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Craig",
+            "email": "fernandes_craig@hotmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ignitedcms\\Ignitedcms\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ignitedcms\\Ignitedcms\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ignitedcms\\Ignitedcms\\IgnitedcmsServiceProvider"
+            ],
+            "aliases": {
+                "Ignitedcms": "Ignitedcms\\Ignitedcms\\IgnitedcmsFacade"
+            }
+        }
+    }
+}
