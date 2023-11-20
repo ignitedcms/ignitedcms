@@ -6,8 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href=" {{ asset('main.css') }}">
 </head>
+
 <body>
-    <div class="foo">fdsfsd</div>
+<?php 
+ $something = $errors->all(); 
+?>
+
+<div class="foo">fdsfsd</div>
    blah blah blah 
 </body>
 </html>
