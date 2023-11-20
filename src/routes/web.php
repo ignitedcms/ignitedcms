@@ -1,11 +1,10 @@
 <?php
 
 
-use Ignitedcms\Ignitedcms\Http\Controllers\ContactController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 
-Route::middleware('web')->get('contact', [ContactController::class, 'index']);
 
 Route::middleware('web')->group(function () {
     Route::get('/installer', [InstallController::class, 'index']);
@@ -21,4 +20,10 @@ Route::middleware('web')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::post('/login/validate_login', [LoginController::class, 'validate_login']);
 
+});
+
+//Dashboard
+
+Route::middleware('web')->group(function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 });
