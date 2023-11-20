@@ -2,7 +2,7 @@
 
 
 use Ignitedcms\Ignitedcms\Http\Controllers\ContactController;
-use Ignitedcms\Ignitedcms\Http\Controllers\InstallController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 
 Route::middleware('web')->get('contact', [ContactController::class, 'index']);
 

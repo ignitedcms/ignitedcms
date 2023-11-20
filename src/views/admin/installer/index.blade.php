@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('ignitedcms::admin.layout')
 
 @section('content')
     <div class="full-screen v-a h-a bg-light-grey">

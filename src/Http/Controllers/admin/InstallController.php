@@ -14,7 +14,7 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class InstallController extends Controller
 {
     public function index()
     {
-        return view('admin.installer.index');
+        return view('ignitedcms::admin.installer.index');
     }
 
     public function bar()
@@ -38,12 +38,12 @@ class InstallController extends Controller
 
     public function one()
     {
-        return view('admin.installer.one');
+        return view('ignitedcms::admin.installer.one');
     }
 
     public function two()
     {
-        return view('admin.installer.two');
+        return view('ignitedcms::admin.installer.two');
     }
 
     public function validate_form(Request $request)
