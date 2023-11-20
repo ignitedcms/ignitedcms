@@ -30,9 +30,9 @@ class IgnitedcmsServiceProvider extends ServiceProvider
             ], 'views');*/
 
             // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/ignitedcms'),
-            ], 'assets');*/
+            $this->publishes([
+                __DIR__.'/public' => public_path(''),
+            ], 'assets');
 
             // Publishing the translation files.
             /*$this->publishes([
