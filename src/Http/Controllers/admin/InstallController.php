@@ -30,7 +30,7 @@ class InstallController extends Controller
 
     public function bar()
     {
-        DB::unprepared(file_get_contents('../laravelx.sql'));
+        DB::unprepared(file_get_contents(public_path('laravelx.sql')));
 
         return redirect('installer/register');
         //echo 'done';
