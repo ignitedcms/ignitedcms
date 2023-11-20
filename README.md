@@ -4,14 +4,30 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ignitedcms/ignitedcms.svg?style=flat-square)](https://packagist.org/packages/ignitedcms/ignitedcms)
 ![GitHub Actions](https://github.com/ignitedcms/ignitedcms/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+A wickedly simple Laravel CMS
 
 ## Installation
+First install a fresh copy of Laravel 10, make sure you have a PHP version of 8.1 or above
+and you are using MySQL.
 
-You can install the package via composer:
+You can install Laravel via composer:
 
 ```bash
+composer create-project laravel/laravel example-app
+```
+
+Now cd into the example-app directory and install ignitedcms
+
+```
+cd example-app
+ 
 composer require ignitedcms/ignitedcms
+```
+
+Finally, publish the assets by running
+
+```
+php artisan vendor:publish --tag=assets --force
 ```
 
 ## Usage
@@ -40,7 +56,7 @@ If you discover any security related issues, please email fernandes_craig@hotmai
 
 ## Credits
 
--   [Craig](https://github.com/ignitedcms)
+-   [IgnitedCMS](https://github.com/ignitedcms)
 -   [All Contributors](../../contributors)
 
 ## License
