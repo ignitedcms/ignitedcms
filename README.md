@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ignitedcms/ignitedcms.svg?style=flat-square)](https://packagist.org/packages/ignitedcms/ignitedcms)
 ![GitHub Actions](https://github.com/ignitedcms/ignitedcms/actions/workflows/main.yml/badge.svg)
 
-A wickedly simple Laravel CMS
+A wickedly simple Laravel CMS that is completely free to use.
 
 ## Installation
 First install a fresh copy of Laravel 10, make sure you have a PHP version of 8.1 or above
