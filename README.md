@@ -1,4 +1,4 @@
-# Very short description of the package
+# About IgnitedCMS
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ignitedcms/ignitedcms.svg?style=flat-square)](https://packagist.org/packages/ignitedcms/ignitedcms)
 [![Total Downloads](https://img.shields.io/packagist/dt/ignitedcms/ignitedcms.svg?style=flat-square)](https://packagist.org/packages/ignitedcms/ignitedcms)
