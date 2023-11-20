@@ -1,0 +1,134 @@
+@import "variables";
+
+/*
+|---------------------------------------------------------------
+| Base button styles
+|---------------------------------------------------------------
+|
+*/
+
+.btn {
+
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border-radius: $border-radius;
+    transition: all 0.5s;
+    user-select: none;
+
+    &-block{
+        width: 100%;
+    }
+
+    &-primary {
+        background-color: $primary;
+        color: #ffffff;
+
+        &-outline{
+            background-color: #ffffff;
+            color: $primary;
+            border: 1px solid $primary;
+        }
+
+    }
+
+    &-secondary {
+        background-color: $secondary;
+        color: #ffffff;
+
+        &-outline{
+            background-color: #ffffff;
+            color: $secondary;
+            border: 1px solid $secondary;
+        }
+    }
+
+    &-dark {
+        background-color: $tertiary;
+        color: #ffffff;
+
+        &-outline{
+            background-color: #ffffff;
+            color: $tertiary;
+            border: 1px solid $tertiary;
+        }
+    }
+
+    &-white {
+        background-color: #ffffff;
+        color: $font-color;
+        border: 1px solid #ccc;
+    
+        &:hover{
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04), 0 7px 10px 0 rgba(0, 0, 0, 0.19);
+        }
+    }
+
+    &-light {
+        background-color: #ffffff;
+        color: $font-color;
+        border: 1px solid #ccc;
+    
+        &:hover{
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04), 0 7px 10px 0 rgba(0, 0, 0, 0.19);
+        }
+    }
+}
+
+/*
+    |---------------------------------------------------------------
+    | Button groups
+    |---------------------------------------------------------------
+    */
+.btn-group button {
+    border-radius: 0;
+    border: 1px solid #ccc;
+    /* Green border */
+    cursor: pointer;
+    float: left;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button.btn {
+    border-radius: 0px;
+}
+
+.btn-group button.btn:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.btn-group button.btn:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+}
+
+/*
+|---------------------------------------------------------------
+| Button utility classes IMP must remove outline:inherit for accessiblity
+|---------------------------------------------------------------
+*/
+.rm-btn-styles {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    // outline: inherit;
+    text-align: left;
+}

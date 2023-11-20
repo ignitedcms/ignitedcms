@@ -1,0 +1,25 @@
+@import "variables";
+
+.progress {
+    display: flex;
+    height: 9px; 
+    margin-top: $margin;
+    overflow: hidden;
+    background-color: #111111;
+    border-radius: 20px !important;
+    
+    &-bar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+        background-color: #FFFFFF;
+        transition: width .6s ease;
+        
+        &-success{
+            background-color: $switch-on;
+        }
+    }
+
+}

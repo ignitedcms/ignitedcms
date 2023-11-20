@@ -1,0 +1,50 @@
+@import "variables";
+
+.badge{
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 10px;
+    // padding: 4px 9px;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 20px; 
+
+    &-primary{
+        background-color: $primary;
+        color: #ffffff;
+    }
+
+    &-info{
+        background-color: #eaeef5;
+        color: #506e9e;
+        border: 1px solid #506e9e;
+    }
+    &-success{
+        background-color: #ECFEEC;
+        color: #2b6739;
+        border: 1px solid #2b6739;
+    }
+
+    &-danger{
+        background-color: #FCEAEB;
+        color: #983538;
+        border: 1px solid #983538;
+    }
+    &-warning{
+        background-color: #fbfad8;
+        color: #bb8913;
+        border: 1px solid #a27919;
+    }
+    &-light{
+        background-color: #ffffff;
+        border: 1px solid $grey;
+    }
+
+    &-dark{
+        background-color: $tertiary;
+        color: #ffffff;
+    }
+}

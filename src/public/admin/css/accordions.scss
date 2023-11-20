@@ -1,0 +1,30 @@
+@import "variables";
+
+/*
+|---------------------------------------------------------------
+| CSS styles for the accordion components
+|---------------------------------------------------------------
+|
+*/
+
+.accordion{
+
+    &-title{
+        padding: $padding;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        width: 100% !important;
+        user-select: none;
+        cursor: pointer;
+        transition: all 0.4s;
+    
+        &:hover{
+            background-color: $primary;
+            color:#fff;
+        }
+    }
+
+    &-content{
+        padding:$padding;
+    }
+}

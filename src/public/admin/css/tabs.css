@@ -1,0 +1,47 @@
+.tab-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tab-header {
+  min-width: 50px;
+  font-size: 16px;
+  user-select: none;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 5px solid #F7FAFC;
+}
+.tab-header:hover {
+  border-bottom: 5px solid #292F3E;
+}
+
+.tab-content {
+  padding: 20px;
+  width: 100%;
+  border-top: 1px solid #cccccc;
+}
+
+@media (max-width: 500px) {
+  .tab-container {
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .tab-header {
+    width: 100%;
+  }
+}
+/*
+|---------------------------------------------------------------
+| remove later testing components
+|---------------------------------------------------------------
+|
+*/
+.tab__selected {
+  background-color: red;
+}
+
+/*# sourceMappingURL=tabs.css.map */

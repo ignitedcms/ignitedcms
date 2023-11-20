@@ -1,0 +1,21 @@
+.gallery {
+  background-color: red;
+}
+.gallery-img {
+  position: relative;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.gallery-img:hover {
+  transform: translateY(-10px);
+}
+
+/*# sourceMappingURL=gallery.css.map */

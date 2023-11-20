@@ -1,0 +1,80 @@
+@import "variables";
+
+.blog-item {
+    position: relative;
+    min-height: 150px;
+    background-color: #ffffff;
+    // fix issue with img and border radius
+    overflow: hidden; 
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    @media (max-width: $desktop) 
+    {
+       margin-top:20px;
+    }
+
+    &-img {
+        position: relative;
+        min-height: 500px;
+        background-repeat: no-repeat;
+        background-position: center;
+        //bg size width height
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        &:hover .blog-item-block {
+            display: flex;
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background-color: $primary;
+        }
+    }
+
+    &-block {
+        display: none;
+    }
+
+    &-text {
+        padding: 20px;
+        // max-height: 200px;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        -webkit-box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+        box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+
+         @media (max-width: $desktop) 
+         {
+            transform: none;
+            box-shadow:none;
+         }
+
+    }
+
+}
+
+.callout-box {
+    display: flex;
+    min-height: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    padding: 50px;
+    background-color: $primary;
+}
+
+

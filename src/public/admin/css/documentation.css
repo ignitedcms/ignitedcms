@@ -1,0 +1,208 @@
+.logo {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: #292F3E;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.sidebar-toggle {
+  position: relative;
+  display: none;
+  background-color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+@media screen and (max-width: 900px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+}
+
+.search-container {
+  display: flex;
+  margin-top: 30px;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media screen and (max-width: 900px) {
+  .search-container {
+    margin-top: 10px;
+  }
+}
+
+.sidebar > ul > li > a {
+  color: #666666;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.sidebar > ul > li > a:hover {
+  margin-left: 5px;
+  color: #007bd9;
+}
+
+.sidebar > ul > li {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.sidebar-fixed > ul > li > a {
+  color: #666666;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.sidebar-fixed > ul > li > a:hover {
+  margin-left: 5px;
+  color: #007bd9;
+}
+
+.sidebar-fixed > ul > li {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #FFFFFF;
+  border-right: 1px solid #cccccc;
+  float: left;
+  width: 270px;
+  /*                                                                          
+  |---------------------------------------------------------------            
+  | Now do the styles for the dashboard only                                                
+  |---------------------------------------------------------------            
+  |                                                                           
+  */
+  /*                                                                          
+  |---------------------------------------------------------------            
+  | This only displays on mobile                                                
+  |---------------------------------------------------------------            
+  */
+}
+.sidebar-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #cccccc;
+  float: left;
+  width: 270px;
+  background-color: #292F3E;
+  color: #FFFFFF;
+}
+@media screen and (max-width: 900px) {
+  .sidebar-dark {
+    display: none;
+  }
+}
+.sidebar-dark > h5 {
+  color: #FFFFFF;
+}
+.sidebar-dark > ul > li {
+  list-style-type: none;
+  margin-left: 10px;
+}
+.sidebar-dark > ul > li > a {
+  color: #FFFFFF;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.sidebar-dark > ul > li > a:hover {
+  margin-left: 5px;
+  color: #007bd9;
+}
+@media screen and (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar-fixed {
+  position: fixed;
+  padding: 20px;
+  height: 100vh;
+  width: 270px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-right: 1px solid #cccccc;
+  overflow-y: auto;
+  z-index: 2;
+}
+.sidebar-fixed-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #cccccc;
+  float: left;
+  width: 270px;
+  background-color: #292F3E;
+  color: #FFFFFF;
+  z-index: 2;
+}
+@media screen and (max-width: 900px) {
+  .sidebar-fixed-dark {
+    display: none;
+  }
+}
+.sidebar-fixed-dark > h5 {
+  color: #FFFFFF;
+}
+.sidebar-fixed-dark > ul > li {
+  list-style-type: none;
+  margin-left: 10px;
+}
+.sidebar-fixed-dark > ul > li > a {
+  color: #FFFFFF;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.sidebar-fixed-dark > ul > li > a:hover {
+  margin-left: 5px;
+  color: #007bd9;
+}
+@media screen and (min-width: 900px) {
+  .sidebar-fixed {
+    display: none;
+  }
+}
+
+.main-content {
+  position: relative;
+  margin-left: 270px;
+  margin-bottom: 20px;
+  float: left;
+  width: 1000px;
+  height: 100vh;
+}
+@media screen and (max-width: 900px) {
+  .main-content {
+    max-width: 100%;
+    margin-left: 0px;
+  }
+}
+
+/*# sourceMappingURL=documentation.css.map */

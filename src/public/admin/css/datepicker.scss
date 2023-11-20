@@ -1,0 +1,131 @@
+@import "variables";
+
+.date-today{
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      flex-direction: row;
+      padding: 5px;
+      background-color: $primary;
+      color: #ffffff;
+      cursor: pointer;
+}
+
+
+.datepicker {
+    background-color: $background;
+}
+
+.date-container {
+    max-width: 350px;
+    // margin: 0 auto;
+}
+
+.date-flyout{
+    position: relative;
+    min-height: 425px;
+    min-width: 350px;
+    margin-top:10px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    z-index: 1;
+}
+
+
+.date-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.year-box{
+    padding:5px;
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    cursor: pointer;
+}
+
+.date-chunk{
+    float: left;
+    width: 33.33%;
+}
+
+
+.date-years{
+    position: relative;
+    max-height: 300px;
+    overflow: auto;
+    margin-top: 15px;
+
+    &-row{
+        padding:10px;
+        background-color: $light-grey;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: darken($light-grey,10);
+        }
+    }
+}
+
+
+.date-button {
+    position: relative;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #cccccc;
+}
+
+.cal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: gray;
+    position: relative;
+    float: left;
+    width: 14.2857142857%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $primary;
+        border-radius: 4px;
+        color: #ffffff;
+    }
+
+    &-no-hover{
+        &:hover{
+            background-color: #ffffff;
+        }
+    }
+}
+
+.cal-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: #222222;
+    position: relative;
+    float: left;
+    width: 14.2857142857%;
+    min-height: 50px;
+
+}

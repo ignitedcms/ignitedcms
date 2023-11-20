@@ -1,0 +1,24 @@
+/*
+|---------------------------------------------------------------
+| CSS styles for the accordion components
+|---------------------------------------------------------------
+|
+*/
+.accordion-title {
+  padding: 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 100% !important;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.accordion-title:hover {
+  background-color: #292F3E;
+  color: #fff;
+}
+.accordion-content {
+  padding: 30px;
+}
+
+/*# sourceMappingURL=accordions.css.map */

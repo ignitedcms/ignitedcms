@@ -1,0 +1,861 @@
+@import "variables";
+
+   *,
+   *::before,
+   *::after {
+      box-sizing: border-box;
+   }
+
+   html {
+      box-sizing: border-box;
+      margin: 0;
+      //background-color: $background;
+      padding: 0;
+   }
+
+   body {
+      font-size: $font-size;
+      font-family: $font;
+      color: $font-color;
+      line-height: $line-height;
+      letter-spacing: .01em;
+   }
+
+   p {
+      margin-top: 10px;
+   }
+
+   strong {
+      font-weight: bold;
+   }
+
+   em {
+      font-style: italic;
+   }
+
+   .small {
+      position: relative;
+      //padding-top: 10px;
+      font-size: 14px;
+   }
+
+   a {
+      color: $link-color;
+      transition: all .1s ease;
+   }
+
+   a:hover {
+      color: $link-color;
+   }
+
+   label {
+      position: relative;
+      color: #111111;
+      margin-bottom: 5px;
+   }
+
+   // for showing code
+   .code {
+      position: relative;
+      font-size: 15px;
+      padding: $padding;
+      color:#FFFFFF;
+      background-color: $tertiary;
+      overflow-x:auto;
+      font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
+      box-shadow: $shadow;
+      border-radius: $border-radius;
+
+
+      &-class{
+         position:relative;
+         color: #333333;
+         border-left:8px solid $primary;
+         background-color:$light-grey;
+         padding: $margin;
+         margin-bottom:$margin;
+      }
+   }
+   
+   /*                                                                          
+   |---------------------------------------------------------------            
+   | cross hatch grid styles                                                
+   |---------------------------------------------------------------            
+   */       
+   .cross-grid{
+      background-size: 40px 40px;
+      background-image:
+      linear-gradient(to right, #f2f2f2 1px, transparent 1px),
+      linear-gradient(to bottom,#f2f2f2  1px, transparent 1px);
+   }
+
+
+   /*                                                                          
+   |---------------------------------------------------------------            
+   | Divider content for dashboard                                                
+   |---------------------------------------------------------------            
+   | Draws a thin grey line
+   |
+   */       
+   .divider{
+      border-bottom:1px solid $grey;
+      padding-top:30px;
+      margin-left: -30px;
+      margin-right: -30px;
+   }
+
+
+
+   /*
+   |---------------------------------------------------------------
+   | Grid system
+   |---------------------------------------------------------------
+    */
+
+.container {
+   position: relative;
+   max-width: $container-width;
+   margin: 0 auto;
+   padding-left: $margin;
+   padding-right: $margin;
+}
+
+.medium-container {
+
+   position: relative;
+   max-width: $medium-container-width;
+   margin: 0 auto;
+   padding-left: $margin;
+   padding-right: $margin;
+}
+
+.small-container {
+
+   position: relative;
+   max-width: $small-container-width;
+   margin: 0 auto;
+   padding-left: $margin;
+   padding-right: $margin;
+}
+
+.row {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-between
+}
+
+.row>:first-child {
+   margin-left: 0;
+}
+
+.row>:last-child {
+   margin-right: 0;
+}
+
+.col {
+   -webkit-box-flex: 1;
+   -moz-box-flex: 1;
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+}
+
+.col,
+[class*=" col-"],
+[class^=col-] {
+   margin: 1rem;
+}
+
+.col-1 {
+   flex: 1;
+}
+
+.col-2 {
+   flex: 2;
+}
+
+.col-3 {
+   flex: 3;
+}
+
+.col-4 {
+   flex: 4;
+}
+
+.col-5 {
+   flex: 5;
+}
+
+.col-6 {
+   flex: 6;
+}
+
+.col-7 {
+   flex: 7;
+}
+
+.col-8 {
+   flex: 8;
+}
+
+.col-9 {
+   flex: 9;
+}
+
+.col-10 {
+   flex: 10;
+}
+
+.col-11 {
+   flex: 11;
+}
+
+.col-12 {
+   flex: 12;
+}
+
+ul {
+   list-style: square inside;
+}
+
+ol {
+   list-style: decimal inside;
+}
+
+.table {
+   width: 100%;
+   border: none;
+   border-collapse: collapse;
+   border-spacing: 0;
+   text-align: left;
+}
+
+@media screen and (max-width:$tablet) {
+
+   .col,
+   [class*=" col-"],
+   [class^=col-] {
+      margin-top: 10px;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+      flex: 0 0 100%;
+   }
+
+}
+
+/*
+|---------------------------------------------------------------
+| Panels
+|---------------------------------------------------------------
+ */
+
+.panel {
+   position: relative;
+   background-color: #ffffff;
+   padding: $padding;
+   border: 1px solid #cccccc;
+}
+
+
+
+/*
+|---------------------------------------------------------------
+| Utility classes
+|---------------------------------------------------------------
+ */
+
+.bg-primary {
+   background-color: $primary;
+   color: #ffffff;
+}
+
+.bg-secondary {
+   background-color: $secondary;
+   color: #ffffff;
+}
+
+.bg-success {
+   background-color: $switch-on;
+   color: #ffffff;
+}
+
+.bg-danger {
+   background-color: #983538; 
+   color: #ffffff;
+}
+
+
+.bg-light {
+   background-color: #ffffff;
+}
+
+.bg-light-grey{
+   background-color:$tertiary;
+}
+
+.bg-white {
+   background-color: #ffffff;
+}
+
+.bg-grey {
+   background-color: $light-grey;
+}
+
+.bg-dark {
+   background-color: $tertiary;
+   //color: #ffffff;
+}
+
+.drop-shadow {
+   box-shadow: $shadow;
+}
+
+.br {
+   border-radius: $border-radius;
+
+   &-full {
+      border-radius: 50%;
+   }
+
+   &-tl {
+      border-top-left-radius: $border-radius;
+   }
+
+   &-tr {
+
+      border-top-right-radius: $border-radius;
+   }
+
+   &-bl {
+      border-bottom-left-radius: $border-radius;
+   }
+
+   &-br {
+      border-bottom-right-radius: $border-radius;
+   }
+}
+
+/*
+|---------------------------------------------------------------
+| Icon size
+|---------------------------------------------------------------
+ */
+.icon {
+   height: 40px;
+   width: 40px;
+
+   &-inside{
+      height:20px;
+      width:20px;
+      position:absolute;
+      top:10px;
+      right:15px;
+      z-index:1;
+   }
+}
+
+.no-select {
+   user-select: none;
+}
+
+.no-margin {
+   margin: 0;
+}
+
+.no-padding {
+   padding: 0;
+}
+
+.scroll-y{
+   overflow-y : auto;
+}
+
+.scroll-x{
+   overflow-x : auto;
+}
+
+/*
+|---------------------------------------------------------------
+| Margins and paddings
+|---------------------------------------------------------------
+ */
+.gap {
+   padding-top: 60px;
+   @media (max-width: $tablet) 
+   {
+      padding-top: 20px;
+   }
+}
+
+.m {
+   margin: $margin;
+
+   &-2{
+      margin:($margin*2);
+      @media screen and (max-width:$tablet) {
+         margin: $margin;
+      }
+
+   }
+   &-3{
+      margin:($margin*3);
+      @media screen and (max-width:$tablet) {
+         margin: $margin;
+      }
+   }
+   &-4{
+      margin:($margin*4);
+      @media screen and (max-width:$tablet) {
+         margin: $margin;
+      }
+   }
+   &-5{
+      margin:($margin*5);
+      @media screen and (max-width:$tablet) {
+         margin: $margin;
+      }
+   }
+
+   &-t {
+      margin-top: $margin;
+      &-2{
+         margin-top:($margin*2);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+
+      }
+      &-3{
+         margin-top:($margin*3);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-4{
+         margin-top:($margin*4);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-5{
+         margin-top:($margin*5);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+   }
+
+   &-l {
+      margin-left: $margin;
+      &-2{
+         margin-left:($margin*2);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+
+      }
+      &-3{
+         margin-left:($margin*3);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-4{
+         margin-left:($margin*4);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-5{
+         margin-left:($margin*5);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+   }
+
+   &-r {
+      margin-right: $margin;
+      &-2{
+         margin-right:($margin*2);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+
+      }
+      &-3{
+         margin-right:($margin*3);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-4{
+         margin-right:($margin*4);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-5{
+         margin-right:($margin*5);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+   }
+
+   &-b {
+      margin-bottom: $margin;
+      &-2{
+         margin-bottom:($margin*2);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+
+      }
+      &-3{
+         margin-bottom:($margin*3);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-4{
+         margin-bottom:($margin*4);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+      &-5{
+         margin-bottom:($margin*5);
+         @media screen and (max-width:$tablet) {
+            margin: $margin;
+         }
+      }
+   }
+}
+
+.p {
+   padding: $margin;
+
+   &-2{
+      padding:($margin*2);
+
+      @media screen and (max-width:$tablet) {
+         padding: $margin;
+      }
+   }
+   &-3{
+      padding:($margin*3);
+      @media screen and (max-width:$tablet) {
+         padding: $margin;
+      }
+   }
+   &-4{
+      padding:($margin*4);
+      @media screen and (max-width:$tablet) {
+         padding: $margin;
+      }
+   }
+   &-5{
+      padding:($margin*5);
+      @media screen and (max-width:$tablet) {
+         padding: $margin;
+      }
+   }
+
+
+   &-t {
+      padding-top: $margin;
+      &-2{
+         padding-top:($margin*2);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+
+      }
+      &-3{
+         padding-top:($margin*3);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-4{
+         padding-top:($margin*4);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-5{
+         padding-top:($margin*5);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+   }
+
+   &-l {
+      padding-left: $margin;
+      &-2{
+         padding-left:($margin*2);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+
+      }
+      &-3{
+         padding-left:($margin*3);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-4{
+         padding-left:($margin*4);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-5{
+         padding-left:($margin*5);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+   }
+
+   &-r {
+      padding-right: $margin;
+      &-2{
+         padding-right:($margin*2);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+
+      }
+      &-3{
+         padding-right:($margin*3);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-4{
+         padding-right:($margin*4);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-5{
+         padding-right:($margin*5);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+   }
+
+   &-b {
+      padding-bottom: $margin;
+      &-2{
+         padding-bottom:($margin*2);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+
+      }
+      &-3{
+         padding-bottom:($margin*3);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-4{
+         padding-bottom:($margin*4);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+      &-5{
+         padding-bottom:($margin*5);
+         @media screen and (max-width:$tablet) {
+            padding: $margin;
+         }
+      }
+   }
+
+}
+
+.b {
+   border: 1px solid $grey;
+
+   &-t {
+      border-top: 1px solid $grey;
+   }
+
+   &-l {
+      border-left: 1px solid $grey;
+   }
+
+   &-r {
+      border-right: 1px solid $grey;
+   }
+
+   &-b {
+      border-bottom: 1px solid $grey;
+   }
+}
+
+// border fix for calendar
+.border-fix {
+   margin-top: -1px;
+   margin-left: -1px;
+}
+
+/*
+|---------------------------------------------------------------
+| remove link and button styles
+|---------------------------------------------------------------
+*/
+.rm-link-styles{
+    text-decoration: none;
+    color: $font-color !important;
+}
+
+
+/*
+|---------------------------------------------------------------
+| Position utilities
+|---------------------------------------------------------------
+ */
+
+.pos {
+   &-rel {
+      position: relative;
+      ;
+   }
+
+   &-abs {
+      position: absolute;
+   }
+
+   &-sticky {
+      position: sticky;
+   }
+}
+
+.top {
+   &-0 {
+      top: -15px;
+   }
+}
+
+.left {
+   &-0 {
+      left: 20px;
+   }
+}
+
+/*
+|---------------------------------------------------------------
+| cursor utilities
+|---------------------------------------------------------------
+ */
+
+.hand {
+   cursor: pointer;
+}
+
+.img-responsive {
+   max-width: 100%;
+   height: auto;
+}
+
+.img-center{
+   margin: 0 auto;
+   display: block;
+}
+
+.clearfix::after {
+   content: "";
+   clear: both;
+   display: table;
+}
+
+.pull-right {
+   float: right;
+}
+
+.pull-left {
+   float: left;
+}
+
+.text-center {
+   text-align: center;
+}
+
+.full-screen {
+   width: 100%;
+   min-height: 100vh;
+}
+
+.v-a {
+   display: flex;
+   align-items: center;
+}
+
+.h-a {
+   display: flex;
+   justify-content: center;
+}
+
+.center,
+.right {
+   align-items: center;
+   display: flex;
+}
+
+.center {
+   justify-content: center;
+}
+
+.right {
+   justify-content: flex-end;
+}
+
+.left {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+.fixed {
+   position: fixed;
+   width: 100%;
+}
+
+@media screen and (max-width:$mobile) {
+   .hide-phone {
+      display: none;
+   }
+}
+
+
+@media screen and (max-width:$tablet) {
+   .hide-tablet {
+      display: none;
+   }
+}
+
+
+@media screen and (max-width:$tablet) {
+   .show-tablet {
+      display: block;
+   }
+}
+
+@media screen and (min-width:$tablet) {
+   .show-tablet {
+      display: none;
+   }
+}
+
+
+
+

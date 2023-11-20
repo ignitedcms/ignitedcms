@@ -1,0 +1,171 @@
+/*                                                                          
+|---------------------------------------------------------------            
+| A special case for live website css styling only                                                
+| REMOVE this when done!!!
+|---------------------------------------------------------------            
+|                                                                           
+| The purpose is to maintain some order so that there 
+| is less inline css and javascript styles
+|
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+ */
+.i-m-c {
+  width: 670px;
+}
+
+@media (max-width: 900px) {
+  .i-m-c {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #mc_embed_signup {
+    width: 100% !important;
+  }
+}
+#mc_embed_signup h2 {
+  display: none;
+}
+
+.igs-cone-image {
+  position: absolute;
+  top: -40px;
+  right: -100px;
+  width: 700px;
+  /* z-index: 1; */
+}
+
+@media (max-width: 900px) {
+  .igs-cone-image {
+    display: none;
+  }
+}
+.igs-laurel-image {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 250px;
+}
+
+.igs-laurel-image-2 {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 250px;
+}
+
+@media (max-width: 1300px) {
+  .igs-laurel-image {
+    display: none;
+  }
+  .igs-laurel-image-2 {
+    display: none;
+  }
+}
+/*
+|---------------------------------------------------------------
+| Random
+|---------------------------------------------------------------
+ */
+/*For time being override paragraph styles */
+p {
+  margin-top: 0;
+}
+
+/* Custom style documentation  */
+.test > li {
+  list-style: none;
+  margin-left: 10px;
+}
+
+.f-l {
+  margin-top: 20px;
+}
+
+.igs-code {
+  border-radius: 5px;
+  color: #c73b4d;
+  border: 1px solid #f2f2f2;
+  background-color: #ffffff;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  font-size: 16px;
+  /* white-space: pre-wrap; */
+  /* word-wrap: break-word; */
+  max-width: 700px;
+  overflow-x: auto;
+  padding: 20px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.quote {
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #cccccc;
+  border-left: 10px solid #292F3E;
+}
+
+.lit {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #f2f2f2;
+  background-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .igs-code {
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 700px;
+    overflow-x: none;
+  }
+}
+.c-class {
+  display: inline-block;
+  margin: 6px 0;
+  font-size: 100%;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  line-height: normal;
+  background: #dedede;
+  color: #c73b4d;
+  border-left: solid 4px #c73b4d;
+  padding: 6px;
+  position: relative;
+}
+
+.c-method {
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 80%;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+  line-height: normal;
+  background: #dedede;
+  color: #c73b4d;
+  border-left: solid 4px #c73b4d;
+  padding: 6px;
+  position: relative;
+}
+
+.note {
+  min-height: 50px;
+  min-width: 100%;
+  background: #dedede;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.ql-font-monospace {
+  color: #c73b4d !important;
+  border: 1px solid #f2f2f2 !important;
+  background-color: #ffffff !important;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+/* End */
+
+/*# sourceMappingURL=random.css.map */
