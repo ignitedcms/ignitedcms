@@ -189,7 +189,7 @@ class Helper
     public static function build_dropdown($entryid, $fieldname)
     {
         //get saved content from db
-        $saved_content = get_content($entryid, $fieldname);
+        $saved_content = self::get_content($entryid, $fieldname);
 
         $rows = DB::table('fields')
             ->where('name', '=', $fieldname)
@@ -223,7 +223,7 @@ class Helper
     {
         //get saved content from db
         // Format "a,b,c"
-        $saved_content = get_content($entryid, $fieldname);
+        $saved_content = self::get_content($entryid, $fieldname);
 
         $csvarray = explode(',', $saved_content);
         /*
@@ -247,7 +247,7 @@ class Helper
 
         foreach ($csv as $part) {
             // add the word 'checked' to the end of the input markup!
-            if (is_checked($part, $csvarray)) {
+            if (self::is_checked($part, $csvarray)) {
                 echo "<input name='$fieldname"."[]'"." value='$part' type='checkbox' class='form-check-input' checked>";
                 echo "<label for='$part'>$part</label>";
                 echo '<br>';

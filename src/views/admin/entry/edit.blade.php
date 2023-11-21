@@ -131,7 +131,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
-                                    value="{{ get_content($entryid, $row->name) }}" placeholder="" />
+                                    value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="" />
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'drop-down')
@@ -148,16 +148,16 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 upload
                                 <input class="form-control" name="{{ $row->name }}"
-                                    value="{{ get_content($entryid, $row->name) }}" placeholder="test" />
+                                    value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="test" />
 
-                                <img src="{{ get_asset(get_content($entryid, $row->name)) }} "></img>
+                                <img src="{{ Helper::get_asset(Helper::get_content($entryid, $row->name)) }} "></img>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'number')
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
-                                    value="{{ get_content($entryid, $row->name) }}" placeholder="test" />
+                                    value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="test" />
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'date')
@@ -165,7 +165,7 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div class="form-group">
                                     <datepicker name="{{ $row->name }}"
-                                        value="{{ get_content($entryid, $row->name) }}">
+                                        value="{{ Helper::get_content($entryid, $row->name) }}">
                                     </datepicker>
                                 </div>
                                 {{ $row->formvalidation }}
@@ -174,7 +174,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
-                                    state="{{ get_switch_state($entryid, $row->name) }}"></switch-ios>
+                                    state="{{ Helper::get_switch_state($entryid, $row->name) }}"></switch-ios>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @else
