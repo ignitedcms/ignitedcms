@@ -30,11 +30,32 @@ class InstallController extends Controller
 
     public function bar()
     {
+         //attempt the write the route fix in vendor
+
+       $path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
+       self::replaceStringInFile($path,"//Router::get_routes();","Router::get_routes();");
+
         DB::unprepared(file_get_contents(public_path('laravelx.sql')));
 
         return redirect('installer/register');
         //echo 'done';
     }
+
+   public static function replaceStringInFile($filePath, $searchString, $replaceString)
+   {
+       // Read the file content
+       $fileContent = file_get_contents($filePath);
+
+       // Perform the replacement
+       $updatedContent = str_replace($searchString, $replaceString, $fileContent);
+
+       // Write the updated content back to the file
+       if (file_put_contents($filePath, $updatedContent) !== false) {
+           return true; // Replacement successful
+       } else {
+           return false; // Error while writing to file
+       }
+   }
 
     public function one()
     {
