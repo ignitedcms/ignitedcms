@@ -8,7 +8,7 @@ A wickedly simple Laravel CMS that is completely free to use.
 
 ## Installation
 First install a fresh copy of Laravel 10, make sure you have a PHP version of 8.1 or above
-and you are using MySQL.
+and you are using MySQL. (We strongly advise to ONLY use this with a fresh install!)
 
 You can install Laravel via composer:
 
