@@ -8,6 +8,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 
 
 Route::middleware('web')->group(function () {
@@ -64,5 +65,19 @@ Route::middleware('web')->group(function () {
    Route::post('/admin/fields/create', [FieldsController::class, 'create']);
    Route::get('/admin/fields/update/{id}', [FieldsController::class, 'update_view']);
    Route::post('/admin/fields/delete/{id}', [FieldsController::class, 'destroy']);
+
+});
+
+
+//Sections
+
+Route::middleware('web')->group(function () {
+   Route::get('/admin/section', [SectionController::class, 'index']);
+   Route::get('/admin/section/create', [SectionController::class, 'create_view']);
+   Route::post('/admin/section/create', [SectionController::class, 'create']);
+   Route::get('/admin/section/update/{id}', [SectionController::class, 'update_view']);
+   Route::post('/admin/section/update/{id}', [SectionController::class, 'update']);
+   Route::post('/admin/section/delete/{id}', [SectionController::class, 'destroy']);
+
 
 });
