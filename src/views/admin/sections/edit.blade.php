@@ -93,7 +93,7 @@
                             <div id='list2' class='scroll-y bg-grey b br p-2'>
 
                                 @foreach ($data as $field)
-                                    <?php if(is_field_in_section($field->id, $id)) : ?>
+                                    <?php if(Helper::is_field_in_section($field->id, $id)) : ?>
                                     <div class="pill" id="{{ $field->id }}">
                                         <div>{{ $field->name }}</div>
                                         <div>
