@@ -1,0 +1,12 @@
+@extends('custom.layout')
+@section('content')
+
+   @foreach ($multiples['%sectionname%'] as $row)
+      <a href="{{ $row['url'] }}">
+         {{ $row['entrytitle'] }}
+      </a>
+      <br>
+   @endforeach
+
+@endsection
+
