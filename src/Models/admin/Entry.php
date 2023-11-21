@@ -212,4 +212,16 @@ class Entry
         //get rid of trailing comma
         return trim($tmp, ',');
     }
+
+    public static function get_section_name($sectionid)
+    {
+        $data = DB::table('section')
+            ->where('id', '=', $sectionid)
+            ->select('name')
+            ->limit(1)
+            ->get();
+
+        return $data[0]->name;
+    }
+
 }

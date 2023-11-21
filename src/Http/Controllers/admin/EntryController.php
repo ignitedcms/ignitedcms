@@ -103,7 +103,7 @@ class EntryController extends Controller
 
         $entrytitle = $request->input('entrytitle');
 
-        $sectionname = get_section_name($sectionid);
+        $sectionname = Entry::get_section_name($sectionid);
         if ($entrytitle != null) {
             $validated = $request->validate([
                 'entrytitle' => [
