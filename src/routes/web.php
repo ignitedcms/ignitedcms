@@ -9,6 +9,8 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\MultipleController;
 
 
 Route::middleware('web')->group(function () {
@@ -79,5 +81,29 @@ Route::middleware('web')->group(function () {
    Route::post('/admin/section/update/{id}', [SectionController::class, 'update']);
    Route::post('/admin/section/delete/{id}', [SectionController::class, 'destroy']);
 
+
+});
+
+//Entries
+
+Route::middleware('web')->group(function () {
+   Route::get('/admin/entry', [EntryController::class, 'index']);
+   Route::get('/admin/entry/update/{sid}/{eid}', [EntryController::class, 'update_view']);
+
+   //quick content test
+   Route::post('/admin/entry/save/{sid}/{eid}', [EntryController::class, 'update']);
+
+   //template generator to do make post request
+   Route::get('/admin/entry/build_single/{sid}/{eid}', [EntryController::class, 'build_single']);
+   Route::get('/admin/entry/build_multiple/{sid}', [EntryController::class, 'build_multiple']);
+
+   //template removal make post request
+
+   // Multiples
+   Route::get('/admin/multiple/{sid}', [MultipleController::class, 'index']);
+   Route::get('/admin/multiple/create/{sid}', [MultipleController::class, 'create']);
+   Route::get('/admin/multiple/update/{sid}/{eid}', [MultipleController::class, 'update_view']);
+   Route::post('/admin/multiple/delete/{sid}', [MultipleController::class, 'destroy']);
+   Route::post('/admin/multiple/order_multiples', [MultipleController::class, 'order_multiples']);
 
 });
