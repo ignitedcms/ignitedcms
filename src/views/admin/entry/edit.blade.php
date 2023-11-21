@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-3 v-a">
 
-                        @if (is_single($sectionid) == true)
+                        @if (Helper::is_single($sectionid) == true)
                             <modal button-title="Create Template" modal-header="Create single template">
                                 <p class="p-2">
                                 <div class="rows">
@@ -67,8 +67,8 @@
                     </div>
                     <div class="col-9 right">
 
-                        @if (is_single($sectionid) == true)
-                            <a href="{{ url(get_section_name($sectionid)) }}" target="_blank"
+                        @if (Helper::is_single($sectionid) == true)
+                            <a href="{{ url(Helper::get_section_name($sectionid)) }}" target="_blank"
                                 class="btn btn-white m-r-2 rm-link-styles">Preview</a>
                         @endif
 
@@ -81,7 +81,7 @@
                     @if (Helper::is_multiple($sectionid) == true)
                         <label for="entry title">Entry title</label>
                         <div class="small text-muted">This is a required field*</div>
-                        <input class="form-control" name="entrytitle" value="{{ get_content($entryid, 'entrytitle') }}"
+                        <input class="form-control" name="entrytitle" value="{{ Helper::get_content($entryid, 'entrytitle') }}"
                             placeholder="Start typing" />
 
                         @error('entrytitle')
@@ -97,14 +97,14 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
-                                    value="{{ get_content($entryid, $row->name) }}" placeholder="Start typing" />
+                                    value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="Start typing" />
                                 {{ $row->formvalidation }}
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'multi-line')
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
-                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ get_content($entryid, $row->name) }}</textarea>
+                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::get_content($entryid, $row->name) }}</textarea>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
@@ -112,7 +112,7 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
                                 <div class="form-group">
-                                    <textarea class="quilljs-textarea" placeholder="Please enter text" name="{{ $row->name }}">{{ get_content($entryid, $row->name) }}</textarea>
+                                    <textarea class="quilljs-textarea" placeholder="Please enter text" name="{{ $row->name }}">{{ Helper::get_content($entryid, $row->name) }}</textarea>
                                 </div>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
@@ -122,7 +122,7 @@
                                 <div>
                                     <div class="form-group">
 
-                                        {{ build_checkboxes($entryid, $row->name) }}
+                                        {{ Helper::build_checkboxes($entryid, $row->name) }}
                                     </div>
                                 </div>
                                 {{ $row->formvalidation }}
@@ -139,7 +139,7 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
                                 <select class="form-select" name="{{ $row->name }}" aria-label="Default select example">
-                                    {{ build_dropdown($entryid, $row->name) }}
+                                    {{ Helper::build_dropdown($entryid, $row->name) }}
                                 </select>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
