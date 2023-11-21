@@ -28,13 +28,30 @@ Finally, publish the assets by running
 
 ```
 php artisan vendor:publish --tag=assets --force
+php artisan vendor:publish --tag=helper --force
+php artisan vendor:publish --tag=config --force
+```
+
+Now that you have done that change the settings in your .env file
+so it points to your database
+
+Finally run
+```
+php artisan serve
 ```
 
 ## Usage
-
-```php
-// Usage description here
+Navigate to and begin the install
 ```
+http://localhost/installer
+```
+
+To access the dashboard navigate to
+
+```
+http://localhost/login
+```
+
 
 ### Testing
 
