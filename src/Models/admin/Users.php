@@ -11,7 +11,7 @@
 |
 */
 
-namespace App\Models\admin;
+namespace Ignitedcms\Ignitedcms\Models\admin;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

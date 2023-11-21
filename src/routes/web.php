@@ -5,6 +5,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
 
 
 Route::middleware('web')->group(function () {
@@ -29,7 +30,20 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 });
 
+//Profile
 Route::middleware('web')->group(function () {
    Route::get('/admin/profile', [ProfileController::class, 'index']);
    Route::post('/admin/profile/update', [ProfileController::class, 'update']);
+});
+
+//users
+
+Route::middleware('web')->group(function () {
+   Route::get('/admin/users', [UserController::class, 'index']);
+   Route::get('/admin/users/create', [UserController::class, 'create_view']);
+   Route::post('/admin/users/create', [UserController::class, 'create']);
+   Route::get('/admin/users/update/{id}', [UserController::class, 'update_view']);
+   Route::post('/admin/users/update/{id}', [UserController::class, 'update']);
+   Route::post('/admin/users/delete/{id}', [UserController::class, 'destroy']);
+
 });

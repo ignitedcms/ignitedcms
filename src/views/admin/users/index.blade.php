@@ -1,7 +1,7 @@
-@extends('admin.dashboard.layout')
+@extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('admin.sidebar')
+        @include('ignitedcms::admin.sidebar')
 
         <div class="main-content p-3">
             <div class="breadcrumb m-b-3">

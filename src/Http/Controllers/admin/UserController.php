@@ -13,11 +13,12 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Igs_auth;
-use App\Models\admin\Users;
+
+use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Ignitedcms\Ignitedcms\Models\admin\Users;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -33,7 +34,7 @@ class UserController extends Controller
         $data = Users::all();
         //dd($data);
 
-        return view('admin.users.index')->with([
+        return view('ignitedcms::admin.users.index')->with([
             'data' => $data,
         ]);
     }
@@ -43,7 +44,7 @@ class UserController extends Controller
     {
         $data = Users::permission_groups();
 
-        return view('admin.users.create')->with([
+        return view('ignitedcms::admin.users.create')->with([
             'data' => $data,
         ]);
     }
@@ -72,7 +73,7 @@ class UserController extends Controller
 
         $email = Users::get_email($id);
 
-        return view('admin.users.edit')->with([
+        return view('ignitedcms::admin.users.edit')->with([
             'data' => $data,
             'email' => $email,
             'id' => $id,
