@@ -10,10 +10,10 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
 
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Igs_auth;
+use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 
 class PermissionController extends Controller
 {
@@ -27,7 +27,7 @@ class PermissionController extends Controller
     {
         $data = '';
 
-        return view('admin.permissions.index')->with([
+        return view('ignitedcms::admin.permissions.index')->with([
             'data' => $data,
         ]);
     }
@@ -36,7 +36,7 @@ class PermissionController extends Controller
     {
         $data = '';
 
-        return view('admin.permissions.create')->with([
+        return view('ignitedcms::admin.permissions.create')->with([
             'data' => $data,
         ]);
 

@@ -6,6 +6,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 
 
 Route::middleware('web')->group(function () {
@@ -45,5 +46,12 @@ Route::middleware('web')->group(function () {
    Route::get('/admin/users/update/{id}', [UserController::class, 'update_view']);
    Route::post('/admin/users/update/{id}', [UserController::class, 'update']);
    Route::post('/admin/users/delete/{id}', [UserController::class, 'destroy']);
+
+});
+
+Route::middleware('web')->group(function () {
+   //Permissions
+   Route::get('/admin/permissions', [PermissionController::class, 'index']);
+   Route::get('/admin/permissions/create', [PermissionController::class, 'create_view']);
 
 });
