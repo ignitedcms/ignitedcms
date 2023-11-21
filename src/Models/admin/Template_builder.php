@@ -35,6 +35,13 @@ class Template_builder
      */
     public static function build_single($sectionid, $entryid)
     {
+        $custom_path = base_path("resources/views/custom");
+        if (! File::exists($custom_path)) {
+
+            // Create the directory
+            File::makeDirectory($custom_path, 0755, true);
+        }
+
         $sectionname = self::get_section_name($sectionid);
         $filePath = base_path("resources/views/custom/$sectionname.blade.php");
 
@@ -67,6 +74,14 @@ class Template_builder
      */
     public static function build_multiple($sectionid)
     {
+
+      $custom_path = base_path("resources/views/custom");
+        if (! File::exists($custom_path)) {
+
+            // Create the directory
+            File::makeDirectory($custom_path, 0755, true);
+        }
+
         // Specify the directory path at the root level
 
         $sectionname = self::get_section_name($sectionid);
