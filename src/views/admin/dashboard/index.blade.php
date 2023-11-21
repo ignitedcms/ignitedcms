@@ -6,7 +6,7 @@
         @include('ignitedcms::admin.sidebar')
 
         <div class="main-content " id="main-content">
-
+        {{ Helper::foo() }}
             <!--dashboard underneath-->
             <div class="p-3">
                 <div class="panel br drop-shadow">
