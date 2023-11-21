@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-9 right">
 
-                    <a href="{{ url(get_section_name($sectionid)) }}" target="_blank"
+                    <a href="{{ url(Helper::get_section_name($sectionid)) }}" target="_blank"
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
 
                     <a href="{{ url("admin/multiple/create/$sectionid") }}">
@@ -91,7 +91,7 @@
                                     <input type="checkbox" class="form-check-input" name="id[]"
                                         value="{{ $row->id }}">
                                     <span class="m-l">
-                                        {{ get_entrytitle($row->id) }}
+                                        {{ Helper::get_entrytitle($row->id) }}
                                     </span>
 
                                 </div>

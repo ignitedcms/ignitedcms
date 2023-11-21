@@ -13,12 +13,13 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Igs_auth;
-use App\Models\admin\Entry;
-use App\Models\admin\Multiple;
+use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Ignitedcms\Ignitedcms\Models\admin\Entry;
+use Ignitedcms\Ignitedcms\Models\admin\Multiple;
+
 use Illuminate\Http\Request;
 
 class MultipleController extends Controller
@@ -35,7 +36,7 @@ class MultipleController extends Controller
 
         $sectionname = Multiple::get_section_name($sectionid);
 
-        return view('admin.entry.multiple.index')->with([
+        return view('ignitedcms::admin.entry.multiple.index')->with([
 
             'data' => $data,
             'sectionid' => $sectionid,
@@ -78,7 +79,7 @@ class MultipleController extends Controller
     {
         $data = Entry::section_all_fields($sectionid);
 
-        return view('admin.entry.multiple.edit')->with([
+        return view('ignitedcms::admin.entry.multiple.edit')->with([
             'data' => $data,
             'entryid' => $entryid,
         ]);
