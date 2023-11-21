@@ -4,6 +4,7 @@
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 
 
 Route::middleware('web')->group(function () {
@@ -26,4 +27,9 @@ Route::middleware('web')->group(function () {
 
 Route::middleware('web')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+});
+
+Route::middleware('web')->group(function () {
+   Route::get('/admin/profile', [ProfileController::class, 'index']);
+   Route::post('/admin/profile/update', [ProfileController::class, 'update']);
 });

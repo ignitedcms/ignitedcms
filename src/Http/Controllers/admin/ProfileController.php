@@ -13,11 +13,14 @@
 | @since: 1.0
 */
 
-namespace App\Http\Controllers\admin;
+
+namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Igs_auth;
-use App\Models\admin\Profile;
+use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+
+use Ignitedcms\Ignitedcms\Models\admin\Profile;
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -34,7 +37,7 @@ class ProfileController extends Controller
         $userid = session('userid');
         $data = Profile::first($userid);
 
-        return view('admin.profile.index')->with([
+        return view('ignitedcms::admin.profile.index')->with([
             'data' => $data,
         ]);
     }
