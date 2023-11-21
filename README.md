@@ -32,8 +32,18 @@ php artisan vendor:publish --tag=helper --force
 php artisan vendor:publish --tag=config --force
 ```
 
-Now that you have done that change the settings in your .env file
-so it points to your database
+Now that you have done that create a fresh database called
+'ignitedcms' and change the settings in your .env file
+so it points to your database eg
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ignitedcms
+DB_USERNAME=root
+DB_PASSWORD=root
+```
 
 Finally run
 ```
