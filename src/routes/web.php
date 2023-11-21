@@ -11,6 +11,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\MultipleController;
+use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 
 Route::middleware('web')->group(function () {
@@ -107,3 +108,6 @@ Route::middleware('web')->group(function () {
    Route::post('/admin/multiple/order_multiples', [MultipleController::class, 'order_multiples']);
 
 });
+
+//Where the magic happens
+//Router::get_routes();
