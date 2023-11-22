@@ -20,7 +20,10 @@ Now cd into the example-app directory and install ignitedcms
 
 ```
 cd example-app
+```
+Run composer
  
+```
 composer require ignitedcms/ignitedcms
 ```
 
@@ -30,12 +33,12 @@ Finally, publish the assets by running, do NOT skip this step!
 php artisan vendor:publish --tag=assets --force
 php artisan vendor:publish --tag=helper --force
 php artisan vendor:publish --tag=config --force
-php artisan vendor:publish --tag=custom --force
+php artisan vendor:publish --tag=views --force
 ```
 
 Now that you have done that create a fresh database called
 'ignitedcms' and change the settings in your .env file
-so it points to your database eg
+so it points to your database e.g
 
 ```
 DB_CONNECTION=mysql
@@ -54,13 +57,13 @@ php artisan serve
 ## Usage
 Navigate to and begin the install
 ```
-http://localhost/installer
+http://localhost:8000/installer
 ```
 
 To access the dashboard navigate to
 
 ```
-http://localhost/login
+http://localhost:8000/login
 ```
 
 
