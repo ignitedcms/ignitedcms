@@ -59,6 +59,7 @@ class PermissionController extends Controller
 
         $validated = $request->validate([
             'groupName' => 'required|unique:permission_groups|max:255|alpha:ascii',
+            'boxes' => 'required',
         ]);
 
         $groupName = $request->input('groupName');
@@ -102,4 +103,11 @@ class PermissionController extends Controller
         return redirect('admin/permissions')->with('status', 'Updated successfully');
 
     }
+
+    public function destroy(Request $request, $id)
+    {
+      Permissions::destroy($id);      
+      return redirect('admin/permissions')->with('status','done');
+    }
+
 }

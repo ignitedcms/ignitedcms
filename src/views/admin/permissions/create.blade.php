@@ -31,10 +31,14 @@
 
                   <div class="divider"></div>
                   <div class="form-group">
-
+            
                      <label for="permissions">Permissions</label>
-                     <div class="small text-muted">Pick what things they will see in their dashboard</div>
-
+                     <div class="small text-muted">Pick what things they will see in their dashboard
+                        please make sure you have at least one box checked!</div>
+                     
+                     @error('boxes')
+                        <div class="small text-danger"> {{ $message }} </div>
+                     @enderror
 
 
                      @foreach ($data as $row)
