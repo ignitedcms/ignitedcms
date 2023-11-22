@@ -22,6 +22,18 @@ class Permissions
 
     }
 
+    public static function get_group_name($id)
+    {
+       $rows =  DB::table('permission_groups')
+          ->select('groupName')
+         ->where('groupID','=', $id)
+         ->limit(10)
+        ->get();
+
+       return $rows[0]->groupName;
+       
+    }
+
     /*
      * Creates a new permission group
      *

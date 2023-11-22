@@ -35,6 +35,7 @@ class PermissionController extends Controller
         ]);
     }
 
+
     public function create_view()
     {
 
@@ -70,13 +71,16 @@ class PermissionController extends Controller
     }
 
 
-    public function update_view()
+    public function update_view($id)
     {
 
         $data = Permissions::get_all_permissions();
-
+        $id = $id;
+        $groupName = Permissions::get_group_name($id);
         return view('ignitedcms::admin.permissions.edit')->with([
             'data' => $data,
+            'id' => $id,
+            'groupName' => $groupName,
         ]);
 
     }

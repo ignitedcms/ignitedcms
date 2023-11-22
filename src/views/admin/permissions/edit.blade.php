@@ -14,14 +14,14 @@
             </div>
 
             <!--main part for section styles -->
-            <form action="{{ url("admin/permissions/update/id") }} " method="POST">
+            <form action="{{ url("admin/permissions/update/$id") }} " method="POST">
                @csrf
                <div class="panel br drop-shadow">
 
                   <div class="form-group">
                      <label for="groupName">Group Name [*]</label>
                      <div class="small text-muted m-b">[Disabled]</div>
-                     <input class="form-control" name="groupName" value="{{ old('groupName') }}" placeholder="Start typing" readonly />
+                     <input class="form-control" name="groupName" value="{{ $groupName }}" placeholder="Start typing" readonly />
 
                   </div>
 
