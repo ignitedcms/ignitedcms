@@ -16,7 +16,6 @@ use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\Admin\Permissions;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class PermissionController extends Controller
 {
@@ -36,17 +35,17 @@ class PermissionController extends Controller
         ]);
     }
 
-
     public function create_view()
     {
-         
-       $data = Permissions::get_all_permissions();
+
+        $data = Permissions::get_all_permissions();
+
         return view('ignitedcms::admin.permissions.create')->with([
             'data' => $data,
         ]);
 
     }
-   
+
     /*
      * Save new permission group
      *
@@ -58,13 +57,15 @@ class PermissionController extends Controller
     public function create(Request $request)
     {
 
-       $validated = $request->validate([
+        $validated = $request->validate([
             'groupName' => 'required|unique:permission_groups|max:255|alpha:ascii',
-          ]);
-         
-       $groupName = $request->input('groupName');   
-       $arr = $request->input('boxes');
+        ]);
 
-      Permissions::create_group($groupName, $arr);
+        $groupName = $request->input('groupName');
+        $arr = $request->input('boxes');
+
+        Permissions::create_group($groupName, $arr);
+
+        return redirect('admin/permissions')->with('status', 'New group saved');
     }
 }

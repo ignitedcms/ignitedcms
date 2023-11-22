@@ -19,6 +19,12 @@
                 </div>
             </div>
 
+            @if (session('status'))
+                <div class="alert alert-success m-b-3">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <div class="panel br drop-shadow">
 
                 <h3>Permissions</h3>

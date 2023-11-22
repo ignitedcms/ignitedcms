@@ -15,11 +15,11 @@ class Permissions
 
     public static function get_all_permissions()
     {
-       return DB::table('permissions')
-           ->select('*')
-        ->orderBy('order_position','asc')
+        return DB::table('permissions')
+            ->select('*')
+            ->orderBy('order_position', 'asc')
             ->get();
-       
+
     }
 
     /*
@@ -32,21 +32,19 @@ class Permissions
      */
     public static function create_group($groupName, $arr)
     {
-       //First create the permission_group
-       $insertid = DB::table('permission_groups')->insertGetId([
-          'groupName' => $groupName
-       ]);
+        //First create the permission_group
+        $insertid = DB::table('permission_groups')->insertGetId([
+            'groupName' => $groupName,
+        ]);
 
-       //Now loop through arr and use $insertid
-       //$array = (explode(",",$arr));
-       foreach($arr as $row)
-       {
-          DB::table('permission_map')->insertGetId([
-             'groupID' => $insertid,
-             'permissionID' => $row
-          ]);
-       }
-       die();
+        //Now loop through arr and use $insertid
+        //$array = (explode(",",$arr));
+        foreach ($arr as $row) {
+            DB::table('permission_map')->insertGetId([
+                'groupID' => $insertid,
+                'permissionID' => $row,
+            ]);
+        }
 
     }
 }
