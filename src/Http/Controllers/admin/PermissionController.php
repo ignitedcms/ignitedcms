@@ -85,5 +85,10 @@ class PermissionController extends Controller
 
     }
 
+    public function update($id)
+    {
+         dd("do th upddate");
+    }
+
 
 }
