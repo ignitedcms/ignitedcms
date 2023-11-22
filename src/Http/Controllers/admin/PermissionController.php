@@ -14,6 +14,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Ignitedcms\Ignitedcms\Models\Admin\Permissions;
 
 class PermissionController extends Controller
 {
@@ -25,7 +26,8 @@ class PermissionController extends Controller
     //load the default user view
     public function index()
     {
-        $data = '';
+
+        $data = Permissions::all();
 
         return view('ignitedcms::admin.permissions.index')->with([
             'data' => $data,

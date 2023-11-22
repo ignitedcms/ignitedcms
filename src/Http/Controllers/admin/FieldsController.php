@@ -19,7 +19,6 @@ use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Illuminate\Http\Request;
-
 use Illuminate\Validation\Rule;
 
 class FieldsController extends Controller
@@ -45,7 +44,7 @@ class FieldsController extends Controller
                 'alpha:ascii',
                 'unique:fields',
                 Rule::notIn(['url', 'content', 'id', 'section', 'field',
-                'entryid', 'entrytitle']),
+                    'entryid', 'entrytitle']),
             ],
 
             'instructions' => '',

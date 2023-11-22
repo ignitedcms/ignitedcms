@@ -33,36 +33,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                     @foreach ($data as $row)
                         <tr>
-                            <td>1</td>
-                            <td>Administrators</td>
+                            <td>{{ $row->groupID }}</td>
+                            <td>{{ $row->groupName }}</td>
                             <td>...</td>
                             <td><a href="#">delete</a></td>
                         </tr>
-                        <tr>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                        </tr>
-                        <tr>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                        </tr>
-                        <tr>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                        </tr>
-                        <tr>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                            <td>fds</td>
-                        </tr>
+                     @endforeach
+                        
+                        
                     </tbody>
 
                 </table>
