@@ -24,10 +24,10 @@ class IgnitedcmsServiceProvider extends ServiceProvider
                 __DIR__.'/../config/app.php' => config_path('app.php'),
             ], 'config');
 
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/ignitedcms'),
-            ], 'views');*/
+            // Publishing ONLY the custom.
+            $this->publishes([
+                __DIR__.'/custom' => resource_path('views/custom'),
+            ], 'views');
 
             // Publishing assets.
             $this->publishes([
