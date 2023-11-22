@@ -24,12 +24,13 @@ cd example-app
 composer require ignitedcms/ignitedcms
 ```
 
-Finally, publish the assets by running
+Finally, publish the assets by running, do NOT skip this step!
 
 ```
 php artisan vendor:publish --tag=assets --force
 php artisan vendor:publish --tag=helper --force
 php artisan vendor:publish --tag=config --force
+php artisan vendor:publish --tag=custom --force
 ```
 
 Now that you have done that create a fresh database called
