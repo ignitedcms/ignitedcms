@@ -14,38 +14,46 @@
             </div>
 
             <!--main part for section styles -->
-            <div class="panel br drop-shadow">
-                <div class="form-group">
-                    <label for="groupname">Group Name [*]</label>
-                    <div class="small text-muted m-b">Suitable name, no spaces or special characters allowed, eg bloggers
-                    </div>
-                    <input class="form-control" name="groupname" value="" placeholder="Start typing" />
-                </div>
+            <form action="{{ url('admin/permissions/create') }} " method="POST">
+               @csrf
+               <div class="panel br drop-shadow">
 
-                <div class="divider"></div>
-                <div class="form-group">
+                  <div class="form-group">
+                     <label for="groupName">Group Name [*]</label>
+                     <div class="small text-muted m-b">Suitable name, no spaces or special characters allowed, eg bloggers
+                     </div>
+                     <input class="form-control" name="groupName" value="" placeholder="Start typing" />
+                     @error('groupName')
+                        <div class="small text-danger"> {{ $message }} </div>
+                     @enderror
 
-                    <label for="permissions">Permissions</label>
-                    <div class="small text-muted">Pick what things they will see in their dashboard</div>
+                  </div>
 
-                    
+                  <div class="divider"></div>
+                  <div class="form-group">
+
+                     <label for="permissions">Permissions</label>
+                     <div class="small text-muted">Pick what things they will see in their dashboard</div>
+
+
 
                      @foreach ($data as $row)
-                    <div> 
-                        <input type="checkbox" name="{{ $row->permissionID }}" class="form-check-input">
+                     <div> 
+                        <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" class="form-check-input">
                         <label for="the label">{{ $row->permission }}</label>
                      </div>
                      @endforeach
-                    
 
-                </div>
 
-            </div>
-            <div class="row">
-                <div class="col-12 right">
-                    <button type="submit" class="m-l btn btn-primary">Save</button>
-                </div>
-            </div>
+                  </div>
+
+               </div>
+               <div class="row">
+                  <div class="col-12 right">
+                     <button type="submit" class="m-l btn btn-primary">Save</button>
+                  </div>
+               </div>
+            </form>
 
         </div>
     </div>

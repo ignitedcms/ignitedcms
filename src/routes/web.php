@@ -56,7 +56,7 @@ Route::middleware('web')->group(function () {
     //Permissions
     Route::get('/admin/permissions', [PermissionController::class, 'index']);
     Route::get('/admin/permissions/create', [PermissionController::class, 'create_view']);
-    Route::get('/admin/permissions/c', [PermissionController::class, 'create']);
+    Route::post('/admin/permissions/create', [PermissionController::class, 'create']);
 
 });
 

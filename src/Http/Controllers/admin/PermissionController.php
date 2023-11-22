@@ -15,6 +15,8 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\Admin\Permissions;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PermissionController extends Controller
 {
@@ -44,11 +46,25 @@ class PermissionController extends Controller
         ]);
 
     }
-
-    public function create()
+   
+    /*
+     * Save new permission group
+     *
+     *
+     * @param   string $grouName as POST
+     * @param   array $permission ids
+     * @return  void
+     */
+    public function create(Request $request)
     {
-       $groupName = 'foo';
-       $arr = [1,2,3];
+
+       $validated = $request->validate([
+            'groupName' => 'required|unique:permission_groups|max:255|alpha:ascii',
+          ]);
+         
+       $groupName = $request->input('groupName');   
+       $arr = $request->input('boxes');
+
       Permissions::create_group($groupName, $arr);
     }
 }
