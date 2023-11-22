@@ -22,6 +22,33 @@ class Permissions
 
     }
 
+   public static function update_permissions($groupID, $map)
+   {
+      if($map == null)
+      {
+
+      DB::table('permission_map')
+         ->where('groupID','=', $groupID)
+         ->delete();
+      }
+      else
+      {
+      DB::table('permission_map')
+         ->where('groupID','=', $groupID)
+         ->delete();
+
+      //Now add the POST array
+      foreach($map as $row)
+      {
+          DB::table('permission_map')->insertGetId([
+            'groupID' => $groupID,
+            'permissionID' => $row
+         ]);
+      }
+      }
+      
+   }
+    
     public static function get_group_name($id)
     {
        $rows =  DB::table('permission_groups')

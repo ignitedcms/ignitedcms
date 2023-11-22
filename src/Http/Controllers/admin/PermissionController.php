@@ -89,9 +89,19 @@ class PermissionController extends Controller
 
     }
 
-    public function update($id)
+    public function update(Request $request,$id)
     {
-         dd("do th upddate");
+       //First let's clear the permission_map for the groupID
+       //then insert the POST vars
+
+       $validated = $request->validate([
+            'boxes' => 'required',
+          ]);
+      $map = $request->input('boxes');
+
+      Permissions::update_permissions($id, $map);
+      return redirect('admin/permissions')->with('status', 'Updated successfully');
+
     }
 
 
