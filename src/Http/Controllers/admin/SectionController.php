@@ -18,9 +18,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
-
 use Ignitedcms\Ignitedcms\Models\admin\Section;
 use Illuminate\Http\Request;
 

@@ -19,7 +19,6 @@ use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Multiple;
-
 use Illuminate\Http\Request;
 
 class MultipleController extends Controller

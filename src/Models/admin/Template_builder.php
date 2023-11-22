@@ -69,7 +69,6 @@ class Template_builder
     public static function build_multiple($sectionid)
     {
 
-
         // Specify the directory path at the root level
 
         $sectionname = self::get_section_name($sectionid);

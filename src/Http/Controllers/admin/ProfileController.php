@@ -13,14 +13,11 @@
 | @since: 1.0
 */
 
-
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-
 use Ignitedcms\Ignitedcms\Models\admin\Profile;
-
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller

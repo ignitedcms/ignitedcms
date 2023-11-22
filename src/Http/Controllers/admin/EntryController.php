@@ -19,7 +19,6 @@ use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
-
 //use App\Rules\Uniquemultiple;
 use Illuminate\Http\Request;
 

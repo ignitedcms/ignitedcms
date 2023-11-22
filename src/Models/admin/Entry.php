@@ -223,5 +223,4 @@ class Entry
 
         return $data[0]->name;
     }
-
 }

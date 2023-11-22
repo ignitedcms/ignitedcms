@@ -15,14 +15,16 @@
 */
 
 namespace App\Helper;
+
 use Illuminate\Support\Facades\DB;
 
 class Helper
 {
     public static function foo()
     {
-        echo('bar');
+        echo 'bar';
     }
+
     /**
      * Field in section, used in section creation
      *
@@ -283,7 +285,6 @@ class Helper
         return $stopper;
     }
 
-
     public static function get_section_name($sectionid)
     {
         $data = DB::table('section')
@@ -294,5 +295,4 @@ class Helper
 
         return $data[0]->name;
     }
-
 }

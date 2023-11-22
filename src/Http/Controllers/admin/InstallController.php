@@ -37,21 +37,21 @@ class InstallController extends Controller
         //echo 'done';
     }
 
-   public static function replaceStringInFile($filePath, $searchString, $replaceString)
-   {
-       // Read the file content
-       $fileContent = file_get_contents($filePath);
+    public static function replaceStringInFile($filePath, $searchString, $replaceString)
+    {
+        // Read the file content
+        $fileContent = file_get_contents($filePath);
 
-       // Perform the replacement
-       $updatedContent = str_replace($searchString, $replaceString, $fileContent);
+        // Perform the replacement
+        $updatedContent = str_replace($searchString, $replaceString, $fileContent);
 
-       // Write the updated content back to the file
-       if (file_put_contents($filePath, $updatedContent) !== false) {
-           return true; // Replacement successful
-       } else {
-           return false; // Error while writing to file
-       }
-   }
+        // Write the updated content back to the file
+        if (file_put_contents($filePath, $updatedContent) !== false) {
+            return true; // Replacement successful
+        } else {
+            return false; // Error while writing to file
+        }
+    }
 
     public function one()
     {
@@ -122,10 +122,8 @@ class InstallController extends Controller
         DB::statement($sql3);
 
         //composer bug fix
-         $path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
-       self::replaceStringInFile($path,"//Router::get_routes();","Router::get_routes();");
-
-
+        $path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
+        self::replaceStringInFile($path, '//Router::get_routes();', 'Router::get_routes();');
 
         return redirect('login')->with('final', 'Account successfully created');
     }

@@ -73,7 +73,6 @@ class ParserController extends Controller
         return view("custom.$section_name.index", $data);
     }
 
-
     public static function is_multiple($sectionid)
     {
         $rows = DB::table('section')

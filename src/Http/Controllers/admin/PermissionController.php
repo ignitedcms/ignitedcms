@@ -10,8 +10,8 @@
 | @since: 1.0
 */
 
-
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
+
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 

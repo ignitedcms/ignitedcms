@@ -11,7 +11,6 @@
 | @since: 1.0
 */
 
-
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
 use Illuminate\Database\Schema\Blueprint;
