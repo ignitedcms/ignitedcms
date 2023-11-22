@@ -106,4 +106,4 @@ Route::middleware('web')->group(function () {
 });
 
 //Where the magic happens
-Router::get_routes();
+//Router::get_routes();
