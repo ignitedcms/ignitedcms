@@ -34,10 +34,11 @@ class PermissionController extends Controller
         ]);
     }
 
+
     public function create_view()
     {
-        $data = '';
-
+         
+       $data = Permissions::get_all_permissions();
         return view('ignitedcms::admin.permissions.create')->with([
             'data' => $data,
         ]);

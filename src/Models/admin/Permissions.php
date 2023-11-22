@@ -11,7 +11,15 @@ class Permissions
         return DB::table('permission_groups')
             ->select('*')
             ->get();
+    }
 
+    public static function get_all_permissions()
+    {
+       return DB::table('permissions')
+           ->select('*')
+        ->orderBy('order_position','asc')
+            ->get();
+       
     }
 
     public static function foo()

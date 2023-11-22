@@ -28,14 +28,15 @@
                     <label for="permissions">Permissions</label>
                     <div class="small text-muted">Pick what things they will see in their dashboard</div>
 
-                    <div class="m-t-2">
-                        <input type="checkbox" name="" class="form-check-input">
-                        <label for="the label">Site settings</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="" class="form-check-input" checked>
-                        <label for="the label">Field builder</label>
-                    </div>
+                    
+
+                     @foreach ($data as $row)
+                    <div> 
+                        <input type="checkbox" name="{{ $row->permissionID }}" class="form-check-input">
+                        <label for="the label">{{ $row->permission }}</label>
+                     </div>
+                     @endforeach
+                    
 
                 </div>
 
