@@ -42,7 +42,11 @@
                      @foreach ($data as $row)
                         <tr>
                             <td>{{ $row->groupID }}</td>
-                            <td>{{ $row->groupName }}</td>
+                            <td>
+                               <a href='{{ url("admin/permissions/update/$row->groupID") }}'>
+                              {{ $row->groupName }}
+                              </a>
+                           </td>
                             <td>...</td>
                             <td><a href="#">delete</a></td>
                         </tr>
