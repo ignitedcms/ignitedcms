@@ -22,8 +22,31 @@ class Permissions
        
     }
 
-    public static function foo()
+    /*
+     * Creates a new permission group
+     *
+     *
+     * @param   string $groupName
+     * @param   array  $arr [2,3] (permissions to go into permission map)
+     * @return  void
+     */
+    public static function create_group($groupName, $arr)
     {
-        echo 'foo';
+       //First create the permission_group
+       $insertid = DB::table('permission_groups')->insertGetId([
+          'groupName' => $groupName
+       ]);
+
+       //Now loop through arr and use $insertid
+       //$array = (explode(",",$arr));
+       foreach($arr as $row)
+       {
+          DB::table('permission_map')->insertGetId([
+             'groupID' => $insertid,
+             'permissionID' => $row
+          ]);
+       }
+       die();
+
     }
 }

@@ -44,4 +44,11 @@ class PermissionController extends Controller
         ]);
 
     }
+
+    public function create()
+    {
+       $groupName = 'foo';
+       $arr = [1,2,3];
+      Permissions::create_group($groupName, $arr);
+    }
 }
