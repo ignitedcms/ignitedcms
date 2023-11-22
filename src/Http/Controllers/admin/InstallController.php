@@ -31,7 +31,7 @@ class InstallController extends Controller
     public function bar()
     {
 
-        DB::unprepared(file_get_contents(public_path('laravelx.sql')));
+        DB::unprepared(file_get_contents(public_path('ignitedcms.sql')));
 
         return redirect('installer/register');
         //echo 'done';
