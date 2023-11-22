@@ -22,7 +22,7 @@
                      <label for="groupName">Group Name [*]</label>
                      <div class="small text-muted m-b">Suitable name, no spaces or special characters allowed, eg bloggers
                      </div>
-                     <input class="form-control" name="groupName" value="" placeholder="Start typing" />
+                     <input class="form-control" name="groupName" value="{{ old('groupName') }}" placeholder="Start typing" />
                      @error('groupName')
                         <div class="small text-danger"> {{ $message }} </div>
                      @enderror
