@@ -57,6 +57,9 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/permissions', [PermissionController::class, 'index']);
     Route::get('/admin/permissions/create', [PermissionController::class, 'create_view']);
     Route::post('/admin/permissions/create', [PermissionController::class, 'create']);
+    Route::get('/admin/permissions/update/{id}', [PermissionController::class, 'update_view']);
+    Route::post('/admin/permissions/update/{id}', [PermissionController::class, 'update']);
+    Route::post('/admin/permissions/delete/{id}', [PermissionController::class, 'destroy']);
 
 });
 

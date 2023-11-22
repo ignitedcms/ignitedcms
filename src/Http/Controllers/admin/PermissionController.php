@@ -68,4 +68,18 @@ class PermissionController extends Controller
 
         return redirect('admin/permissions')->with('status', 'New group saved');
     }
+
+
+    public function update_view()
+    {
+
+        $data = Permissions::get_all_permissions();
+
+        return view('ignitedcms::admin.permissions.edit')->with([
+            'data' => $data,
+        ]);
+
+    }
+
+
 }
