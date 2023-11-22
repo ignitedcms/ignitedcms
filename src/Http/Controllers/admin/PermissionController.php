@@ -35,7 +35,6 @@ class PermissionController extends Controller
         ]);
     }
 
-
     public function create_view()
     {
 
@@ -70,7 +69,6 @@ class PermissionController extends Controller
         return redirect('admin/permissions')->with('status', 'New group saved');
     }
 
-
     public function update_view($id)
     {
 
@@ -84,25 +82,24 @@ class PermissionController extends Controller
             'data' => $data,
             'id' => $id,
             'groupName' => $groupName,
-            'map' => $map
+            'map' => $map,
         ]);
 
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-       //First let's clear the permission_map for the groupID
-       //then insert the POST vars
+        //First let's clear the permission_map for the groupID
+        //then insert the POST vars
 
-       $validated = $request->validate([
+        $validated = $request->validate([
             'boxes' => 'required',
-          ]);
-      $map = $request->input('boxes');
+        ]);
+        $map = $request->input('boxes');
 
-      Permissions::update_permissions($id, $map);
-      return redirect('admin/permissions')->with('status', 'Updated successfully');
+        Permissions::update_permissions($id, $map);
+
+        return redirect('admin/permissions')->with('status', 'Updated successfully');
 
     }
-
-
 }

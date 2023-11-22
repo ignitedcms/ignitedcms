@@ -22,52 +22,48 @@ class Permissions
 
     }
 
-   public static function update_permissions($groupID, $map)
-   {
-      if($map == null)
-      {
+    public static function update_permissions($groupID, $map)
+    {
+        if ($map == null) {
 
-      DB::table('permission_map')
-         ->where('groupID','=', $groupID)
-         ->delete();
-      }
-      else
-      {
-      DB::table('permission_map')
-         ->where('groupID','=', $groupID)
-         ->delete();
+            DB::table('permission_map')
+                ->where('groupID', '=', $groupID)
+                ->delete();
+        } else {
+            DB::table('permission_map')
+                ->where('groupID', '=', $groupID)
+                ->delete();
 
-      //Now add the POST array
-      foreach($map as $row)
-      {
-          DB::table('permission_map')->insertGetId([
-            'groupID' => $groupID,
-            'permissionID' => $row
-         ]);
-      }
-      }
-      
-   }
-    
+            //Now add the POST array
+            foreach ($map as $row) {
+                DB::table('permission_map')->insertGetId([
+                    'groupID' => $groupID,
+                    'permissionID' => $row,
+                ]);
+            }
+        }
+
+    }
+
     public static function get_group_name($id)
     {
-       $rows =  DB::table('permission_groups')
-          ->select('groupName')
-         ->where('groupID','=', $id)
-         ->limit(10)
-        ->get();
+        $rows = DB::table('permission_groups')
+            ->select('groupName')
+            ->where('groupID', '=', $id)
+            ->limit(10)
+            ->get();
 
-       return $rows[0]->groupName;
+        return $rows[0]->groupName;
     }
 
     // Returns all the permissions by group
     public static function get_permissions_by_groupid($group_id)
     {
-       return DB::table('permission_map')
-          ->select('permissionID')
-          ->where('groupID','=', $group_id)
-         ->get();
-       
+        return DB::table('permission_map')
+            ->select('permissionID')
+            ->where('groupID', '=', $group_id)
+            ->get();
+
     }
 
     /*
