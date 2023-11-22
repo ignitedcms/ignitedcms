@@ -48,7 +48,17 @@
                               </a>
                            </td>
                             <td>...</td>
-                            <td><a href="#">delete</a></td>
+                            <td>
+                               <span class="right">
+                                  <tooltip link="delete">
+                                  <form action="{{ url('/admin/permissions/delete', $row->groupID) }}" method="POST">
+                                     @csrf
+                                     <button type="submit" class="btn  rm-btn-styles">ok</button>
+                                  </form>
+                                  </tooltip>
+                               </span>
+
+                            </td>
                         </tr>
                      @endforeach
                         
