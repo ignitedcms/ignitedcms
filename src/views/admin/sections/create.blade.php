@@ -8,7 +8,7 @@
 
                 <div class="breadcrumb m-b-3">
                     <div class="breadcrumb-item">
-                        <a href="">Dashboard</a>
+                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
                     </div>
                     <div class="breadcrumb-item">
                         <a href="{{ url('admin/section') }}">Sections</a>
