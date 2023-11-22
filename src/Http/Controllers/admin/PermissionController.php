@@ -77,10 +77,14 @@ class PermissionController extends Controller
         $data = Permissions::get_all_permissions();
         $id = $id;
         $groupName = Permissions::get_group_name($id);
+
+        $map = Permissions::get_permissions_by_groupid($id);
+
         return view('ignitedcms::admin.permissions.edit')->with([
             'data' => $data,
             'id' => $id,
             'groupName' => $groupName,
+            'map' => $map
         ]);
 
     }

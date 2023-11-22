@@ -30,12 +30,13 @@
 
                      <label for="permissions">Permissions</label>
                      <div class="small text-muted">Pick what things they will see in their dashboard</div>
-
-
+                     
+                     {{ Helper::check_permissions(3, $map) }}
 
                      @foreach ($data as $row)
                      <div> 
-                        <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" class="form-check-input">
+                        <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" 
+                           class="form-check-input" {{ Helper::check_permissions($row->permissionID, $map) }}>
                         <label for="the label">{{ $row->permission }}</label>
                      </div>
                      @endforeach

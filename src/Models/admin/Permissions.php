@@ -31,6 +31,15 @@ class Permissions
         ->get();
 
        return $rows[0]->groupName;
+    }
+
+    // Returns all the permissions by group
+    public static function get_permissions_by_groupid($group_id)
+    {
+       return DB::table('permission_map')
+          ->select('permissionID')
+          ->where('groupID','=', $group_id)
+         ->get();
        
     }
 
