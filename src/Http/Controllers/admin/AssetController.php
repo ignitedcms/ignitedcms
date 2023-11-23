@@ -4,7 +4,7 @@
 | Asset controller
 |---------------------------------------------------------------
 |
-| All logic for uploading asset
+| All logic for uploading assets
 | Need to look and gumlet for image resizing
 |
 |
@@ -19,11 +19,18 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 
+use Gumlet\ImageResize;
 
 class AssetController extends Controller
 {
    public function __construct() 
    {
       $this->middleware(Igs_auth::class);
+   }
+
+   public function index()
+   {
+      echo ("boo");
+
    }
 }

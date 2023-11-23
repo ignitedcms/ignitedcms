@@ -11,9 +11,11 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
 
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
+//Installer
 Route::middleware('web')->group(function () {
     Route::get('/installer', [InstallController::class, 'index']);
     Route::get('/installer/db', [InstallController::class, 'bar']);
@@ -34,6 +36,13 @@ Route::middleware('web')->group(function () {
 
 Route::middleware('web')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+});
+
+
+//Assets
+//
+Route::middleware('web')->group(function () {
+    Route::get('/admin/assets', [AssetController::class, 'index']);
 });
 
 //Database
