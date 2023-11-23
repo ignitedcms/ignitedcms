@@ -10,6 +10,8 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
+
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 Route::middleware('web')->group(function () {
@@ -33,6 +35,13 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 });
+
+//Database
+
+Route::middleware('web')->group(function () {
+    Route::get('/admin/database', [DatabaseController::class, 'index']);
+});
+
 
 //Profile
 Route::middleware('web')->group(function () {

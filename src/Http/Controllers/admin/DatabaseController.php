@@ -20,11 +20,11 @@ use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 
 use Ignitedcms\Ignitedcms\Models\admin\Database;
 
-class Database extends Controller
+class DatabaseController extends Controller
 {
    public function __construct() 
    {
-      this->middleware(Igs_auth::class);
+      $this->middleware(Igs_auth::class);
    }
 
     public function index()
