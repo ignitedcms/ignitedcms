@@ -40,6 +40,7 @@ Route::middleware('web')->group(function () {
 
 Route::middleware('web')->group(function () {
     Route::get('/admin/database', [DatabaseController::class, 'index']);
+    Route::post('/admin/database/backup', [DatabaseController::class, 'backup']);
 });
 
 

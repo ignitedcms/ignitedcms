@@ -36,7 +36,7 @@ class DatabaseController extends Controller
         ]);
     }
 
-    public static function backup()
+    public function backup()
     {
         Database::backup();
     }

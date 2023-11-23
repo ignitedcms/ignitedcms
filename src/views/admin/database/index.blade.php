@@ -5,6 +5,8 @@
 
         <div class="main-content p-3">
 
+          <form action="{{ url('admin/database/backup') }} " method="POST">
+             @csrf
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>
@@ -25,7 +27,7 @@
                     </a>
                 </div>
             </div>
-
+            </form>
         </div>
 
     </div>
