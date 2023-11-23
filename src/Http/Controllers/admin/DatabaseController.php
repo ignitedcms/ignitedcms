@@ -17,6 +17,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Illuminate\Support\Facades\Response;
 
 use Ignitedcms\Ignitedcms\Models\admin\Database;
 
@@ -38,6 +39,10 @@ class DatabaseController extends Controller
 
     public function backup()
     {
-        Database::backup();
+      $filePath =  Database::backup();
+      $filePath = public_path($filePath);
+
+      return Response::download($filePath);
+
     }
 }

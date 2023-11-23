@@ -25,7 +25,7 @@ class Database
         $pass = env('DB_PASSWORD');
         $dbname = env('DB_DATABASE');
 
-        self::backup_tables($host, $user, $pass, $dbname, $tables = '*');
+       return self::backup_tables($host, $user, $pass, $dbname, $tables = '*');
     }
 
     public static function backup_tables($host, $user, $pass, $dbname, $tables = '*')
@@ -102,8 +102,11 @@ class Database
         $handle = fopen($fileName, 'w+');
         fwrite($handle, $return);
         if (fclose($handle)) {
-            echo 'Done, the file name is: '.$fileName;
+            return $fileName;
             exit;
+        }
+        else{
+            return 'Failed';
         }
     }
 }
