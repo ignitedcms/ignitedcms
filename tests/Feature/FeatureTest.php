@@ -2,7 +2,7 @@
 
 test('example', function(){
 
-   $response = $this->get('/');
+   $response = $this->get('/installer');
    $response->assertStatus(200);
 
 });
