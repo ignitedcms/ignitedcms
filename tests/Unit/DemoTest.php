@@ -1,5 +1,5 @@
 <?php
  
-test('confirm environment is set to testing', function () {
+test('confirm true to be true', function () {
     expect(true)->toBe(true);
 });
