@@ -15,7 +15,9 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+//use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
+
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Profile;
 use Illuminate\Http\Request;

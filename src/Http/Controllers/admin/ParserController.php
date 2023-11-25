@@ -15,8 +15,9 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+//use App\Http\Controllers\Controller;
 // don't need auth middleware as public
+use Illuminate\Routing\Controller;
 
 use Ignitedcms\Ignitedcms\Models\admin\Parser;
 use Illuminate\Support\Facades\DB;
