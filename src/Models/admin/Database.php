@@ -13,8 +13,6 @@
 
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
-use Illuminate\Support\Facades\DB;
-
 class Database
 {
     public static function backup()
@@ -25,7 +23,7 @@ class Database
         $pass = env('DB_PASSWORD');
         $dbname = env('DB_DATABASE');
 
-       return self::backup_tables($host, $user, $pass, $dbname, $tables = '*');
+        return self::backup_tables($host, $user, $pass, $dbname, $tables = '*');
     }
 
     public static function backup_tables($host, $user, $pass, $dbname, $tables = '*')
@@ -104,8 +102,7 @@ class Database
         if (fclose($handle)) {
             return $fileName;
             exit;
-        }
-        else{
+        } else {
             return 'Failed';
         }
     }

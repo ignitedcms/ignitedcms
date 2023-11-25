@@ -16,13 +16,12 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
-
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Ignitedcms\Ignitedcms\Rules\Uniquemultiple;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class EntryController extends Controller
 {

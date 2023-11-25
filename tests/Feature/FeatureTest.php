@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 namespace Ignitedcms\Ignitedcms\Tests;
 
 //use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\Route;
+
 class FeatureTest extends TestCase
 {
-
     /** @test */
     public function test_example_route()
     {
@@ -14,9 +14,11 @@ class FeatureTest extends TestCase
 
         //$response->assertStatus(200); // Assert the response status code
 
-
-
-       $this->get('/installer')->assertStatus(200);
+        $this->get('/installer')->assertStatus(200);
     }
 
+    public function foo_bar()
+    {
+
+    }
 }

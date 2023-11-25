@@ -13,11 +13,10 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
-
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\Admin\Permissions;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class PermissionController extends Controller
 {
@@ -108,8 +107,8 @@ class PermissionController extends Controller
 
     public function destroy(Request $request, $id)
     {
-      Permissions::destroy($id);      
-      return redirect('admin/permissions')->with('status','done');
-    }
+        Permissions::destroy($id);
 
+        return redirect('admin/permissions')->with('status', 'done');
+    }
 }

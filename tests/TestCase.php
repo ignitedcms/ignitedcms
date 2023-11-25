@@ -2,8 +2,8 @@
 
 namespace Ignitedcms\Ignitedcms\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Ignitedcms\Ignitedcms\IgnitedcmsServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

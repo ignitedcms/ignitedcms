@@ -16,9 +16,8 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
-
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Illuminate\Routing\Controller;
 
 class DashboardController extends Controller
 {

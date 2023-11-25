@@ -17,22 +17,19 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
-
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-
-use Gumlet\ImageResize;
+use Illuminate\Routing\Controller;
 
 class AssetController extends Controller
 {
-   public function __construct() 
-   {
-      $this->middleware(Igs_auth::class);
-   }
+    public function __construct()
+    {
+        $this->middleware(Igs_auth::class);
+    }
 
-   public function index()
-   {
-      echo ("boo");
+    public function index()
+    {
+        echo 'boo';
 
-   }
+    }
 }

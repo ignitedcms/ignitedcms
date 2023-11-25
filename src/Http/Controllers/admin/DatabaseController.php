@@ -16,19 +16,17 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use Illuminate\Routing\Controller;
-
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-use Illuminate\Support\Facades\Response;
-
 use Ignitedcms\Ignitedcms\Models\admin\Database;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Response;
 
 class DatabaseController extends Controller
 {
-   public function __construct() 
-   {
-      $this->middleware(Igs_auth::class);
-   }
+    public function __construct()
+    {
+        $this->middleware(Igs_auth::class);
+    }
 
     public function index()
     {
@@ -41,10 +39,10 @@ class DatabaseController extends Controller
 
     public function backup()
     {
-      $filePath =  Database::backup();
-      $filePath = public_path($filePath);
+        $filePath = Database::backup();
+        $filePath = public_path($filePath);
 
-      return Response::download($filePath);
+        return Response::download($filePath);
 
     }
 }
