@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Ignitedcms\\Ignitedcms\\Tests\\FeatureTest::test_example_route":7},"times":{"Ignitedcms\\Ignitedcms\\Tests\\DemoTest::it_returns_true":0.001,"Ignitedcms\\Ignitedcms\\Tests\\FeatureTest::test_example_route":0.11}}
+{"version":1,"defects":{"Ignitedcms\\Ignitedcms\\Tests\\FeatureTest::test_example_route":7},"times":{"Ignitedcms\\Ignitedcms\\Tests\\DemoTest::it_returns_true":0.014,"Ignitedcms\\Ignitedcms\\Tests\\FeatureTest::test_example_route":0.031}}

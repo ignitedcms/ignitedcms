@@ -2,7 +2,7 @@
 
 namespace Ignitedcms\Ignitedcms\Tests;
 
-use Orchestra\Testbench\TestCase;
+//use Orchestra\Testbench\TestCase;
 
 class DemoTest extends TestCase
 {
