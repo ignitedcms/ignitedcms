@@ -35,6 +35,13 @@ class AssetController extends Controller
        return view('ignitedcms::admin.assets.index')->with([
              'data' => $data,
          ]);
+    }
 
+    public function create_view()
+    {
+       $data = 'assets';
+       return view('ignitedcms::admin.assets.create')->with([
+             'data' => $data,
+         ]);
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
@@ -12,6 +11,8 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
+
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 //Installer
@@ -21,6 +22,12 @@ Route::middleware('web')->group(function () {
     Route::get('/installer/terms', [InstallController::class, 'one']);
     Route::get('/installer/register', [InstallController::class, 'two']);
     Route::post('/installer/validate_form', [InstallController::class, 'validate_form']);
+});
+
+//assets
+Route::middleware('web')->group(function () {
+    Route::get('/admin/assets', [AssetController::class, 'index']);
+    Route::get('/admin/assets/create', [AssetController::class, 'create_view']);
 });
 
 Route::middleware('web')->group(function () {
@@ -37,11 +44,6 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 });
 
-//Assets
-//
-Route::middleware('web')->group(function () {
-    Route::get('/admin/assets', [AssetController::class, 'index']);
-});
 
 //Database
 

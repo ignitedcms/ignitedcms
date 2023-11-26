@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="col-12 right">
-                    <a href="">
+                   <a href="{{ url('admin/assets/create') }}">
                         <button type="button" class="btn btn-primary">New asset</button>
                     </a>
                 </div>
@@ -37,12 +37,12 @@
                         @foreach ($data as $field)
                             <tr>
                                 <td>{{ $field->id }}</td>
-                                <td><a href="{{ url('admin/fields/update', $field->id) }}">{{ $field->name }}</a></td>
+                                <td><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->name }}</a></td>
                                 <td>{{ $field->type }}</td>
                                 <td>
                                     <span class="right">
                                         <tooltip link="delete">
-                                            <form action="{{ url('/admin/fields/delete', $field->id) }}" method="POST">
+                                            <form action="{{ url('/admin/assets/delete', $field->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn  rm-btn-styles">ok</button>
                                             </form>
