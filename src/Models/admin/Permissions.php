@@ -23,6 +23,7 @@ class Permissions
     }
 
     //Checks if any users are using this permissionID
+    //This is bad so we can't delete this permissionID
     public static function check_if_permissionid_is_used($permissionID)
     {
         $rows = DB::table('user')
