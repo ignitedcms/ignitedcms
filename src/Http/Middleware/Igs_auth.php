@@ -31,21 +31,17 @@ class Igs_auth
      */
     public function handle(Request $request, Closure $next, $arg): Response
     {
-
+        //check if use has permission access
         $pass = Permissions::permission_middleware($arg);
 
-        dd($pass);
-        foreach ($rows as $row) {
-            if ($arg == $row->permissionID) {
-                echo 'has access';
-                break;
-            }
-        }
-
         //check if logged in
-
         if (session('logged_in') == 1) {
-            //echo 'good';
+            if ($pass) {
+                //can access
+            }
+            else {
+               return redirect('login');
+            }
         } else {
             return redirect('login');
         }
