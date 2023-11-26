@@ -29,7 +29,10 @@ class AssetController extends Controller
 
     public function index()
     {
-        echo 'boo';
+
+       return view('ignitedcms::admin.assets.index')->with([
+             'data' => $data,
+         ]);
 
     }
 }
