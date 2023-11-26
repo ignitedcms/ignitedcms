@@ -96,6 +96,7 @@ class Permissions
     //Do not delete if assigned to a user
     public static function destroy($id)
     {
+
         //First erase permission_map
         DB::table('permission_map')
             ->where('groupID', '=', $id)
