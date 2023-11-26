@@ -44,7 +44,6 @@ class PermissionController extends Controller
         return view('ignitedcms::admin.permissions.create')->with([
             'data' => $data,
         ]);
-
     }
 
     /*
@@ -91,23 +90,34 @@ class PermissionController extends Controller
 
     public function update(Request $request, $id)
     {
-        //First let's clear the permission_map for the groupID
-        //then insert the POST vars
+        //If the permission group is administrators they
+        // shouldn't be able to update their permissions
+        // as by default, they should have access to everything!
 
-        $validated = $request->validate([
-            'boxes' => 'required',
-        ]);
-        $map = $request->input('boxes');
+        if ($id == 1) {
 
-        Permissions::update_permissions($id, $map);
+           return redirect("admin/permissions")->with('status', 
+              'You cannot update Administrator permissions!');
 
-        return redirect('admin/permissions')->with('status', 'Updated successfully');
+        } else {
+            //First let's clear the permission_map for the groupID
+            //then insert the POST vars
 
+            $validated = $request->validate([
+                'boxes' => 'required',
+            ]);
+            $map = $request->input('boxes');
+
+            Permissions::update_permissions($id, $map);
+
+            return redirect('admin/permissions')->with('status', 
+               'Updated successfully');
+
+        }
     }
 
     public function destroy(Request $request, $id)
     {
-
         $message = '';
         //Admin disable delete
         if ($id == 1) {
@@ -126,10 +136,9 @@ class PermissionController extends Controller
             } else {
 
                 Permissions::destroy($id);
+
                 return redirect('admin/permissions')->with('status', 'Success');
             }
-
         }
-
     }
 }
