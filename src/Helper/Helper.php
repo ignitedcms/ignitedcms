@@ -25,6 +25,17 @@ class Helper
         echo 'bar';
     }
 
+    public static function check_permissions($permissionID, $map)
+    {
+       foreach($map as $row)
+       {
+          if($permissionID == $row->permissionID)
+          {
+            echo 'checked';
+          }
+       }
+    }
+
     /**
      * Field in section, used in section creation
      *

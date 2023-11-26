@@ -34,8 +34,7 @@
                      @error('boxes')
                         <div class="small text-danger"> {{ $message }} </div>
                      @enderror                     
-                     {{ Helper::check_permissions(3, $map) }}
-
+                     
                      @foreach ($data as $row)
                      <div> 
                         <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" 
