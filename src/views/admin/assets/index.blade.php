@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-12 right">
                     <a href="">
-                        <button type="button" class="btn btn-primary">New field</button>
+                        <button type="button" class="btn btn-primary">New asset</button>
                     </a>
                 </div>
             </div>
