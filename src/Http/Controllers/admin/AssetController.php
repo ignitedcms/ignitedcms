@@ -18,8 +18,9 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-use Illuminate\Routing\Controller;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class AssetController extends Controller
 {
@@ -30,18 +31,24 @@ class AssetController extends Controller
 
     public function index()
     {
-       $data = Asset::all();
+        $data = Asset::all();
 
-       return view('ignitedcms::admin.assets.index')->with([
-             'data' => $data,
-         ]);
+        return view('ignitedcms::admin.assets.index')->with([
+            'data' => $data,
+        ]);
     }
 
     public function create_view()
     {
-       $data = 'assets';
-       return view('ignitedcms::admin.assets.create')->with([
-             'data' => $data,
-         ]);
+        $data = 'assets';
+
+        return view('ignitedcms::admin.assets.create')->with([
+            'data' => $data,
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+       echo ("uploading to db");
     }
 }
