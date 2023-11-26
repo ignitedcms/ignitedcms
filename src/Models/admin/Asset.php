@@ -12,7 +12,12 @@
 */
 
 namespace Ignitedcms\Ignitedcms\Models\admin;
+use Illuminate\Support\Facades\DB;
 
 class Asset
 {
+   public static function all()
+   {
+      return DB::table('assetfields')->get();
+   }
 }

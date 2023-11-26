@@ -19,6 +19,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 //use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Illuminate\Routing\Controller;
+use Ignitedcms\Ignitedcms\Models\admin\Asset;
 
 class AssetController extends Controller
 {
@@ -29,6 +30,7 @@ class AssetController extends Controller
 
     public function index()
     {
+       $data = Asset::all();
 
        return view('ignitedcms::admin.assets.index')->with([
              'data' => $data,
