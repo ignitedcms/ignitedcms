@@ -6,6 +6,8 @@
 |---------------------------------------------------------------
 |
 | Custom middleware for auth
+| Note we are appending an argument
+| This will refer to a permission_map the user has access to
 |
 | @author: IgnitedCMS
 | @license: MIT
@@ -19,15 +21,21 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Ignitedcms\Ignitedcms\Models\admin\Permissions;
+
 class Igs_auth
 {
+
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $arg): Response
     {
+       dd($arg);
+
+       Permissions::permission_middleware();
         //check if logged in
 
         if (session('logged_in') == 1) {

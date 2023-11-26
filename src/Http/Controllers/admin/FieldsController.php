@@ -26,7 +26,7 @@ class FieldsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Igs_auth::class);
+        $this->middleware(Igs_auth::class . ':2' );
     }
 
     public function index()

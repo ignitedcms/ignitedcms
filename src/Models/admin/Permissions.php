@@ -1,5 +1,14 @@
 <?php
-
+/*                                                                          
+|---------------------------------------------------------------            
+| Permissions model
+|---------------------------------------------------------------            
+|
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+*/       
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
 use Illuminate\Support\Facades\DB;
@@ -21,6 +30,17 @@ class Permissions
             ->get();
 
     }
+
+    //Let's check permissions and add to middleware
+    public static function permission_middleware()
+    {
+       //get userid from session and return all
+       //controllers they have access to
+      
+      $userid = session('userid');
+      dd($userid);
+    }
+
 
     //Checks if any users are using this permissionID
     //This is bad so we can't delete this permissionID
