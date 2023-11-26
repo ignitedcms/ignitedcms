@@ -18,14 +18,12 @@
 namespace Ignitedcms\Ignitedcms\Http\Middleware;
 
 use Closure;
+use Ignitedcms\Ignitedcms\Models\admin\Permissions;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Ignitedcms\Ignitedcms\Models\admin\Permissions;
-
 class Igs_auth
 {
-
     /**
      * Handle an incoming request.
      *
@@ -33,9 +31,8 @@ class Igs_auth
      */
     public function handle(Request $request, Closure $next, $arg): Response
     {
-       dd($arg);
 
-       Permissions::permission_middleware();
+        //Permissions::permission_middleware();
         //check if logged in
 
         if (session('logged_in') == 1) {

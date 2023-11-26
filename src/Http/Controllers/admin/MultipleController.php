@@ -26,7 +26,7 @@ class MultipleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Igs_auth::class);
+        $this->middleware(Igs_auth::class.':2');
     }
 
     //Get a specific multiple
