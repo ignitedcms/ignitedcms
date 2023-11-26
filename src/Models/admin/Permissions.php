@@ -33,12 +33,35 @@ class Permissions
     }
 
     //Let's check permissions and add to middleware
-    public static function permission_middleware()
+    public static function permission_middleware($arg)
     {
         //get userid from session and return all
         //controllers they have access to
         $userid = session('userid');
+        $row = DB::table('user')
+            ->select('permissiongroup')
+            ->where('id', '=', $userid)
+            ->limit(1)
+            ->get();
 
+        $permissiongroup = $row[0]->permissiongroup;
+
+        //now get all from permission map
+        $rows = DB::table('permission_map')
+            ->select('permissionID')
+            ->where('groupID', '=', $permissiongroup)
+            ->orderBy('permissionID', 'asc')
+            ->get();
+
+        $pass = false;
+        foreach ($rows as $row) {
+            if ($arg == $row->permissionID) {
+                $pass = true;
+                break;
+            }
+        }
+
+        return $pass;
     }
 
     //Checks if any users are using this permissionID

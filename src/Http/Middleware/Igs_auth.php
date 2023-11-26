@@ -32,7 +32,16 @@ class Igs_auth
     public function handle(Request $request, Closure $next, $arg): Response
     {
 
-        //Permissions::permission_middleware();
+        $pass = Permissions::permission_middleware($arg);
+
+        dd($pass);
+        foreach ($rows as $row) {
+            if ($arg == $row->permissionID) {
+                echo 'has access';
+                break;
+            }
+        }
+
         //check if logged in
 
         if (session('logged_in') == 1) {
