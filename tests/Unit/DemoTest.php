@@ -6,8 +6,7 @@ namespace Ignitedcms\Ignitedcms\Tests;
 
 class DemoTest extends TestCase
 {
-    /** @test */
-    public function it_returns_true()
+    public function test_returns_true()
     {
         $result = true; // Replace this with actual logic from your package
 

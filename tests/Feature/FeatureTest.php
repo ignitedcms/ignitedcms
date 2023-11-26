@@ -17,8 +17,4 @@ class FeatureTest extends TestCase
         $this->get('/installer')->assertStatus(200);
     }
 
-    public function foo_bar()
-    {
-
-    }
 }
