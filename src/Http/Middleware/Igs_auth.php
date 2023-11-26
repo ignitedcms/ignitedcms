@@ -38,9 +38,8 @@ class Igs_auth
         if (session('logged_in') == 1) {
             if ($pass) {
                 //can access
-            }
-            else {
-               return redirect('login');
+            } else {
+                return redirect('login');
             }
         } else {
             return redirect('login');

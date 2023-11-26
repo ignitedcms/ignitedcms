@@ -35,6 +35,11 @@ class Permissions
     //Let's check permissions and add to middleware
     public static function permission_middleware($arg)
     {
+        //special case for 0 = dashboard
+        if ($arg == 0) {
+            return true;
+        }
+
         //get userid from session and return all
         //controllers they have access to
         $userid = session('userid');
