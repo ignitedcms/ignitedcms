@@ -27,7 +27,7 @@ class EntryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Igs_auth::class.':2');
+        $this->middleware(Igs_auth::class.':15');
     }
 
     public function index()

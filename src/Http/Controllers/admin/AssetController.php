@@ -24,7 +24,7 @@ class AssetController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(Igs_auth::class.':2');
+        $this->middleware(Igs_auth::class.':17');
     }
 
     public function index()
