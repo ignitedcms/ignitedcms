@@ -96,8 +96,8 @@ class PermissionController extends Controller
 
         if ($id == 1) {
 
-           return redirect("admin/permissions")->with('status', 
-              'You cannot update Administrator permissions!');
+            return redirect('admin/permissions')->with('status',
+                'You cannot update Administrator permissions!');
 
         } else {
             //First let's clear the permission_map for the groupID
@@ -110,8 +110,8 @@ class PermissionController extends Controller
 
             Permissions::update_permissions($id, $map);
 
-            return redirect('admin/permissions')->with('status', 
-               'Updated successfully');
+            return redirect('admin/permissions')->with('status',
+                'Updated successfully');
 
         }
     }

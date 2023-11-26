@@ -89,19 +89,35 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permissiongroup_id = $request->input('permissiongroup');
+        //Check if admin disable update functionality
 
-        Users::update_permissions($id, $permissiongroup_id);
+        if ($id == 1) {
+            //do nothing
+            return redirect('admin/users')->with('status', 'You cannot 
+              update Adminstrator permissions!');
+        } else {
 
-        return redirect('admin/users')->with('status', 'Permissions updated!');
+            $permissiongroup_id = $request->input('permissiongroup');
 
+            Users::update_permissions($id, $permissiongroup_id);
+
+            return redirect('admin/users')->with('status', 'Permissions 
+               updated!');
+        }
     }
 
     // Delete the user
     public function destroy($id)
     {
-        Users::destroy($id);
+        if ($id == 1) {
 
-        return redirect('admin/users');
+            return redirect('admin/users')->with('status', 'You cannot 
+             delete the main admin account!');
+        } else {
+
+            Users::destroy($id);
+
+            return redirect('admin/users');
+        }
     }
 }
