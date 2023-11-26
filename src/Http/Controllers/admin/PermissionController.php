@@ -108,23 +108,27 @@ class PermissionController extends Controller
     public function destroy(Request $request, $id)
     {
 
-
-
-       $message = '';
+        $message = '';
         //Admin disable delete
-        if($id == 1)
-        {
-          $message = 'You cannot delete Administrators!';
-          return redirect('admin/permissions')->with('status', $message);
-        }
-        else
-        {
-   
+        if ($id == 1) {
+            $message = 'You cannot delete Administrators!';
+
+            return redirect('admin/permissions')->with('status', $message);
+        } else {
+
             //Check that no user has this permissions assigned
 
-        Permissions::destroy($id);
+            if (Permissions::check_if_permissionid_is_used($id)) {
+                $message = 'This permission group is in use by a user';
 
-        return redirect('admin/permissions')->with('status', 'done');
+                return redirect('admin/permissions')->with('status', $message);
+
+            } else {
+
+                Permissions::destroy($id);
+                return redirect('admin/permissions')->with('status', 'Success');
+            }
+
         }
 
     }

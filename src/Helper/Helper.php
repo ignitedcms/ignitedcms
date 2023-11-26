@@ -27,13 +27,11 @@ class Helper
 
     public static function check_permissions($permissionID, $map)
     {
-       foreach($map as $row)
-       {
-          if($permissionID == $row->permissionID)
-          {
-            echo 'checked';
-          }
-       }
+        foreach ($map as $row) {
+            if ($permissionID == $row->permissionID) {
+                echo 'checked';
+            }
+        }
     }
 
     /**

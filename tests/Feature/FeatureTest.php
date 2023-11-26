@@ -16,5 +16,4 @@ class FeatureTest extends TestCase
 
         $this->get('/installer')->assertStatus(200);
     }
-
 }

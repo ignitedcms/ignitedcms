@@ -22,6 +22,25 @@ class Permissions
 
     }
 
+    //Checks if any users are using this permissionID
+    public static function check_if_permissionid_is_used($permissionID)
+    {
+        $rows = DB::table('user')
+            ->select('*')
+            ->get();
+
+        $stop = false;
+        foreach ($rows as $row) {
+            if ($row->permissiongroup == $permissionID) {
+                $stop = true;
+                break;
+            }
+        }
+
+        return $stop;
+
+    }
+
     public static function update_permissions($groupID, $map)
     {
         if ($map == null) {
