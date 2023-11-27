@@ -59,13 +59,13 @@ class AssetController extends Controller
             $file = $request->file('file');
             $fileName = time().'_'.$file->getClientOriginalName();
 
-             // Define the path where you want to store the file
-            $path = public_path('uploads'); 
+            // Define the path where you want to store the file
+            $path = public_path('uploads');
 
             // Move the file to the defined path
             $file->move($path, $fileName);
 
-            $filename = $file->getClientOriginalName();
+            //$filename = $file->getClientOriginalName();
             $kind = $file->getClientOriginalExtension();
             $url = url(asset("uploads/$fileName"));
 
@@ -73,15 +73,23 @@ class AssetController extends Controller
             $fieldname = '';
 
             Asset::create(
-                $filename,
+                $fileName,
                 $kind,
                 $url,
                 $thumb,
                 $fieldname);
 
-            return redirect('admin/assets')->with('status','Upload successful');
+            return redirect('admin/assets')->with('status', 'Upload successful');
         }
 
         //error msg
+    }
+
+    //Delete from the db and remove from uploads
+    public function destroy(Request $request, $id)
+    {
+        Asset::destroy($id);
+
+        return redirect('admin/assets')->with('status', 'File removed');
     }
 }

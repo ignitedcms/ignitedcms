@@ -14,6 +14,7 @@
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class Asset
 {
@@ -25,20 +26,51 @@ class Asset
     //Go ahead and insert the upload info
     //into our database
     public static function create(
-       $filename,
-       $kind,
-       $url,
-       $thumb,
-       $fieldname
-    )
+        $filename,
+        $kind,
+        $url,
+        $thumb,
+        $fieldname
+    ) {
+        $insertid = DB::table('assetfields')->insertGetId([
+            'filename' => $filename,
+            'kind' => $kind,
+            'url' => $url,
+            'thumb' => $thumb,
+            'fieldname' => $fieldname,
+        ]);
+
+    }
+
+    public static function destroy($id)
     {
-       $insertid = DB::table('assetfields')->insertGetId([
-          'filename' => $filename,
-          'kind' => $kind,
-          'url' => $url,
-          'thumb' => $thumb,
-          'fieldname' => $fieldname
-       ]);
+        //First remove from uploads
+        // Specify the file path at the root level
+
+        $rows = DB::table('assetfields')
+            ->select('*')
+            ->where('id', '=', $id)
+            ->limit(1)
+            ->get();
+
+        $filename = $rows[0]->filename;
+
+        $filePath = public_path("uploads/$filename");
+
+        // Check if the file exists
+        if (File::exists($filePath)) {
+
+            File::delete($filePath);
+
+        } else {
+            //return some error
+        }
+
+        //Now delete entry from db
+
+        DB::table('assetfields')
+            ->where('id', '=', $id)
+            ->delete();
 
     }
 }

@@ -28,6 +28,7 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/assets', [AssetController::class, 'index']);
     Route::get('/admin/assets/create', [AssetController::class, 'create_view']);
     Route::post('/admin/assets/create', [AssetController::class, 'create']);
+    Route::post('/admin/assets/delete/{id}', [AssetController::class, 'destroy']);
 });
 
 Route::middleware('web')->group(function () {
