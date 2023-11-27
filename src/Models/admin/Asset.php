@@ -24,8 +24,21 @@ class Asset
 
     //Go ahead and insert the upload info
     //into our database
-    public static function create()
+    public static function create(
+       $filename,
+       $kind,
+       $url,
+       $thumb,
+       $fieldname
+    )
     {
+       $insertid = DB::table('assetfields')->insertGetId([
+          'filename' => $filename,
+          'kind' => $kind,
+          'url' => $url,
+          'thumb' => $thumb,
+          'fieldname' => $fieldname
+       ]);
 
     }
 }

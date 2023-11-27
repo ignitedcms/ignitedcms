@@ -42,14 +42,14 @@
                         @foreach ($data as $field)
                             <tr>
                                 <td>{{ $field->id }}</td>
-                                <td><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->name }}</a></td>
-                                <td>{{ $field->type }}</td>
+                                <td><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
+                                <td>{{ $field->kind }}</td>
                                 <td>
                                     <span class="right">
                                         <tooltip link="delete">
                                             <form action="{{ url('/admin/assets/delete', $field->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn  rm-btn-styles">ok</button>
+                                                <button type="submit" class="btn  rm-btn-styles">Ok</button>
                                             </form>
                                         </tooltip>
                                     </span>

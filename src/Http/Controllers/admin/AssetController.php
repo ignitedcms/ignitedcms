@@ -69,15 +69,15 @@ class AssetController extends Controller
             $kind = $file->getClientOriginalExtension();
             $url = url(asset("uploads/$fileName"));
 
-            $thumb = 'thumb';
-            $fieldname = 'fieldname';
+            $thumb = '';
+            $fieldname = '';
 
-            //Asset::create(
-                //$filename,
-                //$kind,
-                //$url,
-                //$thumb,
-                //$fieldname);
+            Asset::create(
+                $filename,
+                $kind,
+                $url,
+                $thumb,
+                $fieldname);
 
             return redirect('admin/assets')->with('status','Upload successful');
         }
