@@ -24,12 +24,12 @@
                                  <div class="small text-muted">The file name </div>
                                  {{ $row->filename }} 
                               </div>
-                              @if($row->kind == 'png')
+                              @if( in_array($row->kind, ['jpeg', 'jpg','png', 'gif', 'bmp', 'svg'])  )
                               <div class="form-group">
                                  <img src="{{ $row->url }}" class="img-responsive"></img>
                               </div>
                               @else
-                                hola
+                              <a href="{{ $row->url }}">Download</a>
                               @endif
                            
                            @endforeach
