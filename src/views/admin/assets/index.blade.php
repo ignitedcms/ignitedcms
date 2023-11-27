@@ -31,7 +31,7 @@
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Preview</th>
                             <th>handle</th>
                             <th>type</th>
                             <th>action</th>
@@ -41,7 +41,7 @@
 
                         @foreach ($data as $field)
                             <tr>
-                                <td>{{ $field->id }}</td>
+                                <td> <img src="{{ $field->thumb }}"></img></td>
                                 <td><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
                                 <td>{{ $field->kind }}</td>
                                 <td>
