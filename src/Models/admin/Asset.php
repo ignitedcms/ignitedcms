@@ -44,12 +44,12 @@ class Asset
 
     public static function update($id)
     {
-       return DB::table('assetfields')
-          ->select('*')
-          ->where('id','=', $id)
-          ->limit(1)
-          ->get();
-       
+        return DB::table('assetfields')
+            ->select('*')
+            ->where('id', '=', $id)
+            ->limit(1)
+            ->get();
+
     }
 
     public static function destroy($id)
