@@ -85,6 +85,16 @@ class AssetController extends Controller
         //error msg
     }
 
+    public function update_view($id)
+    {
+
+        $data = Asset::update($id);
+
+        return view('ignitedcms::admin.assets.edit')->with([
+            'data' => $data,
+        ]);
+    }
+
     //Delete from the db and remove from uploads
     public function destroy(Request $request, $id)
     {
