@@ -20,8 +20,8 @@
                         <div class="col">
                            @foreach ($data as $row)
                               <div class="form-group">
-                                 <label for="title">Title</label>
-                                 <div class="small text-muted">The file title</div>
+                                 <label for="Filename">Filename</label>
+                                 <div class="small text-muted">The file name </div>
                                  {{ $row->filename }} 
                               </div>
                               @if($row->kind == 'png')
