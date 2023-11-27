@@ -21,4 +21,11 @@ class Asset
     {
         return DB::table('assetfields')->get();
     }
+
+    //Go ahead and insert the upload info
+    //into our database
+    public static function create()
+    {
+
+    }
 }

@@ -19,6 +19,6 @@ class FeatureTest extends TestCase
 
     public function test_database()
     {
-       $this->assertDatabaseCount('user',2);
+        $this->assertDatabaseCount('user', 2);
     }
 }

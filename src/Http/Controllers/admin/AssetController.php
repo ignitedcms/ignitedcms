@@ -47,8 +47,41 @@ class AssetController extends Controller
         ]);
     }
 
+    //Upload and save file into uploads
     public function create(Request $request)
     {
-       echo ("uploading to db");
+        //Hard coded for time bein
+        $request->validate([
+            'file' => 'required|file|mimes:jpeg,png,pdf|max:2048', // Validation rules for the file
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time().'_'.$file->getClientOriginalName();
+
+             // Define the path where you want to store the file
+            $path = public_path('uploads'); 
+
+            // Move the file to the defined path
+            $file->move($path, $fileName);
+
+            $filename = $file->getClientOriginalName();
+            $kind = $file->getClientOriginalExtension();
+            $url = url(asset("uploads/$fileName"));
+
+            $thumb = 'thumb';
+            $fieldname = 'fieldname';
+
+            //Asset::create(
+                //$filename,
+                //$kind,
+                //$url,
+                //$thumb,
+                //$fieldname);
+
+            return redirect('admin/assets')->with('status','all done');
+        }
+
+        //error msg
     }
 }

@@ -4,7 +4,8 @@
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
 
-            <form action="{{ url('admin/assets/create') }} " method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/assets/create') }} " method="POST" 
+               enctype="multipart/form-data">
                 @csrf
                 <div class="breadcrumb m-b-3">
                     <div class="breadcrumb-item">
