@@ -13,4 +13,20 @@ class TestCase extends Orchestra
             IgnitedcmsServiceProvider::class,
         ];
     }
+
+   protected function getEnvironmentSetUp($app)
+   {
+       // Define testing environment configurations here
+       $app['config']->set('database.default', 'mysql');
+       $app['config']->set('database.connections.mysql', [
+           'driver' => 'mysql',
+           'host' => '127.0.0.1',
+           'port' => '8889',
+           'database' => 'laravel',
+           'username' => 'root',
+           'password' => 'root',
+           // Other MySQL configurations...
+       ]);
+   }
+
 }

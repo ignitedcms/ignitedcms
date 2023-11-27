@@ -16,4 +16,9 @@ class FeatureTest extends TestCase
 
         $this->get('/installer')->assertStatus(200);
     }
+
+    public function test_database()
+    {
+       $this->assertDatabaseCount('user',2);
+    }
 }
