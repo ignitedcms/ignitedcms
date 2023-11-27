@@ -28,6 +28,9 @@
                               <label  for="upload">Upload</label>
                               <div class="small text-muted">Make sure it is a suitable file</div>
                               <input type="file" name="file" class="form-control m-t">
+                              @error('file')
+                                 <div class="small text-danger"> {{ $message }} </div>
+                              @enderror
                            </div>
                         </div>
                     </div>

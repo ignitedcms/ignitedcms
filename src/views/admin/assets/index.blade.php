@@ -3,6 +3,11 @@
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
+            @if (session('status'))
+                <div class="alert alert-success m-b-3">
+                    {{ session('status') }}
+                </div>
+            @endif
 
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">

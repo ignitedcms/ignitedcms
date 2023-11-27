@@ -79,7 +79,7 @@ class AssetController extends Controller
                 //$thumb,
                 //$fieldname);
 
-            return redirect('admin/assets')->with('status','all done');
+            return redirect('admin/assets')->with('status','Upload successful');
         }
 
         //error msg
