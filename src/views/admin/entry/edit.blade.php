@@ -147,7 +147,16 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 upload
-                                <input class="form-control" name="{{ $row->name }}"
+                                <div class="form-group">
+                                    <div  class="btn btn-white">
+                                       <span class="v-a">
+                                          <i data-feather="plus"></i>    
+                                          add
+                                       </span>
+                                    </div>
+                                </div>                                 
+
+                                <input    class="form-control" name="{{ $row->name }}"
                                     value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="test" />
 
                                 <img src="{{ Helper::get_asset(Helper::get_content($entryid, $row->name)) }} "></img>
