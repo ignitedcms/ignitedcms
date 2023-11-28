@@ -153,7 +153,7 @@
                                     <div  class="btn btn-white" v-on:click="asset_picker( '{{ $row->name  }}' )">
                                        <span class="v-a">
                                           <i data-feather="plus"></i>    
-                                          add
+                                          Add
                                        </span>
                                     </div>
                                 </div>                                 

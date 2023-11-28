@@ -11,11 +11,16 @@
 
       <div class="modal-header">
          <button type="button" class="rm-btn-styles close m-t" v-on:click="open = false">&times;</button>
-         <h4 class="m-t">fds</h4>
+         <h4 class="m-t">Assets</h4>
       </div>
       <div class="modal-body">
          <div class="p-3">
-             <div v-on:click="change_asset(2)"> click </div>
+
+            @foreach ($assets as $asset)
+                <img src="{{ $asset->url }}"></img>
+             <div v-on:click="change_asset( {{ $asset->id }} )"> click </div>
+            @endforeach
+
          </div>
       </div>
       <!-- footer if needed -->

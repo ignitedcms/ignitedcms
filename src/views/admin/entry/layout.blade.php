@@ -93,6 +93,7 @@
                        if (inputElement) {
                          inputElement.value = idx;
                        }
+                       this.open = false;
                    }
                 },
                 mounted() {
