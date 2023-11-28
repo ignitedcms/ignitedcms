@@ -78,7 +78,13 @@
                     away() {
                         this.show = false;
                         this.styles = 'none'
-                    }
+                    },
+                    asset_picker(name) {
+                       var inputElement = document.getElementById(name);
+                       if (inputElement) {
+                         inputElement.value = 'New Value';
+                       }
+                   }
                 },
                 mounted() {
                     //nothing
