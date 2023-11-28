@@ -2,6 +2,7 @@
 @section('content')
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
+        @include('ignitedcms::admin.entry.asset')
 
         <div class="main-content p-3" id="main-content">
 

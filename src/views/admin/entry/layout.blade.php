@@ -64,6 +64,8 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
+                    open: false,
+                    
                     items: @php  echo json_encode($data,true) @endphp
                 },
                 methods: {
@@ -80,6 +82,7 @@
                         this.styles = 'none'
                     },
                     asset_picker(name) {
+                       this.open = true;
                        var inputElement = document.getElementById(name);
                        if (inputElement) {
                          inputElement.value = 'New Value';
