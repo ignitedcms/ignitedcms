@@ -65,6 +65,7 @@
                     dark: false, //dark or light mode
                     styles: 'none',
                     open: false,
+                    tmpid:'' ,
                     
                     items: @php  echo json_encode($data,true) @endphp
                 },
@@ -83,9 +84,14 @@
                     },
                     asset_picker(name) {
                        this.open = true;
-                       var inputElement = document.getElementById(name);
+                       this.tmpid = name;
+                   },
+
+                   change_asset(idx){
+
+                       var inputElement = document.getElementById(this.tmpid);
                        if (inputElement) {
-                         inputElement.value = 'New Value';
+                         inputElement.value = idx;
                        }
                    }
                 },

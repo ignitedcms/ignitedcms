@@ -15,7 +15,7 @@
       </div>
       <div class="modal-body">
          <div class="p-3">
-            list the pictures 
+             <div v-on:click="change_asset(2)"> click </div>
          </div>
       </div>
       <!-- footer if needed -->
