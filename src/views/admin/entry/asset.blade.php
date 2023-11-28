@@ -16,10 +16,35 @@
       <div class="modal-body">
          <div class="p-3">
 
-            @foreach ($assets as $asset)
-                <img src="{{ $asset->url }}"></img>
-             <div v-on:click="change_asset( {{ $asset->id }} )"> click </div>
-            @endforeach
+            <table id="example" class="display" style="width:100%">
+               <thead>
+                  <tr>
+                     <th>Preview</th>
+                     <th>handle</th>
+                     <th>type</th>
+                     <th>action</th>
+                  </tr>
+               </thead>
+               <tbody>
+
+                  @foreach ($assets as $field)
+                  <tr>
+                     <td> <img src="{{ $field->thumb }}"></img></td>
+                     <td>{{ $field->filename }}</td>
+                     <td>{{ $field->kind }}</td>
+                     <td>
+                        <div v-on:click="change_asset( {{ $field->id }} )" class="hand"> 
+                           <strong>
+                           Add
+                         </strong> 
+                        </div>
+                     </td>
+                  </tr>
+                  @endforeach
+
+               </tbody>
+
+            </table>
 
          </div>
       </div>
