@@ -39,6 +39,7 @@
 
                 <div class="row">
                     <div class="col-3 v-a">
+                     
 
                         @if (Helper::is_single($sectionid) == true)
                             <modal button-title="Create Template" modal-header="Create single template">
