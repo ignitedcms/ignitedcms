@@ -42,7 +42,7 @@
                         @foreach ($data as $field)
                             <tr>
                                 <td> <img src="{{ $field->thumb }}"></img></td>
-                                <td><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
+                                <td ><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
                                 <td>{{ $field->kind }}</td>
                                 <td>
                                     <span class="right">

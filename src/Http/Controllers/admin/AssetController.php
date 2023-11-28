@@ -79,7 +79,7 @@ class AssetController extends Controller
 
             if ($this->is_image($file)) {
                 $image = new ImageResize($path.'/'.$fileName);
-                $image->resizeToWidth(60);
+                $image->resize(50, 50);
                 $thumb = 'thumb_'.time().'_'.$file->getClientOriginalName();
                 $image->save(public_path("uploads/$thumb"));
 
