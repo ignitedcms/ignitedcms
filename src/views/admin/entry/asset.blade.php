@@ -30,10 +30,10 @@
                   @foreach ($assets as $field)
                   <tr>
                      <td> <img src="{{ $field->thumb }}"></img></td>
-                     <td>{{ $field->filename }}</td>
+                     <td>{{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}</td>
                      <td>{{ $field->kind }}</td>
                      <td>
-                        <div v-on:click="change_asset( {{ $field->id }} )" class="hand"> 
+                        <div v-on:click="change_asset( {{ $field->id }} )" class="hand hover"> 
                            <strong>
                            Add
                          </strong> 
