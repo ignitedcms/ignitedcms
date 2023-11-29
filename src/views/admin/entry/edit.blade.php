@@ -147,7 +147,8 @@
                             @elseif ($row->type == 'file-upload')
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
-                                upload
+                                 
+                                 <asset-container fieldname2='{{ $row->name }}' assetid='{{ Helper::get_content($entryid, $row->name) }}' url='url'> </asset-container>
                                                                  
 
                                 {{ $row->formvalidation }}

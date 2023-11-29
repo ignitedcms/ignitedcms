@@ -58,6 +58,22 @@
         <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
 
         <script>
+         Vue.component('asset-container',{
+                 template: 
+                 `<div>
+                   @include('ignitedcms::admin.entry.asset')
+                 </div>`,
+                 props:['fieldname2','assetid','url'],
+                 data:function(){
+                     return{
+                         isShown: false,
+                         tmp: this.assetid,
+                         name: this.fieldname2,
+                         url: this.url
+                     }
+                 }
+             });
+
             var app = new Vue({
                 el: '#app',
                 data: {
