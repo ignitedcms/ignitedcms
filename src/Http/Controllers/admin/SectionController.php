@@ -125,6 +125,6 @@ class SectionController extends Controller
     {
         Section::destroy($id);
 
-        return redirect('admin/section')->with('status','Section deleted');
+        return redirect('admin/section')->with('status', 'Section deleted');
     }
 }

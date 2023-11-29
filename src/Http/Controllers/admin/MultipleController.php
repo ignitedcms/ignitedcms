@@ -89,12 +89,20 @@ class MultipleController extends Controller
     {
         $ids = $request->input('id');
 
-        //Now let's loop through and remove entryid
-        foreach ($ids as $id) {
-            Multiple::delete($sid, $id);
+        if ($ids == null) {
+
+            return redirect("admin/multiple/$sid")
+                ->with('error', 'Nothing selected, nothing to delete');
+        } else {
+
+            //Now let's loop through and remove entryid
+            foreach ($ids as $id) {
+                Multiple::delete($sid, $id);
+            }
+
+            return redirect("admin/multiple/$sid")
+                ->with('status', 'Entry deleted');
         }
 
-        return redirect("admin/multiple/$sid")
-            ->with('status', 'Entry deleted');
     }
 }

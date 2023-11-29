@@ -9,6 +9,12 @@
                     {{ session('status') }}
                 </div>
             @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger m-b-3">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>
