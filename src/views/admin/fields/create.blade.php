@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label>Field Type</label>
                                 <div class="errors pull-left">*</div>
-                                <div class="igs-small">Specify the field type</div>
+                                <div class="small text-muted">Specify the field type</div>
                                 <select class="form-select" id="type" v-model="crselect" name="type">
                                     <option value="plain-text" selected>Plain Text</option>
                                     <option value="multi-line">Multi-line Box</option>
@@ -69,9 +69,8 @@
                             <div v-if="crselect=='plain-text'">
                                 <div class="form-group">
                                     <label>Character length</label>
-                                    <div class="igs-small">(Must be valid whole number)</div>
-                                    <input v-model="fieldlength" type="text" class="form-control" placeholder="Type here"
-                                        data-toggle="tooltip" data-placement="top" name="length" value="">
+                                    <div class="small text-muted">(Must be valid whole number)</div>
+                                    <input v-model="fieldlength" type="text" class="form-control"  name="length" value="">
 
                                     @error('length')
                                         <div class="small text-danger">{{ $message }}</div>
@@ -87,16 +86,16 @@
                                 <div class="form-group">
                                     <label>Options</label>
                                     <div class="igs-small">Please separate with commas</div>
-                                    <textarea v-model="variations" name="variations" class="form-control" rows="5" data-maxlength="this"
-                                        data-required="true" placeholder="Type here" data-toggle="tooltip" data-placement="top" title=""></textarea>
+                                    <textarea v-model="variations" name="variations" class="form-control" rows="5" 
+                                         placeholder="Type here" ></textarea>
                                 </div>
                             </div>
                             <div v-if="crselect=='check-box'">
                                 <div class="form-group">
                                     <label>Options</label>
                                     <div class="igs-small">Please separate with commas</div>
-                                    <textarea v-model="variations" name="variations" class="form-control" rows="5" data-maxlength="this"
-                                        data-required="true" placeholder="Type here" data-toggle="tooltip" data-placement="top" title=""></textarea>
+                                    <textarea v-model="variations" name="variations" class="form-control" rows="5" 
+                                        ></textarea>
                                 </div>
                             </div>
                             <div v-if="crselect=='color'">
@@ -106,8 +105,7 @@
                                     <label>Allowed File types</label>
                                     <div class="igs-small"></div>
                                     <input v-model="variations" name="variations" type="text" class="form-control"
-                                        placeholder="jpg,png,gif" data-toggle="tooltip" data-placement="top"
-                                        value="">
+                                        placeholder="jpg,png,gif" value="">
                                 </div>
                             </div>
                             <div v-if="crselect=='number'">

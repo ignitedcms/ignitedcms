@@ -49,7 +49,6 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" 
-                                          name="a" 
                                           value="{{ $field->type }}" 
                                           placeholder="test" readonly />
                                 </div>
