@@ -15,7 +15,7 @@
             <li class="m-t">
                <form action="{{ url('logout') }} " method="POST">
                   @csrf
-                  <button type="submit" class="btn btn-white">logout</button>
+                  <button type="submit" class="rm-btn-styles">logout</button>
                </form>
             </li>
         </ul>
@@ -36,7 +36,7 @@
             <li class="m-t">
                 <form action="{{ url('logout') }} " method="POST">
                    @csrf
-                  <button type="submit" class="btn btn-white">logout</button>
+                  <button type="submit" class="rm-btn-styles">logout</button>
                 </form>
             </li>
         </ul>
