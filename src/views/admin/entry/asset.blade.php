@@ -8,7 +8,7 @@
 <div>
      <div class="row">
          <div class="col-3">
-             <div class="btn btn-white btn-s-xs" v-on:click="isShown = !isShown">
+             <div class="btn btn-white btn-s-xs" v-on:click="isShown = !isShown" v-click-outside="away">
                  <i class="fa fa-plus"></i>
                  <strong>Add an asset</strong>
              </div>
@@ -35,7 +35,7 @@
       <div class="modal-body">
          <div class="p-3">
 
-            <table id="example" class="display" style="width:100%">
+            <table  class="d" style="width:100%">
                <thead>
                   <tr>
                      <th>Preview</th>

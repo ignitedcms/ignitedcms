@@ -71,7 +71,17 @@
                          name: this.fieldname2,
                          url: this.url
                      }
-                 }
+                 },
+                 methods: {
+                     away: function () {
+                       this.isShown = false;
+                     },
+                     
+                     escapePressed()
+                     {
+                       this.isShown = false;
+                     },
+                   }
              });
 
             var app = new Vue({
