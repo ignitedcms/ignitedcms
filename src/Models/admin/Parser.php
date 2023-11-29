@@ -45,17 +45,16 @@ class Parser
 
             foreach ($query2 as $key) {
                 foreach ($key as $field_name => $field_content) {
-                    if (self::is_asset($field_name)) {
-                        //do something
-                    } else {
-                        $arr[$name][$field_name] = $field_content;
+                     $tmp = self::for_image($field_name,$field_content);
+
+                        $arr[$name][$field_name] = $tmp;
                     }
                 }
             }
+
+          return $arr;
         }
 
-        return $arr;
-    }
 
     /*
      * Get the root level multiple
@@ -164,9 +163,9 @@ class Parser
         foreach ($arrTmp as $key => $value) {
             //special case for images
             //make templating much easier
-            /*$tmp = $this->for_image($key, $value);*/
+            $tmp = self::for_image($key, $value);
 
-            $data[$key] = $value;
+            $data[$key] = $tmp;
         }
 
         //now get the globals
@@ -178,18 +177,46 @@ class Parser
         return $data;
     }
 
-    /*
-    |---------------------------------------------------------------
-    | Warning needs looking at!!!!
-    |---------------------------------------------------------------
-    |
-    |
-    */
-    public static function is_asset()
-    {
-        //pass through for the time being
-        return false;
-    }
+    public static function for_image($col, $val)
+	{
+		$col = trim($col);
+
+      $query = DB::table('fields')
+         ->select('*')
+         ->where('name','=', $col)
+         ->limit(1)
+        ->get();
+
+
+		$type = "";
+		foreach ($query as $row)
+		{
+			$type = $row->type;
+		}
+
+		if ($type == 'file-upload')
+		{
+      
+        $query=  DB::table('assetfields')
+           ->select('url')
+           ->where('id','=', $val)
+           ->limit(1)
+           ->get();
+           
+			$url = "";
+			foreach ($query as $row)
+			{
+				$url = $row->url;
+			}
+			return $url;
+
+		}
+		else
+		{
+			return $val;
+		}
+	}
+
 
     public static function get_section_name($sectionid)
     {
