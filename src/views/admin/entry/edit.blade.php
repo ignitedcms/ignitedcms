@@ -2,7 +2,6 @@
 @section('content')
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
-        @include('ignitedcms::admin.entry.asset')
 
         <div class="main-content p-3" id="main-content">
 
@@ -149,19 +148,8 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 upload
-                                <div class="form-group">
-                                    <div  class="btn btn-white" v-on:click="asset_picker( '{{ $row->name  }}' )">
-                                       <span class="v-a">
-                                          <i data-feather="plus"></i>    
-                                          Add
-                                       </span>
-                                    </div>
-                                </div>                                 
+                                                                 
 
-                                <input id="{{ $row->name }}"  class="form-control" name="{{ $row->name }}"
-                                    value="{{ Helper::get_content($entryid, $row->name) }}" placeholder="test" />
-
-                                <img src="{{ Helper::get_asset(Helper::get_content($entryid, $row->name)) }} "></img>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'number')

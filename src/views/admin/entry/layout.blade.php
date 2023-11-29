@@ -64,9 +64,7 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
-                    open: false,
-                    tmpid:'' ,
-                    
+                                       
                     items: @php  echo json_encode($data,true) @endphp
                 },
                 methods: {
@@ -82,19 +80,7 @@
                         this.show = false;
                         this.styles = 'none'
                     },
-                    asset_picker(name) {
-                       this.open = true;
-                       this.tmpid = name;
-                   },
-
-                   change_asset(idx){
-
-                       var inputElement = document.getElementById(this.tmpid);
-                       if (inputElement) {
-                         inputElement.value = idx;
-                       }
-                       this.open = false;
-                   }
+                  
                 },
                 mounted() {
                     //nothing
