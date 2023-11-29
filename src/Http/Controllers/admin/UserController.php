@@ -93,7 +93,7 @@ class UserController extends Controller
 
         if ($id == 1) {
             //do nothing
-            return redirect('admin/users')->with('status', 'You cannot 
+            return redirect('admin/users')->with('error', 'You cannot 
               update Adminstrator permissions!');
         } else {
 
@@ -111,7 +111,7 @@ class UserController extends Controller
     {
         if ($id == 1) {
 
-            return redirect('admin/users')->with('status', 'You cannot 
+            return redirect('admin/users')->with('error', 'You cannot 
              delete the main admin account!');
         } else {
 
