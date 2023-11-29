@@ -67,7 +67,7 @@ class SectionController extends Controller
 
         Section::create($name, $sectiontype, $fields);
 
-        return redirect('admin/section');
+        return redirect('admin/section')->with('status', 'Section created');
     }
 
     public function create_view()
@@ -117,7 +117,7 @@ class SectionController extends Controller
 
         Section::update($id, $fields);
 
-        return redirect('admin/section');
+        return redirect('admin/section')->with('status', 'Section updated');
 
     }
 
@@ -125,6 +125,6 @@ class SectionController extends Controller
     {
         Section::destroy($id);
 
-        return redirect('admin/section');
+        return redirect('admin/section')->with('status','Section deleted');
     }
 }

@@ -11,6 +11,13 @@
                 <div class="breadcrumb-item">Sections</div>
             </div>
 
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+
             <div class="row">
                 <div class="col-12 right">
                     <a href="{{ url('admin/section/create') }}">
