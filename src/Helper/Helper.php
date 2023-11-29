@@ -49,11 +49,10 @@ class Helper
             ->where('sectionid', '=', $sectionid)
             ->get();
 
-        //IMPORTANT logic is backward please fix
         if ($rows->count() > 0) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
