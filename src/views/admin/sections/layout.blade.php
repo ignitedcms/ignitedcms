@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
 
         <!-- sortables -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+        <script src="{{ asset('admin/js/sortable.js') }}"></script>
     </head>
 
     <body class="full-screen bg-grey">

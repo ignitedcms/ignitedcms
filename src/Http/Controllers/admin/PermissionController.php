@@ -138,7 +138,7 @@ class PermissionController extends Controller
 
                 Permissions::destroy($id);
 
-                return redirect('admin/permissions')->with('status', 'Success');
+                return redirect('admin/permissions')->with('status', 'Permission removed successfully');
             }
         }
     }
