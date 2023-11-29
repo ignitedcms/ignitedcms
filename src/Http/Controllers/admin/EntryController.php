@@ -37,10 +37,13 @@ class EntryController extends Controller
         $data2 = Entry::multiple();
         $data3 = Entry::globals();
 
+        $assets = Asset::all(); //quick fix for vue component
+
         return view('ignitedcms::admin.entry.index')->with([
             'data' => $data,
             'data2' => $data2,
             'data3' => $data3,
+            'assets' => $assets,
         ]);
     }
 
@@ -79,6 +82,7 @@ class EntryController extends Controller
     {
         $data = Entry::section_all_fields($sectionid);
         $assets = Asset::all();
+
 
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,
