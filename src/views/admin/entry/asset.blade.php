@@ -34,7 +34,7 @@
                      <td>{{ $field->kind }}</td>
                      <td>
                         <div v-on:click="change_asset( {{ $field->id }} )" class="hand hover"> 
-                              <a href="#">Add</a>
+                              Add
                         </div>
                      </td>
                   </tr>
