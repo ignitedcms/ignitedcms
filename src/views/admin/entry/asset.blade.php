@@ -5,7 +5,7 @@
  |---------------------------------------------------------------            
  */       
 @endphp
-
+<div>
      <div class="row">
          <div class="col-3">
              <div class="btn btn-white btn-s-xs" v-on:click="isShown = !isShown">
@@ -24,7 +24,7 @@
      </div>
       <!-- Needed for POST input -->
       <input v-bind:name="name" v-bind:value="tmp" >
-  
+</div> 
 <div class="modal" v-if="isShown" v-on:keyup.escape="escapePressed">
    <div class="modal-content fade-in-bottom" @click.stop>
 
