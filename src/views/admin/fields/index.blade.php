@@ -11,6 +11,13 @@
                 <div class="breadcrumb-item">Fields</div>
             </div>
 
+            @if (session('status'))
+                <div class="alert alert-success m-b-3">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+
             <div class="row">
                 <div class="col-12 right">
                     <a href="{{ url('admin/fields/create') }}">
@@ -42,7 +49,7 @@
                                 <td>{{ $field->type }}</td>
                                 <td>
                                     <span class="right">
-                                        <tooltip link="delete">
+                                        <tooltip link="Delete">
                                             <form action="{{ url('/admin/fields/delete', $field->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn  rm-btn-styles">ok</button>

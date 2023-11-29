@@ -89,7 +89,7 @@ class FieldsController extends Controller
             $form_validation
         );
 
-        return redirect('admin/fields');
+        return redirect('admin/fields')->with('status', 'Field added successfully');
     }
 
     public function create_view()
@@ -114,6 +114,6 @@ class FieldsController extends Controller
     {
         Fields::destroy($id);
 
-        return redirect('admin/fields');
+        return redirect('admin/fields')->with('status', 'Field deleted successfully');
     }
 }

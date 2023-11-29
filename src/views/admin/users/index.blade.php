@@ -57,7 +57,7 @@
                                 <td> {{ $user->groupName }}</td>
                                 <td>
                                     <span class="right">
-                                        <tooltip link="delete">
+                                        <tooltip link="Delete">
                                             <form action="{{ url('admin/users/delete', $user->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn  rm-btn-styles">ok</button>
