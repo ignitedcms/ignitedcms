@@ -148,7 +148,10 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                  
-                                 <asset-container fieldname2='{{ $row->name }}' assetid='{{ Helper::get_content($entryid, $row->name) }}' url='url'> </asset-container>
+                                 <asset-container fieldname2='{{ $row->name }}' 
+                                    assetid='{{ Helper::get_content($entryid, $row->name) }}' 
+                                       url='url'> 
+                                 </asset-container>
                                                                  
 
                                 {{ $row->formvalidation }}
