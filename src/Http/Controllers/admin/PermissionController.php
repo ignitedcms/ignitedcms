@@ -97,7 +97,7 @@ class PermissionController extends Controller
 
         if ($id == 1) {
 
-            return redirect('admin/permissions')->with('status',
+            return redirect('admin/permissions')->with('error',
                 'You cannot update Administrator permissions!');
 
         } else {
@@ -124,7 +124,7 @@ class PermissionController extends Controller
         if ($id == 1) {
             $message = 'You cannot delete Administrators!';
 
-            return redirect('admin/permissions')->with('status', $message);
+            return redirect('admin/permissions')->with('error', $message);
         } else {
 
             //Check that no user has this permissions assigned
@@ -132,7 +132,7 @@ class PermissionController extends Controller
             if (Permissions::check_if_permissionid_is_used($id)) {
                 $message = 'This permission group is in use by a user';
 
-                return redirect('admin/permissions')->with('status', $message);
+                return redirect('admin/permissions')->with('error', $message);
 
             } else {
 
