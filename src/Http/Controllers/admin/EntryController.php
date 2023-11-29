@@ -17,8 +17,8 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
-use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
+use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Ignitedcms\Ignitedcms\Rules\Uniquemultiple;
 use Illuminate\Http\Request;
@@ -82,7 +82,6 @@ class EntryController extends Controller
     {
         $data = Entry::section_all_fields($sectionid);
         $assets = Asset::all();
-
 
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,

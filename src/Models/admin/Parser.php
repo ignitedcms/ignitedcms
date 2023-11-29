@@ -45,16 +45,15 @@ class Parser
 
             foreach ($query2 as $key) {
                 foreach ($key as $field_name => $field_content) {
-                     $tmp = self::for_image($field_name,$field_content);
+                    $tmp = self::for_image($field_name, $field_content);
 
-                        $arr[$name][$field_name] = $tmp;
-                    }
+                    $arr[$name][$field_name] = $tmp;
                 }
             }
-
-          return $arr;
         }
 
+        return $arr;
+    }
 
     /*
      * Get the root level multiple
@@ -108,9 +107,10 @@ class Parser
             foreach ($arrTmp as $key => $value) {
                 //special case for images
                 //make templating much easier
+                $tmp = self::for_image($key, $value);
                 //$tmp = $this->for_image($key, $value);
 
-                $a[$key] = $value;
+                $a[$key] = $tmp;
             }
             //////////////////////////////////////
 
@@ -178,45 +178,39 @@ class Parser
     }
 
     public static function for_image($col, $val)
-	{
-		$col = trim($col);
+    {
+        $col = trim($col);
 
-      $query = DB::table('fields')
-         ->select('*')
-         ->where('name','=', $col)
-         ->limit(1)
-        ->get();
+        $query = DB::table('fields')
+            ->select('*')
+            ->where('name', '=', $col)
+            ->limit(1)
+            ->get();
 
+        $type = '';
+        foreach ($query as $row) {
+            $type = $row->type;
+        }
 
-		$type = "";
-		foreach ($query as $row)
-		{
-			$type = $row->type;
-		}
+        if ($type == 'file-upload') {
 
-		if ($type == 'file-upload')
-		{
-      
-        $query=  DB::table('assetfields')
-           ->select('url')
-           ->where('id','=', $val)
-           ->limit(1)
-           ->get();
-           
-			$url = "";
-			foreach ($query as $row)
-			{
-				$url = $row->url;
-			}
-			return $url;
+            $query = DB::table('assetfields')
+                ->select('url')
+                ->where('id', '=', $val)
+                ->limit(1)
+                ->get();
 
-		}
-		else
-		{
-			return $val;
-		}
-	}
+            $url = '';
+            foreach ($query as $row) {
+                $url = $row->url;
+            }
 
+            return $url;
+
+        } else {
+            return $val;
+        }
+    }
 
     public static function get_section_name($sectionid)
     {
