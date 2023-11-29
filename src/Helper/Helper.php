@@ -92,7 +92,11 @@ class Helper
             ->where('id', '=', $id)
             ->get();
 
-        return $rows2[0]->thumb;
+        if ($rows2->count() > 0) {
+            return $rows2[0]->thumb;
+        } else {
+            return false;
+        }
 
     }
 
