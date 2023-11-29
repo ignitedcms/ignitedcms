@@ -35,7 +35,7 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
     //Login
     Route::get('/login', [LoginController::class, 'index']);
-    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::post('/logout', [LoginController::class, 'logout']);
     Route::post('/login/validate_login', [LoginController::class, 'validate_login']);
 
 });
