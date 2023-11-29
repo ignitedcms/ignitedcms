@@ -14,10 +14,10 @@
              </div>
          </div>
          <div class="col-9">
-             <div class="img-save" v-if="tmp.length > 0">
+             <div  v-if="tmp.length > 0">
                  <img :src="url" alt="" class="img-save-class"/>
-                 <div class="img-save-rem" v-on:click="tmp = ''">
-                 delete
+                 <div class="hand" v-on:click="tmp = ''">
+                   Delete
                  </div>
              </div>
          </div>

@@ -150,7 +150,7 @@
                                  
                                  <asset-container fieldname2='{{ $row->name }}' 
                                     assetid='{{ Helper::get_content($entryid, $row->name) }}' 
-                                       url='url'> 
+                                       url='{{ Helper::get_thumb($entryid, $row->name) }}'> 
                                  </asset-container>
                                                                  
 

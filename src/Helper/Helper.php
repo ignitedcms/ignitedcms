@@ -78,6 +78,24 @@ class Helper
         }
     }
 
+    public static function get_thumb($entryid, $fieldname)
+    {
+        $rows = DB::table('content')
+            ->select($fieldname)
+            ->where('entryid', '=', $entryid)
+            ->get();
+
+        $id = $rows[0]->$fieldname;
+
+        $rows2 = DB::table('assetfields')
+            ->select('thumb')
+            ->where('id', '=', $id)
+            ->get();
+
+        return $rows2[0]->thumb;
+
+    }
+
     /**
      * Get the asset url
      *
