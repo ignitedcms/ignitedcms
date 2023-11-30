@@ -35,33 +35,31 @@
       <div class="modal-body">
          <div class="p-3">
 
-            <table  class="d" style="width:100%">
-               <thead>
-                  <tr>
-                     <th>Preview</th>
-                     <th>handle</th>
-                     <th>type</th>
-                     <th>action</th>
-                  </tr>
-               </thead>
-               <tbody>
+            <div class="row">
+               <div class="col">Preview</div>
+               <div class="col">Handle</div>
+               <div class="col">Type</div>
+               <div class="col">Action</div>
+            </div>
 
-                  @foreach ($assets as $field)
-                  <tr>
-                     <td> <img src="{{ $field->thumb }}"></img></td>
-                     <td>{{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}</td>
-                     <td>{{ $field->kind }}</td>
-                     <td>
-                        <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                              Add
-                        </div>
-                     </td>
-                  </tr>
-                  @endforeach
-
-               </tbody>
-
-            </table>
+               @foreach ($assets as $field)
+               <div class="row">
+                  <div class="col">
+                     <img src="{{ $field->thumb }}"></img>
+                  </div>
+                  <div class="col v-a">
+                     {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
+                  </div>
+                  <div class="col v-a">
+                     {{ $field->kind }}
+                  </div>
+                  <div class="col v-a">
+                     <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
+                        Add
+                     </div>
+                  </div>
+               </div>
+               @endforeach
 
          </div>
       </div>
