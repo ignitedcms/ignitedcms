@@ -95,7 +95,7 @@
                            }
                          ), /*/MUST use stringify for true false bug*/
                          matrix_name: this.matrix_name,
-                         csrf_test_name:''
+                         "_token": "{{ csrf_token() }}"
                        },
                        dataType: 'text', /*must use text*/
                        success: function (data) {

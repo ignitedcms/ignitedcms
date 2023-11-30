@@ -13,7 +13,7 @@ $.ajax({
             filetype: this.filetype,
             variations: this.variations,
         }),
-        csrf_test_name: ''
+        "_token": "{{ csrf_token() }}"
     },
     dataType: 'text', /*must use text*/
     success: function (data) {
