@@ -51,6 +51,7 @@
 
                 <div class="row m-t-2">
                     <h4>Configuration</h4> 
+                    
                     <div class="small text-muted m-b-3">Define the types of blocks that can be created within this Matrix field, as well
                         as the fields each block type is made up of.
                     </div>
@@ -61,7 +62,8 @@
                             <div v-for="todo in matrixContent">
                                 <div class="matrix-item">
                                      @{{todo.title}} (@{{todo.type}})
-                                    <div class="matrix-del m-l" @click="deleteItem(todo)"><i class="fa fa-trash-o"></i>
+                                    <div class="m-l-3 hand" @click="deleteItem(todo)">
+                                       x 
                                     </div>
                                 </div>
                             </div>
