@@ -110,8 +110,8 @@
                      }); /*End ajax*/
                    },
                   someFunc: function () {
-
-                   @include('ignitedcms::admin.matrix.vue-ajax')
+                  alert('iambeingcalledk')
+                   @include('ignitedcms::admin.matrix.vue-ajax');
 
                    },
                    deleteItem: function (todo) {

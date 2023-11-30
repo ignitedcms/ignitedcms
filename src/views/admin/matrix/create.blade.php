@@ -24,7 +24,7 @@
 
             <div class="row">
                 <div class="col-12 right">
-                    <button type="submit" class="btn btn-primary">Save matrix</button>
+                    <button type="submit" class="btn btn-primary" @click="save">Save matrix</button>
                 </div>
             </div>
             <!--main part for section styles -->
@@ -157,7 +157,7 @@
 
                 <div >
                     <div class="form-group right">
-                        <div class="btn btn-primary " @click="save"><strong>Save All</strong></div>
+                        <div class="btn btn-primary " @click="save">Save matrix</div>
                     </div>
                 </div>
 
