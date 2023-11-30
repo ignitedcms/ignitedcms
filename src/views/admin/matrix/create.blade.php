@@ -38,7 +38,10 @@
                             unique and must
                             not contain numbers or spaces. You can NOT use the following reserved names:
                             [url,content,id,section,field,entrytitle,entryid]</div>
-                         <input class="form-control" name="matrix_name" value="" placeholder="Start typing" />
+                         <input v-model="matrix_name" name="matrix_name" type="text" class="form-control" placeholder="Eg. HeroSlider"
+                            value="">
+                        <!-- vue must bind to v-html -->
+                        <div class="errors pull-left" v-if="matrix_name_validation.length > 0" v-html="matrix_name_validation"></div>
                       </div>
                    </div>
                    
