@@ -19,10 +19,6 @@ use Illuminate\Support\Facades\Schema;
 
 class Matrix
 {
-    public static function test()
-    {
-        echo 'iamfrom the matrix';
-    }
 
     /**
      *  @Description: Add new matrix fields to database
