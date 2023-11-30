@@ -39,6 +39,13 @@ class MatrixController extends Controller
       echo ("creating matrix");
    }
 
+
+   //ajax response
+   public function add_matrix_block(Request $request)
+   {
+        $data = $request->input('items');   
+   }
+
    /*                                                                          
    |---------------------------------------------------------------            
    | Note for deleting we are just using fields delete
