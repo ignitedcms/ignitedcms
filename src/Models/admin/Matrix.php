@@ -33,27 +33,28 @@ class Matrix
 	 */
 	public static function add_matrix($matrix_name, $data)
 	{
-		$this->load->dbforge();
-		$fields = array(
-
-			$matrix_name => array(
-				'type' => 'TEXT',
-				'null' => true,
-			),
-		);
 
 		//NEED to use JSON.stringify and json_decode for quotes bug on
 		//true and false values
-		$object = array(
-			'name' => $matrix_name,
+
+      DB::table('fields')->insertGetId([
+         'name' => $matrix_name,
 			'type' => 'matrix',
 			'opts' => json_decode($data),
 			'instructions' => 'instructions',
 			'maxchars' => '',
-			'formvalidation' => 'min_length[1]',
-		);
+			'formvalidation' => 'min_length[1]', //WARNING
+      ]);
 
-		$this->db->insert('fields', $object);
-		$this->dbforge->add_column('content', $fields);
+        /*
+        |---------------------------------------------------------------
+        | Now let's add a column for this in the content table
+        | We need to pass this variable in as an anonymous fun
+        |---------------------------------------------------------------
+        */
+        Schema::table('content', function (Blueprint $table) use ($matrix_name) {
+            $table->text($matrix_name)->nullable();
+        });
+
 	}
 }
