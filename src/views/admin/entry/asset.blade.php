@@ -15,9 +15,11 @@
          </div>
          <div class="col-9">
              <div  v-if="tmp.length > 0">
-                 <img :src="url" alt="" class="img-save-class"/>
-                 <div class="hand" v-on:click="tmp = ''">
-                   Delete
+                 <img :src="url" class="m-l" />
+                 <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
+                  <span class="small bg-light p-l p-r  b br drop-shadow">
+                    Delete
+                  </span>
                  </div>
              </div>
          </div>
