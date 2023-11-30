@@ -156,7 +156,7 @@
                         </div>
                     </div>
                     <!-- end matrix container -->
-                    <pre>@{{ matrixContent }} </pre>
+                    <div class="code">@{{ matrixContent }} </div>
                 </div>
 
                 <div >

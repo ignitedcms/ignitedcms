@@ -177,6 +177,7 @@ class Matrix
         return $arr;
     }
 
+
     /**
      * Get a list of all the variations from json matrixContent
      *

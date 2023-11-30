@@ -52,7 +52,20 @@ class MatrixController extends Controller
 		);
       
         $matrixContent =  $request->input('matrix');   
-        echo 'success';
+        $this->m_val($matrixContent, $validation_matrix);
+    }
+
+    public function m_val($matrixContent,$validation_matrix)
+    {
+       //First one matrixContent should be null
+       if($matrixContent == null)
+       {
+         echo 'success';
+       }
+       else
+       {
+         $arr = Matrix::get_fieldnames($matrixContent);
+       }
     }
 
     /*
