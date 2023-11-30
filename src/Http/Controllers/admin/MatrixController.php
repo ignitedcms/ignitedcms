@@ -17,6 +17,8 @@ use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Helper;
+
 class MatrixController extends Controller
 {
     public function __construct()
@@ -60,7 +62,7 @@ class MatrixController extends Controller
        //First one matrixContent should be null
        if($matrixContent == null)
        {
-         echo 'success';
+          echo 'success';
        }
        else
        {
