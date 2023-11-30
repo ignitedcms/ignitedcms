@@ -26,8 +26,11 @@ class MatrixController extends Controller
       $this->middleware(Igs_auth::class.':13');
    }
 
-   public function index()
+   public function create_view()
    {
-      Matrix::test();
+      $data = 'foo';
+      return view('ignitedcms::admin.matrix.create')->with([
+            'data' => $data,
+        ]);
    }
 }

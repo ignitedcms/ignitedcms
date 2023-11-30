@@ -23,7 +23,10 @@
                     <a href="{{ url('admin/fields/create') }}">
                         <button type="button" class="btn btn-primary">New field</button>
                     </a>
-                    <button type="button" class="btn btn-white m-l-2">New matrix</button>
+
+                    <a href="{{ url('admin/matrix/create') }}">
+                        <button type="button" class="btn btn-white m-l-2">New matrix</button>
+                    </a>
                 </div>
             </div>
             <!--main part for section styles -->
