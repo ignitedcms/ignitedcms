@@ -35,15 +35,15 @@
       <div class="modal-body">
          <div class="p-3">
 
-            <div class="row">
-               <div class="col">Preview</div>
-               <div class="col">Handle</div>
-               <div class="col">Type</div>
-               <div class="col">Action</div>
+            <div class="row b-b">
+               <div class="col"><h4>Preview </h4></div>
+               <div class="col"><h4>Handle </h4></div>
+               <div class="col"><h4>Type </h4></div>
+               <div class="col"><h4>Action </h4></div>
             </div>
 
                @foreach ($assets as $field)
-               <div class="row">
+               <div class="row b-b">
                   <div class="col">
                      <img src="{{ $field->thumb }}"></img>
                   </div>
@@ -55,7 +55,7 @@
                   </div>
                   <div class="col v-a">
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                        Add
+                        <div type="submit" class="drop-shadow p-l p-r b br bg-white">Add</div>
                      </div>
                   </div>
                </div>
