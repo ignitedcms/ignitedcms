@@ -7,12 +7,12 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\MatrixController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\MultipleController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
-use Ignitedcms\Ignitedcms\Http\Controllers\admin\MatrixController;
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 //Installer
@@ -30,7 +30,6 @@ Route::middleware('web')->group(function () {
     Route::post('/admin/matrix/create', [MatrixController::class, 'create']);
     Route::post('/admin/matrix/add_matrix_block', [MatrixController::class, 'add_matrix_block']);
 });
-
 
 //assets
 Route::middleware('web')->group(function () {

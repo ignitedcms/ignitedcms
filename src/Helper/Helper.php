@@ -25,6 +25,163 @@ class Helper
         echo 'bar';
     }
 
+    //-----------------------------------------
+    // Utility functions
+    //-----------------------------------------
+
+    /*
+     |---------------------------------------------------------------
+     | Checks to see if json payload is valid
+     |---------------------------------------------------------------
+     |
+     | - all unique
+     | - starts with a letter
+     | - no spaces, or commas, slashes etc
+     |
+      */
+    public static function valid_select($array)
+    {
+        $ar = [];
+        foreach ($array as $var) {
+            array_push($ar, $var->option);
+        }
+
+        $a = self::no_duplicates($ar);
+        $b = self::valid_variable_names($ar);
+        if ($a && $b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    |---------------------------------------------------------------
+    | Check if string is a valid variable name
+    |---------------------------------------------------------------
+    |
+    | https://stackoverflow.com/questions/3980154/how-to-check-if-a-string-can-be-used-as-a-variable-name-in-php
+    |
+     */
+    public static function valid_variable_names($ar)
+    {
+        $total_array = count($ar);
+        $validate_count = 0;
+
+        foreach ($ar as $key) {
+            if (preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $key)) {
+                // the string is valid
+                $validate_count++;
+            }
+        }
+        if ($total_array === $validate_count) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Check if valid csv string
+     *
+     *
+     * @param  string  $str
+     * @return    bool TRUE or FALSE
+     */
+    public static function is_valid_csv_string($str)
+    {
+        // $string = 'PHP,Java,"Py///&*thon",,,,,Swift';
+        $data = str_getcsv($str);
+
+        /*
+        |---------------------------------------------------------------
+        | Work by looping through array and checking the counts are equal
+        |---------------------------------------------------------------
+         */
+        $total_array = count($data);
+        $validate_count = 0;
+        foreach ($data as $key) {
+            // Also make sure string is only alphanumeric
+            if (self::alpha_numeric($key)) {
+                $validate_count++;
+            }
+        }
+        if ($total_array === $validate_count) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Alpha-numeric
+     *
+     * @param    string
+     * @return    bool
+     */
+    public function alpha_numeric($str)
+    {
+        return ctype_alnum((string) $str);
+    }
+
+    /*
+     |---------------------------------------------------------------
+     | Array utility Helpers below
+     |---------------------------------------------------------------
+      */
+
+    /**
+     * Not in array
+     *
+     * Checks if value isn't already in the array case insensitive
+     * and if it isn't it returns TRUE
+     *
+     * @param  string  $val
+     * @param  mixed  $arr array of values
+     * @return    bool true or false
+     */
+    public static function not_in_array($val, $arr)
+    {
+        $pass = true;
+        foreach ($arr as $key) {
+            if (strtolower($val) == strtolower($key)) {
+                $pass = false;
+            }
+        }
+
+        return $pass;
+    }
+
+    /**
+     * No duplicates
+     *
+     * Check if there are no duplicates in array (case insensitive)
+     *
+     * @param    mixed array $arr
+     * @return    bool true or false
+     */
+    public static function no_duplicates($arr)
+    {
+        // First let's convert all to lower
+        $arr_copy = [];
+        foreach ($arr as $key) {
+            /*
+            |---------------------------------------------------------------
+            | As a side note do a unit test to ensure strtolower
+            | doesn't fail when array contains numeric datatypes
+            |---------------------------------------------------------------
+             */
+            array_push($arr_copy, strtolower($key));
+        }
+        if (count(array_unique($arr_copy)) < count($arr_copy)) {
+            // Array has duplicates
+            return false;
+        } else {
+            // Array does not have duplicates
+            return true;
+        }
+    }
+
     public static function check_permissions($permissionID, $map)
     {
         foreach ($map as $row) {

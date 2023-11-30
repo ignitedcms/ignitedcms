@@ -13,12 +13,10 @@
 
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
-use Illuminate\Support\Facades\DB;
-
 class Matrix
 {
-   public static function test()
-   {
-      echo ("iamfrom the matrix");
-   }
+    public static function test()
+    {
+        echo 'iamfrom the matrix';
+    }
 }
