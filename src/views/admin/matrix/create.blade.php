@@ -32,7 +32,16 @@
                 <!--main part for section styles -->
                 <div class="panel br drop-shadow">
                   <h3>Matrix</h3>
-                   le matrix
+                  <div class="form-group">
+                   <label for="title">Matrix field name</label>
+                   <div class="small text-muted m-b">What this field will be called in the control panel.This MUST be unique and must
+not contain numbers or spaces. You can NOT use the following reserved names: [url,content,id,section,field,entrytitle,entryid]</div>
+                  <input class="form-control" 
+                        name="matrix_name" 
+                        value="" 
+                        placeholder="Start typing" />
+                  </div>
+                  <div class="divider"></div>
                 </div>
 
                 <div class="row">
