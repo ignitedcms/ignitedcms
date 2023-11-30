@@ -110,7 +110,7 @@
                      }); /*End ajax*/
                    },
                   someFunc: function () {
-                  alert('iambeingcalledk')
+
                    @include('ignitedcms::admin.matrix.vue-ajax');
 
                    },

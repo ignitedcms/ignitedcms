@@ -1,5 +1,5 @@
 $.ajax({
-    url: "",
+    url: "{{ url('admin/matrix/add_matrix_block') }}",
     type: 'post',
     async: false, /*must use async false to get data back*/
     context: this, /*IMPORTANT to update vue dom*/
