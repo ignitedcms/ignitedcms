@@ -15,8 +15,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
 
-        <!-- sortables -->
-        <script src="{{ asset('admin/js/sortable.js') }}"></script>
     </head>
 
     <body class="full-screen bg-grey">
@@ -57,21 +55,18 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
-                    hiddenOrder: '',
-                    items: []
+
+                    matrix_name: '',
+                    matrix_name_validation: '', //validation errors
+                    crselect: 'plain-text',
+                    fieldname: '',
+                    instructions: '',
+                    fieldlength: '100',
+                    filetype: 'jpg|png|gif',
+                    variations: 'option1,option2,option3',
+                    matrixContent: [],
                 },
                 methods: {
-                    onClicking() {
-                        var ids = [];
-                        this.items = [];
-                        //get container element children.
-                        var children = document.getElementById("list1").children;
-                        for (var i = 0, len = children.length; i < len; i++) {
-
-                            this.items.push(children[i].id);
-                        }
-                        this.hiddenOrder = this.items.toString();
-                    },
                     toggle_sidemenu() {
                         this.show = !this.show;
                         if (this.show) {
@@ -83,22 +78,49 @@
                     away() {
                         this.show = false;
                         this.styles = 'none'
-                    }
+                    },
+                     save: function () {
+   
+                     $.ajax({
+                       url: "",
+                       type: 'post',
+                       async: false, //must use async false to get data back
+                       context:this, //IMPORTANT to update vue dom
+                       data: {
+                         items: JSON.stringify(
+                           {
+                             'title':this.matrix_name,
+                             'collapsed':false,
+                             'content':this.matrixContent
+                           }
+                         ), /*/MUST use stringify for true false bug*/
+                         matrix_name: this.matrix_name,
+                         csrf_test_name:''
+                       },
+                       dataType: 'text', /*must use text*/
+                       success: function (data) {
+                         if (data == "success")
+                         {
+                             window.location.href = ''
+                         }
+                         else{
+                             this.matrix_name_validation = data;
+                         }
+                       }
+                     }); /*End ajax*/
+                   },
+                  someFunc: function () {
+
+                   @include('ignitedcms::admin.matrix.vue-ajax')
+
+                   },
+                   deleteItem: function (todo) {
+                     this.matrixContent.splice(this.matrixContent.indexOf(todo), 1)
+                   },
+
                 },
                 mounted() {
-                    var list1 = document.getElementById('list1');
-                    var list2 = document.getElementById('list2');
-
-
-                    new Sortable(list1, {
-                        group: 'shared', // set both lists to same group
-                        animation: 150
-                    });
-
-                    new Sortable(list2, {
-                        group: 'shared',
-                        animation: 150
-                    });
+                    //
                 }
             });
         </script>
@@ -114,7 +136,7 @@
                 "iDisplayLength": 10
             });
         </script>
-
     </body>
 
 </html>
+

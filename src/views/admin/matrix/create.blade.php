@@ -50,13 +50,14 @@
                     <div class="matrix-container">
                         <div class="matrix-left">
                             <div class="matrix-left-header">Fields</div>
-                            <div v-for="todo in matrixContent">
-                                <div class="matrix-item">
-                                    {{ todo . title }} ({{ todo . type }})
-                                    <div class="matrix-del m-l" @click="deleteItem(todo)"><i class="fa fa-trash-o"></i>
-                                    </div>
-                                </div>
-                            </div>
+                           @php
+                           // <div v-for="todo in matrixContent">
+                            //    <div class="matrix-item">
+                             //       <div class="matrix-del m-l" @click="deleteItem(todo)"><i class="fa fa-trash-o"></i>
+                              //      </div>
+                               // </div>
+                            //</div>
+                           @endphp
                         </div>
                         <div class="matrix-right">
                             <div class="matrix-left-header">Field settings</div>
@@ -151,7 +152,7 @@
                         </div>
                     </div>
                     <!-- end matrix container -->
-                    <pre>{{ matrixContent }}</pre>
+                    <pre> matrixContent </pre>
                 </div>
                 <div class="col-sm-12">
                     <div class="form-group">
