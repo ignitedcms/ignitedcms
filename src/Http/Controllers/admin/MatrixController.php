@@ -16,6 +16,7 @@ use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
 
 use Helper;
 
@@ -96,10 +97,31 @@ class MatrixController extends Controller
 					echo 'The options MUST be unique! Or invalid csv string!';
 				}
 			}
-			//$this->f_val($validation_matrix);
-         echo 'success';
+         $this->f_val($validation_matrix);
 		}
     }
+
+    /*
+	|---------------------------------------------------------------
+	| Break it up for clarity
+	|---------------------------------------------------------------
+	 */
+	public function f_val($validation_matrix)
+	{
+      $validator = Validator::make($validation_matrix,[
+         'title' => 'required|alpha::asci'
+      ]);
+
+      if($validator->fails())
+      {
+         echo $validator->errors();
+      }
+      else
+      {
+         echo 'success';
+      }
+
+	}
 
     /*
     |---------------------------------------------------------------
