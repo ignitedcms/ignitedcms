@@ -119,7 +119,7 @@ class Helper
      * @param    string
      * @return    bool
      */
-    public function alpha_numeric($str)
+    public static function alpha_numeric($str)
     {
         return ctype_alnum((string) $str);
     }

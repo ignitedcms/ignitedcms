@@ -169,12 +169,23 @@ class Matrix
         // flase flag sets results as object
         // $tmp = json_decode($jsonMatrix,true);
         $arr = [];
-        foreach ($jsonMatrix as $key) {
-            array_push($arr, $key['title']);
+
+        //Needed for first item as it should be empty 
+        if($jsonMatrix == null)
+        {
+          return $arr;
+        }
+        else
+        {
+           foreach ($jsonMatrix as $key) {
+               array_push($arr, $key['title']);
+           }
+
+           // $tmp = array('a','b','c');
+           return $arr;
+
         }
 
-        // $tmp = array('a','b','c');
-        return $arr;
     }
 
 

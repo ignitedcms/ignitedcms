@@ -44,7 +44,9 @@ class MatrixController extends Controller
     public function add_matrix_block(Request $request)
     {
         $data = $request->input('items');
+
         $data2 = json_decode($data);
+
         $validation_matrix = array(
 			'title' => $data2->fieldname,
 			'instructions' => $data2->instructions,
@@ -60,14 +62,43 @@ class MatrixController extends Controller
     public function m_val($matrixContent,$validation_matrix)
     {
        //First one matrixContent should be null
-       if($matrixContent == null)
-       {
-          echo 'success';
-       }
-       else
-       {
          $arr = Matrix::get_fieldnames($matrixContent);
-       }
+      /*
+		|---------------------------------------------------------------
+		| Now check fieldname doesn't conflict with existing array
+		|---------------------------------------------------------------
+		 */
+		$flag = Helper::not_in_array($validation_matrix['title'], $arr);
+
+      if ($flag == false)
+		{
+			echo 'duplicate fieldname';
+		}
+		else
+		{
+
+			// Perform additional check for special fieldtypes
+			// drop-down check-box file-upload
+			if (($validation_matrix['type'] == 'drop-down')
+				|| ($validation_matrix['type'] == 'check-box')
+				|| ($validation_matrix['type'] == 'file-upload'))
+			{
+				$arr = Matrix::get_variations($validation_matrix['variations']);
+				//$flag = Helper::no_duplicates($arr);
+				$flag2 = Helper::is_valid_csv_string($validation_matrix['variations']);
+
+				if ($flag === true && $flag2 === true)
+				{
+					// echo 'success';
+				}
+				else
+				{
+					echo 'The options MUST be unique! Or invalid csv string!';
+				}
+			}
+			//$this->f_val($validation_matrix);
+         echo 'success';
+		}
     }
 
     /*
