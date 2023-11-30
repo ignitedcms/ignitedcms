@@ -55,13 +55,6 @@ class Fields
         });
     }
 
-    //public static function read($id)
-    //{
-    //return DB::table('fields')
-    //->where('id', '=', $id)
-    //->limit(1)
-    //->get();
-    //}
 
     public static function update($id)
     {
