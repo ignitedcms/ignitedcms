@@ -42,6 +42,17 @@ class MatrixController extends Controller
     public function add_matrix_block(Request $request)
     {
         $data = $request->input('items');
+        $data2 = json_decode($data);
+        $validation_matrix = array(
+			'title' => $data2->fieldname,
+			'instructions' => $data2->instructions,
+			'type' => $data2->type,
+			'length' => $data2->length,
+			'variations' => $data2->variations, //comma delimited string
+		);
+      
+        $matrixContent =  $request->input('matrix');   
+        echo 'success';
     }
 
     /*
