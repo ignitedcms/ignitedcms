@@ -55,7 +55,6 @@ class Fields
         });
     }
 
-
     public static function update($id)
     {
         return DB::table('fields')
