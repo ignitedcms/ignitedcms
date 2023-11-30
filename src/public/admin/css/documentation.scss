@@ -99,6 +99,20 @@
     float:left;
     width: 270px;
 
+    &-logout
+    {
+       color:$font-color;
+       font-size:15px;
+       text-decoration: none;
+       transition: all 0.4s;
+
+       &:hover{
+          margin-left:5px;
+          color: $link-color;
+       }
+
+    }
+
     /*                                                                          
     |---------------------------------------------------------------            
     | Now do the styles for the dashboard only                                                
