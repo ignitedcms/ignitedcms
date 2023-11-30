@@ -25,7 +25,7 @@
          </div>
      </div>
       <!-- Needed for POST input -->
-      <input v-bind:name="name" v-bind:value="tmp" >
+      <input v-bind:name="name" v-bind:value="tmp" style="display:none;" >
 </div> 
 <div class="modal" v-if="isShown" v-on:keyup.escape="escapePressed">
    <div class="modal-content fade-in-bottom" @click.stop>
