@@ -12,6 +12,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\MatrixController;
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 //Installer
@@ -22,6 +23,12 @@ Route::middleware('web')->group(function () {
     Route::get('/installer/register', [InstallController::class, 'two']);
     Route::post('/installer/validate_form', [InstallController::class, 'validate_form']);
 });
+
+//matrix
+Route::middleware('web')->group(function () {
+    Route::get('/admin/matrix', [MatrixController::class, 'index']);
+});
+
 
 //assets
 Route::middleware('web')->group(function () {
