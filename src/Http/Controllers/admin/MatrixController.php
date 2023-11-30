@@ -28,9 +28,23 @@ class MatrixController extends Controller
 
    public function create_view()
    {
-      $data = 'foo';
+      $data = 'Matrix';
       return view('ignitedcms::admin.matrix.create')->with([
             'data' => $data,
         ]);
    }
+
+   public function create(Request $request)
+   {
+      echo ("creating matrix");
+   }
+
+   /*                                                                          
+   |---------------------------------------------------------------            
+   | Note for deleting we are just using fields delete
+   | 
+   | Consider matrix editing for later date as logic
+   | is quite complicated.
+   |---------------------------------------------------------------            
+   */       
 }

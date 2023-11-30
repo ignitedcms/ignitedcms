@@ -26,7 +26,6 @@ Route::middleware('web')->group(function () {
 
 //matrix
 Route::middleware('web')->group(function () {
-    Route::get('/admin/matrix', [MatrixController::class, 'index']);
     Route::get('/admin/matrix/create', [MatrixController::class, 'create_view']);
     Route::post('/admin/matrix/create', [MatrixController::class, 'create']);
 });
