@@ -59,7 +59,7 @@
                         <label>[@{{part.title}}]</label>
                         <div class="small text-muted">@{{part.instructions}}</div>
                         <div v-for="y in part.variations">
-                            <input v-model="part.checkedValues" type="checkbox" :value="y" /> @{{y}}
+                            <input v-model="part.checkedValues" class="form-check-input" type="checkbox" :value="y" /> @{{y}}
                         </div>
                     </div>
                 </div>
