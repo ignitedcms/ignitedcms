@@ -18,6 +18,7 @@ use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class MatrixController extends Controller
 {
@@ -45,7 +46,13 @@ class MatrixController extends Controller
         |---------------------------------------------------------------            
         */       
         $validator = Validator::make($request->all(), [
-            'matrix_name' => 'required|unique:fields,name|alpha::asci',
+           'matrix_name' => [
+              'required',
+              'alpha:ascii',
+              'unique:fields,name',
+              Rule::notIn(['url', 'content', 'id', 'section', 'field',
+                    'entryid', 'entrytitle']),
+           ],
         ]);
 
         if ($validator->fails()) {
