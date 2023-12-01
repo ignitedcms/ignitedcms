@@ -104,7 +104,6 @@
                              window.location.href = '{{ url('admin/fields') }}'
                          }
                          else{
-                            alert(data);
                              this.matrix_name_validation = data.matrix_name;
                          }
                        }
