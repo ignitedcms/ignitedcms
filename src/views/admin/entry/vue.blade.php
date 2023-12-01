@@ -67,6 +67,12 @@
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
                         <div class="small text-muted">@{{part.instructions}}</div>
+                        <div class="form-group">
+                           <textarea class="quilljs-textarea" placeholder="Please enter text" 
+                              v-model="part.content">
+
+                           </textarea>
+                        </div>
                            <pre>@{{part.content}}</pre> 
                        quill 
                     </div>
@@ -77,13 +83,13 @@
                         <label class="date">[@{{part.title}}]<br>
                         </label>
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        datepicker
+                        <datepicker v-model="part.content" > </datepicker>
                     </div>
                 </div>
                 <div v-if="part.type == 'switch'">
                     <div class="form-group">
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        switch
+                        <switch-ios v-model="part.content" state="" ></switch-ios>
                         
                     </div>
                 </div>
