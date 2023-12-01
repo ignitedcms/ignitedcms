@@ -102,6 +102,14 @@
                                 {{ $row->formvalidation }}
 
                                 <div class="divider m-b-2"></div>
+                            @elseif ($row->type == 'matrix')
+                                 <h4>Matrix</h4>
+                                <label for="title">[{{ $row->name }}]</label>
+                                <div class="small text-muted">{{ $row->instructions }}</div>
+                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::get_content($entryid, $row->name) }}</textarea>
+
+                                <div class="divider m-b-2"></div>
+
                             @elseif ($row->type == 'multi-line')
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
