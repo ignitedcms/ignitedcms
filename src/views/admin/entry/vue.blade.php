@@ -67,8 +67,8 @@
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
                         <div class="small text-muted">@{{part.instructions}}</div>
+                        <textarea class="quilljs-textarea" placeholder="Please enter text" name="b"></textarea>
                            <pre>@{{part.content}}</pre> 
-                       quill 
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@
                         <label class="date">[@{{part.title}}]<br>
                         </label>
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        datepicker
+                        <datepicker name="foo" value="2000-09-09"></datepicker>
                     </div>
                 </div>
                 <div v-if="part.type == 'switch'">
