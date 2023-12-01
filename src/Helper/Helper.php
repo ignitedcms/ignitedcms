@@ -207,9 +207,9 @@ class Helper
             ->get();
 
         if ($rows->count() > 0) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 
