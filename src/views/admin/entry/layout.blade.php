@@ -27,7 +27,7 @@
         <!-- vue 2 -->
         <script src="{{ asset('admin/js/vue2.js') }}"></script>
         <!-- Include SortableJS from CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+        <script src="{{ asset('admin/js/sortable.js') }}"></script>
 
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
