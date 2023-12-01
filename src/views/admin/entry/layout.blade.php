@@ -141,8 +141,25 @@
                   
                 },
                 mounted() {
-                    //nothing
-                }
+                var self = this;
+                 self.$nextTick(function(){
+                   var sortable = Sortable.create(document.getElementById('items'), {
+                     animation: 250,  // ms, animation speed moving items when sorting, `0` — without animation
+                      easing: "cubic-bezier(1, 0, 0, 1)", // Easing for animation. Defaults to null. See https://easings.net/ for examples.
+                      handle: ".front-matrix-block__header",  // Drag handle selector within list items
+                     onEnd: function(e) {
+                       var clonedItems = self.matrix.filter(function(item){
+                        return item;
+                       });
+                       clonedItems.splice(e.newIndex, 0, clonedItems.splice(e.oldIndex, 1)[0]);
+                       self.matrix = [];
+                       self.$nextTick(function(){
+                         self.matrix = clonedItems;
+                       });
+                     }
+                   }); 
+                 });
+               },
             });
         </script>
 
