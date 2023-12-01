@@ -11,14 +11,13 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
+use Helper;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
-
-use Helper;
 
 class MatrixController extends Controller
 {
@@ -38,20 +37,17 @@ class MatrixController extends Controller
 
     public function create(Request $request)
     {
-       $matrix_name = $request->input('matrix_name');   
+        $matrix_name = $request->input('matrix_name');
 
-      $validator = Validator::make($request->all(),[
-         'matrix_name' => 'required|alpha::asci'
-      ]);
+        $validator = Validator::make($request->all(), [
+            'matrix_name' => 'required|alpha::asci',
+        ]);
 
-       if($validator->fails())
-       {
-         echo $validator->errors();
-       }
-       else
-       {
-         echo 'success';
-       }
+        if ($validator->fails()) {
+            echo $validator->errors();
+        } else {
+            echo 'success';
+        }
 
     }
 
@@ -62,80 +58,70 @@ class MatrixController extends Controller
 
         $data2 = json_decode($data);
 
-        $validation_matrix = array(
-			'title' => $data2->fieldname,
-			'instructions' => $data2->instructions,
-			'type' => $data2->type,
-			'length' => $data2->length,
-			'variations' => $data2->variations, //comma delimited string
-		);
-      
-        $matrixContent =  $request->input('matrix');   
+        $validation_matrix = [
+            'title' => $data2->fieldname,
+            'instructions' => $data2->instructions,
+            'type' => $data2->type,
+            'length' => $data2->length,
+            'variations' => $data2->variations, //comma delimited string
+        ];
+
+        $matrixContent = $request->input('matrix');
         $this->m_val($matrixContent, $validation_matrix);
     }
 
-    public function m_val($matrixContent,$validation_matrix)
+    public function m_val($matrixContent, $validation_matrix)
     {
-       //First one matrixContent should be null
-         $arr = Matrix::get_fieldnames($matrixContent);
-      /*
-		|---------------------------------------------------------------
-		| Now check fieldname doesn't conflict with existing array
-		|---------------------------------------------------------------
-		 */
-		$flag = Helper::not_in_array($validation_matrix['title'], $arr);
+        //First one matrixContent should be null
+        $arr = Matrix::get_fieldnames($matrixContent);
+        /*
+          |---------------------------------------------------------------
+          | Now check fieldname doesn't conflict with existing array
+          |---------------------------------------------------------------
+           */
+        $flag = Helper::not_in_array($validation_matrix['title'], $arr);
 
-      if ($flag == false)
-		{
-			echo 'duplicate fieldname';
-		}
-		else
-		{
+        if ($flag == false) {
+            echo 'duplicate fieldname';
+        } else {
 
-			// Perform additional check for special fieldtypes
-			// drop-down check-box file-upload
-			if (($validation_matrix['type'] == 'drop-down')
-				|| ($validation_matrix['type'] == 'check-box')
-				|| ($validation_matrix['type'] == 'file-upload'))
-			{
-				$arr = Matrix::get_variations($validation_matrix['variations']);
-				//$flag = Helper::no_duplicates($arr);
-				$flag2 = Helper::is_valid_csv_string($validation_matrix['variations']);
+            // Perform additional check for special fieldtypes
+            // drop-down check-box file-upload
+            if (($validation_matrix['type'] == 'drop-down')
+                || ($validation_matrix['type'] == 'check-box')
+                || ($validation_matrix['type'] == 'file-upload')) {
+                $arr = Matrix::get_variations($validation_matrix['variations']);
+                //$flag = Helper::no_duplicates($arr);
+                $flag2 = Helper::is_valid_csv_string($validation_matrix['variations']);
 
-				if ($flag === true && $flag2 === true)
-				{
-					// echo 'success';
-				}
-				else
-				{
-					echo 'The options MUST be unique! Or invalid csv string!';
-				}
-			}
-         $this->f_val($validation_matrix);
-		}
+                if ($flag === true && $flag2 === true) {
+                    // echo 'success';
+                } else {
+                    echo 'The options MUST be unique! Or invalid csv string!';
+                }
+            }
+            $this->f_val($validation_matrix);
+        }
     }
 
     /*
-	|---------------------------------------------------------------
-	| Break it up for clarity
-	|---------------------------------------------------------------
-	 */
-	public function f_val($validation_matrix)
-	{
-      $validator = Validator::make($validation_matrix,[
-         'title' => 'required|alpha::asci'
-      ]);
+    |---------------------------------------------------------------
+    | Break it up for clarity
+    |---------------------------------------------------------------
+     */
+    public function f_val($validation_matrix)
+    {
+        $validator = Validator::make($validation_matrix, [
+            'title' => 'required|alpha::asci',
+        ]);
 
-      if($validator->fails())
-      {
-         echo $validator->errors();
-      }
-      else
-      {
-         echo 'success';
-      }
+        if ($validator->fails()) {
+            echo $validator->errors();
+        } else {
+            echo 'success';
+        }
 
-	}
+    }
 
     /*
     |---------------------------------------------------------------

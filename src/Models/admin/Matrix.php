@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Schema;
 
 class Matrix
 {
-
     /**
      *  @Description: Add new matrix fields to database
      *
@@ -170,24 +169,20 @@ class Matrix
         // $tmp = json_decode($jsonMatrix,true);
         $arr = [];
 
-        //Needed for first item as it should be empty 
-        if($jsonMatrix == null)
-        {
-          return $arr;
-        }
-        else
-        {
-           foreach ($jsonMatrix as $key) {
-               array_push($arr, $key['title']);
-           }
+        //Needed for first item as it should be empty
+        if ($jsonMatrix == null) {
+            return $arr;
+        } else {
+            foreach ($jsonMatrix as $key) {
+                array_push($arr, $key['title']);
+            }
 
-           // $tmp = array('a','b','c');
-           return $arr;
+            // $tmp = array('a','b','c');
+            return $arr;
 
         }
 
     }
-
 
     /**
      * Get a list of all the variations from json matrixContent
