@@ -74,9 +74,9 @@
                             <div class="matrix-left-header">Field settings</div>
                             <div class="matrix-right-container">
                                 <div class="form-group">
-                                    <label>Field Name</label>
+                                    <label>Field Name <span class="text-danger">*</span></label>
                                     <div class="small text-muted">(This cannot be empty and must be unique and contain no spaces or
-                                        numbers)
+                                        numbers) You can NOT use the following reserved names: [url,content,id,section,field,entrytitle,entryid]
                                     </div>
                                     <input v-model="fieldname" type="text" class="form-control" 
                                          value="">

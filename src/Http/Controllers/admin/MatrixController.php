@@ -130,7 +130,12 @@ class MatrixController extends Controller
     public function f_val($validation_matrix)
     {
         $validator = Validator::make($validation_matrix, [
-            'title' => 'required|alpha::asci',
+           'title' => [
+              'required',
+              'alpha:ascii',
+              Rule::notIn(['url', 'content', 'id', 'section', 'field',
+                  'entryid', 'entrytitle']),
+           ]
         ]);
 
         if ($validator->fails()) {
