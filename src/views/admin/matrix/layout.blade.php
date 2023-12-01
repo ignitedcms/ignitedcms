@@ -101,7 +101,7 @@
                        success: function (data) {
                          if (data == "success")
                          {
-                             window.location.href = ''
+                             window.location.href = '{{ url('admin/fields') }}'
                          }
                          else{
                             alert(data);
