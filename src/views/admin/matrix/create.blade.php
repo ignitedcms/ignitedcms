@@ -60,10 +60,12 @@
                         <div class="matrix-left">
                             <div class="matrix-left-header">Fields</div>
                             <div v-for="todo in matrixContent">
-                                <div class="matrix-item">
+                                <div class="matrix-item no-select">
                                      @{{todo.title}} (@{{todo.type}})
-                                    <div class="m-l-3 hand" @click="deleteItem(todo)">
-                                       x 
+                                    <div class="hand m-l-2 p badge badge-danger" @click="deleteItem(todo)">
+                                       <span class="text-black">
+                                          Delete
+                                       </span>
                                     </div>
                                 </div>
                             </div>
