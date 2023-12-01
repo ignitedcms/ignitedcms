@@ -84,7 +84,7 @@
                      $.ajax({
                        url: "{{ url('admin/matrix/create') }}",
                        type: 'post',
-                       async: false, //must use async false to get data back
+                       async: true, //must use async false to get data back
                        context:this, //IMPORTANT to update vue dom
                        data: {
                          items: JSON.stringify(
@@ -104,6 +104,7 @@
                              window.location.href = ''
                          }
                          else{
+                            alert(data);
                              this.matrix_name_validation = data;
                          }
                        }

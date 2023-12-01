@@ -38,7 +38,21 @@ class MatrixController extends Controller
 
     public function create(Request $request)
     {
-        echo 'creating matrix';
+       $matrix_name = $request->input('matrix_name');   
+
+      $validator = Validator::make($request->all(),[
+         'matrix_name' => 'required|alpha::asci'
+      ]);
+
+       if($validator->fails())
+       {
+         echo $validator->errors();
+       }
+       else
+       {
+         echo 'success';
+       }
+
     }
 
     //ajax response
