@@ -103,6 +103,7 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
+                                 {{ $row->opts }}
                                  <h4>Matrix</h4>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
