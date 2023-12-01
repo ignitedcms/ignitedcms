@@ -104,6 +104,8 @@
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
                                 <div @click="goNow({{ $row->id }})" class="btn btn-white m-b-2">add</div>  
+                              <input style='' type='text' name='{{ $row->name }}' 
+                                 id='{{ $row->name }}' v-model='JSON.stringify(matrix)' />
                                  @include('ignitedcms::admin.entry.vue')
 
                                 <div class="divider m-b-2"></div>
