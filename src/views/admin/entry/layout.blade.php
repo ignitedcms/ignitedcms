@@ -116,15 +116,16 @@
                     },
 
                      //Matrix
-                    goNow:function(index)
+                    goNow:function(idx)
                     {
                         var d = "";
+                        alert(idx);
 
                         $.ajax({
                         url: "{{ url('admin/matrix/add_matrix_block2') }}",
                         type: 'post',
                         async:false,
-                        data: {index:index,"_token": "{{ csrf_token() }}"},
+                        data: {"idx":idx,"_token": "{{ csrf_token() }}"},
                         dataType: 'json',
                         success: function (data) {
                               d = data

@@ -71,13 +71,13 @@ class MatrixController extends Controller
     }
 
     //for frontend
-    public function add_matrix_block2()
+    public function add_matrix_block2(Request $request)
     {
-       //$fieldName =  $request->input('index');   
+       $fieldid =  $request->input('idx');   
 
        $query= DB::table('fields')
           ->select('*')
-          ->where('id','=', '11')
+          ->where('id','=', $fieldid)
          ->get();
 
           echo ($query[0]->opts);
