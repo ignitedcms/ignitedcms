@@ -49,7 +49,7 @@ class MatrixController extends Controller
         ]);
 
         if ($validator->fails()) {
-            echo ($validator->errors('matrix_name'));
+            echo ($validator->errors());
         } else {
 
            $items = $request->input('items');      
