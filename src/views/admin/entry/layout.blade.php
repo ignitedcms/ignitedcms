@@ -119,7 +119,6 @@
                     goNow:function(idx)
                     {
                         var d = "";
-                        alert(idx);
 
                         $.ajax({
                         url: "{{ url('admin/matrix/add_matrix_block2') }}",

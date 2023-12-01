@@ -103,7 +103,7 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})">add</div>  
+                                <div @click="goNow({{ $row->id }})" class="btn btn-white m-b-2">add</div>  
                                  @include('ignitedcms::admin.entry.vue')
 
                                 <div class="divider m-b-2"></div>

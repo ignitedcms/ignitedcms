@@ -1,4 +1,4 @@
- <pre>@{{matrix}}</pre> 
+ <pre class="code">@{{matrix}}</pre> 
 <!-- This id is needed for sortable	 -->
 <div id="items">
     <div class="front-matrix-block" v-for="row in matrix">
@@ -13,36 +13,33 @@
                 <div v-if="part.type == 'plain-text'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <input v-model="part.content" type="text" class="form-control" placeholder="Type here"
-                            data-toggle="tooltip" data-placement="top" value="" data-original-title="" title="">
-                        <!-- <div class="errors">some error</div> -->
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        <input v-model="part.content" type="text" class="form-control" placeholder="Type here">
+                            
                     </div>
                 </div>
                 <div v-if="part.type == 'number'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <input v-model="part.content" type="text" class="form-control" placeholder="Type here"
-                            data-toggle="tooltip" data-placement="top" value="" data-original-title="" title="">
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        <input v-model="part.content" type="text" class="form-control" placeholder="Type here">
                         
                     </div>
                 </div>
                 <div v-if="part.type == 'color'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <input v-model="part.content" type="color" class="form-control" placeholder="Type here"
-                            data-toggle="tooltip" data-placement="top" value="" data-original-title="" title="">
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        <input v-model="part.content" type="color" class="form-control" placeholder="Type here">
                     </div>
                 </div>
                 
                 <div v-if="part.type=='multi-line'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <textarea v-model="part.content" class="form-control" rows="5" data-required="true"
-                            placeholder="Type here" data-toggle="tooltip" data-placement="top" title=""></textarea>
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        <textarea v-model="part.content" class="form-control" rows="5" 
+                       placeholder="Type here"></textarea>
                     </div>
                 </div>
 
@@ -50,7 +47,7 @@
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
                         <div class="igs-small">@{{part.instructions}}</div>
-                        <select class="form-control" v-model="part.content">
+                        <select class="form-select" v-model="part.content">
                             <option v-for="y in part.variations" :value="y">
                                 @{{y}}
                             </option>
@@ -60,7 +57,7 @@
                 <div v-if="part.type=='check-box'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
+                        <div class="small text-muted">@{{part.instructions}}</div>
                         <div v-for="y in part.variations">
                             <input v-model="part.checkedValues" type="checkbox" :value="y" /> @{{y}}
                         </div>
@@ -69,7 +66,7 @@
                 <div v-if="part.type=='rich-text'">
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
-                        <div class="igs-small">@{{part.instructions}}</div>
+                        <div class="small text-muted">@{{part.instructions}}</div>
                            <pre>@{{part.content}}</pre> 
                        quill 
                     </div>
@@ -79,16 +76,15 @@
                     <div class="form-group">
                         <label class="date">[@{{part.title}}]<br>
                         </label>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <vuejs-datepicker input-class="form-control" v-model="part.content" ></vuejs-datepicker>
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        datepicker
                     </div>
                 </div>
                 <div v-if="part.type == 'switch'">
                     <div class="form-group">
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <label class="switch">[@{{part.title}}]<br>
-                            <input type="checkbox" value="1" v-model="part.content" /> <span></span>
-                        </label>
+                        <div class="small text-muted">@{{part.instructions}}</div>
+                        switch
+                        
                     </div>
                 </div>
                 <div v-if="part.type == 'file-upload'">
