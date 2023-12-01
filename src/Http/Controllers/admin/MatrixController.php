@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class MatrixController extends Controller
 {
@@ -67,6 +68,19 @@ class MatrixController extends Controller
            echo json_encode('success');
         }
 
+    }
+
+    //for frontend
+    public function add_matrix_block2()
+    {
+       //$fieldName =  $request->input('index');   
+
+       $query= DB::table('fields')
+          ->select('*')
+          ->where('id','=', '11')
+         ->get();
+
+          echo ($query[0]->opts);
     }
 
     //ajax response
