@@ -40,12 +40,15 @@ class EntryController extends Controller
 
         $assets = Asset::all(); //quick fix for vue component
 
+        //We also need to pass a blank matrix to the layout
+        $matrix = '';
 
         return view('ignitedcms::admin.entry.index')->with([
             'data' => $data,
             'data2' => $data2,
             'data3' => $data3,
             'assets' => $assets,
+            'matrix' => $matrix,
         ]);
     }
 
@@ -85,13 +88,14 @@ class EntryController extends Controller
         $data = Entry::section_all_fields($sectionid);
         $assets = Asset::all();
 
-        //$data['matrix'] = Matrix::get_matrix($sectionid, $entryid);
+        $matrix = Matrix::get_matrix($sectionid, $entryid);
 
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,
             'assets' => $assets,
             'entryid' => $entryid,
             'sectionid' => $sectionid,
+            'matrix' => $matrix
         ]);
     }
 

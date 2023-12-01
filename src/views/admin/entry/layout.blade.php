@@ -90,7 +90,16 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
-                                       
+                     
+                    //Matrix tests
+                    hideApp: false,
+                    count: 0,
+                    assetId: '',
+                    fieldname: '',
+                    is_matrix: false,                    
+                    matrix:[
+                      <?= $matrix ?>
+                    ]
                 },
                 methods: {
                     toggle_sidemenu() {
@@ -104,6 +113,30 @@
                     away() {
                         this.show = false;
                         this.styles = 'none'
+                    },
+
+                     //Matrix
+                    goNow:function(index)
+                    {
+                        var d = "";
+
+                        $.ajax({
+                        url: "{{ url('admin/matrix/add_matrix_block2') }}",
+                        type: 'post',
+                        async:false,
+                        data: {index:index,"_token": "{{ csrf_token() }}"},
+                        dataType: 'json',
+                        success: function (data) {
+                              d = data
+                            }
+                        });
+                        
+                        //use async to pass back to DOM
+                        this.matrix.push(d);
+                    },
+                    deleteItem:function(ind)
+                    {
+                        this.matrix.splice(this.matrix.indexOf(ind),1)
                     },
                   
                 },
