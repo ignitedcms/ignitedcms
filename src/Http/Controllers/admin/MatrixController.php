@@ -39,14 +39,25 @@ class MatrixController extends Controller
     {
         $matrix_name = $request->input('matrix_name');
 
+        /*                                                                          
+        |---------------------------------------------------------------            
+        | Warning need to do reserved words
+        |---------------------------------------------------------------            
+        */       
         $validator = Validator::make($request->all(), [
-            'matrix_name' => 'required|alpha::asci',
+            'matrix_name' => 'required|unique:fields,name|alpha::asci',
         ]);
 
         if ($validator->fails()) {
             echo $validator->errors();
         } else {
-            echo 'success';
+
+           $items = $request->input('items');      
+           $data = json_encode($items);
+
+           Matrix::add_matrix($matrix_name, $data);
+
+           echo 'success';
         }
 
     }
