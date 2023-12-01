@@ -49,7 +49,7 @@ class MatrixController extends Controller
         ]);
 
         if ($validator->fails()) {
-            echo $validator->errors();
+            echo ($validator->errors('matrix_name'));
         } else {
 
            $items = $request->input('items');      
@@ -57,7 +57,7 @@ class MatrixController extends Controller
 
            Matrix::add_matrix($matrix_name, $data);
 
-           echo 'success';
+           echo json_encode('success');
         }
 
     }

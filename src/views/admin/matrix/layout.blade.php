@@ -97,7 +97,7 @@
                          matrix_name: this.matrix_name,
                          "_token": "{{ csrf_token() }}"
                        },
-                       dataType: 'text', /*must use text*/
+                       dataType: 'json', /*must use text*/
                        success: function (data) {
                          if (data == "success")
                          {
@@ -105,7 +105,7 @@
                          }
                          else{
                             alert(data);
-                             this.matrix_name_validation = data;
+                             this.matrix_name_validation = data.matrix_name;
                          }
                        }
                      }); /*End ajax*/
