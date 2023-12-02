@@ -64,7 +64,7 @@ class Matrix
     {
 
         //get all the fields
-
+       $matrix = '';
         $query = DB::table('section_layout')
             ->select('*')
             ->where('sectionid', '=', $sectionid)
