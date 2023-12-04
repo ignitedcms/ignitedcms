@@ -58,6 +58,12 @@
         <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
 
         <script>
+           feather.replace({
+              class: "font-primary",
+           });
+        </script>
+
+        <script>
          Vue.component('asset-container',{
                  template: 
                  `<div>
@@ -163,11 +169,7 @@
             });
         </script>
 
-        <script>
-            feather.replace({
-                class: "font-primary",
-            });
-        </script>
+        
 
         <script>
             $('#example').dataTable({
