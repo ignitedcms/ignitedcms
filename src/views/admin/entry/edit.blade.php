@@ -185,7 +185,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
-                                    state="{{ Helper::get_switch_state($entryid, $row->name) }}"></switch-ios>
+                                    value="{{ Helper::get_content($entryid, $row->name) }}"></switch-ios>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @else
