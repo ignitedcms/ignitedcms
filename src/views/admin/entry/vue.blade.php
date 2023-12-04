@@ -77,14 +77,14 @@
                         <label class="date">[@{{part.title}}]<br>
                         </label>
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        <datepicker name="foo" value="2000-09-09"></datepicker>
+                        <datepicker v-model="part.content"></datepicker>
                     </div>
                 </div>
                 <div v-if="part.type == 'switch'">
                     <div class="form-group">
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        switch
-                        
+                        <switch-ios v-model="part.content" ></switch-ios>                        
+
                     </div>
                 </div>
                 <div v-if="part.type == 'file-upload'">
