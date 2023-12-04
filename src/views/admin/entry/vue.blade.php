@@ -5,7 +5,11 @@
         <div class="front-matrix-block__header">
             @{{row.title}}
             <div class="matrix-collapse" @click="row.collapsed = !row.collapsed">collapse</div>
-            <div class="matrix-del" @click="deleteItem(row)"><i class="fa fa-trash-o"></i></div>
+            <div class="matrix-del" @click="deleteItem(row)">
+               <span>
+                  <i data-feather="trash"></i>    
+               </span>
+            </div>
         </div>
 
         <div v-for="part in row.content" v-if="row.collapsed == false">
