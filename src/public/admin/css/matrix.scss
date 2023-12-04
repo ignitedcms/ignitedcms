@@ -1,0 +1,187 @@
+// Utilities
+@import "variables";
+
+
+// Styles for the backend builder
+.matrix-spacer {
+    width: 100%;
+    background-color: #f2f2f2;
+    height: 2px;
+}
+
+.matrix-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $background;
+    border: 1px solid #c0c0c0;
+    margin-bottom: 20px;
+}
+
+.matrix-left {
+    width: 30%;
+    background-color: #ffffff;
+    border-right: 1px solid #c0c0c0;
+
+    &-header {
+        height: 40px;
+        padding-left: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: $background;
+        font-weight: bold;
+        color: #333333;
+        border-bottom: 1px solid #c0c0c0;
+    }
+}
+
+.matrix-right {
+    width: 70%;
+    background-color: #fafafa;
+
+    &-container {
+        padding: 20px;
+    }
+}
+
+.matrix-item {
+    position: relative;
+    height: 50px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: $primary;
+    font-size: 12px;
+    color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.matrix-del {
+    // position: absolute;
+    height: 20px;
+    width: 20px;
+    // top: 10px;
+    // right: 5px;
+    cursor: pointer;
+}
+
+.matrix-collapse{
+
+    // position: absolute;
+    height: 20px;
+    width: 20px;
+    // top: 10px;
+    // right: 45px;
+    cursor: pointer;
+}
+
+//--------------------------------------------------------
+// | Styles for the entry page underneath
+// |
+//--------------------------------------------------------
+
+.front-matrix-block {
+    margin-top: 10px;
+    background-color: #fafafa;
+    border: 1px solid #c0c0c0;
+
+    &__content {
+        padding: 20px;
+    }
+
+
+    &__header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: $background;
+        font-weight: bold;
+        color: #333333;
+        border-bottom: 1px solid #c0c0c0;
+        cursor: pointer;
+    }
+}
+
+//--------------------------------------------------------
+// | Styles for the asset container 
+// |
+//--------------------------------------------------------
+.asset-container-cms {
+    background-color: $background;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 10px;
+    margin-top: 10px;
+    height: 400px;
+    overflow-y: scroll;
+
+    &__item {
+        margin-right: 20px;
+        float:left;
+        cursor: pointer;
+        transition: 0.4s all;
+        &:hover {
+            transform: translateY(-5px) ;
+        }
+    }
+}
+
+.img-save {
+    position: relative;
+    height: 40px;
+    width: 40px;
+
+    &-class {
+        height: 40px;
+        width: 40px;
+    }
+
+    &-rem {
+        position: absolute;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        flex-direction: row;
+        height: 30px;
+        width: 30px;
+        border-radius:20px;
+        cursor: pointer; 
+        background-color: $background;
+        color: $primary;
+        top: -10px;
+        right: -10px;
+    }
+}
+
+//style for the hideApp div
+//This is for the new upload
+//Will toggle the main app id to visible or hidden
+.hide-app{
+    cursor: pointer;
+    position: relative;
+    margin-top: 5px;
+    color: $primary;
+}
+
+
+//--------------------------------------------------------
+// | Styles for the rich text code block 
+//--------------------------------------------------------
+.quill-code-block{
+    background-color: #333333;
+    color:#ffffff;
+}
