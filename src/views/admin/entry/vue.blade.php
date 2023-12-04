@@ -98,7 +98,7 @@
                         </div>
                         <div class="igs-small">@{{part.instructions}}</div>
                         <div class="col-sm-3">
-                            <div class="btn btn-white btn-s-xs" v-on:click="part.showAssets = !part.showAssets">
+                            <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
                                 <i class="fa fa-plus"></i>
                                 <strong>Add an asset</strong>
                             </div>
