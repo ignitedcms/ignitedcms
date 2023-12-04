@@ -20,10 +20,10 @@ template: `
 
       <label for="date">{{name}}</label>
       <br>
-      <button class="form-control left" style="width:330px; height:40px; " :name="name" :value="value" 
+      <div class="form-control left" style="width:330px; height:40px; " :name="name" :value="value" 
          @input="updateDate($event.target.value)"  v-on:click="show =!show">
          {{message}}
-      </button>
+      </div>
       <div class="date-flyout drop-shadow fade-in" v-show="show" >
         <div class="date-buttons-container">
             <button type="button" class="date-button rm-btn-styles" @click="previous()">
