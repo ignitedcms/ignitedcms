@@ -5,7 +5,7 @@
       justify-content: center; 
       align-items: center;
       flex-direction: row;
-      padding: 5px;
+      padding: 3px;
       background-color: $primary;
       color: #ffffff;
       cursor: pointer;
@@ -17,20 +17,20 @@
 }
 
 .date-container {
-    max-width: 350px;
+    max-width: 330px;
     // margin: 0 auto;
 }
 
 .date-flyout{
     position: relative;
-    min-height: 425px;
-    min-width: 350px;
+    min-height: 360px;
+    min-width: 330px;
     margin-top:10px;
-    padding: 15px;
+    padding: 10px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: $border-radius;
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -45,8 +45,12 @@
 .year-box{
     padding:5px;
     border: 1px solid #ccc;
-    border-radius: $border-radius;
+    border-radius: 5px;
     cursor: pointer;
+
+    &:hover{
+       background-color:$light-grey;
+    }
 }
 
 .date-chunk{
@@ -77,11 +81,11 @@
 
 .date-button {
     position: relative;
-    padding: 5px;
-    width: 40px;
-    height: 40px;
+    padding: 3px;
+    width: 30px;
+    height: 30px;
     background-color: #ffffff;
-    border-radius: 30px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,6 +93,11 @@
     cursor: pointer;
     user-select: none;
     border: 1px solid #cccccc;
+
+    &:hover{
+       background-color:$light-grey;
+    }
+
 }
 
 .cal {
@@ -104,9 +113,8 @@
     cursor: pointer;
 
     &:hover {
-        background-color: $primary;
+        background-color: $light-grey;
         border-radius: 4px;
-        color: #ffffff;
     }
 
     &-no-hover{
@@ -122,10 +130,10 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    color: #222222;
+    color: #666;
     position: relative;
     float: left;
     width: 14.2857142857%;
-    min-height: 50px;
+    min-height: 40px;
 
 }

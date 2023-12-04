@@ -19,9 +19,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        //height:70px;
         flex-direction: row;
-        border: 1px solid $grey;
+        border-bottom: 1px solid $grey;
         margin-top: -1px;
+        color:#777;
+
 
 
         @media (max-width:$tablet){
@@ -35,21 +38,26 @@
     | Target the first row which is the header
     |---------------------------------------------------------------
     */
+    &-row:nth-child(even){
+        background-color:$background;
+     }
+
     &-row:first-child {
-        background-color: $light-grey;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        //background-color: $light-grey;
+        //border-top-left-radius: 5px;
+        //border-top-right-radius: 5px;
+        border-bottom: 1px solid #ccc;
         cursor: pointer;
         font-family: inherit;
         font-weight: bold;
-        color: #333;
+        color: $font-color;
     }
 
     
     &-row:last-child {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        box-shadow: $shadow;
+        //border-bottom-left-radius: 5px;
+        //border-bottom-right-radius: 5px;
+        //box-shadow: $shadow;
     }
 
 

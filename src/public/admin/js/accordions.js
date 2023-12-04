@@ -30,9 +30,15 @@ Vue.component('accordion-item',{
     <div class="row">
         <div class="col no-margin">
             <button type="button" class="accordion-title rm-btn-styles" @click="toggle">
+               <div>
                 {{title}}
+               </div>
+
+                  <span >
+                     <i data-feather="chevron-down"></i>    
+                  </span>
             </button>
-            <div class="accordion-content" v-if="is_active">
+            <div class="accordion-content fade-in" v-if="is_active">
                 <slot></slot>
             </div>
         </div>

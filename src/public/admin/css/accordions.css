@@ -5,20 +5,29 @@
 |
 */
 .accordion-title {
-  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   width: 100% !important;
+  font-size: 19px;
+  line-height: 24px;
   user-select: none;
   cursor: pointer;
   transition: all 0.4s;
 }
 .accordion-title:hover {
-  background-color: #292F3E;
-  color: #fff;
+  text-decoration: underline;
 }
 .accordion-content {
-  padding: 30px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=accordions.css.map */

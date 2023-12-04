@@ -99,20 +99,6 @@
     float:left;
     width: 270px;
 
-    &-logout
-    {
-       color:#ffffff;
-       font-size:15px;
-       text-decoration: none;
-       transition: all 0.4s;
-
-       &:hover{
-          margin-left:5px;
-          color: $link-color;
-       }
-
-    }
-
     /*                                                                          
     |---------------------------------------------------------------            
     | Now do the styles for the dashboard only                                                
@@ -239,7 +225,7 @@
     margin-left:270px;
     margin-bottom:20px;
     float:left;
-    width: 1000px;
+    width: 800px;
     height:100vh;
 
     @media screen and (max-width:$tablet) {

@@ -10,13 +10,12 @@
 |
 */
 Vue.component('switchIos',{
-    props:['name','state'],
+    props:['name', 'value'],
     template: 
     `
     <label class="form-switch">
 
-    <input :name="name" type="hidden"  value="0" />
-    <input :name="name" type="checkbox"  value="1" :checked="state" />
+    <input :name="name" type="checkbox"  :checked="value" @change="handleChange" />
     <i></i> <div class="switch-text">{{message}}</div>
     </label>
     `,
@@ -26,7 +25,12 @@ Vue.component('switchIos',{
             message: 'Yes/no',
             show: false,
         }
+    },
+    methods: {
+    handleChange(event) {
+      this.$emit('input', event.target.checked);
     }
+  }
 });
 
 

@@ -8,7 +8,7 @@
   border-radius: 5px;
   width: 40px;
   height: 40px;
-  background-color: #292F3E;
+  background-color: #C73B4D;
   padding: 20px;
   margin-right: 10px;
 }
@@ -95,16 +95,6 @@
   | This only displays on mobile                                                
   |---------------------------------------------------------------            
   */
-}
-.sidebar-logout {
-  color: #ffffff;
-  font-size: 15px;
-  text-decoration: none;
-  transition: all 0.4s;
-}
-.sidebar-logout:hover {
-  margin-left: 5px;
-  color: #007bd9;
 }
 .sidebar-dark {
   position: fixed;
@@ -205,7 +195,7 @@
   margin-left: 270px;
   margin-bottom: 20px;
   float: left;
-  width: 1000px;
+  width: 800px;
   height: 100vh;
 }
 @media screen and (max-width: 900px) {

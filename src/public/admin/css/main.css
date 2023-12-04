@@ -7,6 +7,9 @@
 @import url("buttons.css");
 @import url("drop-downs.css");
 @import url("dashboard.css");
+@import url("datatables.css");
+@import url("drawer.css");
+@import url("filemenu.css");
 @import url("animations.css");
 @import url("tabs.css");
 @import url("switch.css");
@@ -32,5 +35,3 @@
 @import url("trees.css");
 @import url("random.css");
 @import url("landing.css");
-@import url("datatables.css");
-@import url("matrix.css");

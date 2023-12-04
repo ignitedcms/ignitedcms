@@ -3,8 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  padding: 5px;
-  background-color: #292F3E;
+  padding: 3px;
+  background-color: #C73B4D;
   color: #ffffff;
   cursor: pointer;
 }
@@ -14,19 +14,19 @@
 }
 
 .date-container {
-  max-width: 350px;
+  max-width: 330px;
 }
 
 .date-flyout {
   position: relative;
-  min-height: 425px;
-  min-width: 350px;
+  min-height: 360px;
+  min-width: 330px;
   margin-top: 10px;
-  padding: 15px;
+  padding: 10px;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .date-buttons-container {
@@ -42,6 +42,9 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+}
+.year-box:hover {
+  background-color: rgb(243, 243, 243);
 }
 
 .date-chunk {
@@ -68,11 +71,11 @@
 
 .date-button {
   position: relative;
-  padding: 5px;
-  width: 40px;
-  height: 40px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
   background-color: #ffffff;
-  border-radius: 30px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +83,9 @@
   cursor: pointer;
   user-select: none;
   border: 1px solid #cccccc;
+}
+.date-button:hover {
+  background-color: rgb(243, 243, 243);
 }
 
 .cal {
@@ -95,9 +101,8 @@
   cursor: pointer;
 }
 .cal:hover {
-  background-color: #292F3E;
+  background-color: rgb(243, 243, 243);
   border-radius: 4px;
-  color: #ffffff;
 }
 .cal-no-hover:hover {
   background-color: #ffffff;
@@ -109,11 +114,11 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  color: #222222;
+  color: #666;
   position: relative;
   float: left;
   width: 14.2857142857%;
-  min-height: 50px;
+  min-height: 40px;
 }
 
 /*# sourceMappingURL=datepicker.css.map */
