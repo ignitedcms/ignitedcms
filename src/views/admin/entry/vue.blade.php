@@ -155,7 +155,7 @@
                                             {{ $field->kind }}
                                          </div>
                                          <div class="col v-a">
-                                            <div v-on:click="part.content = '<?=$field->url ?>'; part.showAssets = false"> 
+                                            <div v-on:click="part.content = '{{$field->url}}'; part.showAssets = false"> 
                                                <div type="submit" class="drop-shadow p-l p-r b br bg-white">Add</div>
                                             </div>
                                          </div>
