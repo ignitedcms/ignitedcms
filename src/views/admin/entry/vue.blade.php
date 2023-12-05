@@ -126,30 +126,45 @@
 
                     </div>
                     <!-- modal -->
-                    <div class="modal-cms" v-if="part.showAssets">
-                            <div class="modal-content-cms">
-                                <div class="modal-header-cms">
-                                    <button class="rm-btn-styles close" v-on:click="part.showAssets =!part.showAssets" >&times;</button>
-                                    <h4>Asset Library</h4>
+                    <div class="modal" v-if="part.showAssets">
+                            <div class="modal-content fade-in-bottom">
+                                <div class="modal-header">
+                                    <button class="rm-btn-styles close m-t" v-on:click="part.showAssets =!part.showAssets" >&times;</button>
+                                    <h4 class="m-t">Asset Library</h4>
                                 </div>
-                                <div class="modal-body-cms">
-                                    <div class="row">
-                                        <div class="col-sm-12 mt">
-                                            <div class="form-group">
-                                             assets
+                                <div class="modal-body">
+                                    
+                                   <div class="p-3">
+
+                                      <div class="row b-b">
+                                         <div class="col"><h4>Preview </h4></div>
+                                         <div class="col"><h4>Handle </h4></div>
+                                         <div class="col"><h4>Type </h4></div>
+                                         <div class="col"><h4>Action </h4></div>
+                                      </div>
+
+                                      @foreach ($assets as $field)
+                                      <div class="row b-b">
+                                         <div class="col">
+                                            <img src="{{ $field->thumb }}"></img>
+                                         </div>
+                                         <div class="col v-a">
+                                            {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
+                                         </div>
+                                         <div class="col v-a">
+                                            {{ $field->kind }}
+                                         </div>
+                                         <div class="col v-a">
+                                            <div v-on:click="part.content = '<?=$field->url ?>'; part.showAssets = false"> 
+                                               <div type="submit" class="drop-shadow p-l p-r b br bg-white">Add</div>
                                             </div>
-                                        </div>
-                                    </div>
+                                         </div>
+                                      </div>
+                                      @endforeach
+
+                                   </div>
                                 </div>
-                                <div class="modal-footer-cms">
-                                    <div class="row">
-                                        <div class="col-sm-12 right">
-                                            <div class="form-group">
-                                                <div class="btn btn-purplet pull-right"><strong>Cancel</strong></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                         <!-- end modal -->
