@@ -108,7 +108,7 @@
                     matrix:[
                       <?= $matrix ?>
                     ],
-                   foo:'bar',
+                   singleRichtext : {{ $singleRichtext }},
                    editorOption: {
                         modules: {
                         toolbar: [

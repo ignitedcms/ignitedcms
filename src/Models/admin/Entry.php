@@ -98,7 +98,7 @@ class Entry
     }
 
     //A funky way to handle single rich text fields in the entries
-     public function get_single_richtextfields($sectionid, $entryid)
+    public static function get_single_richtextfields($sectionid, $entryid)
     {
        $query = DB::table('section_layout')
           ->select('*')

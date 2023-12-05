@@ -90,12 +90,16 @@ class EntryController extends Controller
 
         $matrix = Matrix::get_matrix($sectionid, $entryid);
 
+        //Pass the single rich text boxes to footer, for vuejs!!!!
+        $singleRichtext =  Entry::get_single_richtextfields($sectionid, $entryid);
+
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,
             'assets' => $assets,
             'entryid' => $entryid,
             'sectionid' => $sectionid,
-            'matrix' => $matrix
+            'matrix' => $matrix,
+            'singleRichtext'=> $singleRichtext
         ]);
     }
 
