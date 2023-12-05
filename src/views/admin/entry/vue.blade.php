@@ -108,8 +108,10 @@
                      <div class="row">
                         <div class="col-3">
                             <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
-                                <i class="fa fa-plus"></i>
-                                <strong>Add an asset</strong>
+                                <span class="v-a">
+                                   <i data-feather="plus"></i>    
+                                   Add asset
+                                </span>
                             </div>
                         </div>
                         <div class="col-9">
