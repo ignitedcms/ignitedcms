@@ -119,9 +119,19 @@
                             @elseif ($row->type == 'rich-text')
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
-
+                                 iamhere
                                 <div class="form-group">
-                                    <textarea class="quilljs-textarea" placeholder="Please enter text" name="{{ $row->name }}">{{ Helper::get_content($entryid, $row->name) }}</textarea>
+                                 <quill-editor  
+                                    ref="quillEditor"
+                                    class="editor"
+                                    v-model="foo"
+                                    //name="{{ $row->name }}"
+                                    //value="{{ Helper::get_content($entryid, $row->name) }}"
+                                    :options="editorOption"
+                                    @blur="onEditorBlur($event)"
+                                    @focus="onEditorFocus($event)"
+                                    @ready="onEditorReady($event)"
+                                 />
                                 </div>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>

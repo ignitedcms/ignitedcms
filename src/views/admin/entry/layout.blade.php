@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ asset('admin/datatables/datatables.css') }}">
 
         <!-- Include Quill stylesheet -->
-        <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+        <link href="{{ asset('admin/css/quill.css') }}" rel="stylesheet">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,8 @@
         <script src="{{ asset('admin/js/trees.js') }}"></script>
 
         <!-- Include the Quill library -->
-        <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>
-        <script src="{{ asset('admin/js/quill-textarea.js') }}"></script>
+        <script src="{{ asset('admin/js/quill.js') }}"></script>
+        <script src="{{ asset('admin/js/quill-vue.js') }}"></script>
 
         <!-- feather icons -->
         <script src="{{ asset('admin/js/feather.js') }}"></script>
@@ -105,9 +105,37 @@
                     is_matrix: false,                    
                     matrix:[
                       <?= $matrix ?>
-                    ]
+                    ],
+                   foo:'bar',
+                   editorOption: {
+                        modules: {
+                        toolbar: [
+                          ['bold', 'italic', 'underline' ],
+                          ['blockquote'],
+                          [{ 'header': 1 }, { 'header': 2 }],
+                          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                          [{ 'align': [] }],
+                          ['clean'],
+                          ['link']
+                        ]
+                      },
+                  }
+                },
+               computed: {
+                   editor() {
+                       return this.$refs.quillEditor.quill
+                   }
                 },
                 methods: {
+                   onEditorBlur(quill) {
+                       console.log('editor blur!', quill)
+                   },
+                   onEditorFocus(quill) {
+                       console.log('editor focus!', quill)
+                   },
+                   onEditorReady(quill) {
+                       console.log('editor ready!', quill)
+                   },
                     toggle_sidemenu() {
                         this.show = !this.show;
                         if (this.show) {
@@ -175,34 +203,6 @@
             $('#example').dataTable({
                 "iDisplayLength": 10
             });
-        </script>
-        <script>
-            (function() {
-                quilljs_textarea('.quilljs-textarea', {
-                    modules: {
-                        toolbar: [
-                            ['bold', 'italic', 'underline'], // toggled buttons
-                            [{
-                                'list': 'ordered'
-                            }, {
-                                'list': 'bullet'
-                            }],
-                            [{
-                                'header': [1, 2, 3, 4, 5, 6, false]
-                            }],
-                            [{
-                                'color': []
-                            }], // dropdown with defaults from theme
-                            [{
-                                'align': []
-                            }],
-                            ['clean'],
-                            ['link']
-                        ]
-                    },
-                    theme: 'snow',
-                });
-            })();
         </script>
 
     </body>
