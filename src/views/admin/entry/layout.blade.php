@@ -64,6 +64,8 @@
         </script>
 
         <script>
+       Vue.use(window.VueQuillEditor);
+
          Vue.component('asset-container',{
                  template: 
                  `<div>

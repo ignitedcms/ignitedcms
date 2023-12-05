@@ -120,18 +120,15 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                  iamhere
+
+                                 <input class="form-control" 
+                                      name="{{$row->name}}"
+                                    value="{{Helper::get_content($entryid, $row->name)}}"
+
+                                       placeholder="test" />
+
                                 <div class="form-group">
-                                 <quill-editor  
-                                    ref="quillEditor"
-                                    class="editor"
-                                    v-model="foo"
-                                    //name="{{ $row->name }}"
-                                    //value="{{ Helper::get_content($entryid, $row->name) }}"
-                                    :options="editorOption"
-                                    @blur="onEditorBlur($event)"
-                                    @focus="onEditorFocus($event)"
-                                    @ready="onEditorReady($event)"
-                                 />
+
                                 </div>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>

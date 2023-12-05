@@ -71,8 +71,15 @@
                     <div class="form-group">
                         <label>[@{{part.title}}]</label>
                         <div class="small text-muted">@{{part.instructions}}</div>
-                        <textarea class="quilljs-textarea" placeholder="Please enter text" name="b"></textarea>
-                           <pre>@{{part.content}}</pre> 
+                          <quill-editor  
+                           ref="quillEditor"
+                           class="editor"
+                           v-model="part.content"
+                           :options="editorOption"
+                           @blur="onEditorBlur($event)"
+                           @focus="onEditorFocus($event)"
+                           @ready="onEditorReady($event)"
+                           />
                     </div>
                 </div>
 
