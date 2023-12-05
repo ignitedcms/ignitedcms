@@ -112,6 +112,7 @@
                    editorOption: {
                         modules: {
                         toolbar: [
+                          [{ font: ['sans-serif','monospace'] }],
                           ['bold', 'italic', 'underline' ],
                           ['blockquote'],
                           [{ 'header': 1 }, { 'header': 2 }],
