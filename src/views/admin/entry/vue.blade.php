@@ -100,26 +100,25 @@
                 </div>
                 <div v-if="part.type == 'file-upload'">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12">
                             <label>[@{{part.title}}]</label>
+                           <div class="small text-muted">@{{part.instructions}}</div>
                         </div>
-                        <div class="igs-small">@{{part.instructions}}</div>
-                        <div class="col-sm-3">
+                     </div>
+                     <div class="row">
+                        <div class="col-3">
                             <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
                                 <i class="fa fa-plus"></i>
                                 <strong>Add an asset</strong>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <!-- Fix this bug on matrix -->
-                            <!-- Not passing in the fieldName -->
-                            <div v-on:click="hideApp = !hideApp; fieldname =part.title; is_matrix = true " class="hide-app">Upload a new </div> 
-                        </div>
-                        <div class="col-sm-6">
+                        <div class="col-9">
                             <div class="img-save" v-if="part.content.length > 0">
                                 <img :src="part.content" alt="" class="img-save-class"/>
                                 <div class="img-save-rem" v-on:click="part.content = ''">
-                                    <i class="fa fa-trash-o"></i>
+                                   <span>
+                                      <i data-feather="trash"></i>    
+                                   </span>
                                 </div>
                             </div>
                         </div>
