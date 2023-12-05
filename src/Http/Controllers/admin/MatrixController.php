@@ -17,9 +17,9 @@ use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
 
 class MatrixController extends Controller
 {
@@ -41,31 +41,31 @@ class MatrixController extends Controller
     {
         $matrix_name = $request->input('matrix_name');
 
-        /*                                                                          
-        |---------------------------------------------------------------            
+        /*
+        |---------------------------------------------------------------
         | Warning need to do reserved words
-        |---------------------------------------------------------------            
-        */       
+        |---------------------------------------------------------------
+        */
         $validator = Validator::make($request->all(), [
-           'matrix_name' => [
-              'required',
-              'alpha:ascii',
-              'unique:fields,name',
-              Rule::notIn(['url', 'content', 'id', 'section', 'field',
+            'matrix_name' => [
+                'required',
+                'alpha:ascii',
+                'unique:fields,name',
+                Rule::notIn(['url', 'content', 'id', 'section', 'field',
                     'entryid', 'entrytitle']),
-           ],
+            ],
         ]);
 
         if ($validator->fails()) {
-            echo ($validator->errors());
+            echo $validator->errors();
         } else {
 
-           $items = $request->input('items');      
-           $data = json_encode($items);
+            $items = $request->input('items');
+            $data = json_encode($items);
 
-           Matrix::add_matrix($matrix_name, $data);
+            Matrix::add_matrix($matrix_name, $data);
 
-           echo json_encode('success');
+            echo json_encode('success');
         }
 
     }
@@ -73,14 +73,14 @@ class MatrixController extends Controller
     //for frontend
     public function add_matrix_block2(Request $request)
     {
-       $fieldid =  $request->input('idx');   
+        $fieldid = $request->input('idx');
 
-       $query= DB::table('fields')
-          ->select('*')
-          ->where('id','=', $fieldid)
-         ->get();
+        $query = DB::table('fields')
+            ->select('*')
+            ->where('id', '=', $fieldid)
+            ->get();
 
-          echo ($query[0]->opts);
+        echo $query[0]->opts;
     }
 
     //ajax response
@@ -144,12 +144,12 @@ class MatrixController extends Controller
     public function f_val($validation_matrix)
     {
         $validator = Validator::make($validation_matrix, [
-           'title' => [
-              'required',
-              'alpha:ascii',
-              Rule::notIn(['url', 'content', 'id', 'section', 'field',
-                  'entryid', 'entrytitle']),
-           ]
+            'title' => [
+                'required',
+                'alpha:ascii',
+                Rule::notIn(['url', 'content', 'id', 'section', 'field',
+                    'entryid', 'entrytitle']),
+            ],
         ]);
 
         if ($validator->fails()) {

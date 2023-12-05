@@ -41,8 +41,8 @@ class EntryController extends Controller
         $assets = Asset::all(); //quick fix for vue component
 
         //We also need to pass a blank matrix to the layout
-        $matrix = '';
-        $singleRichtext = '';
+        $matrix = '[]';
+        $singleRichtext = '[]';
 
         return view('ignitedcms::admin.entry.index')->with([
             'data' => $data,
@@ -93,7 +93,7 @@ class EntryController extends Controller
         $matrix = Matrix::get_matrix($sectionid, $entryid);
 
         //Pass the single rich text boxes to footer, for vuejs!!!!
-        $singleRichtext =  Entry::get_single_richtextfields($sectionid, $entryid);
+        $singleRichtext = Entry::get_single_richtextfields($sectionid, $entryid);
 
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,
@@ -101,7 +101,7 @@ class EntryController extends Controller
             'entryid' => $entryid,
             'sectionid' => $sectionid,
             'matrix' => $matrix,
-            'singleRichtext'=> $singleRichtext
+            'singleRichtext' => $singleRichtext,
         ]);
     }
 

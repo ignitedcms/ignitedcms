@@ -100,16 +100,16 @@ class Entry
     //A funky way to handle single rich text fields in the entries
     public static function get_single_richtextfields($sectionid, $entryid)
     {
-       $query = DB::table('section_layout')
-          ->select('*')
-          ->where('sectionid','=', $sectionid)
-          ->get();
+        $query = DB::table('section_layout')
+            ->select('*')
+            ->where('sectionid', '=', $sectionid)
+            ->get();
         /*
         |---------------------------------------------------------------
         | Initialise the field stack
         |---------------------------------------------------------------
          */
-        $fields = array();
+        $fields = [];
 
         foreach ($query as $row) {
             /*
@@ -118,42 +118,42 @@ class Entry
             | then if true push onto the fields stack
             |---------------------------------------------------------------
              */
-            if (self::field_type($row->fieldid) == "rich-text") {
+            if (self::field_type($row->fieldid) == 'rich-text') {
                 $fieldname = self::field_name($row->fieldid);
-                $arr_chunk = array('name' => $fieldname,
-                    'content' => self::get_content($entryid, $fieldname));
+                $arr_chunk = ['name' => $fieldname,
+                    'content' => self::get_content($entryid, $fieldname)];
                 array_push($fields, $arr_chunk);
             }
         }
+
         //remove first and last characters [,]
         //$matrix = substr($content, 1, -1);
         return json_encode($fields);
     }
 
-
     public static function field_type($fieldid)
     {
 
-       $rows = DB::table('fields')
-                ->select('type')
-                ->where('id','=', $fieldid)
-                ->get();
+        $rows = DB::table('fields')
+            ->select('type')
+            ->where('id', '=', $fieldid)
+            ->get();
 
-       return $rows[0]->type;
+        return $rows[0]->type;
     }
 
     public static function field_name($fieldid)
     {
-       $rows = DB::table('fields')
-                ->select('name')
-                ->where('id','=', $fieldid)
-                ->get();
+        $rows = DB::table('fields')
+            ->select('name')
+            ->where('id', '=', $fieldid)
+            ->get();
 
-       return $rows[0]->name;
+        return $rows[0]->name;
 
     }
 
-   /**
+    /**
      * Get the entry content
      *
      * @param  string  $entryid
@@ -173,7 +173,6 @@ class Entry
             return false;
         }
     }
-
 
     /*
      * Checks if route is already in db

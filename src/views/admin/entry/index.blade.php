@@ -4,6 +4,9 @@
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
 
+            <drawer title="Help"></drawer>
+
+
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>

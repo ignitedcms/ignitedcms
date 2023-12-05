@@ -5,6 +5,8 @@
 
         <div class="main-content p-3">
 
+            <drawer title="Help"></drawer>
+
           <form action="{{ url('admin/database/backup') }} " method="POST">
              @csrf
             <div class="breadcrumb m-b-3">
