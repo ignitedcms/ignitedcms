@@ -5,6 +5,9 @@
 
         <div class="main-content p-3" id="main-content">
 
+            <drawer title="Help"></drawer>
+
+
             @if (Helper::is_multiple($sectionid) == true)
                 <div class="breadcrumb m-b-3">
                     <div class="breadcrumb-item">
