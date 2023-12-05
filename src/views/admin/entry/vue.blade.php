@@ -1,10 +1,10 @@
- <pre class="code">@{{matrix}}</pre> 
+ <!--<pre class="code">@{{matrix}}</pre> -->
 <!-- This id is needed for sortable	 -->
 <div id="items">
     <div class="front-matrix-block" v-for="row in matrix">
         <div class="front-matrix-block__header">
             @{{row.title}}
-            <div class="matrix-collapse" @click="row.collapsed = !row.collapsed">collapse</div>
+            <div class="" @click="row.collapsed = !row.collapsed">Collapse</div>
             <div class="matrix-del" @click="deleteItem(row)">
                <span>
                   <i data-feather="trash"></i>    
