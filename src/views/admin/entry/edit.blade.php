@@ -117,15 +117,18 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
-                                <label for="title">[{{ $row->name }}]</label>
-                                <div class="small text-muted">{{ $row->instructions }}</div>
-                                 iamhere
+                             
+                                 <div v-for='part in singleRichtext'>
+                                    <div class='form-group' v-if='part.name == "{{$row->name}}"'>
+                                       <label>[{{ $row->name }}]</label>
+                                       <div class='igs-small'>{{ $row->instructions }}</div>
+                                       <input name="{{$row->name}}" v-bind:value='part.content' style='display:none;'></input>
 
-                                 <input class="form-control" 
-                                      name="{{$row->name}}"
-                                    value="{{Helper::get_content($entryid, $row->name)}}"
-
-                                       placeholder="test" />
+                                       <quill-editor v-model='part.content' :options='editorOption' @blur='onEditorBlur($event)'
+                                                     @focus='onEditorFocus($event)' @ready='onEditorReady($event)'>
+                                       </quill-editor>
+                                    </div>
+                                 </div>
 
                                 <div class="form-group">
 
