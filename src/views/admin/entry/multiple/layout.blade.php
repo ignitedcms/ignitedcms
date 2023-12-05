@@ -44,6 +44,7 @@
         <script src="{{ asset('admin/js/menu.js') }}"></script>
         <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
         <script src="{{ asset('admin/js/trees.js') }}"></script>
+        <script src="{{ asset('admin/js/drawer.js') }}"></script>
 
         <!-- Include the Quill library -->
         <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>

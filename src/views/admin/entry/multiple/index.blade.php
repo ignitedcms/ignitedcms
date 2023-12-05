@@ -4,6 +4,8 @@
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
 
+            <drawer title="Help"></drawer>
+
             @if (session('status'))
                 <div class="alert alert-success m-b-3">
                     {{ session('status') }}
