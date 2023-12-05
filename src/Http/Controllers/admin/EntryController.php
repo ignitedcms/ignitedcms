@@ -42,6 +42,7 @@ class EntryController extends Controller
 
         //We also need to pass a blank matrix to the layout
         $matrix = '';
+        $singleRichtext = '';
 
         return view('ignitedcms::admin.entry.index')->with([
             'data' => $data,
@@ -49,6 +50,7 @@ class EntryController extends Controller
             'data3' => $data3,
             'assets' => $assets,
             'matrix' => $matrix,
+            'singleRichtext' => $singleRichtext,
         ]);
     }
 
