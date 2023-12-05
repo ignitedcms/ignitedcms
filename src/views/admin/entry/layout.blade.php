@@ -108,7 +108,7 @@
                     matrix:[
                       <?= $matrix ?>
                     ],
-                   singleRichtext : {{ $singleRichtext }},
+                   singleRichtext : @php echo $singleRichtext @endphp,
                    editorOption: {
                         modules: {
                         toolbar: [
