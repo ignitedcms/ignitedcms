@@ -19,7 +19,7 @@
         <script src="{{ asset('admin/js/sortable.js') }}"></script>
     </head>
 
-    <body class="full-screen bg-grey">
+    <body class="full-screen bg-light-grey">
 
         @yield('content')
 
