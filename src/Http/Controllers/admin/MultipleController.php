@@ -57,14 +57,26 @@ class MultipleController extends Controller
           ],
       ]);
 
-      //now check that routes don't conflict
-     
+      $entrytitle = $request->input('entrytitle');   
+      $sectionname =  Multiple::get_section_name($sectionid);
+      $route = "$sectionname/$entrytitle";
+
+      if(Multiple::is_duplicate_route($route))
+      {
+         echo ("failed");
+         die();
+      }
+      else
+      {
+
       $entrytitle = $request->input('entrytitle');   
 
         Multiple::create($sectionid, $entrytitle);
 
         return redirect("admin/multiple/$sectionid")
             ->with('status', 'New entry created');
+      }
+     
     }
 
     public function update()

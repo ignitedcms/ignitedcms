@@ -57,7 +57,7 @@
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
 
 
-                    <modal button-title="Create Template" modal-header="Create multiple template">
+                    <modal button-title="Add another" modal-header="Add another">
                         <div class="p-3">
                         <div class="rows">
                             <div class="col p-b-2">

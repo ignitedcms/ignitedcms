@@ -61,6 +61,24 @@ class Multiple
 
     }
 
+    public static function is_duplicate_route($route)
+    {
+
+      $rows = DB::table('routes')
+         ->select('route')
+         ->where('route','=', $route)
+         ->get();
+
+      if($rows->count() > 0)
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+    }
+
     public static function get_section_name($sectionid)
     {
         $data = DB::table('section')
