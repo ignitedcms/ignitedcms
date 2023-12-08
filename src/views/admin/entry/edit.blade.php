@@ -101,6 +101,7 @@
                     @foreach ($data as $row)
                         <div>
                             @if ($row->type == 'plain-text')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
@@ -109,19 +110,20 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})" class="btn btn-white m-b-2">add {{ $row->name }}</div>  
+                                <div @click="goNow({{ $row->id }})" class="m-r-2 btn btn-white pull-left">add {{ $row->name }}</div>  
                               <input style='display:none;' type='text' name='{{ $row->name }}'  
                                  id='{{ $row->name }}' v-model='JSON.stringify(matrix)' />
 
-                                <div class="divider m-b-2"></div>
 
                             @elseif ($row->type == 'multi-line')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::get_content($entryid, $row->name) }}</textarea>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
+                               <div class="clearfix m-b-2"></div>
                              
                                  <div v-for='part in singleRichtext'>
                                     <div class='form-group' v-if='part.name == "{{$row->name}}"'>
@@ -141,6 +143,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'check-box')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div>
@@ -152,6 +155,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'color')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
@@ -159,6 +163,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'drop-down')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
@@ -168,6 +173,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'file-upload')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                  
@@ -180,6 +186,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'number')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
@@ -187,6 +194,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'date')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div class="form-group">
@@ -197,6 +205,7 @@
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'switch')
+                               <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
