@@ -87,12 +87,12 @@
 
                     @if (Helper::is_multiple($sectionid) == true)
                   
-                     <input class="form-control" name="xxx" value="foo" />
 
                         <label for="entry title">Entry title</label>
                         <div class="small text-muted">This is a required field*</div>
-                        <input class="form-control" name="entrytitle" value="{{ Helper::get_content($entryid, 'entrytitle') }}"
-                            placeholder="Start typing" />
+                        <input class="form-control" name="entrytitle" 
+                           value="{{ Helper::get_content($entryid, 'entrytitle') }}"
+                           disabled />
 
                         @error('entrytitle')
                             <div class="small text-danger">{{ $message }}</div>
