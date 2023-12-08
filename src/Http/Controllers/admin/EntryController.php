@@ -21,7 +21,6 @@ use Ignitedcms\Ignitedcms\Models\admin\Asset;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
 use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
-use Ignitedcms\Ignitedcms\Rules\Uniquemultiple;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -136,7 +135,7 @@ class EntryController extends Controller
                 ],
 
             ]);
-            Entry::save_to_content_as_multiple($entryid, $entrytitle);
+            Entry::save_to_content_as_multiple($sectionid, $entryid, $entrytitle);
         }
 
         /*

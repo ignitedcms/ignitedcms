@@ -68,33 +68,45 @@ class Entry
     }
 
     //special one off case for multiples
-    public static function save_to_content_as_multiple($entryid, $entrytitle)
+    public static function save_to_content_as_multiple($sectionid, $entryid, $entrytitle)
     {
-        /*
-        |---------------------------------------------------------------
-        | First we need to check if route already exists
-        |---------------------------------------------------------------
-        |
-        | If it does, then delete and add again otherwise insert new
-        |
-        */
+        $route = self::get_section_name($sectionid);
 
-        $route = self::get_route($entryid);
+        $route = $route.'/'.$entrytitle;
+        $controller = "admin/parser/display/$sectionid/$entryid";
 
-        //Now we have the route let's check if it exists in the database
+        //first check if route already exists
+        //otherwise do an update instead of insert
 
-        if (self::check_route_in_db($route)) {
+        $query = DB::table('routes')
+            ->select('controller')
+            ->where('controller', '=', $controller)
+            ->get();
+
+        if ($query->count() > 0) {
+            //update if already exists
+
             DB::table('routes')
-                ->where('route', '=', $route)
-                ->delete();
+                ->where('controller', '=', $controller)
+                ->update([
+                    'route' => $route,
+                ]);
+
+        } else {
+            //otherwise do an insert
+
+            $insertid = DB::table('routes')->insertGetId([
+                'route' => $route,
+                'controller' => $controller,
+            ]);
+
+            //finally update content
+            $affected = DB::table('content')
+                ->where('entryid', $entryid)
+                ->update(['entrytitle' => $entrytitle]);
+
         }
 
-        $affected = DB::table('content')
-            ->where('entryid', $entryid)
-            ->update(['entrytitle' => $entrytitle]);
-
-        //finally create the route
-        self::create_routes($entryid);
     }
 
     //A funky way to handle single rich text fields in the entries
@@ -193,69 +205,6 @@ class Entry
         } else {
             return false;
         }
-    }
-
-    /*
-     * get route
-     * Returns the route 'blogs/title'
-     *
-     *
-     * @param   int $entryid
-     * @return  string $route
-     */
-    public static function get_route($entryid)
-    {
-        $rows = DB::table('content')
-            ->select('entrytitle')
-            ->where('entryid', '=', $entryid)
-            ->limit(1)
-            ->get();
-
-        $title = $rows[0]->entrytitle;
-
-        $foo = DB::table('entry')
-            ->join('section', 'entry.sectionid', '=', 'section.id')
-            ->where('entry.id', '=', $entryid)
-            ->select('entry.id as eid', 'section.id as sid', 'section.name')
-            ->limit(1)
-            ->get();
-
-        $sectionname = $foo[0]->name;
-
-        $route = $sectionname."/$title";
-
-        return $route;
-    }
-
-    //for multiples
-    public static function create_routes($entryid)
-    {
-        $foo = DB::table('entry')
-            ->join('section', 'entry.sectionid', '=', 'section.id')
-            ->where('entry.id', '=', $entryid)
-            ->select('entry.id as eid', 'section.id as sid', 'section.name')
-            ->limit(1)
-            ->get();
-
-        $bar = DB::table('content')
-            ->select('entrytitle')
-            ->where('entryid', '=', $entryid)
-            ->limit(1)
-            ->get();
-
-        $sid = $foo[0]->sid;
-        $eid = $foo[0]->eid;
-        $sectionname = $foo[0]->name;
-        $entrytitle = $bar[0]->entrytitle;
-
-        //dd($sid, $eid, $name, $entrytitle);
-
-        //build routes and insert into routing table!!
-
-        DB::table('routes')->insert([
-            'route' => "$sectionname/$entrytitle",
-            'controller' => "admin/parser/display/$sid/$eid",
-        ]);
     }
 
     public static function is_multiple($entryid)

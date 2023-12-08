@@ -212,12 +212,10 @@ class Parser
             $json = json_decode($val);
 
             //check if not empty
-            if($json)
-            {
+            if ($json) {
 
                 $arr = [];
                 $counter = 0; //needed to loop!
-
 
                 foreach ($json as $key) {
                     $titre = $json[0]->title;
@@ -240,7 +238,6 @@ class Parser
                 return $b;
 
             }
-
 
         } else {
             return $val;
