@@ -129,7 +129,7 @@ class EntryController extends Controller
                 'entrytitle' => [
                     'required',
                     'min:1',
-                    new Uniquemultiple($sectionname),
+                    //new Uniquemultiple($sectionname),
                     'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
                 ],
 
