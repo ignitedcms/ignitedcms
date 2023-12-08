@@ -60,7 +60,7 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
-                    items:[]
+                    items: @php  echo json_encode($data,true) @endphp
                 },
                 methods: {
                     toggle_sidemenu() {
