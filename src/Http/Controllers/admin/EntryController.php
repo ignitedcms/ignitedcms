@@ -124,22 +124,22 @@ class EntryController extends Controller
         */
 
         //hidden input to detect multiples
-        $xxx = $request->input('xxx');
+        //$xxx = $request->input('xxx');
 
-        $sectionname = Entry::get_section_name($sectionid);
+        //$sectionname = Entry::get_section_name($sectionid);
 
-        if ($xxx != null) {
-            $entrytitle = $request->input('entrytitle');
-            $validated = $request->validate([
-                'entrytitle' => [
-                    'required',
-                    'min:1',
-                    'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-                ],
+        //if ($xxx != null) {
+            //$entrytitle = $request->input('entrytitle');
+            //$validated = $request->validate([
+                //'entrytitle' => [
+                    //'required',
+                    //'min:1',
+                    //'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+                //],
 
-            ]);
-            Entry::save_to_content_as_multiple($sectionid, $entryid, $entrytitle);
-        }
+            //]);
+            //Entry::save_to_content_as_multiple($sectionid, $entryid, $entrytitle);
+        //}
 
         /*
         |---------------------------------------------------------------

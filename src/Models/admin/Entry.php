@@ -62,51 +62,10 @@ class Entry
     //save or rather update as entry already exists
     public static function save_to_content($entryid, $fieldname, $data)
     {
+
         $affected = DB::table('content')
             ->where('entryid', $entryid)
             ->update([$fieldname => $data]);
-    }
-
-    //special one off case for multiples
-    public static function save_to_content_as_multiple($sectionid, $entryid, $entrytitle)
-    {
-        $route = self::get_section_name($sectionid);
-
-        $route = $route.'/'.$entrytitle;
-        $controller = "admin/parser/display/$sectionid/$entryid";
-
-        //first check if route already exists
-        //otherwise do an update instead of insert
-
-        $query = DB::table('routes')
-            ->select('controller')
-            ->where('controller', '=', $controller)
-            ->get();
-
-        if ($query->count() > 0) {
-            //update if already exists
-
-            DB::table('routes')
-                ->where('controller', '=', $controller)
-                ->update([
-                    'route' => $route,
-                ]);
-
-        } else {
-            //otherwise do an insert
-
-            $insertid = DB::table('routes')->insertGetId([
-                'route' => $route,
-                'controller' => $controller,
-            ]);
-
-            //finally update content
-            $affected = DB::table('content')
-                ->where('entryid', $entryid)
-                ->update(['entrytitle' => $entrytitle]);
-
-        }
-
     }
 
     //A funky way to handle single rich text fields in the entries
