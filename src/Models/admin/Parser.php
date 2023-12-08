@@ -209,6 +209,8 @@ class Parser
 
         } elseif($type == 'matrix') {
 
+            $arr = [];
+
            $json = json_decode($val);
 
               foreach($json as $key)
@@ -219,6 +221,10 @@ class Parser
                   {
                      if($r->type != 'check-box')
                      {
+                        $b[$r->title] = $r->content;
+                        array_push($arr,$b);
+                          
+
                         //echo $titre;
                         //echo (" ");
                         //echo $r->title;
@@ -228,6 +234,9 @@ class Parser
                      }
                      else
                      {
+                        $b[$r->title] = json_encode($r->checkedValues);
+                        array_push($arr,$b);
+
                         //echo $titre;
                         //echo (" ");
                         //echo $r->title;
@@ -238,9 +247,10 @@ class Parser
                      }
 
                   }
+                  //print_r( $b);
               }
 
-              return $val;
+              return $b;
 
 
         }
