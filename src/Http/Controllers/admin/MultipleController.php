@@ -49,7 +49,7 @@ class MultipleController extends Controller
     public function create(Request $request, $sectionid)
     {
 
-        //Multiple::create($sectionid);
+        Multiple::create($sectionid);
 
         return redirect("admin/multiple/$sectionid")
             ->with('status', 'New entry created');

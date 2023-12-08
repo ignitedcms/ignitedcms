@@ -31,7 +31,7 @@ class Multiple
     {
       $insertid = DB::table('entry')->insertGetId([
          'sectionid' => $sectionid,
-         'type' => $multiple,
+         'type' => 'multiple',
          'datecreated' => date('Y-m-d'),
       ]);
 
