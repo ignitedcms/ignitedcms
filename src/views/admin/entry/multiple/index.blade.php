@@ -56,9 +56,27 @@
                     <a href="{{ url(Helper::get_section_name($sectionid)) }}" target="_blank"
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
 
-                    <a href="{{ url("admin/multiple/create/$sectionid") }}">
-                        <button type="button"class="btn btn-primary">Add another</button>
-                    </a>
+
+                    <modal button-title="Create Template" modal-header="Create multiple template">
+                        <p class="p-2">
+                        <div class="rows">
+                            <div class="col p-b-2">
+                               <form action="{{ url("admin/multiple/create/$sectionid") }} " method="POST">
+                                  @csrf
+                                <div class="form-group">
+
+                                </div>
+                                <div class="form-group right">
+
+                                    <button type="submit"class="btn btn-primary">Add another</button>
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+
+                        </p>
+                    </modal>
+
                 </div>
             </div>
 

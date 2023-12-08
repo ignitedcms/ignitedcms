@@ -130,7 +130,7 @@ Route::middleware('web')->group(function () {
 
     // Multiples
     Route::get('/admin/multiple/{sid}', [MultipleController::class, 'index']);
-    Route::get('/admin/multiple/create/{sid}', [MultipleController::class, 'create']);
+    Route::post('/admin/multiple/create/{sid}', [MultipleController::class, 'create']);
     Route::get('/admin/multiple/update/{sid}/{eid}', [MultipleController::class, 'update_view']);
     Route::post('/admin/multiple/delete/{sid}', [MultipleController::class, 'destroy']);
     Route::post('/admin/multiple/order_multiples', [MultipleController::class, 'order_multiples']);

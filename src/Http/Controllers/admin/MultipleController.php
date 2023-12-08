@@ -56,6 +56,8 @@ class MultipleController extends Controller
               'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
           ],
       ]);
+
+      //now check that routes don't conflict
      
       $entrytitle = $request->input('entrytitle');   
 
