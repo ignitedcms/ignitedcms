@@ -104,6 +104,9 @@ class EntryController extends Controller
         ]);
     }
 
+
+
+
     //big task evaulating
     //Save input into content table
     //update as entryid already created

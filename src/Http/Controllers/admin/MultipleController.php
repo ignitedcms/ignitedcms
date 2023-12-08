@@ -45,9 +45,11 @@ class MultipleController extends Controller
     }
 
     //create a new entry for multiple by section id
-    public function create($sectionid)
+    //modal
+    public function create(Request $request, $sectionid)
     {
-        Multiple::create($sectionid);
+
+        //Multiple::create($sectionid);
 
         return redirect("admin/multiple/$sectionid")
             ->with('status', 'New entry created');

@@ -26,21 +26,19 @@ class Multiple
             ->get();
     }
 
+    //creates a single multiple
     public static function create($sectionid)
     {
-        DB::table('entry')
-            ->insert([
-                'sectionid' => $sectionid,
-                'type' => 'multiple',
-                'datecreated' => date('Y-m-d'),
+      $insertid = DB::table('entry')->insertGetId([
+         'sectionid' => $sectionid,
+         'type' => $multiple,
+         'datecreated' => date('Y-m-d'),
+      ]);
 
-            ]);
-
-        $insert_id = DB::getPdo()->lastInsertId();
 
         DB::table('content')
             ->insert([
-                'entryid' => $insert_id,
+                'entryid' => $insertid,
 
             ]);
 
@@ -49,6 +47,7 @@ class Multiple
         | Don't forget to add addional routes
         |---------------------------------------------------------------
         */
+
     }
 
     public static function get_section_name($sectionid)
