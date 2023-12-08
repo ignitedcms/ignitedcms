@@ -76,7 +76,7 @@ $.ajax({
                     'errors': '',
                     'length': '',
                     'variations': array,
-                    'checkedValues': ['default']
+                    'checkedValues': ['default'],
                     'content': ''
                 });
             }
