@@ -82,6 +82,9 @@
                 </div>
                 <div class="panel br drop-shadow">
 
+                     @include('ignitedcms::admin.entry.vue')
+                     <div class="gap"></div>
+
                     @if (Helper::is_multiple($sectionid) == true)
                         <label for="entry title">Entry title</label>
                         <div class="small text-muted">This is a required field*</div>
@@ -106,10 +109,9 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})" class="btn btn-white m-b-2">add</div>  
+                                <div @click="goNow({{ $row->id }})" class="btn btn-white m-b-2">add {{ $row->name }}</div>  
                               <input style='display:none;' type='text' name='{{ $row->name }}'  
                                  id='{{ $row->name }}' v-model='JSON.stringify(matrix)' />
-                                 @include('ignitedcms::admin.entry.vue')
 
                                 <div class="divider m-b-2"></div>
 
