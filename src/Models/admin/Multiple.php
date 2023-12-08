@@ -27,7 +27,7 @@ class Multiple
     }
 
     //creates a single multiple
-    public static function create($sectionid)
+    public static function create($sectionid,  $entrytitle)
     {
       $insertid = DB::table('entry')->insertGetId([
          'sectionid' => $sectionid,
@@ -39,6 +39,7 @@ class Multiple
         DB::table('content')
             ->insert([
                 'entryid' => $insertid,
+                'entrytitle' => $entrytitle,
 
             ]);
 
