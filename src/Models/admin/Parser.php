@@ -209,30 +209,36 @@ class Parser
 
         } elseif ($type == 'matrix') {
 
-            $arr = [];
-            $counter = 0; //needed to loop!
+            if ($val) {
+                //matrix is empty do nothing
+            } else {
 
-            $json = json_decode($val);
+                $arr = [];
+                $counter = 0; //needed to loop!
 
-            foreach ($json as $key) {
-                $titre = $json[0]->title;
-                $counter++;
-                foreach ($key->content as $r) {
-                    if ($r->type != 'check-box') {
-                        $b[$counter][$r->title] = $r->content;
-                        array_push($arr, $b);
+                $json = json_decode($val);
 
-                    } else {
-                        //nothing in content so dump checkedvalues
-                        $b[$counter][$r->title] = json_encode($r->checkedValues);
-                        array_push($arr, $b);
+                foreach ($json as $key) {
+                    $titre = $json[0]->title;
+                    $counter++;
+                    foreach ($key->content as $r) {
+                        if ($r->type != 'check-box') {
+                            $b[$counter][$r->title] = $r->content;
+                            array_push($arr, $b);
+
+                        } else {
+                            //nothing in content so dump checkedvalues
+                            $b[$counter][$r->title] = json_encode($r->checkedValues);
+                            array_push($arr, $b);
+
+                        }
 
                     }
-
                 }
-            }
 
-            return $b;
+                return $b;
+
+            }
 
         } else {
             return $val;
