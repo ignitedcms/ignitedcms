@@ -49,6 +49,16 @@ class Multiple
         |---------------------------------------------------------------
         */
 
+      $sectionname = self::get_section_name($sectionid);
+      $route = "$sectionname/$entrytitle";
+
+      $controller = "admin/parser/display/$sectionid/$insertid";
+
+      $insertid = DB::table('routes')->insertGetId([
+         'route' => $route,
+         'controller' => $controller
+      ]);
+
     }
 
     public static function get_section_name($sectionid)
