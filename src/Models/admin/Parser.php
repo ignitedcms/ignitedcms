@@ -209,14 +209,15 @@ class Parser
 
         } elseif ($type == 'matrix') {
 
-            if ($val) {
-                //matrix is empty do nothing
-            } else {
+            $json = json_decode($val);
+
+            //check if not empty
+            if($json)
+            {
 
                 $arr = [];
                 $counter = 0; //needed to loop!
 
-                $json = json_decode($val);
 
                 foreach ($json as $key) {
                     $titre = $json[0]->title;
@@ -239,6 +240,7 @@ class Parser
                 return $b;
 
             }
+
 
         } else {
             return $val;
