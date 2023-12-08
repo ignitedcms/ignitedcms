@@ -77,6 +77,7 @@ $.ajax({
                     'length': '',
                     'variations': array,
                     'checkedValues': ['default']
+                    'content': ''
                 });
             }
             if (this.crselect == 'color') {

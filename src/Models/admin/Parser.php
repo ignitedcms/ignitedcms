@@ -207,7 +207,45 @@ class Parser
 
             return $url;
 
-        } else {
+        } elseif($type == 'matrix') {
+
+           $json = json_decode($val);
+
+              foreach($json as $key)
+              {
+                 $titre =  $json[0]->title;
+
+                  foreach ($key->content as $r)
+                  {
+                     if($r->type != 'check-box')
+                     {
+                        //echo $titre;
+                        //echo (" ");
+                        //echo $r->title;
+                        //echo (" ");
+                        //echo $r->content;
+                        //echo (" ");
+                     }
+                     else
+                     {
+                        //echo $titre;
+                        //echo (" ");
+                        //echo $r->title;
+                        //echo (" ");
+                        //echo json_encode($r->checkedValues);
+                        //echo (" ");
+
+                     }
+
+                  }
+              }
+
+              return $val;
+
+
+        }
+        else
+        {
             return $val;
         }
     }
