@@ -58,13 +58,18 @@
 
 
                     <modal button-title="Create Template" modal-header="Create multiple template">
-                        <p class="p-2">
+                        <div class="p-3">
                         <div class="rows">
                             <div class="col p-b-2">
                                <form action="{{ url("admin/multiple/create/$sectionid") }} " method="POST">
                                   @csrf
                                 <div class="form-group">
-
+                                    <label for="title">Entry title</label>
+                                    <div class="small text-muted">Entry title</div>
+                                    <input class="form-control" 
+                                          name="entrytitle" 
+                                          value="" 
+                                          placeholder="Start typing" />
                                 </div>
                                 <div class="form-group right">
 
@@ -74,7 +79,7 @@
                             </div>
                         </div>
 
-                        </p>
+                        </div>
                     </modal>
 
                 </div>
