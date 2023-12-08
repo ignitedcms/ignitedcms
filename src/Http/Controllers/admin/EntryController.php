@@ -121,15 +121,18 @@ class EntryController extends Controller
         |
         */
 
-        $entrytitle = $request->input('entrytitle');
+        //hidden input to detect multiples
+        $xxx = $request->input('xxx');
 
         $sectionname = Entry::get_section_name($sectionid);
-        if ($entrytitle != null) {
+
+        if ($xxx != null) {
+            $entrytitle = $request->input('entrytitle');
             $validated = $request->validate([
                 'entrytitle' => [
                     'required',
                     'min:1',
-                    //new Uniquemultiple($sectionname),
+                    new Uniquemultiple($sectionname),
                     'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
                 ],
 
@@ -143,8 +146,6 @@ class EntryController extends Controller
         |---------------------------------------------------------------
         |
         | Saving is fine except for checkboxes . . .
-        |
-        |
         */
 
         foreach ($data as $row) {
