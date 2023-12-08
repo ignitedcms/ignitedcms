@@ -12,7 +12,6 @@
         <link rel="stylesheet" href="{{ asset('admin/datatables/datatables.css') }}">
 
         <!-- Include Quill stylesheet -->
-        <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +26,7 @@
         <!-- vue 2 -->
         <script src="{{ asset('admin/js/vue2.js') }}"></script>
         <!-- Include SortableJS from CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+        <script src="{{ asset('admin/js/sortable.js') }}"></script>
 
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
@@ -46,17 +45,14 @@
         <script src="{{ asset('admin/js/trees.js') }}"></script>
         <script src="{{ asset('admin/js/drawer.js') }}"></script>
 
-        <!-- Include the Quill library -->
-        <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>
-        <script src="{{ asset('admin/js/quill-textarea.js') }}"></script>
+        <script src="{{ asset('admin/datatables/jquery.min.js') }}"></script>
 
         <!-- feather icons -->
         <script src="{{ asset('admin/js/feather.js') }}"></script>
 
-        <script src="{{ asset('admin/datatables/jquery.min.js') }}"></script>
+
 
         <!-- datatables -->
-        <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
         <script>
             var app = new Vue({
                 el: '#app',
@@ -64,6 +60,7 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
+                    items:[]
                 },
                 methods: {
                     toggle_sidemenu() {
@@ -119,39 +116,8 @@
             });
         </script>
 
-        <script>
-            $('#example').dataTable({
-                "iDisplayLength": 10
-            });
-        </script>
-        <script>
-            (function() {
-                quilljs_textarea('.quilljs-textarea', {
-                    modules: {
-                        toolbar: [
-                            ['bold', 'italic', 'underline'], // toggled buttons
-                            [{
-                                'list': 'ordered'
-                            }, {
-                                'list': 'bullet'
-                            }],
-                            [{
-                                'header': [1, 2, 3, 4, 5, 6, false]
-                            }],
-                            [{
-                                'color': []
-                            }], // dropdown with defaults from theme
-                            [{
-                                'align': []
-                            }],
-                            ['clean'],
-                            ['link']
-                        ]
-                    },
-                    theme: 'snow',
-                });
-            })();
-        </script>
+        
+        
 
     </body>
 
