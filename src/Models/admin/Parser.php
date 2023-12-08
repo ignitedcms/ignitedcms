@@ -207,59 +207,34 @@ class Parser
 
             return $url;
 
-        } elseif($type == 'matrix') {
+        } elseif ($type == 'matrix') {
 
             $arr = [];
-            $counter = 0;
+            $counter = 0; //needed to loop!
 
-           $json = json_decode($val);
+            $json = json_decode($val);
 
-              foreach($json as $key)
-              {
-                 $titre =  $json[0]->title;
-                  $counter++;
-                  foreach ($key->content as $r)
-                  {
-                     if($r->type != 'check-box')
-                     {
+            foreach ($json as $key) {
+                $titre = $json[0]->title;
+                $counter++;
+                foreach ($key->content as $r) {
+                    if ($r->type != 'check-box') {
                         $b[$counter][$r->title] = $r->content;
-                        array_push($arr,$b);
-                          
+                        array_push($arr, $b);
 
-                        //echo $titre;
-                        //echo (" ");
-                        //echo $r->title;
-                        //echo (" ");
-                        //echo $r->content;
-                        //echo (" ");
-                     }
-                     else
-                     {
+                    } else {
+                        //nothing in content so dump checkedvalues
                         $b[$counter][$r->title] = json_encode($r->checkedValues);
-                        array_push($arr,$b);
+                        array_push($arr, $b);
 
-                        //echo $titre;
-                        //echo (" ");
-                        //echo $r->title;
-                        //echo (" ");
-                        //echo json_encode($r->checkedValues);
-                        //echo (" ");
+                    }
 
-                     }
+                }
+            }
 
-                  }
-                  //print_r( $b);
-              }
-   
-              //print_r($b);
-              //die();
+            return $b;
 
-              return $b;
-
-
-        }
-        else
-        {
+        } else {
             return $val;
         }
     }
