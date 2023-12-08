@@ -49,7 +49,16 @@ class MultipleController extends Controller
     public function create(Request $request, $sectionid)
     {
 
-       $entrytitle = 'jack';
+      $validated = $request->validate([
+          'entrytitle' => [
+              'required',
+              'min:1',
+              'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+          ],
+      ]);
+     
+      $entrytitle = $request->input('entrytitle');   
+
         Multiple::create($sectionid, $entrytitle);
 
         return redirect("admin/multiple/$sectionid")
