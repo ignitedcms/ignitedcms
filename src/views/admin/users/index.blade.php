@@ -5,7 +5,13 @@
 
         <div class="main-content p-3">
 
-            <drawer title="Help"></drawer>
+           <drawer title="Help">
+              <div class="p-3">
+                 <h4>Users</h4>
+                 <p class="text-muted">For more help please see</p>
+                 <a href="https://www.ignitedcms.com/documentation/users" target="_blank">Users</a>
+              </div>
+           </drawer>
 
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">

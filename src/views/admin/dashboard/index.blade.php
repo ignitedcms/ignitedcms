@@ -24,6 +24,7 @@
                      <div class="panel br drop-shadow" style="min-height:300px;">
                         <h3>Help</h3>
                         <p>For all the latest help</p>
+                        <a href="https://www.ignitedcms.com" target="_blank">IgnitedCMS</a>
                      </div>
                   </div>
                </div>
