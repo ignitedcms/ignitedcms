@@ -5,8 +5,15 @@
 
         <div class="main-content p-3" id="main-content">
 
-            <drawer title="Help"></drawer>
-
+           <drawer title="Help">
+              <div class="p-3">
+                 <h4>Templating</h4>
+                 <p class="text-muted">For more help please see</p>
+                 <a href="https://www.ignitedcms.com/documentation/section-types" target="_blank">Templating</a>
+                  <br>
+                 <a href="https://www.ignitedcms.com/documentation/magic-routing">Enable magic routing</a>
+              </div>
+           </drawer>
 
             @if (Helper::is_multiple($sectionid) == true)
                 <div class="breadcrumb m-b-3">
