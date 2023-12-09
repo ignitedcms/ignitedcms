@@ -58,28 +58,35 @@
 
 
                     <modal button-title="Add another" modal-header="Add another">
-                        <div class="p-3">
-                        <div class="rows">
-                            <div class="col p-b-2">
-                               <form action="{{ url("admin/multiple/create/$sectionid") }} " method="POST">
-                                  @csrf
+                    <div class="p-2">
+                       <div class="rows">
+
+                          <div class="col p-b-2">
+
+                              <div class="alert alert-info">
+                                 To add another item to the multiple, you must first create
+                                 an entry title, this must be unique and contain only lowercase
+                                 letters with dashes e.g 'hello-world'
+                              </div>
+                             <form action="{{ url("admin/multiple/create/$sectionid") }} " method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="title">Entry title</label>
-                                    <div class="small text-muted">Entry title</div>
-                                    <input class="form-control" 
+                                   <label for="title">Entry title</label>
+                                   <div class="small text-muted">Entry title</div>
+                                   <input class="form-control" 
                                           name="entrytitle" 
                                           value="" 
                                           placeholder="Start typing" />
                                 </div>
                                 <div class="form-group right">
 
-                                    <button type="submit"class="btn btn-primary">Add another</button>
+                                   <button type="submit"class="btn btn-primary">Add another</button>
                                 </div>
-                              </form>
-                            </div>
-                        </div>
+                             </form>
+                          </div>
+                       </div>
 
-                        </div>
+                    </div>
                     </modal>
 
                 </div>
