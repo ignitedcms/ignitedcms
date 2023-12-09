@@ -55,7 +55,7 @@
 
                     <a href="{{ url(Helper::get_section_name($sectionid)) }}" target="_blank"
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
-
+                  
 
                     <modal button-title="Add another" modal-header="Add another">
                     <div class="p-2">
@@ -76,6 +76,8 @@
                                           v-model="entrytitle"
                                           value="" 
                                           placeholder="Start typing" />
+
+                                    <div class="small text-danger">@{{ errs }}</div>
                                 </div>
                                 <div class="form-group right">
 

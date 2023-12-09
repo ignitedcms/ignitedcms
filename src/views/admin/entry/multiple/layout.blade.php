@@ -62,7 +62,9 @@
                     styles: 'none',
                     items: @php  echo json_encode($data,true) @endphp,
                     entrytitle: '',
-                    sectionid:{{ $sectionid }}
+                    sectionid:{{ $sectionid }},
+                    errs: '' //entrytitle error feedback
+
 
                 },
                 methods: {
@@ -82,6 +84,8 @@
                             $.ajax({
                                 type: 'POST',
                                 url: "{{ url("admin/multiple/create/$sectionid") }}",
+                                async: true,
+                                context:this,
                                 data: {
                                     "_token": "{{ csrf_token() }}",
                                     "entrytitle": this.entrytitle,
@@ -96,7 +100,8 @@
                                        window.location.href = '{{ url("admin/multiple/$sectionid") }}'
                                     }
                                     else {
-                                       alert(response);
+
+                                       this.errs = response;
                                     }
 
 
