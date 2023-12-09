@@ -120,6 +120,7 @@
                                         <label>Options</label>
                                         <div class="small text-muted">Please separate with commas</div>
                                         <textarea v-model="variations" class="form-control" rows="5" placeholder="Type here" ></textarea>
+                                        <div class="small text-danger">@{{csverrors}}</div>
                                     </div>
                                 </div>
                                 <div v-if="crselect=='check-box'">
@@ -128,6 +129,9 @@
                                         <div class="small text-muted">Please separate with commas</div>
                                         <textarea v-model="variations" class="form-control" rows="5" 
                                             placeholder="Type here"></textarea>
+
+                                        <div class="small text-danger">@{{csverrors}}</div>
+
                                     </div>
                                 </div>
                                 <div v-if="crselect=='color'">
@@ -138,6 +142,9 @@
                                         <div class="igs-small"></div>
                                         <input v-model="variations" type="text" class="form-control"
                                             placeholder="jpg,png,gif" value="">
+
+                                        <div class="small text-danger">@{{csverrors}}</div>
+
                                     </div>
                                 </div>
                                 <div v-if="crselect=='number'">
@@ -155,7 +162,7 @@
                         </div>
                     </div>
                     <!-- end matrix container -->
-                    <div class="code">@{{ matrixContent }} </div>
+                    <!-- <div class="code">@{{ matrixContent }} </div> -->
                 </div>
 
                 <div >
