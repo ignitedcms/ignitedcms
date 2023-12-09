@@ -4,7 +4,13 @@
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
 
-            <drawer title="Help"></drawer>
+         <drawer title="Help">
+              <div class="p-3">
+                 <h4>Entries</h4>
+                 <p class="text-muted">For more help please see</p>
+                 <a href="https://www.ignitedcms.com/documentation/entries" target="_blank">Entries</a>
+              </div>
+           </drawer>
 
 
             <div class="breadcrumb m-b-3">

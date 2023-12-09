@@ -5,7 +5,15 @@
         <div class="main-content p-3" id="main-content">
 
 
-            <drawer title="Help"></drawer>
+         <drawer title="Help">
+              <div class="p-3">
+                 <h4>Assets</h4>
+                 <p class="text-muted">For more help please see</p>
+                 <a href="https://www.ignitedcms.com/documentation/asset-library" target="_blank">Assets</a>
+                 <br>
+                 <a href="https://www.ignitedcms.com/documentation/file-uploads" target="_blank">File uploads</a>
+              </div>
+           </drawer>
 
 
             @if (session('status'))
