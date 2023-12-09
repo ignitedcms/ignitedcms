@@ -92,7 +92,7 @@
 
         <script>
             $('#example').dataTable({
-                "iDisplayLength": 10
+                "iDisplayLength": 20
             });
         </script>
 
