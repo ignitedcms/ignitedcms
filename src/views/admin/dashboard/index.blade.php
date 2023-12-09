@@ -16,7 +16,7 @@
                <div class="row">
                   <div class="col-6">
                      <div class="panel br drop-shadow" style="min-height:400px;">
-                        <h3>Update</h3>
+                        <h3>Updates</h3>
                         <p>Watch here for the latest updates</p>
                      </div>
                   </div>

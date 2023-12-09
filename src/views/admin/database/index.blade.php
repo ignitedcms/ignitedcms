@@ -25,7 +25,7 @@
 
                 <div class="form-group right">
                     <a href="#">
-                        <button type="submit" class="btn btn-primary">backup</button>
+                        <button type="submit" class="btn btn-primary">Backup</button>
                     </a>
                 </div>
             </div>
