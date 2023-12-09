@@ -62,7 +62,7 @@
                     styles: 'none',
                     items: @php  echo json_encode($data,true) @endphp,
                     entrytitle: '',
-                    sectionid:4
+                    sectionid:{{ $sectionid }}
 
                 },
                 methods: {
@@ -84,7 +84,8 @@
                                 url: "{{ url("admin/multiple/create/$sectionid") }}",
                                 data: {
                                     "_token": "{{ csrf_token() }}",
-                                    "entrytitle": this.entrytitle
+                                    "entrytitle": this.entrytitle,
+                                    "sectionid": this.sectionid
                                 },
                                 dataType: 'text', // Specify the data type you expect back from the server
                                 success: function(response) {

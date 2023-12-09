@@ -21,6 +21,7 @@ use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Multiple;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class MultipleController extends Controller
@@ -47,7 +48,7 @@ class MultipleController extends Controller
 
     //create a new entry for multiple by section id
     //modal
-    public function create(Request $request, $sectionid)
+    public function create(Request $request)
     {
 
       $validator = Validator::make($request->all(),[
@@ -58,13 +59,16 @@ class MultipleController extends Controller
           ],
       ]);
 
+
       if($validator->fails()){
+
          echo $validator->errors();
       }
       else
       {
 
          $entrytitle = $request->input('entrytitle');   
+         $sectionid = $request->input('sectionid');   
          $sectionname =  Multiple::get_section_name($sectionid);
          $route = "$sectionname/$entrytitle";
 
