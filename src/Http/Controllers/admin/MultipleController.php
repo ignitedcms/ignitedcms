@@ -74,7 +74,7 @@ class MultipleController extends Controller
 
          if(Multiple::is_duplicate_route($route))
          {
-            echo 'failed';
+            echo 'You cannot have a duplicate entry title';
          }
          else
          {

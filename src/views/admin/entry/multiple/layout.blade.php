@@ -90,7 +90,16 @@
                                 dataType: 'text', // Specify the data type you expect back from the server
                                 success: function(response) {
                                     // Handle the successful response from the server
-                                    alert(response);
+                                    //alert(response);
+                                    if(response == 'success')
+                                    {
+                                       window.location.href = '{{ url("admin/multiple/$sectionid") }}'
+                                    }
+                                    else {
+                                       alert(response);
+                                    }
+
+
                                 },
                                 error: function(xhr, status, error) {
                                     // Handle errors here
