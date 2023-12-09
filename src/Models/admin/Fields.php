@@ -85,6 +85,11 @@ class Fields
             $table->dropColumn($name);
         });
 
+        //Let's delete it from section_id
+        DB::table('section_layout')
+           ->where('fieldid','=', $id)
+           ->delete();
+
         DB::table('fields')
             ->where('id', '=', $id)
             ->delete();
