@@ -114,7 +114,7 @@ class MatrixController extends Controller
         $flag = Helper::not_in_array($validation_matrix['title'], $arr);
 
         if ($flag == false) {
-            echo 'duplicate fieldname';
+            echo json_encode(['a' => 'duplicate fieldname']);
         } else {
 
             // Perform additional check for special fieldtypes
@@ -129,7 +129,9 @@ class MatrixController extends Controller
                 if ($flag === true && $flag2 === true) {
                     // echo 'success';
                 } else {
-                    echo 'The options MUST be unique! Or invalid csv string!';
+                    echo json_encode(['b'=>'The options MUST be unique! Or invalid csv string!' ]);
+                    //bail out
+                    die();
                 }
             }
             $this->f_val($validation_matrix);
@@ -153,9 +155,9 @@ class MatrixController extends Controller
         ]);
 
         if ($validator->fails()) {
-            echo $validator->errors();
+            echo json_encode(['a'=> $validator->errors()]);
         } else {
-            echo 'success';
+            echo json_encode(['a'=> 'success']);
         }
 
     }

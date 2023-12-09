@@ -15,11 +15,12 @@ $.ajax({
         }),
         "_token": "{{ csrf_token() }}"
     },
-    dataType: 'text', /*must use text*/
+    dataType: 'json', /*must use json to identify err msg a,b */
     success: function (data) {
         //alert(data);
-        if (data == "success") {
+        if (data.a == "success") {
             this.fielderrors = '';
+            this.csverrors = '';
 
             if (this.crselect == 'plain-text') {
                 this.matrixContent.push({
@@ -146,7 +147,8 @@ $.ajax({
 
         } else {
             //alert('error');
-            this.fielderrors = data;
+            this.fielderrors = data.a;
+            this.csverrors = data.b;
         }
     }
 });

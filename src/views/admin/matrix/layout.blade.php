@@ -67,7 +67,7 @@
                     variations: 'option1,option2,option3',
                     matrixContent: [],
                     fielderrors: '',
-                    csverrors: 'eRrOr',
+                    csverrors: '',
 
                 },
                 methods: {
