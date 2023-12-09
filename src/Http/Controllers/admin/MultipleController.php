@@ -21,6 +21,7 @@ use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Multiple;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Validation\Rule;
 
 class MultipleController extends Controller
 {
@@ -49,7 +50,7 @@ class MultipleController extends Controller
     public function create(Request $request, $sectionid)
     {
 
-      $validated = $request->validate([
+      $validator = Validator::make($request->all(),[
           'entrytitle' => [
               'required',
               'min:1',
@@ -57,25 +58,31 @@ class MultipleController extends Controller
           ],
       ]);
 
-      $entrytitle = $request->input('entrytitle');   
-      $sectionname =  Multiple::get_section_name($sectionid);
-      $route = "$sectionname/$entrytitle";
-
-      if(Multiple::is_duplicate_route($route))
-      {
-         echo ("failed");
-         die();
+      if($validator->fails()){
+         echo $validator->errors();
       }
       else
       {
 
-      $entrytitle = $request->input('entrytitle');   
+         $entrytitle = $request->input('entrytitle');   
+         $sectionname =  Multiple::get_section_name($sectionid);
+         $route = "$sectionname/$entrytitle";
 
-        Multiple::create($sectionid, $entrytitle);
+         if(Multiple::is_duplicate_route($route))
+         {
+            echo 'failed';
+         }
+         else
+         {
 
-        return redirect("admin/multiple/$sectionid")
-            ->with('status', 'New entry created');
+         $entrytitle = $request->input('entrytitle');   
+
+           Multiple::create($sectionid, $entrytitle);
+
+           echo ('success');
+         }
       }
+
      
     }
 

@@ -60,7 +60,10 @@
                     show: false,
                     dark: false, //dark or light mode
                     styles: 'none',
-                    items: @php  echo json_encode($data,true) @endphp
+                    items: @php  echo json_encode($data,true) @endphp,
+                    entrytitle: '',
+                    sectionid:4
+
                 },
                 methods: {
                     toggle_sidemenu() {
@@ -74,7 +77,28 @@
                     away() {
                         this.show = false;
                         this.styles = 'none'
+                    },
+                    save_title(){
+                            $.ajax({
+                                type: 'POST',
+                                url: "{{ url("admin/multiple/create/$sectionid") }}",
+                                data: {
+                                    "_token": "{{ csrf_token() }}",
+                                    "entrytitle": this.entrytitle
+                                },
+                                dataType: 'text', // Specify the data type you expect back from the server
+                                success: function(response) {
+                                    // Handle the successful response from the server
+                                    alert(response);
+                                },
+                                error: function(xhr, status, error) {
+                                    // Handle errors here
+                                    alert(error);
+                                    console.error(error);
+                                }
+                            });
                     }
+
                 },
                 mounted() {
                     // Initialize SortableJS on the list

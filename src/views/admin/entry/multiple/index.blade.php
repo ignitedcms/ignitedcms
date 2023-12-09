@@ -68,21 +68,20 @@
                                  an entry title, this must be unique and contain only lowercase
                                  letters with dashes e.g 'hello-world'
                               </div>
-                             <form action="{{ url("admin/multiple/create/$sectionid") }} " method="POST">
-                                @csrf
+                             
                                 <div class="form-group">
                                    <label for="title">Entry title</label>
                                    <div class="small text-muted">Entry title</div>
                                    <input class="form-control" 
-                                          name="entrytitle" 
+                                          v-model="entrytitle"
                                           value="" 
                                           placeholder="Start typing" />
                                 </div>
                                 <div class="form-group right">
 
-                                   <button type="submit"class="btn btn-primary">Add another</button>
+                                   <button  class="btn btn-primary" @click="save_title">Add another</button>
                                 </div>
-                             </form>
+                             
                           </div>
                        </div>
 
