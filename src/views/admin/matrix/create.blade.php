@@ -83,6 +83,8 @@
                                     </div>
                                     <input v-model="fieldname" type="text" class="form-control" 
                                          value="">
+                                    
+                                    <div class="small text-danger">@{{ fielderrors }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label>Instruction text</label>
@@ -108,15 +110,7 @@
                                     </select>
                                     <div class="errors"></div>
                                 </div>
-                                <div v-if="crselect=='plain-text'">
-                                    <div class="form-group">
-                                        <label>Character length</label>
-                                        <div class="small text-muted">(Must be valid whole number)</div>
-                                        <input v-model="fieldlength" type="text" class="form-control"
-                                            placeholder="Type here" 
-                                            value="">
-                                    </div>
-                                </div>
+                                
                                 <div v-if="crselect=='multi-line'">
                                 </div>
                                 <div v-if="crselect=='rich-text'">

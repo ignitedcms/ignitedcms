@@ -66,6 +66,9 @@
                     filetype: 'jpg|png|gif',
                     variations: 'option1,option2,option3',
                     matrixContent: [],
+                    fielderrors: '',
+                    csverrors: '',
+
                 },
                 methods: {
                     toggle_sidemenu() {

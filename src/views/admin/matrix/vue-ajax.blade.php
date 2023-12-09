@@ -17,8 +17,10 @@ $.ajax({
     },
     dataType: 'text', /*must use text*/
     success: function (data) {
-        alert(data);
+        //alert(data);
         if (data == "success") {
+            this.fielderrors = '';
+
             if (this.crselect == 'plain-text') {
                 this.matrixContent.push({
                     'type': 'plain-text',
@@ -143,7 +145,8 @@ $.ajax({
             this.instructions = "";
 
         } else {
-            alert('error');
+            //alert('error');
+            this.fielderrors = data;
         }
     }
 });
