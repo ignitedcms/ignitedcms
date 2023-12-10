@@ -70,7 +70,7 @@ class SectionController extends Controller
         return redirect('admin/section')->with('status', 'Section created');
     }
 
-    public function create_view()
+    public function createView()
     {
         /*
         |---------------------------------------------------------------
@@ -85,16 +85,16 @@ class SectionController extends Controller
 
     // We need to list all fields - used fields
     // and pass this to the view
-    public function update_view($id)
+    public function updateView($id)
     {
         $data = Fields::all();
         $data2 = Section::read($id);
 
         //left  pills
-        $data3 = Section::fields_in_use($id);
+        $data3 = Section::fieldsInUse($id);
 
         //right pills
-        $data4 = Section::fields_not_in_use($id);
+        $data4 = Section::fieldsNotInUse($id);
 
         return view('ignitedcms::admin.sections.edit')->with([
             'id' => $id,
