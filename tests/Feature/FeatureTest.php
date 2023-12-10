@@ -48,8 +48,19 @@ class FeatureTest extends TestCase
         $response = $this->withSession(['logged_in' => ''])->get('admin/dashboard')->assertStatus(302);
     }
 
-    public function test_database()
+    public function test_create_user()
     {
-        $this->assertDatabaseCount('user', 1);
+     //$this->withoutExceptionHandling();
+
+      $response = $this->withSession(['logged_in'=>1, 'userid'=>'1'])->post('admin/users/create',[
+          'email'=>'bob@mail.com',
+          'password'=>'foo00000000000',
+          'permissiongroup'=>'1',
+       ]);
+
+       //$response->assertRedirect('admin/users');
+
+       $this->assertDatabaseCount('user',2);
     }
+
 }
