@@ -2,8 +2,6 @@
 
 namespace Ignitedcms\Ignitedcms\Tests;
 
-use Illuminate\Support\Facades\Route;
-
 class LoginTest extends TestCase
 {
     public function test_example_route()
@@ -30,6 +28,4 @@ class LoginTest extends TestCase
             ->assertRedirect('login');
 
     }
-
 }
-
