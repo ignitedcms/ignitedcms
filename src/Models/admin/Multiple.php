@@ -49,7 +49,7 @@ class Multiple
         |---------------------------------------------------------------
         */
 
-      $sectionname = self::get_section_name($sectionid);
+      $sectionname = self::getSectionName($sectionid);
       $route = "$sectionname/$entrytitle";
 
       $controller = "admin/parser/display/$sectionid/$insertid";
@@ -61,7 +61,7 @@ class Multiple
 
     }
 
-    public static function is_duplicate_route($route)
+    public static function isDuplicateRoute($route)
     {
 
       $rows = DB::table('routes')
@@ -79,7 +79,7 @@ class Multiple
       }
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)
@@ -127,7 +127,7 @@ class Multiple
         |
         */
 
-        $sectionname = self::get_section_name($sectionid);
+        $sectionname = self::getSectionName($sectionid);
 
         DB::table('routes')
             ->where('route', '=', "$sectionname/$entrytitle")

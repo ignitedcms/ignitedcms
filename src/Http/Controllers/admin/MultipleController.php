@@ -36,7 +36,7 @@ class MultipleController extends Controller
     {
         $data = Multiple::all($sectionid);
 
-        $sectionname = Multiple::get_section_name($sectionid);
+        $sectionname = Multiple::getSectionName($sectionid);
 
         return view('ignitedcms::admin.entry.multiple.index')->with([
 
@@ -69,10 +69,10 @@ class MultipleController extends Controller
 
          $entrytitle = $request->input('entrytitle');   
          $sectionid = $request->input('sectionid');   
-         $sectionname =  Multiple::get_section_name($sectionid);
+         $sectionname =  Multiple::getSectionName($sectionid);
          $route = "$sectionname/$entrytitle";
 
-         if(Multiple::is_duplicate_route($route))
+         if(Multiple::isDuplicateRoute($route))
          {
             echo 'You cannot have a duplicate entry title';
          }
@@ -97,7 +97,7 @@ class MultipleController extends Controller
 
     //ajax post request
     //needs csrf token!!
-    public function order_multiples(Request $request)
+    public function orderMultiples(Request $request)
     {
         //quick and dirty json test
         $data = $request->input('items');
@@ -112,9 +112,9 @@ class MultipleController extends Controller
         return response()->json(['message' => 'Sorted successfully']);
     }
 
-    public function update_view($sectionid, $entryid)
+    public function updateView($sectionid, $entryid)
     {
-        $data = Entry::section_all_fields($sectionid);
+        $data = Entry::sectionAllFields($sectionid);
 
         return view('ignitedcms::admin.entry.multiple.edit')->with([
             'data' => $data,
