@@ -23,7 +23,7 @@
                                 <h3>Sections</h3>
                             </div>
                             <div class="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">Title <span class="text-danger">*</span></label>
                                 <div class="small text-muted">Section title,
                                     must be unique and contain no
                                     spaces or special characters
@@ -35,7 +35,7 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="sectiontype">Section type</label>
+                                <label for="sectiontype">Section type <span class="text-danger">*</span></label>
                                 <div class="small text-muted">Choose section type</div>
                                 <select name="sectiontype" class="form-select" aria-label="Default select example">
                                     <option value="single" selected>Single</option>
@@ -72,6 +72,10 @@
 
                             <div class="nothing">
                                 <h4>Page</h4>
+                                <div class="small text-muted m-b-2">
+                                 You need to drag at least one field into
+                                 here.
+                                </div>
                             </div>
                             <div id='list1' class='scroll-y bg-white cross-grid p-2 b br' style="height:500px;">
                                 <!--add pills here-->
@@ -83,7 +87,8 @@
                             <div class="nothing">
                                 <h4>Fields</h4>
                             </div>
-                            <div id='list2' class='scroll-y bg-grey b br p-2'>
+                            <div id='list2' class='scroll-y bg-grey b br p-2' 
+                              style="min-height:200px;">
 
                                 @foreach ($data as $field)
                                     <div class="pill" id="{{ $field->id }}">

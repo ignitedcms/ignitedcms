@@ -23,7 +23,7 @@
                                 <h3>Fields</h3>
                             </div>
                             <div class="form-group">
-                                <label for="title">Name</label>
+                                <label for="title">Name <span class="text-danger">*</span></label>
                                 <div class="small text-muted">What this field will
                                     be called in the control panel. (This MUST be unique and must not contain
                                     numbers or spaces.)You can NOT use the following names:<span class="text-danger">
@@ -49,8 +49,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Field Type</label>
-                                <div class="errors pull-left">*</div>
+                                <label>Field Type <span class="text-danger">* </span></label>
                                 <div class="small text-muted">Specify the field type</div>
                                 <select class="form-select" id="type" v-model="crselect" name="type">
                                     <option value="plain-text" selected>Plain Text</option>

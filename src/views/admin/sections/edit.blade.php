@@ -90,7 +90,8 @@
                             <div class="nothing">
                                 <h4>Fields</h4>
                             </div>
-                            <div id='list2' class='scroll-y bg-grey b br p-2'>
+                            <div id='list2' class='scroll-y bg-grey b br p-2'
+                               style="min-height:200px;"  >
 
                                 @foreach ($data as $field)
                                     <?php if(Helper::isFieldInSection($field->id, $id)) : ?>
