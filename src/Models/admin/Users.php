@@ -32,7 +32,7 @@ class Users
             ->get();
     }
 
-    public static function permission_groups()
+    public static function permissionGroups()
     {
         return DB::table('permission_groups')
             ->select('*')
@@ -50,7 +50,7 @@ class Users
      * @param   int $permission_group
      * @return  void (success or fail
      */
-    public static function create_user($email, $password, $permissiongroup)
+    public static function createUser($email, $password, $permissiongroup)
     {
         DB::table('user')->insert([
             'email' => $email,
@@ -66,7 +66,7 @@ class Users
      * @param   string $userid
      * @return  string $email
      */
-    public static function get_email($id)
+    public static function getEmail($id)
     {
         $rows = DB::table('user')
             ->select('email')
@@ -85,7 +85,7 @@ class Users
      * @param   int $groupid
      * @return  void (updates permissions)
      */
-    public static function update_permissions($id, $groupid)
+    public static function updatePermissions($id, $groupid)
     {
         DB::table('user')
             ->where('id', '=', $id)
