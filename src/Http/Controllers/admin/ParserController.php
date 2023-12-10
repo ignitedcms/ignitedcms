@@ -66,7 +66,7 @@ class ParserController extends Controller
      * @param   string $sectionname
      * @return  void
      */
-    public function indexPage($section_name)
+    public function index_page($section_name)
     {
         $data = Parser::getMultiples($section_name);
 
