@@ -22,11 +22,18 @@
                 </div>
             @endif
 
+            
+
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>
                 </div>
                 <div class="breadcrumb-item">Assets</div>
+            </div>
+
+            <div class="alert alert-info">
+               <p>Struggling to upload a large file greater than 5mb? Use 
+               our large asset file <a href="#">uploader</a></p>
             </div>
 
             <div class="row">
