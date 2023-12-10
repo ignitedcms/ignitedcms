@@ -39,15 +39,15 @@ class Helper
      | - no spaces, or commas, slashes etc
      |
       */
-    public static function valid_select($array)
+    public static function validSelect($array)
     {
         $ar = [];
         foreach ($array as $var) {
             array_push($ar, $var->option);
         }
 
-        $a = self::no_duplicates($ar);
-        $b = self::valid_variable_names($ar);
+        $a = self::noDuplicates($ar);
+        $b = self::validVariableNames($ar);
         if ($a && $b) {
             return true;
         } else {
@@ -63,7 +63,7 @@ class Helper
     | https://stackoverflow.com/questions/3980154/how-to-check-if-a-string-can-be-used-as-a-variable-name-in-php
     |
      */
-    public static function valid_variable_names($ar)
+    public static function validVariableNames($ar)
     {
         $total_array = count($ar);
         $validate_count = 0;
@@ -88,7 +88,7 @@ class Helper
      * @param  string  $str
      * @return    bool TRUE or FALSE
      */
-    public static function is_valid_csv_string($str)
+    public static function isValidCsvString($str)
     {
         // $string = 'PHP,Java,"Py///&*thon",,,,,Swift';
         $data = str_getcsv($str);
@@ -102,7 +102,7 @@ class Helper
         $validate_count = 0;
         foreach ($data as $key) {
             // Also make sure string is only alphanumeric
-            if (self::alpha_numeric($key)) {
+            if (self::alphaNumeric($key)) {
                 $validate_count++;
             }
         }
@@ -119,7 +119,7 @@ class Helper
      * @param    string
      * @return    bool
      */
-    public static function alpha_numeric($str)
+    public static function alphaNumeric($str)
     {
         return ctype_alnum((string) $str);
     }
@@ -140,7 +140,7 @@ class Helper
      * @param  mixed  $arr array of values
      * @return    bool true or false
      */
-    public static function not_in_array($val, $arr)
+    public static function notInArray($val, $arr)
     {
         $pass = true;
         foreach ($arr as $key) {
@@ -160,7 +160,7 @@ class Helper
      * @param    mixed array $arr
      * @return    bool true or false
      */
-    public static function no_duplicates($arr)
+    public static function noDuplicates($arr)
     {
         // First let's convert all to lower
         $arr_copy = [];
@@ -182,7 +182,7 @@ class Helper
         }
     }
 
-    public static function check_permissions($permissionID, $map)
+    public static function checkPermissions($permissionID, $map)
     {
         foreach ($map as $row) {
             if ($permissionID == $row->permissionID) {
@@ -198,7 +198,7 @@ class Helper
      * @param  string  $sectionid
      * @return bool
      */
-    public static function is_field_in_section($fieldid, $sectionid)
+    public static function isFieldInSection($fieldid, $sectionid)
     {
         $rows = DB::table('section_layout')
             ->select('fieldid')
@@ -220,7 +220,7 @@ class Helper
      * @param  string  $fieldname
      * @return string
      */
-    public static function get_content($entryid, $fieldname)
+    public static function getContent($entryid, $fieldname)
     {
         $rows = DB::table('content')
             ->select($fieldname)
@@ -234,7 +234,7 @@ class Helper
         }
     }
 
-    public static function get_thumb($entryid, $fieldname)
+    public static function getThumb($entryid, $fieldname)
     {
         $rows = DB::table('content')
             ->select($fieldname)
@@ -262,7 +262,7 @@ class Helper
      * @param  string  $assetit
      * @return string url
      */
-    public static function get_asset($assetid)
+    public static function getAsset($assetid)
     {
         $rows = DB::table('assetfields')
             ->select('url')
@@ -283,7 +283,7 @@ class Helper
      * @param  string  $fieldname
      * @return string
      */
-    public static function get_switch_state($entryid, $fieldname)
+    public static function getSwitchState($entryid, $fieldname)
     {
         $rows = DB::table('content')
             ->select($fieldname)
@@ -303,7 +303,7 @@ class Helper
      * @param  string  $entryid
      * @return string  $entrytitle
      */
-    public static function get_entrytitle($entryid)
+    public static function getEntrytitle($entryid)
     {
         $rows = DB::table('content')
             ->select('entrytitle')
@@ -325,7 +325,7 @@ class Helper
      * @param  int  $sectionid
      * @return bool true or false
      */
-    public static function is_multiple($sectionid)
+    public static function isMultiple($sectionid)
     {
         $rows = DB::table('section')
             ->select('sectiontype')
@@ -350,7 +350,7 @@ class Helper
      * @param  int  $sectionid
      * @return bool true or false
      */
-    public static function is_single($sectionid)
+    public static function isSingle($sectionid)
     {
         $rows = DB::table('section')
             ->select('sectiontype')
@@ -375,10 +375,10 @@ class Helper
      * @param   string $fieldname
      * @return  string  select markup
      */
-    public static function build_dropdown($entryid, $fieldname)
+    public static function buildDropdown($entryid, $fieldname)
     {
         //get saved content from db
-        $saved_content = self::get_content($entryid, $fieldname);
+        $saved_content = self::getContent($entryid, $fieldname);
 
         $rows = DB::table('fields')
             ->where('name', '=', $fieldname)
@@ -408,11 +408,11 @@ class Helper
      * @param   string $fieldname
      * @return  string  checkbox markup
      */
-    public static function build_checkboxes($entryid, $fieldname)
+    public static function buildCheckboxes($entryid, $fieldname)
     {
         //get saved content from db
         // Format "a,b,c"
-        $saved_content = self::get_content($entryid, $fieldname);
+        $saved_content = self::getContent($entryid, $fieldname);
 
         $csvarray = explode(',', $saved_content);
         /*
@@ -457,7 +457,7 @@ class Helper
      * @param   array  $csvarray eg ['a','b']
      * @return  bool   true or false
      */
-    public static function is_checked($checkbox_name, $csvarray)
+    public static function isChecked($checkbox_name, $csvarray)
     {
         $stopper = false;
         foreach ($csvarray as $row) {
@@ -472,7 +472,7 @@ class Helper
         return $stopper;
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)
