@@ -15,7 +15,7 @@ class LoginTest extends TestCase
             'email' => 'foo@mail.com',
             'password' => 'Letmein1',
         ])
-         ->assertRedirect('admin/dashboard');
+            ->assertRedirect('admin/dashboard');
     }
 
     public function test_user_login_bad()
@@ -30,10 +30,10 @@ class LoginTest extends TestCase
 
     public function test_user_logout()
     {
-       $this->post('logout')
-          ->assertRedirect('login');
+        $this->post('logout')
+            ->assertRedirect('login');
 
-       $this->get('admin/dashboard')
-          ->assertDontSee('Dashboard');
+        $this->get('admin/dashboard')
+            ->assertDontSee('Dashboard');
     }
 }
