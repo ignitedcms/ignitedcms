@@ -66,18 +66,18 @@ class FieldsController extends Controller
         | Special case for form validation column
         |---------------------------------------------------------------
         */
-        $form_validation = '';
+        $formValidation = '';
 
         if ($type == 'plain-text') {
-            $form_validation = "max:$length";
+            $formValidation = "max:$length";
         } elseif ($type == 'multi-line') {
-            $form_validation = '';
+            $formValidation = '';
         } elseif ($type == 'rich-text') {
-            $form_validation = '';
+            $formValidation = '';
         } elseif ($type == 'drop-down') {
-            $form_validation = '';
+            $formValidation = '';
         } else {
-            $form_validation = '';
+            $formValidation = '';
         }
 
         Fields::create(
@@ -86,13 +86,13 @@ class FieldsController extends Controller
             $type,
             $length,
             $variations,
-            $form_validation
+            $formValidation
         );
 
         return redirect('admin/fields')->with('status', 'Field added successfully');
     }
 
-    public function create_view()
+    public function createView()
     {
         return view('ignitedcms::admin.fields.create');
     }
@@ -103,7 +103,7 @@ class FieldsController extends Controller
         //Fields::update();
     }
 
-    public function update_view(Request $request, $id)
+    public function updateView(Request $request, $id)
     {
         $data = Fields::update($id);
 
