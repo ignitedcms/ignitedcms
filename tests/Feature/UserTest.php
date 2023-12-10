@@ -47,7 +47,7 @@ class UserTest extends TestCase
         $response->assertSessionHasErrors('password');
     }
 
-    public function test_create_user_no_weak_password()
+    public function test_create_user_weak_password()
     {
         $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
             ->post('admin/users/create', [
