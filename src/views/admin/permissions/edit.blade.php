@@ -38,7 +38,7 @@
                      @foreach ($data as $row)
                      <div> 
                         <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" 
-                           class="form-check-input" {{ Helper::check_permissions($row->permissionID, $map) }}>
+                           class="form-check-input" {{ Helper::checkPermissions($row->permissionID, $map) }}>
                         <label for="the label">{{ $row->permission }}</label>
                      </div>
                      @endforeach
