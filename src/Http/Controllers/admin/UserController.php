@@ -40,7 +40,7 @@ class UserController extends Controller
     }
 
     //need to pass in permission group
-    public function create_view()
+    public function createView()
     {
         $data = Users::permission_groups();
 
@@ -67,7 +67,7 @@ class UserController extends Controller
         return redirect('admin/users')->with('status', 'User created!');
     }
 
-    public function update_view($id)
+    public function updateView($id)
     {
         $data = Users::permission_groups();
 
