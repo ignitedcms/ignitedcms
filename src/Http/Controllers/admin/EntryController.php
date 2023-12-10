@@ -61,9 +61,9 @@ class EntryController extends Controller
      * @param   int $entryid
      * @return  void Writes files
      */
-    public function build_single($sid, $eid)
+    public function buildSingle($sid, $eid)
     {
-        Template_builder::build_single($sid, $eid);
+        Template_builder::buildSingle($sid, $eid);
 
         return redirect("admin/entry/update/$sid/$eid");
 
@@ -76,23 +76,23 @@ class EntryController extends Controller
      * @param   int $sectionid
      * @return  void Writes folder and files
      */
-    public function build_multiple($sid)
+    public function buildMultiple($sid)
     {
-        Template_builder::build_multiple($sid);
+        Template_builder::buildMultiple($sid);
 
         return redirect("admin/multiple/$sid");
         //redirect
     }
 
-    public function update_view($sectionid, $entryid)
+    public function updateView($sectionid, $entryid)
     {
-        $data = Entry::section_all_fields($sectionid);
+        $data = Entry::sectionAllFields($sectionid);
         $assets = Asset::all();
 
-        $matrix = Matrix::get_matrix($sectionid, $entryid);
+        $matrix = Matrix::getMatrix($sectionid, $entryid);
 
         //Pass the single rich text boxes to footer, for vuejs!!!!
-        $singleRichtext = Entry::get_single_richtextfields($sectionid, $entryid);
+        $singleRichtext = Entry::getSingleRichtextfields($sectionid, $entryid);
 
         return view('ignitedcms::admin.entry.edit')->with([
             'data' => $data,
@@ -112,7 +112,7 @@ class EntryController extends Controller
     //update as entryid already created
     public function update(Request $request, $sectionid, $entryid)
     {
-        $data = Entry::section_all_fields($sectionid);
+        $data = Entry::sectionAllFields($sectionid);
 
         /*
         |---------------------------------------------------------------
@@ -153,17 +153,17 @@ class EntryController extends Controller
             if ($row->type != 'check-box') {
                 //not a checkbox all good save to db
                 $postdata = $request->input($row->name);
-                Entry::save_to_content($entryid, $row->name, $postdata);
+                Entry::saveToContent($entryid, $row->name, $postdata);
             } else {
                 $postdata = $request->input($row->name);
                 if ($postdata == null) {
                     //no postdata so save a blank string to db
-                    Entry::save_to_content($entryid, $row->name, '');
+                    Entry::saveToContent($entryid, $row->name, '');
                 } else {
                     //postdata true so format to csv and
                     //save to db
-                    $csv = Entry::checkbox_format($postdata);
-                    Entry::save_to_content($entryid, $row->name, $csv);
+                    $csv = Entry::checkboxFormat($postdata);
+                    Entry::saveToContent($entryid, $row->name, $csv);
                 }
             }
         }
