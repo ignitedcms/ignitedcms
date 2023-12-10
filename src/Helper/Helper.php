@@ -436,7 +436,7 @@ class Helper
 
         foreach ($csv as $part) {
             // add the word 'checked' to the end of the input markup!
-            if (self::is_checked($part, $csvarray)) {
+            if (self::isChecked($part, $csvarray)) {
                 echo "<input name='$fieldname"."[]'"." value='$part' type='checkbox' class='form-check-input' checked>";
                 echo "<label for='$part'>$part</label>";
                 echo '<br>';
