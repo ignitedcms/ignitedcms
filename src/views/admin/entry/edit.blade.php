@@ -129,7 +129,7 @@
                                <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
-                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::get_content($entryid, $row->name) }}</textarea>
+                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::getContent($entryid, $row->name) }}</textarea>
                                 {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
