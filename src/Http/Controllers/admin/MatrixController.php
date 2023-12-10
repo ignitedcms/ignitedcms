@@ -129,9 +129,9 @@ class MatrixController extends Controller
                 if ($flag === true && $flag2 === true) {
                     // echo 'success';
                 } else {
-                    echo json_encode(['b'=>'The options MUST be unique! Or invalid csv string!' ]);
+                    echo json_encode(['b' => 'The options MUST be unique! Or invalid csv string!']);
                     //bail out
-                    die();
+                    exit();
                 }
             }
             $this->fVal($validation_matrix);
@@ -155,9 +155,9 @@ class MatrixController extends Controller
         ]);
 
         if ($validator->fails()) {
-            echo json_encode(['a'=> $validator->errors()]);
+            echo json_encode(['a' => $validator->errors()]);
         } else {
-            echo json_encode(['a'=> 'success']);
+            echo json_encode(['a' => 'success']);
         }
 
     }

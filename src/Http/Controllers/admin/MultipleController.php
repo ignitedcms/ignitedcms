@@ -22,7 +22,6 @@ use Ignitedcms\Ignitedcms\Models\admin\Multiple;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class MultipleController extends Controller
 {
@@ -51,43 +50,36 @@ class MultipleController extends Controller
     public function create(Request $request)
     {
 
-      $validator = Validator::make($request->all(),[
-          'entrytitle' => [
-              'required',
-              'min:1',
-              'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-          ],
-      ]);
+        $validator = Validator::make($request->all(), [
+            'entrytitle' => [
+                'required',
+                'min:1',
+                'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+            ],
+        ]);
 
+        if ($validator->fails()) {
 
-      if($validator->fails()){
+            echo $validator->errors();
+        } else {
 
-         echo $validator->errors();
-      }
-      else
-      {
+            $entrytitle = $request->input('entrytitle');
+            $sectionid = $request->input('sectionid');
+            $sectionname = Multiple::getSectionName($sectionid);
+            $route = "$sectionname/$entrytitle";
 
-         $entrytitle = $request->input('entrytitle');   
-         $sectionid = $request->input('sectionid');   
-         $sectionname =  Multiple::getSectionName($sectionid);
-         $route = "$sectionname/$entrytitle";
+            if (Multiple::isDuplicateRoute($route)) {
+                echo 'You cannot have a duplicate entry title';
+            } else {
 
-         if(Multiple::isDuplicateRoute($route))
-         {
-            echo 'You cannot have a duplicate entry title';
-         }
-         else
-         {
+                $entrytitle = $request->input('entrytitle');
 
-         $entrytitle = $request->input('entrytitle');   
+                Multiple::create($sectionid, $entrytitle);
 
-           Multiple::create($sectionid, $entrytitle);
+                echo 'success';
+            }
+        }
 
-           echo ('success');
-         }
-      }
-
-     
     }
 
     public function update()
