@@ -23,7 +23,7 @@ class Parser
      *
      * @return  array $globals
      */
-    public static function get_globals()
+    public static function getGlobals()
     {
         //loop through entry's and select global types
         $query = DB::table('entry')
@@ -33,7 +33,7 @@ class Parser
 
         $arr = [];
         foreach ($query as $row) {
-            $name = self::get_section_name($row->sectionid);
+            $name = self::getSectionName($row->sectionid);
 
             $query2 = DB::table('content')
                 ->where('entryid', $row->id)
@@ -45,7 +45,7 @@ class Parser
 
             foreach ($query2 as $key) {
                 foreach ($key as $field_name => $field_content) {
-                    $tmp = self::for_image($field_name, $field_content);
+                    $tmp = self::forImage($field_name, $field_content);
 
                     $arr[$name][$field_name] = $tmp;
                 }
@@ -62,11 +62,11 @@ class Parser
      * @param   string $sectionname
      * @return  void
      */
-    public static function get_multiples($section_name)
+    public static function getMultiples($section_name)
     {
         //First let's collect all the globals
         $data = [];
-        $arr = self::get_globals();
+        $arr = self::getGlobals();
         foreach ($arr as $key => $value) {
             $data[$key] = $value;
         }
@@ -88,7 +88,7 @@ class Parser
         $counter = 0;
         foreach ($query as $row) {
 
-            $url = self::get_route($row->id, $row->sectionid);
+            $url = self::getRoute($row->id, $row->sectionid);
             $a['url'] = $url; //for ease of use save url
 
             $query2 = DB::table('content')
@@ -107,7 +107,7 @@ class Parser
             foreach ($arrTmp as $key => $value) {
                 //special case for images
                 //make templating much easier
-                $tmp = self::for_image($key, $value);
+                $tmp = self::forImage($key, $value);
                 //$tmp = $this->for_image($key, $value);
 
                 $a[$key] = $tmp;
@@ -124,7 +124,7 @@ class Parser
     }
 
     //save a url for each multiple in array
-    public static function get_route($entryid, $sectionid)
+    public static function getRoute($entryid, $sectionid)
     {
         $string = "admin/parser/display/$sectionid/$entryid";
 
@@ -142,7 +142,7 @@ class Parser
         return $route;
     }
 
-    public static function get_single($sectionid, $entryid)
+    public static function getSingle($sectionid, $entryid)
     {
         $query = DB::table('content')
             ->select('*')
@@ -163,13 +163,13 @@ class Parser
         foreach ($arrTmp as $key => $value) {
             //special case for images
             //make templating much easier
-            $tmp = self::for_image($key, $value);
+            $tmp = self::forImage($key, $value);
 
             $data[$key] = $tmp;
         }
 
         //now get the globals
-        $arr = self::get_globals();
+        $arr = self::getGlobals();
         foreach ($arr as $key => $value) {
             $data[$key] = $value;
         }
@@ -177,7 +177,7 @@ class Parser
         return $data;
     }
 
-    public static function for_image($col, $val)
+    public static function forImage($col, $val)
     {
         $col = trim($col);
 
@@ -244,7 +244,7 @@ class Parser
         }
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)
