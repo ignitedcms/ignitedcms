@@ -8,7 +8,8 @@ class UserTest extends TestCase
     {
         //$this->withoutExceptionHandling();
 
-        $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])->post('admin/users/create', [
+       $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+                        ->post('admin/users/create', [
             'email' => 'bob@mail.com',
             'password' => 'foo00000000000',
             'permissiongroup' => '1',
@@ -20,4 +21,42 @@ class UserTest extends TestCase
             'email' => 'bob@mail.com',
         ]);
     }
+
+    public function test_no_duplicate_user()
+    {
+       $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+                        ->post('admin/users/create', [
+            'email' => 'foo@mail.com',
+            'password' => 'testfdsfds',
+            'permissiongroup' => '1',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+
+    }
+
+    public function test_create_user_no_password()
+    {
+       $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+                        ->post('admin/users/create', [
+            'email' => 'foo@mail.com',
+            'password' => '',
+            'permissiongroup' => '1',
+        ]);
+
+        $response->assertSessionHasErrors('password');
+    }
+
+    public function test_create_user_no_weak_password()
+    {
+       $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+                        ->post('admin/users/create', [
+            'email' => 'foo@mail.com',
+            'password' => 'test',
+            'permissiongroup' => '1',
+        ]);
+
+        $response->assertSessionHasErrors('password');
+    }
+
 }
