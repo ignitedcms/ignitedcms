@@ -89,7 +89,7 @@ class Entry
             | then if true push onto the fields stack
             |---------------------------------------------------------------
              */
-            if (self::field_type($row->fieldid) == 'rich-text') {
+            if (self::fieldType($row->fieldid) == 'rich-text') {
                 $fieldname = self::fieldName($row->fieldid);
                 $arr_chunk = ['name' => $fieldname,
                     'content' => self::getContent($entryid, $fieldname)];
