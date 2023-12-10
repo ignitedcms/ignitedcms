@@ -26,7 +26,7 @@
                                 <label for="title">Title</label>
                                 <div class="small text-muted">Disabled</div>
                                 <input class="form-control" name="name" value="{{ $data2->name }}" placeholder="test"
-                                    readonly />
+                                    disabled />
                                 @error('name')
                                     <div class="small text-danger">{{ $message }}</div>
                                 @enderror
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="sectiontype">Section type</label>
                                 <div class="small text-muted">Disabled</div>
-                                <select name="sectiontype" class="form-select" aria-label="Default select example" disabled>
+                                <select name="sectiontype" class="form-select" aria-label="Default select example" disabled >
                                     <option value="single" selected>Single</option>
                                     <option value="multiple">Multiple</option>
                                     <option value="global">Global</option>

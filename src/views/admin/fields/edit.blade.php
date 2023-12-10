@@ -32,7 +32,7 @@
                                     </span>
                                 </div>
                                 <input class="form-control" name="name" value="{{ $field->name }}"
-                                    placeholder="Start typing" readonly />
+                                    placeholder="Start typing" disabled />
                             </div>
                             <div class="form-group">
                                 <label for="title">Instructions</label>
@@ -40,7 +40,7 @@
                                     Helper text to guide the author
                                 </div>
                                 <input class="form-control" name="instructions" value="{{ $field->instructions }}"
-                                    placeholder="Start typing" readonly/>
+                                    placeholder="Start typing" disabled/>
                             </div>
                             <div class="form-group">
                                 <label for="type">Field type</label>
@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <input class="form-control" 
                                           value="{{ $field->type }}" 
-                                          placeholder="test" readonly />
+                                          placeholder="test" disabled />
                                 </div>
                             </div>
                         </div>

@@ -31,13 +31,13 @@
                         <label for="Email">Email</label>
                         <div class="small text-muted">[Disabled]</div>
                         <input class="form-control" name="email" value="{{ $email }}" placeholder="Start typing"
-                            readonly />
+                            disabled />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <div class="small text-muted">[Disabled]</div>
                         <input class="form-control" name="password" type="password" value="hidden" placeholder=""
-                            readonly />
+                            disabled />
                     </div>
                     <div class="form-group">
                         <label for="role">Roles</label>

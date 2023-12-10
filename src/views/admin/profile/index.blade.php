@@ -44,7 +44,7 @@
                         <label for="title">Email</label>
                         <div class="small text-muted">Current email address, [you cannot change this]</div>
                         <input class="form-control" name="email" value="{{ old('email', $data->email) }}"
-                            placeholder="Start typing" readonly />
+                            placeholder="Start typing" disabled />
                     </div>
                     <div class="form-group right">
                         <button type="submit" class="btn btn-primary">Save</button>

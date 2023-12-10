@@ -21,7 +21,8 @@
                   <div class="form-group">
                      <label for="groupName">Group Name [*]</label>
                      <div class="small text-muted m-b">[Disabled]</div>
-                     <input class="form-control" name="groupName" value="{{ $groupName }}" placeholder="Start typing" readonly />
+                     <input class="form-control" name="groupName" value="{{ $groupName }}" 
+                        placeholder="Start typing" disabled />
 
                   </div>
 
