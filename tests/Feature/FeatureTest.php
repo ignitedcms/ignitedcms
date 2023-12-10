@@ -60,7 +60,9 @@ class FeatureTest extends TestCase
 
        //$response->assertRedirect('admin/users');
 
-       $this->assertDatabaseCount('user',2);
+      $this->assertDatabaseHas('user',[
+         'email'=>'bob@mail.com'
+      ]);
     }
 
 }
