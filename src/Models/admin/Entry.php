@@ -51,7 +51,7 @@ class Entry
             ->get();
     }
 
-    public static function section_all_fields($sectionid)
+    public static function sectionAllFields($sectionid)
     {
         return DB::table('section_layout')
             ->join('fields', 'section_layout.fieldid', '=', 'fields.id')
@@ -60,7 +60,7 @@ class Entry
     }
 
     //save or rather update as entry already exists
-    public static function save_to_content($entryid, $fieldname, $data)
+    public static function saveToContent($entryid, $fieldname, $data)
     {
 
         $affected = DB::table('content')
@@ -69,7 +69,7 @@ class Entry
     }
 
     //A funky way to handle single rich text fields in the entries
-    public static function get_single_richtextfields($sectionid, $entryid)
+    public static function getSingleRichtextfields($sectionid, $entryid)
     {
         $query = DB::table('section_layout')
             ->select('*')
@@ -90,9 +90,9 @@ class Entry
             |---------------------------------------------------------------
              */
             if (self::field_type($row->fieldid) == 'rich-text') {
-                $fieldname = self::field_name($row->fieldid);
+                $fieldname = self::fieldName($row->fieldid);
                 $arr_chunk = ['name' => $fieldname,
-                    'content' => self::get_content($entryid, $fieldname)];
+                    'content' => self::getContent($entryid, $fieldname)];
                 array_push($fields, $arr_chunk);
             }
         }
@@ -102,7 +102,7 @@ class Entry
         return json_encode($fields);
     }
 
-    public static function field_type($fieldid)
+    public static function fieldType($fieldid)
     {
 
         $rows = DB::table('fields')
@@ -113,7 +113,7 @@ class Entry
         return $rows[0]->type;
     }
 
-    public static function field_name($fieldid)
+    public static function fieldName($fieldid)
     {
         $rows = DB::table('fields')
             ->select('name')
@@ -131,7 +131,7 @@ class Entry
      * @param  string  $fieldname
      * @return string
      */
-    public static function get_content($entryid, $fieldname)
+    public static function getContent($entryid, $fieldname)
     {
         $rows = DB::table('content')
             ->select($fieldname)
@@ -152,7 +152,7 @@ class Entry
      * @param   string $route
      * @return  bool  true or false
      */
-    public static function check_route_in_db($route)
+    public static function checkRouteInDb($route)
     {
         $rows = DB::table('routes')
             ->select('route')
@@ -166,7 +166,7 @@ class Entry
         }
     }
 
-    public static function is_multiple($entryid)
+    public static function isMultiple($entryid)
     {
         $rows = DB::table('entry')
             ->where('id', '=', $entryid)
@@ -187,7 +187,7 @@ class Entry
      * @param   array $postdata eg ["a", "b"]
      * @return  string  formatted csv string eg "a,b"
      */
-    public static function checkbox_format($postdata)
+    public static function checkboxFormat($postdata)
     {
         $tmp = '';
         foreach ($postdata as $row) {
@@ -198,7 +198,7 @@ class Entry
         return trim($tmp, ',');
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)
