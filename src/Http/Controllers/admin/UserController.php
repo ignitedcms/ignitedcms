@@ -40,9 +40,9 @@ class UserController extends Controller
     }
 
     //need to pass in permission group
-    public function create_view()
+    public function createView()
     {
-        $data = Users::permission_groups();
+        $data = Users::permissionGroups();
 
         return view('ignitedcms::admin.users.create')->with([
             'data' => $data,
@@ -62,16 +62,16 @@ class UserController extends Controller
         $password = $request->input('password');
         $permissiongroup = $request->input('permissiongroup');
 
-        Users::create_user($email, $password, $permissiongroup);
+        Users::createUser($email, $password, $permissiongroup);
 
         return redirect('admin/users')->with('status', 'User created!');
     }
 
-    public function update_view($id)
+    public function updateView($id)
     {
-        $data = Users::permission_groups();
+        $data = Users::permissionGroups();
 
-        $email = Users::get_email($id);
+        $email = Users::getEmail($id);
 
         return view('ignitedcms::admin.users.edit')->with([
             'data' => $data,
@@ -99,7 +99,7 @@ class UserController extends Controller
 
             $permissiongroup_id = $request->input('permissiongroup');
 
-            Users::update_permissions($id, $permissiongroup_id);
+            Users::updatePermissions($id, $permissiongroup_id);
 
             return redirect('admin/users')->with('status', 'Permissions 
                updated!');

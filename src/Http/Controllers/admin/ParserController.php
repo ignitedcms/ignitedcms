@@ -42,18 +42,18 @@ class ParserController extends Controller
         //Thus we need to pass all globals
         //to any page at all times
 
-        $data = Parser::get_single($sid, $eid);
+        $data = Parser::getSingle($sid, $eid);
 
-        if (self::is_multiple($sid)) {
+        if (self::isMultiple($sid)) {
 
             // Get section name
-            $section_name = Parser::get_section_name($sid);
+            $section_name = Parser::getSectionName($sid);
 
             return view("custom.$section_name._entry")->with($data);
         } else {
             //is Single type
 
-            $section_name = Parser::get_section_name($sid);
+            $section_name = Parser::getSectionName($sid);
 
             return view("custom.$section_name")->with($data);
         }
@@ -66,14 +66,14 @@ class ParserController extends Controller
      * @param   string $sectionname
      * @return  void
      */
-    public function index_page($section_name)
+    public function indexPage($section_name)
     {
-        $data = Parser::get_multiples($section_name);
+        $data = Parser::getMultiples($section_name);
 
         return view("custom.$section_name.index", $data);
     }
 
-    public static function is_multiple($sectionid)
+    public static function isMultiple($sectionid)
     {
         $rows = DB::table('section')
             ->select('sectiontype')

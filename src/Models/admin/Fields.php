@@ -33,7 +33,7 @@ class Fields
         $type,
         $length,
         $variations,
-        $form_validation
+        $formValidation
     ) {
         DB::table('fields')->insert([
             'name' => $name,
@@ -41,7 +41,7 @@ class Fields
             'type' => $type,
             'limitamount' => $length,
             'opts' => $variations,
-            'formvalidation' => $form_validation,
+            'formvalidation' => $formValidation,
         ]);
 
         /*
@@ -87,8 +87,8 @@ class Fields
 
         //Let's delete it from section_id
         DB::table('section_layout')
-           ->where('fieldid','=', $id)
-           ->delete();
+            ->where('fieldid', '=', $id)
+            ->delete();
 
         DB::table('fields')
             ->where('id', '=', $id)

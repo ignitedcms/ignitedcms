@@ -162,8 +162,8 @@ class Section
         |---------------------------------------------------------------
         */
 
-        Template_builder::remove_multiple($section_name);
-        Template_builder::remove_single($section_name);
+        Template_builder::removeMultiple($section_name);
+        Template_builder::removeSingle($section_name);
     }
 
     /*
@@ -171,7 +171,7 @@ class Section
     | Grab all the fields in use on the section, from section_layout
     |---------------------------------------------------------------
     */
-    public static function fields_in_use($sectionid)
+    public static function fieldsInUse($sectionid)
     {
         $all = DB::table('section_layout')
             ->join('fields', 'section_layout.fieldid', '=', 'fields.id')
@@ -182,7 +182,7 @@ class Section
         return $all;
     }
 
-    public static function fields_not_in_use($sectionid)
+    public static function fieldsNotInUse($sectionid)
     {
         //refer to global function in helpers
     }

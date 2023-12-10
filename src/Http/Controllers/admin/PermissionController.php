@@ -37,10 +37,10 @@ class PermissionController extends Controller
         ]);
     }
 
-    public function create_view()
+    public function createView()
     {
 
-        $data = Permissions::get_all_permissions();
+        $data = Permissions::getAllPermissions();
 
         return view('ignitedcms::admin.permissions.create')->with([
             'data' => $data,
@@ -66,19 +66,19 @@ class PermissionController extends Controller
         $groupName = $request->input('groupName');
         $arr = $request->input('boxes');
 
-        Permissions::create_group($groupName, $arr);
+        Permissions::createGroup($groupName, $arr);
 
         return redirect('admin/permissions')->with('status', 'New group saved');
     }
 
-    public function update_view($id)
+    public function updateView($id)
     {
 
-        $data = Permissions::get_all_permissions();
+        $data = Permissions::getAllPermissions();
         $id = $id;
-        $groupName = Permissions::get_group_name($id);
+        $groupName = Permissions::getGroupName($id);
 
-        $map = Permissions::get_permissions_by_groupid($id);
+        $map = Permissions::getPermissionsByGroupid($id);
 
         return view('ignitedcms::admin.permissions.edit')->with([
             'data' => $data,
@@ -109,7 +109,7 @@ class PermissionController extends Controller
             ]);
             $map = $request->input('boxes');
 
-            Permissions::update_permissions($id, $map);
+            Permissions::updatePermissions($id, $map);
 
             return redirect('admin/permissions')->with('status',
                 'Updated successfully');
@@ -129,7 +129,7 @@ class PermissionController extends Controller
 
             //Check that no user has this permissions assigned
 
-            if (Permissions::check_if_permissionid_is_used($id)) {
+            if (Permissions::checkIfPermissionidIsUsed($id)) {
                 $message = 'This permission group is in use by a user';
 
                 return redirect('admin/permissions')->with('error', $message);

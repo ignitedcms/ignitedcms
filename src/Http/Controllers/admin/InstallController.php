@@ -64,7 +64,7 @@ class InstallController extends Controller
         return view('ignitedcms::admin.installer.two');
     }
 
-    public function validate_form(Request $request)
+    public function validateForm(Request $request)
     {
         $validated = $request->validate([
             'email' => 'required|email|max:255',

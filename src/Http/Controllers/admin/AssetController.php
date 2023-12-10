@@ -39,7 +39,7 @@ class AssetController extends Controller
         ]);
     }
 
-    public function create_view()
+    public function createView()
     {
         $data = 'assets';
 
@@ -48,7 +48,7 @@ class AssetController extends Controller
         ]);
     }
 
-    public function is_image($file)
+    public function isImage($file)
     {
         $extension = $file->getClientOriginalExtension(); // Get the file extension
         if (in_array($extension, ['jpeg', 'jpg', 'png', 'gif', 'bmp'])) {
@@ -77,7 +77,7 @@ class AssetController extends Controller
 
             //Let's attempt a image resize using gumlet
 
-            if ($this->is_image($file)) {
+            if ($this->isImage($file)) {
                 $image = new ImageResize($path.'/'.$fileName);
                 $image->resize(50, 50);
                 $thumb = 'thumb_'.time().'_'.$file->getClientOriginalName();
@@ -105,7 +105,7 @@ class AssetController extends Controller
         //error msg
     }
 
-    public function update_view($id)
+    public function updateView($id)
     {
 
         $data = Asset::update($id);

@@ -45,7 +45,7 @@ class LoginController extends Controller
      * @param   string $password POST
      * @return  void
      */
-    public function validate_login(Request $request)
+    public function validateLogin(Request $request)
     {
         $validated = $request->validate([
             'email' => 'required|email|max:255',

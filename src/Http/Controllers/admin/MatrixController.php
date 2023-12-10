@@ -28,7 +28,7 @@ class MatrixController extends Controller
         $this->middleware(Igs_auth::class.':13');
     }
 
-    public function create_view()
+    public function createView()
     {
         $data = 'Matrix';
 
@@ -63,7 +63,7 @@ class MatrixController extends Controller
             $items = $request->input('items');
             $data = json_encode($items);
 
-            Matrix::add_matrix($matrix_name, $data);
+            Matrix::addMatrix($matrix_name, $data);
 
             echo json_encode('success');
         }
@@ -71,7 +71,7 @@ class MatrixController extends Controller
     }
 
     //for frontend
-    public function add_matrix_block2(Request $request)
+    public function addMatrixBlock2(Request $request)
     {
         $fieldid = $request->input('idx');
 
@@ -84,7 +84,7 @@ class MatrixController extends Controller
     }
 
     //ajax response
-    public function add_matrix_block(Request $request)
+    public function addMatrixBlock(Request $request)
     {
         $data = $request->input('items');
 
@@ -99,19 +99,19 @@ class MatrixController extends Controller
         ];
 
         $matrixContent = $request->input('matrix');
-        $this->m_val($matrixContent, $validation_matrix);
+        $this->mVal($matrixContent, $validation_matrix);
     }
 
-    public function m_val($matrixContent, $validation_matrix)
+    public function mVal($matrixContent, $validation_matrix)
     {
         //First one matrixContent should be null
-        $arr = Matrix::get_fieldnames($matrixContent);
+        $arr = Matrix::getFieldnames($matrixContent);
         /*
           |---------------------------------------------------------------
           | Now check fieldname doesn't conflict with existing array
           |---------------------------------------------------------------
            */
-        $flag = Helper::not_in_array($validation_matrix['title'], $arr);
+        $flag = Helper::notInArray($validation_matrix['title'], $arr);
 
         if ($flag == false) {
             echo json_encode(['a' => 'duplicate fieldname']);
@@ -122,19 +122,19 @@ class MatrixController extends Controller
             if (($validation_matrix['type'] == 'drop-down')
                 || ($validation_matrix['type'] == 'check-box')
                 || ($validation_matrix['type'] == 'file-upload')) {
-                $arr = Matrix::get_variations($validation_matrix['variations']);
+                $arr = Matrix::getVariations($validation_matrix['variations']);
                 //$flag = Helper::no_duplicates($arr);
-                $flag2 = Helper::is_valid_csv_string($validation_matrix['variations']);
+                $flag2 = Helper::isValidCsvString($validation_matrix['variations']);
 
                 if ($flag === true && $flag2 === true) {
                     // echo 'success';
                 } else {
-                    echo json_encode(['b'=>'The options MUST be unique! Or invalid csv string!' ]);
+                    echo json_encode(['b' => 'The options MUST be unique! Or invalid csv string!']);
                     //bail out
-                    die();
+                    exit();
                 }
             }
-            $this->f_val($validation_matrix);
+            $this->fVal($validation_matrix);
         }
     }
 
@@ -143,7 +143,7 @@ class MatrixController extends Controller
     | Break it up for clarity
     |---------------------------------------------------------------
      */
-    public function f_val($validation_matrix)
+    public function fVal($validation_matrix)
     {
         $validator = Validator::make($validation_matrix, [
             'title' => [
@@ -155,9 +155,9 @@ class MatrixController extends Controller
         ]);
 
         if ($validator->fails()) {
-            echo json_encode(['a'=> $validator->errors()]);
+            echo json_encode(['a' => $validator->errors()]);
         } else {
-            echo json_encode(['a'=> 'success']);
+            echo json_encode(['a' => 'success']);
         }
 
     }

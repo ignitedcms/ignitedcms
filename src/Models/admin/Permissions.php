@@ -23,7 +23,7 @@ class Permissions
             ->get();
     }
 
-    public static function get_all_permissions()
+    public static function getAllPermissions()
     {
         return DB::table('permissions')
             ->select('*')
@@ -33,7 +33,7 @@ class Permissions
     }
 
     //Let's check permissions and add to middleware
-    public static function permission_middleware($arg)
+    public static function permissionMiddleware($arg)
     {
         //special case for 0 = dashboard
         if ($arg == 0) {
@@ -71,7 +71,7 @@ class Permissions
 
     //Checks if any users are using this permissionID
     //This is bad so we can't delete this permissionID
-    public static function check_if_permissionid_is_used($permissionID)
+    public static function checkIfPermissionidIsUsed($permissionID)
     {
         $rows = DB::table('user')
             ->select('*')
@@ -89,7 +89,7 @@ class Permissions
 
     }
 
-    public static function update_permissions($groupID, $map)
+    public static function updatePermissions($groupID, $map)
     {
         if ($map == null) {
 
@@ -112,7 +112,7 @@ class Permissions
 
     }
 
-    public static function get_group_name($id)
+    public static function getGroupName($id)
     {
         $rows = DB::table('permission_groups')
             ->select('groupName')
@@ -124,7 +124,7 @@ class Permissions
     }
 
     // Returns all the permissions by group
-    public static function get_permissions_by_groupid($group_id)
+    public static function getPermissionsByGroupid($group_id)
     {
         return DB::table('permission_map')
             ->select('permissionID')
@@ -141,7 +141,7 @@ class Permissions
      * @param   array  $arr [2,3] (permissions to go into permission map)
      * @return  void
      */
-    public static function create_group($groupName, $arr)
+    public static function createGroup($groupName, $arr)
     {
         //First create the permission_group
         $insertid = DB::table('permission_groups')->insertGetId([

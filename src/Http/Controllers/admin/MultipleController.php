@@ -22,7 +22,6 @@ use Ignitedcms\Ignitedcms\Models\admin\Multiple;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class MultipleController extends Controller
 {
@@ -36,7 +35,7 @@ class MultipleController extends Controller
     {
         $data = Multiple::all($sectionid);
 
-        $sectionname = Multiple::get_section_name($sectionid);
+        $sectionname = Multiple::getSectionName($sectionid);
 
         return view('ignitedcms::admin.entry.multiple.index')->with([
 
@@ -51,43 +50,36 @@ class MultipleController extends Controller
     public function create(Request $request)
     {
 
-      $validator = Validator::make($request->all(),[
-          'entrytitle' => [
-              'required',
-              'min:1',
-              'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-          ],
-      ]);
+        $validator = Validator::make($request->all(), [
+            'entrytitle' => [
+                'required',
+                'min:1',
+                'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+            ],
+        ]);
 
+        if ($validator->fails()) {
 
-      if($validator->fails()){
+            echo $validator->errors();
+        } else {
 
-         echo $validator->errors();
-      }
-      else
-      {
+            $entrytitle = $request->input('entrytitle');
+            $sectionid = $request->input('sectionid');
+            $sectionname = Multiple::getSectionName($sectionid);
+            $route = "$sectionname/$entrytitle";
 
-         $entrytitle = $request->input('entrytitle');   
-         $sectionid = $request->input('sectionid');   
-         $sectionname =  Multiple::get_section_name($sectionid);
-         $route = "$sectionname/$entrytitle";
+            if (Multiple::isDuplicateRoute($route)) {
+                echo 'You cannot have a duplicate entry title';
+            } else {
 
-         if(Multiple::is_duplicate_route($route))
-         {
-            echo 'You cannot have a duplicate entry title';
-         }
-         else
-         {
+                $entrytitle = $request->input('entrytitle');
 
-         $entrytitle = $request->input('entrytitle');   
+                Multiple::create($sectionid, $entrytitle);
 
-           Multiple::create($sectionid, $entrytitle);
+                echo 'success';
+            }
+        }
 
-           echo ('success');
-         }
-      }
-
-     
     }
 
     public function update()
@@ -97,7 +89,7 @@ class MultipleController extends Controller
 
     //ajax post request
     //needs csrf token!!
-    public function order_multiples(Request $request)
+    public function orderMultiples(Request $request)
     {
         //quick and dirty json test
         $data = $request->input('items');
@@ -112,9 +104,9 @@ class MultipleController extends Controller
         return response()->json(['message' => 'Sorted successfully']);
     }
 
-    public function update_view($sectionid, $entryid)
+    public function updateView($sectionid, $entryid)
     {
-        $data = Entry::section_all_fields($sectionid);
+        $data = Entry::sectionAllFields($sectionid);
 
         return view('ignitedcms::admin.entry.multiple.edit')->with([
             'data' => $data,

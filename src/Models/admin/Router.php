@@ -22,7 +22,7 @@ use Illuminate\Support\Str;
 
 class Router
 {
-    public static function get_routes()
+    public static function getRoutes()
     {
         $routes = DB::table('routes')
             ->select('*')

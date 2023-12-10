@@ -26,7 +26,7 @@ class Matrix
      *
      *    @returns: nothing
      */
-    public static function add_matrix($matrix_name, $data)
+    public static function addMatrix($matrix_name, $data)
     {
 
         //NEED to use JSON.stringify and json_decode for quotes bug on
@@ -60,7 +60,7 @@ class Matrix
      *
      *       @returns: json array (section may have more than one matrix)
      */
-    public static function get_matrix($sectionid, $entryid)
+    public static function getMatrix($sectionid, $entryid)
     {
 
         //get all the fields
@@ -71,10 +71,10 @@ class Matrix
             ->get();
 
         foreach ($query as $row) {
-            if (self::is_matrix($row->fieldid)) {
+            if (self::isMatrix($row->fieldid)) {
                 //use my_helper functions to exact
-                $fieldname = self::get_fieldname($row->fieldid);
-                $content = self::get_content($entryid, $fieldname);
+                $fieldname = self::getFieldname($row->fieldid);
+                $content = self::getContent($entryid, $fieldname);
 
                 //remove script tags
                 $content = str_ireplace('<script>', '', $content);
@@ -95,7 +95,7 @@ class Matrix
      * @param   int $fieldid
      * @return  string $fieldname
      */
-    public static function get_fieldname($fieldid)
+    public static function getFieldname($fieldid)
     {
         $rows = DB::table('fields')
             ->select('name')
@@ -114,7 +114,7 @@ class Matrix
      * @param   string $fieldname
      * @return  string $contents
      */
-    public static function get_content($entryid, $fieldname)
+    public static function getContent($entryid, $fieldname)
     {
         $rows = DB::table('content')
             ->select($fieldname)
@@ -136,7 +136,7 @@ class Matrix
      *
      *       @returns: true or false
      */
-    public static function is_matrix($fieldid)
+    public static function isMatrix($fieldid)
     {
 
         $query = DB::table('fields')
@@ -162,7 +162,7 @@ class Matrix
      * @param  jsonarray  $jsonMatrix
      * @return	array  returns an array of all the fieldnames
      */
-    public static function get_fieldnames($jsonMatrix)
+    public static function getFieldnames($jsonMatrix)
     {
         // true flag sets results as assoc array
         // flase flag sets results as object
@@ -192,7 +192,7 @@ class Matrix
      * @param  string  $comma_string
      * @return	array  returns an array of all the variations
      */
-    public static function get_variations($comma_string)
+    public static function getVariations($comma_string)
     {
         $tmp = explode(',', $comma_string);
         $arr = [];

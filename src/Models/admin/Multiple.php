@@ -27,14 +27,13 @@ class Multiple
     }
 
     //creates a single multiple
-    public static function create($sectionid,  $entrytitle)
+    public static function create($sectionid, $entrytitle)
     {
-      $insertid = DB::table('entry')->insertGetId([
-         'sectionid' => $sectionid,
-         'type' => 'multiple',
-         'datecreated' => date('Y-m-d'),
-      ]);
-
+        $insertid = DB::table('entry')->insertGetId([
+            'sectionid' => $sectionid,
+            'type' => 'multiple',
+            'datecreated' => date('Y-m-d'),
+        ]);
 
         DB::table('content')
             ->insert([
@@ -49,37 +48,34 @@ class Multiple
         |---------------------------------------------------------------
         */
 
-      $sectionname = self::get_section_name($sectionid);
-      $route = "$sectionname/$entrytitle";
+        $sectionname = self::getSectionName($sectionid);
+        $route = "$sectionname/$entrytitle";
 
-      $controller = "admin/parser/display/$sectionid/$insertid";
+        $controller = "admin/parser/display/$sectionid/$insertid";
 
-      $insertid = DB::table('routes')->insertGetId([
-         'route' => $route,
-         'controller' => $controller
-      ]);
+        $insertid = DB::table('routes')->insertGetId([
+            'route' => $route,
+            'controller' => $controller,
+        ]);
 
     }
 
-    public static function is_duplicate_route($route)
+    public static function isDuplicateRoute($route)
     {
 
-      $rows = DB::table('routes')
-         ->select('route')
-         ->where('route','=', $route)
-         ->get();
+        $rows = DB::table('routes')
+            ->select('route')
+            ->where('route', '=', $route)
+            ->get();
 
-      if($rows->count() > 0)
-      {
-         return true;
-      }
-      else
-      {
-         return false;
-      }
+        if ($rows->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)
@@ -127,7 +123,7 @@ class Multiple
         |
         */
 
-        $sectionname = self::get_section_name($sectionid);
+        $sectionname = self::getSectionName($sectionid);
 
         DB::table('routes')
             ->where('route', '=', "$sectionname/$entrytitle")

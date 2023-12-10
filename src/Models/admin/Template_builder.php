@@ -33,21 +33,21 @@ class Template_builder
      * @param   int $entryid
      * @return  void Writes files to views directory
      */
-    public static function build_single($sectionid, $entryid)
+    public static function buildSingle($sectionid, $entryid)
     {
 
-        $sectionname = self::get_section_name($sectionid);
+        $sectionname = self::getSectionName($sectionid);
         $filePath = base_path("resources/views/custom/$sectionname.blade.php");
 
         $content = "@extends('custom.layout')\n";
         $content .= "@section('content')";
-        $content .= self::get_field_handles($sectionid);
+        $content .= self::getFieldHandles($sectionid);
         $content .= '@endsection';
         // Write content to the file
         File::put($filePath, $content);
     }
 
-    public static function read_stub($sectionname)
+    public static function readStub($sectionname)
     {
         $filePath = base_path('public/stubs/multiple.stub');
         $fileContent = File::get($filePath);
@@ -66,12 +66,12 @@ class Template_builder
      * @param   int $sectionid
      * @return  void Writes to views directory
      */
-    public static function build_multiple($sectionid)
+    public static function buildMultiple($sectionid)
     {
 
         // Specify the directory path at the root level
 
-        $sectionname = self::get_section_name($sectionid);
+        $sectionname = self::getSectionName($sectionid);
         $directoryPath = base_path("resources/views/custom/$sectionname");
 
         if (! File::exists($directoryPath)) {
@@ -86,7 +86,7 @@ class Template_builder
 
         // Write content to the file
 
-        $stubContent = self::read_stub($sectionname);
+        $stubContent = self::readStub($sectionname);
 
         File::put($filePath, $stubContent);
 
@@ -94,14 +94,14 @@ class Template_builder
 
         $content = "@extends('custom.layout')\n";
         $content .= "@section('content')";
-        $content .= self::get_field_handles($sectionid);
+        $content .= self::getFieldHandles($sectionid);
         $content .= '@endsection';
 
         // Write content to the file
         File::put($filePath2, $content);
     }
 
-    public static function remove_single($sectionname)
+    public static function removeSingle($sectionname)
     {
         $filePath = base_path("resources/views/custom/$sectionname.blade.php");
 
@@ -117,7 +117,7 @@ class Template_builder
     }
 
     //remove directory and contents
-    public static function remove_multiple($sectionname)
+    public static function removeMultiple($sectionname)
     {
         // Specify the directory path at the root level
         $directoryPath = base_path("resources/views/custom/$sectionname");
@@ -137,7 +137,7 @@ class Template_builder
      *
      *       @returns: string of all field handles eg {{entry.fieldHandle}} ...
      */
-    public static function get_field_handles($sectionid)
+    public static function getFieldHandles($sectionid)
     {
         //special case for assets,checkboxes and grid to do!!!
 
@@ -155,7 +155,7 @@ class Template_builder
         return $string;
     }
 
-    public static function get_section_name($sectionid)
+    public static function getSectionName($sectionid)
     {
         $data = DB::table('section')
             ->where('id', '=', $sectionid)

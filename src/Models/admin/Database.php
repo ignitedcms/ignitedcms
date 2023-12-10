@@ -23,10 +23,10 @@ class Database
         $pass = env('DB_PASSWORD');
         $dbname = env('DB_DATABASE');
 
-        return self::backup_tables($host, $user, $pass, $dbname, $tables = '*');
+        return self::backupTables($host, $user, $pass, $dbname, $tables = '*');
     }
 
-    public static function backup_tables($host, $user, $pass, $dbname, $tables = '*')
+    public static function backupTables($host, $user, $pass, $dbname, $tables = '*')
     {
         $link = mysqli_connect($host, $user, $pass, $dbname);
 

@@ -35,7 +35,7 @@ class Igs_auth
         //check if logged in
         if (session('logged_in') == 1) {
             //check if use has permission access
-            $pass = Permissions::permission_middleware($arg);
+            $pass = Permissions::permissionMiddleware($arg);
             if ($pass) {
                 //can access
             } else {
