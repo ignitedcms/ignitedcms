@@ -67,12 +67,6 @@ http://localhost:8000/login
 ```
 
 
-### Testing
-
-```bash
-composer test
-```
-
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
