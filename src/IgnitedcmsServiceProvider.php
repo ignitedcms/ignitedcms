@@ -16,7 +16,9 @@ class IgnitedcmsServiceProvider extends ServiceProvider
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'ignitedcms');
         $this->loadViewsFrom(__DIR__.'/views', 'ignitedcms');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
+
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         if ($this->app->runningInConsole()) {
