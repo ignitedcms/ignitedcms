@@ -31,27 +31,7 @@ class InstallController extends Controller
 
     public function bar()
     {
-
-        //DB::unprepared(file_get_contents(public_path('ignitedcms.sql')));
-
         return redirect('installer/register');
-        //echo 'done';
-    }
-
-    public static function replaceStringInFile($filePath, $searchString, $replaceString)
-    {
-        // Read the file content
-        $fileContent = file_get_contents($filePath);
-
-        // Perform the replacement
-        $updatedContent = str_replace($searchString, $replaceString, $fileContent);
-
-        // Write the updated content back to the file
-        if (file_put_contents($filePath, $updatedContent) !== false) {
-            return true; // Replacement successful
-        } else {
-            return false; // Error while writing to file
-        }
     }
 
     public function one()
@@ -84,47 +64,43 @@ class InstallController extends Controller
         $prefix = '';
 
         $sql1 = 'INSERT INTO `'.$prefix."permissions` (`permissionID`, `permission`,`order_position`) VALUES
-		(3, 'email',6),
-		(5, 'permissions',8),
-		(6, 'profile',1),
-		(9,'users',9),
-		(7,'menu',2),
-		(10,'database',10),
-		(13,'field_builder',13),
-		(14,'sections',14),
-		(15,'entries',15),
-		(17,'asset_lib',17),
-		(18,'site_settings',18),
-		(19,'paypal',19),
-		(20,'plugins',20),
-      (21,'ipn',21);";
+         (3, 'email',6),
+         (5, 'permissions',8),
+         (6, 'profile',1),
+         (9,'users',9),
+         (7,'menu',2),
+         (10,'database',10),
+         (13,'field_builder',13),
+         (14,'sections',14),
+         (15,'entries',15),
+         (17,'asset_lib',17),
+         (18,'site_settings',18),
+         (19,'paypal',19),
+         (20,'plugins',20),
+         (21,'ipn',21);";
 
         $sql2 = 'INSERT INTO `'.$prefix.'permission_map`(`groupID`, `permissionID`) VALUES
-		(1,3),
-		(1,5),
-		(1,6),
-		(1,7),
-		(1,9),
-		(1,10),
-		(1,13),
-		(1,14),
-		(1,15),
-		(1,17),
-		(1,18),
-		(1,19),
-		(1,20),
-      (1,21);';
+         (1,3),
+         (1,5),
+         (1,6),
+         (1,7),
+         (1,9),
+         (1,10),
+         (1,13),
+         (1,14),
+         (1,15),
+         (1,17),
+         (1,18),
+         (1,19),
+         (1,20),
+         (1,21);';
 
         $sql3 = 'INSERT INTO `'.$prefix."permission_groups`(`groupID`, `groupName`) VALUES
-		(1,'Administrators');";
+         (1,'Administrators');";
 
         DB::statement($sql1);
         DB::statement($sql2);
         DB::statement($sql3);
-
-        //composer bug fix
-        //$path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
-        //self::replaceStringInFile($path, '//Router::get_routes();', 'Router::get_routes();');
 
         return redirect('login')->with('final', 'Account successfully created');
     }
