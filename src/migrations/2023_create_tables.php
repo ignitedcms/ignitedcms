@@ -1,13 +1,13 @@
 <?php
 
-/*                                                                          
-|---------------------------------------------------------------            
+/*
+|---------------------------------------------------------------
 | Create the default package tables
-|---------------------------------------------------------------            
+|---------------------------------------------------------------
 |
 | Make sure the .env file is setup first!
 |
-*/       
+*/
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +19,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::create('assetfields', function (Blueprint $table) {
+        Schema::create('assetfields', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('entryid')->nullable();
             $table->string('filename', 255)->nullable();
@@ -56,7 +56,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-         Schema::create('cats', function (Blueprint $table) {
+        Schema::create('cats', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cat_name', 100)->nullable();
             $table->timestamps();
@@ -69,7 +69,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-         Schema::create('entry', function (Blueprint $table) {
+        Schema::create('entry', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sectionid')->nullable();
             $table->string('type', 200)->nullable();
@@ -78,7 +78,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-         Schema::create('fields', function (Blueprint $table) {
+        Schema::create('fields', function (Blueprint $table) {
             $table->string('name', 200)->nullable();
             $table->string('type', 50)->nullable();
             $table->text('opts')->nullable();
@@ -103,14 +103,12 @@ return new class extends Migration
             $table->primary(['groupID', 'permissionID']);
         });
 
-
         Schema::create('permissions', function (Blueprint $table) {
             $table->increments('permissionID');
             $table->string('permission', 200)->nullable();
             $table->integer('order_position')->nullable();
             $table->timestamps();
         });
-
 
         Schema::create('section', function (Blueprint $table) {
             $table->increments('id');
@@ -137,7 +135,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-         Schema::create('user', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100)->nullable();
             $table->string('password', 500)->nullable();
@@ -189,7 +187,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
     }
 
     /**
@@ -200,5 +197,3 @@ return new class extends Migration
         Schema::dropIfExists('tables');
     }
 };
-
-
