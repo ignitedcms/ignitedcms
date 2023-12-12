@@ -49,6 +49,12 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
+Run the migrations
+```
+php artisan migrate
+```
+
+
 Finally run
 ```
 php artisan serve
