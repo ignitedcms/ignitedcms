@@ -28,6 +28,15 @@ class Router
             ->select('*')
             ->get();
 
+       if($routes->count() < 1)
+       {
+          //do nothing
+
+       }
+       else
+       {
+
+
         $data = [];
         foreach ($routes as $route) {
             $string = Str::of($route->controller)
@@ -47,7 +56,10 @@ class Router
                 Route::get($route->route, [ParserController::class, 'index_page'])
                     ->defaults('sectionname', $arr2[1]);
 
+
             }
+         }
+            
 
         }
     }
