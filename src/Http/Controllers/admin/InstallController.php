@@ -32,7 +32,7 @@ class InstallController extends Controller
     public function bar()
     {
 
-        DB::unprepared(file_get_contents(public_path('ignitedcms.sql')));
+        //DB::unprepared(file_get_contents(public_path('ignitedcms.sql')));
 
         return redirect('installer/register');
         //echo 'done';
@@ -123,8 +123,8 @@ class InstallController extends Controller
         DB::statement($sql3);
 
         //composer bug fix
-        $path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
-        self::replaceStringInFile($path, '//Router::get_routes();', 'Router::get_routes();');
+        //$path = base_path('vendor/ignitedcms/ignitedcms/src/routes/web.php');
+        //self::replaceStringInFile($path, '//Router::get_routes();', 'Router::get_routes();');
 
         return redirect('login')->with('final', 'Account successfully created');
     }
