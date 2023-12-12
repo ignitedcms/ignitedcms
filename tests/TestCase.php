@@ -5,8 +5,13 @@ namespace Ignitedcms\Ignitedcms\Tests;
 use Ignitedcms\Ignitedcms\IgnitedcmsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\DB;
+
 class TestCase extends Orchestra
 {
+   use DatabaseMigrations;
+
     protected function getPackageProviders($app)
     {
         return [
@@ -27,5 +32,20 @@ class TestCase extends Orchestra
             'password' => 'root',
             // Other MySQL configurations...
         ]);
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        //Insert admin user
+       $insertid = DB::table('user')->insertGetId([
+          'email' => 'foo@mail.com',
+          'password'=>'Letmein1',
+          'permissiongroup'=>1
+       ]);
+
+        //Insert permissions and permission group
+
     }
 }
