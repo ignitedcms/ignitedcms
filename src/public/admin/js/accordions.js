@@ -29,12 +29,12 @@ Vue.component('accordion-item',{
     `
     <div class="row">
         <div class="col no-margin">
-            <button type="button" class="accordion-title rm-btn-styles" @click="toggle">
-               <div>
-                {{title}}
+            <button type="button" :aria-expanded="arr" class="accordion-title 
+               rm-btn-styles" @click="toggle">
+               <div class="text-black">
+                {{title}} 
                </div>
-
-                  <span >
+                  <span>
                      <i data-feather="chevron-down"></i>    
                   </span>
             </button>
@@ -47,7 +47,8 @@ Vue.component('accordion-item',{
     data:function(){
 
         return{
-            is_active:false
+            is_active:false,
+            arr:'false'
         }
     },
     methods:
@@ -55,6 +56,14 @@ Vue.component('accordion-item',{
         toggle()
         {
             this.is_active = !this.is_active
+            if(this.arr =='false')
+            {
+               this.arr = 'true'
+            }
+           else
+           {
+              this.arr = 'false'
+           }
         }
     }
 });

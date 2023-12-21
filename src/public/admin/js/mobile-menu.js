@@ -19,12 +19,12 @@ Vue.component('mobile-menu',{
     <div style="top:0; position:sticky; z-index:2;">
        <div class="menu-bar ">
           <div class="menu-logo">
-             <a v-bind:href="url">
-                <img v-bind:src="logo"></img>
+             <a :href="url">
+                <img :src="logo"></img>
              </a>
           </div> 
           <div >
-             <span v-on:click="isShown =!isShown">
+             <span @click="isShown =!isShown">
                 <i data-feather="menu" class="icon hand" ></i>
              </span>
           </div>
@@ -61,13 +61,13 @@ Vue.component('mobile-menu-items',{
     `
     <div style="width:100%;"> 
 
-       <a v-if="children !== 'yes'" v-bind:href="url"  class="rm-link-styles">
+       <a v-if="children !== 'yes'" :href="url"  class="rm-link-styles">
           <div class="menu-item ">
              {{title}}
           </div>
        </a>
        
-       <div v-on:click="show = !show" v-if="children === 'yes'" class="menu-item no-select">
+       <div @click="show = !show" v-if="children === 'yes'" class="menu-item no-select">
          <div>{{title}}</div>
          <div>
                +

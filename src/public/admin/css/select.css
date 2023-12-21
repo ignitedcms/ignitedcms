@@ -21,9 +21,9 @@
 .form-select:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #5cbef7;
+  border-color: #7f7f7f;
   outline: 0;
-  box-shadow: 0 0 0 0.3rem #d6eefd;
+  box-shadow: 0 0 0 0.2rem #bfbfbf;
 }
 .form-select:-moz-focusring {
   color: transparent;

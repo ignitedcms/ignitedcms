@@ -15,8 +15,8 @@
   background-color: #007bd9;
   transition: width 0.6s ease;
 }
-.progress-bar-success {
-  background-color: #6ecf78;
+.progress-bar-primary {
+  background-color: #292F3E;
 }
 
 /*# sourceMappingURL=progress-bars.css.map */

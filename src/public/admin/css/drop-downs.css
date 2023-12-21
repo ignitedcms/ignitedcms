@@ -3,8 +3,8 @@
   overflow: hidden;
   font-family: inherit;
   font-size: inherit;
-  top: 50px;
-  left: 0;
+  top: 45px;
+  right: 0;
   background-color: #ffffff;
   min-width: 200px;
   min-height: 100px;
@@ -12,8 +12,10 @@
   z-index: 1;
 }
 .dropdown-item {
-  padding: 15px;
+  padding: 10px;
   transition: all 0.5s;
+  margin: 5px;
+  border-radius: 5px;
 }
 .dropdown-item a {
   text-decoration: none;

@@ -1,12 +1,12 @@
-.date-today {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  padding: 3px;
-  background-color: #C73B4D;
-  color: #ffffff;
-  cursor: pointer;
+.current-date {
+  background-color: #292F3E;
+  color: #fff !important;
+  border-radius: 5px;
+}
+
+.focused {
+  outline: 2px solid #ccc;
+  border-radius: 5px;
 }
 
 .datepicker {
@@ -14,19 +14,29 @@
 }
 
 .date-container {
-  max-width: 330px;
+  width: 300px;
+}
+@media (max-width: 500px) {
+  .date-container {
+    width: 100%;
+  }
 }
 
 .date-flyout {
   position: relative;
   min-height: 360px;
-  min-width: 330px;
+  width: 300px;
   margin-top: 10px;
   padding: 10px;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 5px;
   z-index: 2;
+}
+@media (max-width: 500px) {
+  .date-flyout {
+    width: 100%;
+  }
 }
 
 .date-buttons-container {

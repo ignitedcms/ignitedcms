@@ -78,10 +78,10 @@
 }
 
 .tooltip-highlight{
-    background-color:$link-color;
-    
+    border-bottom: 2px dashed $link-color;
+    text-decoration-style: dashed; 
     padding-left:5px;
     padding-right:5px;
-    color: #fff;
+    //color: $link-color;
 
 }

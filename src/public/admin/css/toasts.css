@@ -13,12 +13,11 @@
 
 .toast {
   position: relative;
-  padding-left: 10px;
-  padding-right: 30px;
   background-color: #fff;
   margin: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
 .toast-danger {

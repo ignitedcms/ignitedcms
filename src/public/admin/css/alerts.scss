@@ -9,18 +9,18 @@
         background-color: #FFFFFF;
         position: relative;
         padding: 20px;
-        border-left: 8px solid #2DB232;
+        //border-left: 8px solid #2DB232;
         border-radius:$border-radius;
-        box-shadow:$shadow;
+        //box-shadow:$shadow;
     }
 
     &-info {
         background-color: #FFFFFF;
         position: relative;
         padding: 20px;
-        border-left: 8px solid #328EF1;
+        //border-left: 8px solid #328EF1;
         border-radius:$border-radius;
-        box-shadow:$shadow;
+        //box-shadow:$shadow;
 
     }
 
@@ -28,17 +28,19 @@
         background-color: #FFFFFF;
         position: relative;
         padding: 20px;
-        border-left: 8px solid #FFBA43;
+        //border-left: 8px solid #FFBA43;
         border-radius:$border-radius;
-        box-shadow:$shadow;
+        //box-shadow:$shadow;
     }
     &-danger {
 
         background-color: #FFFFFF;
         position: relative;
         padding: 20px;
-        border-left: 8px solid #E21219;
+        border:1px solid #c1292e;
+        color:#c1292e !important;
+        //border-left: 8px solid #E21219;
         border-radius:$border-radius;
-        box-shadow:$shadow;
+        //box-shadow:$shadow;
     }
 }

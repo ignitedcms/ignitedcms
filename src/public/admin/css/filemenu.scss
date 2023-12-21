@@ -37,8 +37,8 @@
  nav ul li {
    position: relative;
    float:left;
-   min-width:80px;
-   padding:8px;
+   min-width:90px;
+   //padding:8px;
    cursor:pointer;
  }
 
@@ -50,8 +50,11 @@
     align-items: flex-start;
     padding:10px;
     min-width:200px;
+    margin:5px;
+    border-radius: $border-radius;
     transition: all 0.4s;
     &:hover{
+       background-color:$light-grey;
        //color:red;
     }
  }
@@ -62,7 +65,7 @@
    justify-content:flex-start;
    align-items: flex-start;
    position: absolute;
-   width:200px;
+   min-width:200px;
    top: 45px;
    left: 0;
 

@@ -13,10 +13,13 @@ Vue.component('drop-down',{
     props:['button-title'],
     template: 
     `
-    <button v-on:keyup.escape="escapePressed()" type="button" class="btn btn-white drop-shadow pos-rel" v-on:click="show =!show" v-click-outside="away">
+    <button @keyup.escape="escapePressed()" aria-haspopup="dialog" :aria-expanded="arr" type="button" 
+      class="btn btn-white  pos-rel" @click="tmp" v-click-outside="away">
         {{buttonTitle}}
         <div v-if="show" class="dropdown br drop-shadow fade-in" @click.stop>
+          <focus-trap :active="show">
             <slot></slot> 
+          </focus-trap>
         </div>
     </button>
     `,
@@ -25,15 +28,32 @@ Vue.component('drop-down',{
         return{
             message: 'Hello',
             show: false,
+            arr: 'false',
         }
     },
     methods:{
+       tmp()
+       {
+         this.show = ! this.show;
+          if(this.arr == 'true')
+          {
+             this.arr = 'false';
+          }
+          else
+          {
+             this.arr = 'true';
+          }
+
+       },
+
         away: function () {
             this.show = false;
+           this.arr = 'false';
         },
        escapePressed()
        {
          this.show = false;
+          this.arr = 'false';
        }
     } 
 });

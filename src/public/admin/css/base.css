@@ -58,13 +58,13 @@ label {
   background-color: #292F3E;
   overflow-x: auto;
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
   border-radius: 5px;
 }
 .code-class {
   position: relative;
   color: #333333;
-  border-left: 8px solid #C73B4D;
+  border-left: 8px solid #292F3E;
   background-color: rgb(243, 243, 243);
   padding: 10px;
   margin-bottom: 10px;
@@ -244,7 +244,7 @@ ol {
 |---------------------------------------------------------------
  */
 .bg-primary {
-  background-color: #C73B4D;
+  background-color: #292F3E;
   color: #ffffff;
 }
 
@@ -285,7 +285,7 @@ ol {
 }
 
 .drop-shadow {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
 .br {
@@ -339,10 +339,12 @@ ol {
 
 .scroll-y {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .scroll-x {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -840,6 +842,29 @@ ol {
 .fixed {
   position: fixed;
   width: 100%;
+}
+
+.fancy-hover {
+  transition: all 0.4s;
+}
+.fancy-hover:hover {
+  transform: translateY(-10px);
+  -webkit-box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+  box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+}
+@media (max-width: 1200px) {
+  .fancy-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.grey-hover {
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.grey-hover:hover {
+  background-color: rgb(243, 243, 243);
 }
 
 @media screen and (max-width: 500px) {

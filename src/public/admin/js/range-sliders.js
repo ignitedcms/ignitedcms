@@ -14,10 +14,13 @@ Vue.component('rangeSlider',{
     template: 
     `
     <div class="slidecontainer">
-        <input :name="name" type="range" v-model="message" v-bind:min="min" v-bind:max="max" class="slider2" />
-        <p class="m-t-2">Value: <span id="demo">
-            {{message}}
-        </span></p>
+        <input :name="name" type="range" v-model="message" 
+          :min="min" :max="max" class="slider2" />
+        <p class="m-t-2">Value: 
+           <span id="demo">
+               {{message}}
+           </span>
+        </p>
     </div>
     `,
     data:function(){

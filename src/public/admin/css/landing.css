@@ -10,19 +10,10 @@
   color: #ffffff;
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
   font-size: 14px;
-  background-color: #292F3E;
+  background-color: #181b23;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 30px;
-}
-@media (max-width: 1200px) {
-  .console {
-    width: 100%;
-    padding: 10px;
-    min-height: 200px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
 }
 .console-light {
   position: relative;
@@ -36,15 +27,6 @@
   background-color: #ffffff;
   border: 1px solid #cccccc;
   color: #333333;
-}
-@media (max-width: 1200px) {
-  .console-light {
-    width: 100%;
-    padding: 20px;
-    min-height: 200px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
 }
 
 .console-bar {
@@ -63,12 +45,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-@media (max-width: 1200px) {
-  .console-bar {
-    width: 100%;
-    display: none;
-  }
-}
 .console-bar-light {
   position: absolute;
   padding: 10px;
@@ -84,13 +60,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-}
-@media (max-width: 1200px) {
-  .console-bar-light {
-    width: 100%;
-    display: none;
-    min-height: 200px;
-  }
 }
 .console-bar-green {
   background-color: #61C554;
@@ -119,7 +88,7 @@
   height: 60px;
   border-radius: 50px;
   border: 4px solid #ffffff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
 /*# sourceMappingURL=landing.css.map */

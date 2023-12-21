@@ -64,11 +64,31 @@
 }
 
 .form-switch input {
-    display: none;
+
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+
 }
 
+input:focus + i {
+
+  color: #495057;
+  background-color: #fff;
+  border-color: $form-focus-color;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem lighten($form-focus-color, 20);
+}
+
+
 .form-switch input:checked+i {
-    background-color: $switch-on;
+    background-color: $primary;
 }
 
 .form-switch input:checked+i::before {

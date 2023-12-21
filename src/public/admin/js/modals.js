@@ -24,23 +24,25 @@ Vue.component('modal',{
     props:['button-title','modal-header'],
     template: 
     `
-    <div v-on:keyup.escape="escapePressed()">
-    <button type="button" class="btn btn-white " v-on:click="open=true" v-click-outside="away">
+  <div @keyup.escape="escapePressed()">
+    <button type="button" class="btn btn-white " @click="open=true; arr='false'" v-click-outside="away">
       {{buttonTitle}} 
     </button>
-    <div class="modal" v-show="open" v-on:keyup.escape="escapePressed">
-      <div class="modal-content fade-in-bottom" @click.stop>
+    
+    <div class="modal" role="dialog" aria-modal="true" :aria-hidden="arr" v-show="open" @keyup.escape="escapePressed">
+       <div class="modal-content fade-in" @click.stop>
 
-        <div class="modal-header">
-          <button type="button" class="rm-btn-styles close m-t" v-on:click="open = false">&times;</button>
-          <h4 class="m-t">{{modalHeader}}</h4>
-        </div>
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-       <!-- footer if needed -->
-        </div>
-      </div>
+          <focus-trap  :active="open">
+             <div class="modal-header">
+                <button type="button" aria-label="Close" class="rm-btn-styles close m-t" @click="open = false; arr='true'">&times;</button>
+                <h5 class="m-t">{{modalHeader}}</h5>
+             </div>
+             <div class="modal-body">
+                <slot></slot>
+             </div>
+          </focus-trap>        
+
+       </div>
     </div>
   </div>
     `,
@@ -49,17 +51,19 @@ Vue.component('modal',{
         return{
             message: 'Hello',
             open: false,
+            arr: 'true'
         }
     },
     methods: {
       away: function () {
         this.open = false;
+         this.arr = 'true';
       },
       
       escapePressed()
       {
-         //alert('escape pressed');
         this.open = false;
+         this.arr = 'true';
       },
     }
 });

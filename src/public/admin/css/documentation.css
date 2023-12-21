@@ -8,7 +8,7 @@
   border-radius: 5px;
   width: 40px;
   height: 40px;
-  background-color: #C73B4D;
+  background-color: #292F3E;
   padding: 20px;
   margin-right: 10px;
 }
@@ -22,7 +22,7 @@
   width: 40px;
   height: 40px;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .sidebar-toggle {
     display: flex;
   }
@@ -35,7 +35,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .search-container {
     margin-top: 10px;
   }
@@ -109,7 +109,7 @@
   background-color: #292F3E;
   color: #FFFFFF;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .sidebar-dark {
     display: none;
   }
@@ -131,7 +131,7 @@
   margin-left: 5px;
   color: #007bd9;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .sidebar {
     display: none;
   }
@@ -162,7 +162,7 @@
   color: #FFFFFF;
   z-index: 2;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .sidebar-fixed-dark {
     display: none;
   }
@@ -184,7 +184,7 @@
   margin-left: 5px;
   color: #007bd9;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   .sidebar-fixed {
     display: none;
   }
@@ -198,7 +198,7 @@
   width: 1000px;
   height: 100vh;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .main-content {
     max-width: 100%;
     margin-left: 0px;

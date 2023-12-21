@@ -15,6 +15,7 @@ Vue.component('tabs', {
         <div class="tab-container">
         <button type="button" v-for='(tab, index) in tabs'
         @click='selectTab(index)'
+        :class='{"tab__selected": (index == selectedIndex)}'
         class="rm-btn-styles tab-header">
          {{ tab.title }}
         </button>

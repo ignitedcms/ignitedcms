@@ -78,7 +78,15 @@ p {
   }
 }
 .text-primary {
-  color: #C73B4D;
+  color: #292F3E;
+}
+
+.text-info {
+  color: #328EF1;
+}
+
+.text-black {
+  color: #111;
 }
 
 .text-white {

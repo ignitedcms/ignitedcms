@@ -13,10 +13,9 @@ Vue.component('toast',{
     props:['time'],
     template: 
     `
-    <div class="toast drop-shadow fade-in-bottom" :style="{display:foo}">
-        <div class="row">
-            <slot></slot>
-        </div>
+    <div class="toast fade-in-bottom" role="alert" aria-atomic="true" 
+          aria-live="assertive" :style="{display:foo}">
+         <slot></slot>
     </div>
     `,
     data:function(){

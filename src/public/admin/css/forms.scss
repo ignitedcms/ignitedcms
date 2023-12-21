@@ -25,7 +25,7 @@
   background-color: #fff;
   border-color: $form-focus-color;
   outline: 0;
-  box-shadow: 0 0 0 0.3rem lighten($form-focus-color, 25);
+  box-shadow: 0 0 0 0.2rem lighten($form-focus-color, 25);
 }
 
 .form-control:disabled {

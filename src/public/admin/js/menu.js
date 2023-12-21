@@ -21,8 +21,8 @@ Vue.component('mega-menu',{
     <div style="top:0; position:sticky; z-index:2; ">
        <div class="menu">
           <div class="menu-logo">
-             <a v-bind:href="url" class="rm-link-styles">
-               <img v-bind:src="logo"></img>
+             <a :href="url" class="rm-link-styles">
+               <img :src="logo"></img>
              </a>
           </div>
           <div class="menu-item-container">
@@ -49,13 +49,13 @@ Vue.component('menu-items',{
     props:['title','children','url'],
     template: 
     `
-      <div v-on:keyup.escape="escapePressed()">
+      <div @keyup.escape="escapePressed()">
          <div v-if="children !== 'yes'">
-            <a v-bind:href="url" class="menu-main rm-link-styles m-l-2">
+            <a :href="url" class="menu-main rm-link-styles m-l-2">
                {{title}}
             </a>
          </div>
-         <div v-if="children === 'yes'" class="menu-main m-l-2 hand v-a pos-rel" v-on:click="show = !show" v-click-outside="away">
+         <div v-if="children === 'yes'" class="menu-main m-l-2 hand v-a pos-rel" @click="show = !show" v-click-outside="away">
                <button class="rm-btn-styles">
                   {{title}}
                </button>
@@ -63,7 +63,7 @@ Vue.component('menu-items',{
                   <i data-feather="chevron-down" class=""></i>
                </span>
 
-               <div v-if="show" @click.stop class="menu-dropdown fade-in-bottom" >
+               <div v-if="show" @click.stop class="menu-dropdown fade-in" >
                   <slot>
                   </slot>
                </div>

@@ -30,7 +30,7 @@ Vue.component('dashboard-menu',{
        </div>
          <div class="row bg-grey b-b" style="min-height:60px;">
                   <div class="col no-margin ">
-                        <div class="m-l m-t sidebar-toggle hand drop-shadow br">
+                        <div class="m-l m-t sidebar-toggle hand b br">
                         <span class="m-t text-muted">
                         <i data-feather="menu"></i>
                         </span>

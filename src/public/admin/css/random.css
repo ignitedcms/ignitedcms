@@ -87,25 +87,25 @@ p {
 
 .igs-code {
   border-radius: 5px;
-  color: #c73b4d;
-  border: 1px solid #f2f2f2;
-  background-color: #ffffff;
+  color: #fff;
+  border: 1px solid #b1b1b1;
+  background-color: #292F3E;
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
   font-size: 16px;
   /* white-space: pre-wrap; */
   /* word-wrap: break-word; */
-  max-width: 700px;
+  max-width: 1000px;
   overflow-x: auto;
   padding: 20px;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .quote {
   background-color: #fff;
   padding: 30px;
-  border: 1px solid #cccccc;
-  border-left: 10px solid #C73B4D;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  border-left: 10px solid #292F3E;
 }
 
 .lit {
@@ -115,13 +115,13 @@ p {
   background-color: #ffffff;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .igs-code {
     padding: 10px;
     white-space: pre-wrap;
     word-wrap: break-word;
-    max-width: 700px;
-    overflow-x: none;
+    width: 100%;
+    overflow-x: auto;
   }
 }
 .c-class {
@@ -160,14 +160,10 @@ p {
 }
 
 .ql-font-monospace {
-  color: #c73b4d !important;
+  color: #292F3E !important;
   border: 1px solid #f2f2f2 !important;
   background-color: #ffffff !important;
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
-}
-
-.ql-editor {
-  background-color: #ffffff !important;
 }
 
 /* End */

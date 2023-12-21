@@ -20,7 +20,8 @@ Vue.component('sidebar',{
           <h5 class="m-l m-t-2">Dashboard</h5>
           <slot name="header"></slot>
        </div>
-       <div  class="sidebar-fixed-dark fade-in" :style={display:styles} id="sidebar-fixed" @click.stop>
+       <div  class="sidebar-fixed-dark fade-in" :style={display:styles} 
+         id="sidebar-fixed" @click.stop>
           <a href="https://www.ignitedcms.com/">
           </a>
           <h5 class="m-l m-t-2">Dashboard</h5>
@@ -28,11 +29,12 @@ Vue.component('sidebar',{
        </div>
        <div class="main-content" id="main-content">
           <div class="search-container">
-             <div @click="toggle_sidemenu"  v-click-outside="away" class="sidebar-toggle hand drop-shadow br">
+             <div @click="toggle_sidemenu"  v-click-outside="away" 
+               class="sidebar-toggle hand b br">
                 <i data-feather="menu"></i>
              </div>
              <div style="width:60%;" class="m-l-2">
-                <input class="form-control"  name="a" placeholder="Search then hit enter" />
+                <input class="form-control"  placeholder="Search then hit enter" />
              </div>
           </div>
           <div class="p-3">

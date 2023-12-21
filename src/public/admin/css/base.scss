@@ -105,7 +105,6 @@
    }
 
 
-
    /*
    |---------------------------------------------------------------
    | Grid system
@@ -308,7 +307,7 @@ ol {
 }
 
 .drop-shadow {
-   box-shadow: $shadow;
+  box-shadow: $shadow;
 }
 
 .br {
@@ -369,10 +368,12 @@ ol {
 
 .scroll-y{
    overflow-y : auto;
+   -webkit-overflow-scrolling: touch;
 }
 
 .scroll-x{
    overflow-x : auto;
+   -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -728,7 +729,6 @@ ol {
 .pos {
    &-rel {
       position: relative;
-      ;
    }
 
    &-abs {
@@ -828,6 +828,35 @@ ol {
 .fixed {
    position: fixed;
    width: 100%;
+}
+
+.fancy-hover{
+
+    transition: all 0.4s;
+
+    &:hover{
+
+        transform: translateY(-10px);
+        -webkit-box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+        box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+
+         @media (max-width: $desktop) 
+         {
+            transform: none;
+            box-shadow:none;
+         }
+    }
+}
+
+.grey-hover{
+
+    transition: all 0.4s;
+    cursor:pointer;
+
+    &:hover{
+         background-color:$light-grey;
+
+    }
 }
 
 @media screen and (max-width:$mobile) {

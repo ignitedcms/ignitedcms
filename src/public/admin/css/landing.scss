@@ -12,22 +12,13 @@
    color:#ffffff;
    font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
    font-size: 14px;
-   background-color:$tertiary;
+   background-color:#181b23;
 
    border-bottom-left-radius:$border-radius;
    border-bottom-right-radius:$border-radius;
 
    padding: $padding;
 
-   @media (max-width: $desktop ) 
-   {
-      width:100%;
-      padding: 10px;
-      min-height: 200px;
-      border-top-left-radius:$border-radius;
-      border-top-right-radius:$border-radius;
-
-   }
 
    &-light{
       position:relative;
@@ -46,15 +37,6 @@
       color:#333333;
 
 
-      @media (max-width: $desktop )
-      {
-         width:100%;
-         padding: 20px;
-         min-height: 200px;
-         border-top-left-radius:$border-radius;
-         border-top-right-radius:$border-radius;
-
-      }
 
    }
 }
@@ -75,12 +57,6 @@
    justify-content:flex-start;
    align-items: center;
 
-   @media (max-width:$desktop )
-   {
-      width:100%;
-      display:none;
-   }
-
 
    &-light{
 
@@ -99,12 +75,6 @@
       justify-content:flex-start;
       align-items: center;
 
-      @media (max-width: $desktop )
-      {
-         width:100%;
-         display:none;
-         min-height: 200px;
-      }
    }
 
    &-green{
