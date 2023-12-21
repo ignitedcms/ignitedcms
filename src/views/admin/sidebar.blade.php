@@ -42,7 +42,7 @@
         </ul>
     </div>
     <div class="search-container">
-        <div @click="toggle_sidemenu" v-click-outside="away" class="sidebar-toggle hand drop-shadow br">
+        <div @click="toggle_sidemenu" v-click-outside="away" class="sidebar-toggle hand b br">
             <i data-feather="menu"></i>
         </div>
 
