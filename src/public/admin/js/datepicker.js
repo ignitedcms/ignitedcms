@@ -185,6 +185,9 @@ Vue.component('datepicker', {
     this.currentMonth = this.today.getMonth();
     this.currentYear = this.today.getFullYear();
     this.selectedDate = this.today;
+
+    feather.replace();
+
   },
   methods: {
     updateDate(newValue) {
