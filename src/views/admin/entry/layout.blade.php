@@ -31,10 +31,10 @@
 
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
+        <script src="{{ asset('admin/js/focus-trap.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/tooltips.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
-        <script src="{{ asset('admin/js/search.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>
         <script src="{{ asset('admin/js/datepicker.js') }}"></script>
         <script src="{{ asset('admin/js/accordions.js') }}"></script>
