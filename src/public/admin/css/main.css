@@ -20,6 +20,7 @@
 @import url("datatables.css");
 @import url("drawer.css");
 @import url("filemenu.css");
+@import url("feeds.css");
 @import url("animations.css");
 @import url("tabs.css");
 @import url("switch.css");
@@ -32,7 +33,6 @@
 @import url("toasts.css");
 @import url("range-sliders.css");
 @import url("menu.css");
-@import url("matrix.css");
 @import url("full-calendar.css");
 @import url("alerts.css");
 @import url("badges.css");

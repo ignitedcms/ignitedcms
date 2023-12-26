@@ -1,69 +1,86 @@
 /*
 |---------------------------------------------------------------
-| Modals 
-| 
-| Components only data must be passed as a function
-| Use slots to repeat child components
-| Use props to pass in data MUST use kebab case eg postTitle => post-title 
-| Add a footer
-| 
-|
-|     <div class="modal-footer">
-|        <div class="row">
-|           <div class="col-12 right">
-|             <button type="button" class="btn btn-primary pull-right">Save</button>
-|           </div>
-|        </div>
-|     </div>
-|        
+| Modals component
 |---------------------------------------------------------------
 |
 |
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+|
 */
-Vue.component('modal',{
-    props:['button-title','modal-header'],
-    template: 
-    `
-  <div @keyup.escape="escapePressed()">
-    <button type="button" class="btn btn-white " @click="open=true; arr='false'" v-click-outside="away">
-      {{buttonTitle}} 
-    </button>
-    
-    <div class="modal" role="dialog" aria-modal="true" :aria-hidden="arr" v-show="open" @keyup.escape="escapePressed">
-       <div class="modal-content fade-in" @click.stop>
 
-          <focus-trap  :active="open">
-             <div class="modal-header">
-                <button type="button" aria-label="Close" class="rm-btn-styles close m-t" @click="open = false; arr='true'">&times;</button>
-                <h5 class="m-t">{{modalHeader}}</h5>
-             </div>
-             <div class="modal-body">
-                <slot></slot>
-             </div>
-          </focus-trap>        
+Vue.component('modal', {
+  props: [
+    'button-title',
+    'modal-header'
+  ],
+  template: `
+    <div @keyup.escape="escapePressed()">
+      <button
+        type="button"
+        aria-haspopup="dialog"
+        :aria-expanded="arr"
+        :aria-controls="'modal-' + uniqueId"
+        class="btn btn-white "
+        @click="show=true; arr='true'"
+        v-click-outside="away"
+      >
+        {{buttonTitle}}
+      </button>
 
-       </div>
+      <div
+        class="modal"
+        v-show="show"
+        @keyup.escape="escapePressed"
+      >
+        <div 
+          class="modal-content fade-in" 
+          :id="'modal-' + uniqueId"
+          role="dialog"
+          @click.stop
+        >
+
+          <focus-trap :active="show">
+            <div class="modal-header">
+              <button
+                type="button"
+                aria-label="Close"
+                class="rm-btn-styles close m-t"
+                @click="show = false; arr='false'"
+              >
+                &times;
+              </button>
+              <h5 class="m-t">{{modalHeader}}</h5>
+            </div>
+            <div class="modal-body">
+              <slot></slot>
+            </div>
+          </focus-trap>
+
+        </div>
+      </div>
     </div>
-  </div>
-    `,
-    data:function(){
+  `,
+  data() {
+    return {
+      message: 'Hello',
+      show: false,
+      arr: 'false',
+      uniqueId: Math.random().toString(36).substring(2) // Generate a unique ID
 
-        return{
-            message: 'Hello',
-            open: false,
-            arr: 'true'
-        }
+    };
+  },
+  methods: {
+    away() {
+      this.show = false;
+      this.arr = 'false';
     },
-    methods: {
-      away: function () {
-        this.open = false;
-         this.arr = 'true';
-      },
-      
-      escapePressed()
-      {
-        this.open = false;
-         this.arr = 'true';
-      },
+    escapePressed() {
+      this.show = false;
+      this.arr = 'false';
     }
+  }
 });
+

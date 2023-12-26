@@ -1,168 +1,209 @@
 /*
 |---------------------------------------------------------------
-| Search dropdowns 
-| 
-| Components only data must be passed as a function
-| Use slots to repeat child components
-| Use props to pass in data MUST use kebab case eg postTitle => post-title 
+| Combobox component
 |---------------------------------------------------------------
 |
 |
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+|
 */
-Vue.component('combobox',{
-   props:['name'],
-   template: 
-   `
-  <div @keyup.escape="escapePressed">
-       <button @click="load"  ref="button" class="form-control hand  
-       left combo-btn-container"  v-click-outside="away">
-          <span>
-             <i data-feather='chevron-down' class='icon-inside hand'></i>
-          </span>
-          {{selectedItem}}
-       </button>
 
-       <div v-if="show" class="combobox-container fade-in" @click.stop>
-          <div class="pos-rel">
+Vue.component('combobox', {
+  props: ['value', 'name'],
+  template: `
+    <div @keyup.escape="escapePressed">
+     <label  :for="name">{{name}}</label>
+      <div class="m-b"></div>
+
+      <input class="form-control"
+        type="text"
+        :name="name"
+        :value="selectedItem"
+        style="display:none;"
+      >
+
+      <button
+        @click="load"
+        role="combobox"
+        aria-haspopup="dialog"
+        :aria-expanded="arr"
+        :aria-controls="name"
+        ref="button"
+        class="pos-rel form-control hand left combo-btn-container"
+        :name="name"
+        :value="value"
+        v-click-outside="away"
+        @input="updateInput($event.target.value)"
+      >
+        <span>
+          <i data-feather='chevron-down' class='icon-inside hand'></i>
+        </span>
+        {{ selectedItem }}
+        
+         <div v-if="show" 
+            :id="name"
+           class="combobox-container fade-in" 
+           style="position:absolute; top:40px; left:0; z-index:2;"
+           @click.stop
+         >
+           <div class="pos-rel">
              <span>
-                <i data-feather='search'
-                 class='icon-inside hand' 
-                 style="right:25px">
-                 </i>
+               <i data-feather='search' class='icon-inside hand' style="right:25px"></i>
              </span>
-             <input class="rm-input-styles" 
-                    :name="name" 
-                    @keydown.tab.prevent
-                    v-model="searchQuery"
-                    @keydown.enter="onEnter"
-                    autocomplete="off" 
-                    ref="start"
-                    @keydown.down="highlightNext"
-                    @keydown.up="highlightPrev"
-                    placeholder="Search list" />
+             <input
+               class="rm-input-styles"
+               :name="name"
+               aria-autocomplete="list"
+               role="dialog"
+               :aria-expanded="arr"
+               aria-activedescendant
+               autocomplete="off"
+               ref="start"
+               @keydown.tab.prevent
+               @keydown.enter="onEnter"
+               @keydown.down="highlightNext"
+               @keydown.up="highlightPrev"
+               v-model="searchQuery"
+               placeholder="Search list"
+             />
 
              <div class="b-t"></div>
-             <div v-for="(item, index) in filteredItems"
-                  :key="index" 
-                 class="combobox-container-item"  
-                 @mouseover="setHighlighted(index)"
-                 @click="onClick(item.val)"
-                 :class="{ 'combobox-container-item-highlighted': index === highlightedIndex }"
-               >
-                  {{ item.val }}
+             <div
+               v-for="(item, index) in filteredItems"
+               :key="index"
+               class="combobox-container-item"
+               @mouseover="setHighlighted(index)"
+               @click="onClick(item.val)"
+               :class="{ 'combobox-container-item-highlighted': index === highlightedIndex }"
+               v-bind="getAriaSelected(index === highlightedIndex)"
+             >
+               {{ item.val }}
              </div>
 
-               <div v-if="filteredItems.length === 0
-                 && searchQuery.trim() !== ''"
-                 class="combobox-container-item"
-               >
-                 No searches found. . .
-               </div>
-
-          </div>
-
-          <slot></slot>
-       </div>
-   </div>
+             <div
+               v-if="filteredItems.length === 0 && searchQuery.trim() !== ''"
+               class="combobox-container-item"
+             >
+               No searches found. . .
+             </div>
+           </div>
+                 <slot></slot>
+         </div>
 
 
+      </button>
+
+      
+    </div>
   `,
-   data:function(){
+  data() {
+    return {
+      searchQuery: '',
+      items: [],
+      highlightedIndex: 0,
+      selectedItem: this.value,
+      show: false,
+      arr: 'false'
+    };
+  },
+  mounted() {
+    this.items = this.$children;
 
-      return{
-         searchQuery: '',
-         items: [],
-         highlightedIndex:0,
-         selectedItem:'Select Item',
-         show: false
-
+    //this.$nextTick(() => {
+      //this.$refs.start.focus();
+    //});
+  },
+  computed: {
+    filteredItems() {
+      if (this.searchQuery.trim().length === 0) {
+        return this.items;
+      } else {
+        return this.items.filter(item =>
+          item.val.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
       }
-   },
-   mounted() {
-      this.items = this.$children;
-
+    },
+  },
+  methods: {
+     getAriaSelected(index) {
+        if (index ) {
+           return { 'aria-selected': 'true' };
+        } else {
+           return {}; // Empty object means no aria-selected attribute will be applied
+        }
+     },
+    updateInput(newValue)
+     {
+      this.$emit('input', newValue);
+     },
+    load() {
+      this.show = true;
+      this.arr = 'true';
       this.$nextTick(() => {
-         this.$refs.start.focus();
+        this.$refs.start.focus();
       });
-
-   },
-   computed: {
-
-       filteredItems() {
-        if (this.searchQuery.trim().length === 0) {
-          return this.items;
-        } else {
-          return this.items.filter(item =>
-            item.val.toLowerCase().includes(this.searchQuery.toLowerCase())
-          );
-        }
-      },
-   },
-   methods:{
-      load(){
-         this.show = true;
-         //Next tick needed to work
-         this.$nextTick(() => {
-            this.$refs.start.focus();
-         });
-      },
-      setHighlighted(index) {
-        this.highlightedIndex = index;
-      },
-      onClick(item) {
-           this.selectedItem = item;
-           this.show = false;
-           this.highlightedIndex = 0;
-           this.searchQuery = '';
-      },
-      highlightNext() {
-        if (this.highlightedIndex < this.filteredItems.length - 1) {
-          this.highlightedIndex++;
-        }
-      },
-      highlightPrev() {
-        if (this.highlightedIndex > 0) {
-          this.highlightedIndex--;
-        }
-      },
-      onEnter() {
-        if (this.filteredItems.length > 0 && this.highlightedIndex !== -1) {
-          const selectedItem = this.filteredItems[this.highlightedIndex].val;
-           this.selectedItem = selectedItem;
-           this.show = false;
-           this.highlightedIndex = 0;
-           this.searchQuery = '';
-        } else {
-          //console.log('Enter pressed without selection');
-           this.show = false;
-           this.highlightedIndex = 0;
-           this.searchQuery = '';
-        }
-      },
-      away: function () {
-         this.show = false;
-      },
-      escapePressed(){
-         this.show = false;
-      },
-   } 
+    },
+    setHighlighted(index) {
+      this.highlightedIndex = index;
+    },
+    onClick(item) {
+      this.selectedItem = item;
+      this.updateInput(this.selectedItem);
+      this.show = false;
+      this.arr = 'false';
+      this.highlightedIndex = 0;
+      this.searchQuery = '';
+    },
+    highlightNext() {
+      if (this.highlightedIndex < this.filteredItems.length - 1) {
+        this.highlightedIndex++;
+      }
+    },
+    highlightPrev() {
+      if (this.highlightedIndex > 0) {
+        this.highlightedIndex--;
+      }
+    },
+    onEnter() {
+      if (this.filteredItems.length > 0 && this.highlightedIndex !== -1) {
+        const selectedItem = this.filteredItems[this.highlightedIndex].val;
+        this.selectedItem = selectedItem;
+        this.updateInput(this.selectedItem);
+        this.show = false;
+        this.arr = 'false';
+        this.highlightedIndex = 0;
+        this.searchQuery = '';
+      } else {
+        this.show = false;
+        this.arr = 'false';
+        this.highlightedIndex = 0;
+        this.searchQuery = '';
+      }
+    },
+    away() {
+      this.show = false;
+      this.arr = 'false';
+    },
+    escapePressed() {
+      this.show = false;
+      this.arr = 'false';
+    },
+  },
 });
 
 Vue.component('combo-item', {
-   props:['val'],
-   template: 
-   `
-   `,
-   data: function () {
-
-      return {
-         //nothing
-      }
-   },
-   mounted()
-   {
-      //Must mount feather here to work
-      feather.replace();
-   }
+  props: ['val'],
+  template: ``,
+  data() {
+    return {
+      //nothing
+    };
+  },
+  mounted() {
+    feather.replace();
+  },
 });
 

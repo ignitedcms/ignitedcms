@@ -1,34 +1,49 @@
 /*
 |---------------------------------------------------------------
-| Switches 
-| 
-| Components only data must be passed as a function
-| Use slots to repeat child components
-| Use props to pass in data MUST use kebab case eg postTitle => post-title 
+| Range slider component
 |---------------------------------------------------------------
 |
 |
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+|
 */
-Vue.component('rangeSlider',{
-    props:['name','min','max'],
-    template: 
-    `
+
+Vue.component('range-slider', {
+  props: ['name','value','min', 'max'],
+  template: `
     <div class="slidecontainer">
-        <input :name="name" type="range" v-model="message" 
-          :min="min" :max="max" class="slider2" />
-        <p class="m-t-2">Value: 
-           <span id="demo">
-               {{message}}
-           </span>
-        </p>
+     <label :for="name">{{name}}</label>
+     <div class="m-b"></div>
+      <input
+        class="slider2"
+        :id="name"
+        :name="name"
+        :value="value"
+        type="range"
+        :min="min"
+        :max="max"
+        v-model="sliderValue"
+        @input="updateSlider($event.target.value)"
+      />
+      <p class="m-t-2">Value:
+        <span id="demo">
+          {{sliderValue}}
+        </span>
+      </p>
     </div>
-    `,
-    data:function(){
-
-        return{
-            message: this.min
-        }
-    }
+  `,
+  data() {
+    return {
+      sliderValue: this.value
+    };
+  },
+  methods:{
+     updateSlider(newValue) {
+        this.$emit('input', newValue);
+     }
+  }
 });
-
 

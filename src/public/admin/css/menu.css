@@ -17,7 +17,7 @@
   min-width: 160px;
 }
 .menu-main:hover {
-  color: #007bd9 !important;
+  color: #0053ff !important;
 }
 .menu-large-items {
   position: relative;
@@ -25,7 +25,7 @@
   margin-right: 10px;
 }
 .menu-large-items:hover {
-  color: #007bd9 !important;
+  color: #0053ff !important;
 }
 .menu-item-container {
   position: relative;

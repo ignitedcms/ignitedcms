@@ -36,12 +36,12 @@ em {
 }
 
 a {
-  color: #007bd9;
+  color: #0053ff;
   transition: all 0.1s ease;
 }
 
 a:hover {
-  color: #007bd9;
+  color: #0053ff;
 }
 
 label {
@@ -53,21 +53,23 @@ label {
 .code {
   position: relative;
   font-size: 15px;
-  padding: 30px;
+  padding: 10px;
   color: #FFFFFF;
   background-color: #292F3E;
   overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
-  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
   border-radius: 5px;
 }
-.code-class {
-  position: relative;
-  color: #333333;
-  border-left: 8px solid #292F3E;
-  background-color: rgb(243, 243, 243);
-  padding: 10px;
-  margin-bottom: 10px;
+@media (max-width: 1200px) {
+  .code {
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    overflow-x: auto;
+  }
 }
 
 /*                                                                          

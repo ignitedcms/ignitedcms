@@ -22,7 +22,7 @@
   width: 40px;
   height: 40px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .sidebar-toggle {
     display: flex;
   }
@@ -35,7 +35,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .search-container {
     margin-top: 10px;
   }
@@ -43,13 +43,12 @@
 
 .sidebar > ul > li > a {
   color: #666666;
-  font-size: 15px;
   text-decoration: none;
   transition: all 0.4s;
 }
 .sidebar > ul > li > a:hover {
   margin-left: 5px;
-  color: #007bd9;
+  color: #0053ff;
 }
 
 .sidebar > ul > li {
@@ -59,13 +58,12 @@
 
 .sidebar-fixed > ul > li > a {
   color: #666666;
-  font-size: 15px;
   text-decoration: none;
   transition: all 0.4s;
 }
 .sidebar-fixed > ul > li > a:hover {
   margin-left: 5px;
-  color: #007bd9;
+  color: #0053ff;
 }
 
 .sidebar-fixed > ul > li {
@@ -109,7 +107,7 @@
   background-color: #292F3E;
   color: #FFFFFF;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .sidebar-dark {
     display: none;
   }
@@ -123,15 +121,14 @@
 }
 .sidebar-dark > ul > li > a {
   color: #FFFFFF;
-  font-size: 15px;
   text-decoration: none;
   transition: all 0.4s;
 }
 .sidebar-dark > ul > li > a:hover {
   margin-left: 5px;
-  color: #007bd9;
+  color: #0053ff;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .sidebar {
     display: none;
   }
@@ -162,7 +159,7 @@
   color: #FFFFFF;
   z-index: 2;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .sidebar-fixed-dark {
     display: none;
   }
@@ -176,15 +173,14 @@
 }
 .sidebar-fixed-dark > ul > li > a {
   color: #FFFFFF;
-  font-size: 15px;
   text-decoration: none;
   transition: all 0.4s;
 }
 .sidebar-fixed-dark > ul > li > a:hover {
   margin-left: 5px;
-  color: #007bd9;
+  color: #0053ff;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
   .sidebar-fixed {
     display: none;
   }
@@ -198,7 +194,7 @@
   width: 1000px;
   height: 100vh;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .main-content {
     max-width: 100%;
     margin-left: 0px;

@@ -1,37 +1,41 @@
 /*
 |---------------------------------------------------------------
-| Toast components 
-| 
-| Components only data must be passed as a function
-| Use slots to repeat child components
-| Use props to pass in data MUST use kebab case eg postTitle => post-title 
+| Toasts component
 |---------------------------------------------------------------
 |
 |
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
+|
 */
-Vue.component('toast',{
-    props:['time'],
-    template: 
-    `
-    <div class="toast fade-in-bottom" role="alert" aria-atomic="true" 
-          aria-live="assertive" :style="{display:foo}">
-         <slot></slot>
+
+Vue.component('toast', {
+  props: ['time'],
+  template: `
+    <div
+      class="toast fade-in-bottom"
+      role="alert"
+      aria-atomic="true"
+      aria-live="assertive"
+      :style="{ display: displayStyle }"
+    >
+      <slot></slot>
     </div>
-    `,
-    data:function(){
-        return{
-            foo:''
-        }
-    },
-    methods:
-    {
-        t()
-        {
-            this.foo = "none"
-        }
-    },
-    mounted()
-    {
-        setTimeout(this.t,this.time);
+  `,
+  data() {
+    return {
+      displayStyle: ''
+    };
+  },
+  methods: {
+    t() {
+      this.displayStyle = "none";
     }
+  },
+  mounted() {
+    setTimeout(this.t, this.time);
+  }
 });
+

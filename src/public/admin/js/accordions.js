@@ -1,69 +1,70 @@
-/*
-|---------------------------------------------------------------
-| Accordion components 
+/*                                                                          
+|---------------------------------------------------------------            
+| Accordion component
+|---------------------------------------------------------------            
+|
 | 
-| Components only data must be passed as a function
-| Use slots to repeat child components
-| Use props to pass in data MUST use kebab case eg postTitle => post-title 
-|---------------------------------------------------------------
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
 |
-|
-*/
-Vue.component('accordion',{
-    template: 
-    `
-        <div>
-            <slot></slot> 
-        </div>
-    `,
-    data:function(){
-        return{
-            /*nothing to see*/
-        }
-    }
-});
-
-Vue.component('accordion-item',{
-    props: ['title'],
-    template: 
-    `
-    <div class="row">
-        <div class="col no-margin">
-            <button type="button" :aria-expanded="arr" class="accordion-title 
-               rm-btn-styles" @click="toggle">
-               <div class="text-black">
-                {{title}} 
-               </div>
-                  <span>
-                     <i data-feather="chevron-down"></i>    
-                  </span>
-            </button>
-            <div class="accordion-content fade-in" v-if="is_active">
-                <slot></slot>
-            </div>
-        </div>
+*/       
+Vue.component('accordion', {
+  template: `
+    <div>
+      <slot></slot>
     </div>
-    `,
-    data:function(){
-
-        return{
-            is_active:false,
-            arr:'false'
-        }
-    },
-    methods:
-    {
-        toggle()
-        {
-            this.is_active = !this.is_active
-            if(this.arr =='false')
-            {
-               this.arr = 'true'
-            }
-           else
-           {
-              this.arr = 'false'
-           }
-        }
-    }
+  `,
+  data() {
+    return {
+      // Nothing here
+    };
+  },
 });
+
+Vue.component('accordion-item', {
+  props: ['title'],
+  template: `
+    <div class="row">
+      <div class="col no-margin">
+        <button
+          type="button"
+          :aria-expanded="isActive.toString()" 
+          :aria-controls="'accordion-' + uniqueId" 
+          :id="'accordion-title-' + uniqueId" 
+          class="accordion-title rm-btn-styles"
+          @click="toggle"
+        >
+          <div class="text-black">
+            {{ title }}
+          </div>
+          <span>
+            <i data-feather="chevron-down"></i>
+          </span>
+        </button>
+        <div
+          v-if="isActive"
+          :id="'accordion-' + uniqueId" 
+          role="region"
+          class="accordion-content fade-in"
+          :aria-labelledby="'accordion-title-' + uniqueId"
+        >
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  `,
+  data() {
+    return {
+      isActive: false,
+      uniqueId: Math.random().toString(36).substring(2) // Generate a unique ID
+    };
+  },
+  methods: {
+    toggle() {
+      this.isActive = !this.isActive;
+    },
+  },
+});
+

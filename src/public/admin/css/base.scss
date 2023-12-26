@@ -56,25 +56,27 @@
 
    // for showing code
    .code {
+
       position: relative;
       font-size: 15px;
-      padding: $padding;
+      padding: $margin;
       color:#FFFFFF;
       background-color: $tertiary;
       overflow-x:auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
       font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
-      box-shadow: $shadow;
       border-radius: $border-radius;
 
-
-      &-class{
-         position:relative;
-         color: #333333;
-         border-left:8px solid $primary;
-         background-color:$light-grey;
-         padding: $margin;
-         margin-bottom:$margin;
+      @media (max-width: $desktop) 
+      {
+         padding:10px;
+         white-space: pre-wrap;
+         word-wrap: break-word;
+         width:100%;
+         overflow-x: auto;
       }
+
    }
    
    /*                                                                          

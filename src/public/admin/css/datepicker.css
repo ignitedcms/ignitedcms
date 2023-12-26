@@ -1,11 +1,12 @@
 .current-date {
-  background-color: #292F3E;
+  background-color: #cccccc;
   color: #fff !important;
   border-radius: 5px;
 }
 
 .focused {
-  outline: 2px solid #ccc;
+  background-color: #292F3E;
+  color: #fff !important;
   border-radius: 5px;
 }
 
@@ -111,7 +112,8 @@
   cursor: pointer;
 }
 .cal:hover {
-  background-color: rgb(243, 243, 243);
+  background-color: #292F3E;
+  color: #fff;
   border-radius: 4px;
 }
 .cal-no-hover:hover {
