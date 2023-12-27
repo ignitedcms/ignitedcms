@@ -11,24 +11,28 @@
 |
 */
 
-Vue.component('switchIos', {
+Vue.component('switch-ios', {
   props: ['name', 'value'],
   template: `
-    <label class="form-switch">
-      <input
-        :name="name"
-        type="checkbox"
-        role="switch"
-        :checked="value"
-        @change="handleChange"
-      />
-      <i></i>
-      <div class="switch-text no-select">{{message}}</div>
-    </label>
+  <div>
+     <label for="title">{{name}}</label>
+     <div class="m-b"></div>
+     <label class="form-switch">
+        <input
+         :name="name"
+         type="checkbox"
+         role="switch"
+         :checked="value"
+         @change="handleChange"
+        />
+        <i></i>
+        <div class="switch-text no-select">{{message}}</div>
+     </label>
+  </div>
   `,
   data() {
     return {
-      message: 'Yes/no',
+      message: 'Yes/No',
       show: false,
     };
   },

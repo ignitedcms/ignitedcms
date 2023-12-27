@@ -25,6 +25,7 @@
 @import url("tabs.css");
 @import url("switch.css");
 @import url("modals.css");
+@import url("matrix.css");
 @import url("accordions.css");
 @import url("tooltips.css");
 @import url("datepicker.css");
@@ -36,12 +37,12 @@
 @import url("full-calendar.css");
 @import url("alerts.css");
 @import url("badges.css");
-@import url("matrix.css");
 @import url("pagination.css");
 @import url("blog.css");
 @import url("breadcrumbs.css");
 @import url("progress-bars.css");
 @import url("spinner.css");
+@import url("splide.min.css");
 @import url("tables.css");
 @import url("trees.css");
 @import url("random.css");

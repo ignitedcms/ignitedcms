@@ -40,7 +40,7 @@ Vue.component('mega-menu', {
   `,
   data() {
     return {
-      message: 'Hello'
+      message: ''
     };
   },
   methods: {}

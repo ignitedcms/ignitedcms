@@ -187,7 +187,6 @@ Vue.component('datepicker', {
     this.selectedDate = this.today;
 
     feather.replace();
-
   },
   methods: {
     updateDate(newValue) {
