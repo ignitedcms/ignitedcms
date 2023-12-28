@@ -68,5 +68,10 @@ class ProfileController extends Controller
     public function password(Request $request)
     {
 
+       $validated = $request->validate([
+            'password' => 'required|min:6',
+          ]);
+
+        return redirect('admin/profile/password')->with('status', 'Updated successfully');
     }
 }

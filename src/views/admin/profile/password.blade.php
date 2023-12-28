@@ -29,6 +29,12 @@
                 </div>
             @endif
 
+            @if (session('errors'))
+                <div class="alert alert-danger m-b-3">
+                    Error
+                   <div class="small">Failed</div>
+                </div>
+            @endif
             <div class="panel br drop-shadow">
                 <form action="{{ url('admin/profile/password') }} " method="POST">
                     @csrf
@@ -38,6 +44,11 @@
                         <div class="small text-muted">Please enter a new password</div>
                         <input class="form-control m-t" type="password" name="password" value=""
                             placeholder="Start typing" />
+                    
+                         @error('password')
+                            <div class="small text-danger"> {{ $message }} </div>
+                         @enderror
+                                             
 
                     </div>
                     
