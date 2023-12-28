@@ -18,6 +18,19 @@
                 <div class="panel br drop-shadow">
                     <div class="row">
                         <div class="col">
+                           <div class="form-group">
+                              <label for="title">Alt Title</label>
+                              <div class="small text-muted m-b">If you have an
+                                 image you can add an Alt title
+                              </div>
+                              <input class="form-control" 
+                                    type="text"
+                                    name="alt_title" 
+                                    value="" 
+                                    placeholder="Start typing" 
+                              />
+                           </div>
+
                            @foreach ($data as $row)
                               <div class="form-group">
                                  <label for="Filename">Filename</label>
@@ -36,6 +49,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                   <div class="col right">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                     
+                   </div>
+                </div>
+                <div class="gap"></div>
         </div>
     </div>
 @endsection
