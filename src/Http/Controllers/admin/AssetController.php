@@ -21,6 +21,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 use Gumlet\ImageResize;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
+use Ignitedcms\Ignitedcms\Models\admin\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -60,9 +61,12 @@ class AssetController extends Controller
     //Upload and save file into uploads
     public function create(Request $request)
     {
+        //Get allowed file types from global settings option
+        $csvArray = Settings::getFileExtensions();
+
         //Hard coded for time bein
         $request->validate([
-            'file' => 'required|file|mimes:jpeg,jpg,png,pdf,svg|max:10048', // Validation rules for the file
+            'file' => 'required|file|mimes:'. $csvArray. '|max:10048', // Validation rules for the file
         ]);
 
         if ($request->hasFile('file')) {

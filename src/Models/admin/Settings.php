@@ -28,6 +28,25 @@ class Settings
         return DB::table('site_settings')->get();
     }
 
+    public static function getFileExtensions()
+    {
+       $string = "";
+       $query = DB::table('site_settings')
+          ->select('*')
+         ->where('enabled','=', 1)
+        ->get();
+
+       foreach($query as $row)
+       {
+          $string = $string . $row->extensions . ',';
+       }
+
+       //remove trailing ,
+       return trim($string,",");;
+         
+       
+    }
+
     /*
      * Update allowed mime type by name
      * and change enabled to true (1)
