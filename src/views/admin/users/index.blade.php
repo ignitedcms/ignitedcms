@@ -47,10 +47,10 @@
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Id</th>
                             <th>Email</th>
                             <th>Roles</th>
-                            <th>action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -52,9 +52,9 @@
                     <thead>
                         <tr>
                             <th>Preview</th>
-                            <th>handle</th>
-                            <th>type</th>
-                            <th>action</th>
+                            <th>Handle</th>
+                            <th>Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -41,10 +41,10 @@
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>title</th>
-                            <th>type</th>
-                            <th>action</th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -47,7 +47,7 @@
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Id</th>
                             <th>Name</th>
                             <th>Handle</th>
                             <th>Action</th>
