@@ -120,7 +120,7 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})" class="m-r-2 btn btn-white pull-left">add {{ $row->name }}</div>  
+                                <div @click="goNow({{ $row->id }})" class="m-r-2 m-t btn btn-white ">Add {{ $row->name }}</div>  
                               <input style='display:none;' type='text' name='{{ $row->name }}'  
                                  id='{{ $row->name }}' v-model='JSON.stringify(matrix)' />
 
