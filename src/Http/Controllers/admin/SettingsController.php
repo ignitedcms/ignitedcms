@@ -30,7 +30,7 @@ class SettingsController extends Controller
     //load the view
     public function index()
     {
-       $data = '';
+       $data = Settings::all();
         return view('ignitedcms::admin.settings.index')->with([
             'data' => $data,
         ]);

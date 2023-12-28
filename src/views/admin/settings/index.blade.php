@@ -37,46 +37,14 @@
                Restrict allowed file types to (these settings are applied globally)
                 
                <div class="form-group">
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Audio</label>
+               @foreach ($data as $row)
+                   <div>
+                    <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}" class="form-check-input">
+                    <label for="the label">{{ $row->name }}</label>
                   </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Zip</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Excel</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Powerpoint</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Word</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Image</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Javascript</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">PDF</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Text</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="" class="form-check-input">
-                    <label for="the label">Video</label>
-                  </div>
+               @endforeach
+               </div>   
+                  
                   
                </div>
                <div class="form-group right">
