@@ -20,6 +20,7 @@ use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -58,7 +59,8 @@ class ProfileController extends Controller
 
     public function passwordView()
     {
-       $data = '';
+        $data = '';
+
         return view('ignitedcms::admin.profile.password')->with([
             'data' => $data,
         ]);
@@ -68,9 +70,13 @@ class ProfileController extends Controller
     public function password(Request $request)
     {
 
-       $validated = $request->validate([
+        $validated = $request->validate([
             'password' => 'required|min:6',
-          ]);
+        ]);
+        //If pass hash password and update db
+        $password = Hash::make($request->password);
+        $userid = session('userid');
+        Profile::updatePassword($userid, $password);
 
         return redirect('admin/profile/password')->with('status', 'Updated successfully');
     }

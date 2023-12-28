@@ -41,12 +41,12 @@ class Profile
 
     public static function updatePassword($userid, $password)
     {
-       
-       DB::table('user')
-          ->where('id', '=', $userid)
-          ->update([
-             'password' => $password
+
+        DB::table('user')
+            ->where('id', '=', $userid)
+            ->update([
+                'password' => $password,
             ]);
-       
+
     }
 }

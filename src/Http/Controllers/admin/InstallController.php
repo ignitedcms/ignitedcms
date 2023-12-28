@@ -30,8 +30,7 @@ class InstallController extends Controller
             ->select('*');
         if ($query->count() > 0) {
             echo "Looks like you've already ran the installer";
-        }
-        else {
+        } else {
             return view('ignitedcms::admin.installer.index');
         }
 
