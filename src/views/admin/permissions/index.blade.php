@@ -68,7 +68,7 @@
                                   <tooltip link="Delete">
                                   <form action="{{ url('/admin/permissions/delete', $row->groupID) }}" method="POST">
                                      @csrf
-                                     <button type="submit" class="btn  rm-btn-styles">ok</button>
+                                     <button type="submit" class="btn  rm-btn-styles">Ok</button>
                                   </form>
                                   </tooltip>
                                </span>

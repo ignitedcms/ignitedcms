@@ -69,7 +69,7 @@
                                         <tooltip link="Delete">
                                             <form action="{{ url('admin/users/delete', $user->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn  rm-btn-styles">ok</button>
+                                                <button type="submit" class="btn  rm-btn-styles">Ok</button>
                                             </form>
                                         </tooltip>
                                     </span>
