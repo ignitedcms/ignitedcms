@@ -40,7 +40,8 @@
                @foreach ($data as $row)
                    <div>
                     <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}" class="form-check-input">
-                    <label for="the label">{{ $row->name }}</label>
+                    <label for="the label">{{ $row->name }}</label> 
+                     <span class="small tet-muted">[ {{ $row->extensions }} ] </span>
                   </div>
                @endforeach
                </div>   
