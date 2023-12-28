@@ -28,38 +28,32 @@ class Router
             ->select('*')
             ->get();
 
-       if($routes->count() < 1)
-       {
-          //do nothing
+        if ($routes->count() < 1) {
+            //do nothing
 
-       }
-       else
-       {
+        } else {
 
+            $data = [];
+            foreach ($routes as $route) {
+                $string = Str::of($route->controller)
+                    ->replaceStart('admin/parser/', '')->toString();
 
-        $data = [];
-        foreach ($routes as $route) {
-            $string = Str::of($route->controller)
-                ->replaceStart('admin/parser/', '')->toString();
+                if (str::startsWith($string, 'display')) {
 
-            if (str::startsWith($string, 'display')) {
+                    $arr = explode('/', $string);
 
-                $arr = explode('/', $string);
+                    Route::get($route->route, [ParserController::class, 'display'])
+                        ->defaults('sid', $arr[1])->defaults('eid', $arr[2]);
 
-                Route::get($route->route, [ParserController::class, 'display'])
-                    ->defaults('sid', $arr[1])->defaults('eid', $arr[2]);
+                }
+                //else it is a multiple index
+                else {
+                    $arr2 = explode('/', $string);
+                    Route::get($route->route, [ParserController::class, 'index_page'])
+                        ->defaults('sectionname', $arr2[1]);
 
+                }
             }
-            //else it is a multiple index
-            else {
-                $arr2 = explode('/', $string);
-                Route::get($route->route, [ParserController::class, 'index_page'])
-                    ->defaults('sectionname', $arr2[1]);
-
-
-            }
-         }
-            
 
         }
     }

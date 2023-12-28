@@ -26,7 +26,15 @@ class InstallController extends Controller
 {
     public function index()
     {
-        return view('ignitedcms::admin.installer.index');
+        $query = DB::table('user')
+            ->select('*');
+        if ($query->count() > 0) {
+            echo "Looks like you've already ran the installer";
+        }
+        else {
+            return view('ignitedcms::admin.installer.index');
+        }
+
     }
 
     public function bar()
