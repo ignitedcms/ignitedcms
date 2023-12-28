@@ -13,6 +13,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\SettingsController;
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
 //Installer
@@ -22,6 +23,12 @@ Route::middleware('web')->group(function () {
     Route::get('/installer/terms', [InstallController::class, 'one']);
     Route::get('/installer/register', [InstallController::class, 'two']);
     Route::post('/installer/validate_form', [InstallController::class, 'validateForm']);
+});
+
+//Settings
+
+Route::middleware('web')->group(function () {
+    Route::get('admin/settings', [SettingsController::class, 'index']);
 });
 
 //matrix
