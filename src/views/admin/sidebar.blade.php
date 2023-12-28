@@ -12,6 +12,7 @@
             <li class="m-t"><a href="{{ url('admin/entry') }}">Entries</a></li>
             <li class="m-t"><a href="{{ url('admin/assets') }}">Assets</a></li>
             <li class="m-t"><a href="{{ url('admin/database') }}">Database</a></li>
+            <li class="m-t"><a href="{{ url('admin/settings') }}">Site settings</a></li>
             <li class="m-t">
                <form action="{{ url('logout') }} " method="POST">
                   @csrf
@@ -33,6 +34,7 @@
             <li class="m-t"><a href="{{ url('admin/entry') }}">Entries</a></li>
             <li class="m-t"><a href="{{ url('admin/assets') }}">Assets</a></li>
             <li class="m-t"><a href="{{ url('admin/database') }}">Database</a></li>
+            <li class="m-t"><a href="{{ url('admin/settings') }}">Site settings</a></li>
             <li class="m-t">
                 <form action="{{ url('logout') }} " method="POST">
                    @csrf
