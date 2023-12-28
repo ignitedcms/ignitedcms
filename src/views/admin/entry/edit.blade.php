@@ -79,10 +79,22 @@
                     <div class="col-9 right">
 
                         @if (Helper::isSingle($sectionid) == true)
+                           
+
                             <a href="{{ url(Helper::getSectionName($sectionid)) }}" target="_blank"
                                 class="btn btn-white m-r-2 rm-link-styles">Preview</a>
                         @endif
 
+                        @if (Helper::isMultiple($sectionid) == true)
+
+                        @php
+                           $sectName = Helper::getSectionName($sectionid);
+                           $entTitle = Helper::getContent($entryid, 'entrytitle');
+                        @endphp
+
+                            <a href="{{ url($sectName . '/' . $entTitle) }}" target="_blank"
+                                class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                        @endif
                         <button type="submit"class="btn btn-primary">Save</button>
 
                     </div>
@@ -112,7 +124,6 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="Start typing" />
-                                {{ $row->formvalidation }}
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
@@ -129,7 +140,6 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::getContent($entryid, $row->name) }}</textarea>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
                                 <div class="clearfix m-b-2"></div>
@@ -151,7 +161,6 @@
                                 <div class="form-group">
 
                                 </div>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'check-box')
                                 <div class="clearfix m-b-2"></div>
@@ -163,7 +172,6 @@
                                         {{ Helper::buildCheckboxes($entryid, $row->name) }}
                                     </div>
                                 </div>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'color')
                                 <div class="clearfix m-b-2"></div>
@@ -171,7 +179,6 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
                                     value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="" />
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'drop-down')
                                 <div class="clearfix m-b-2"></div>
@@ -182,7 +189,6 @@
                                     aria-label="Default select example">
                                     {{ Helper::buildDropdown($entryid, $row->name) }}
                                 </select>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'file-upload')
                                 <div class="clearfix m-b-2"></div>
@@ -195,7 +201,6 @@
                                 </asset-container>
 
 
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'number')
                                 <div class="clearfix m-b-2"></div>
@@ -203,7 +208,6 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="test" />
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'date')
                                 <div class="clearfix m-b-2"></div>
@@ -214,7 +218,6 @@
                                         value="{{ Helper::getContent($entryid, $row->name) }}">
                                     </datepicker>
                                 </div>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'switch')
                                 <div class="clearfix m-b-2"></div>
@@ -222,7 +225,6 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
                                     value="{{ Helper::getContent($entryid, $row->name) }}"></switch-ios>
-                                {{ $row->formvalidation }}
                                 <div class="divider m-b-2"></div>
                             @else
                             @endif
