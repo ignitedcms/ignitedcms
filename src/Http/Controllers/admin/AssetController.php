@@ -5,7 +5,8 @@
 |---------------------------------------------------------------
 |
 | All logic for uploading assets
-| Need to look and gumlet for image resizing
+| Use  gumlet dependency for image resizing
+| See composer json for information
 |
 |
 | @author: IgnitedCMS
@@ -109,10 +110,26 @@ class AssetController extends Controller
     {
 
         $data = Asset::update($id);
+        $assetId = $id;
 
         return view('ignitedcms::admin.assets.edit')->with([
             'data' => $data,
+            'assetId' => $assetId,
         ]);
+    }
+
+    /*
+     * Update the alt_title field
+     *
+     *
+     * @param   string $alt_tile POST request
+     * @param   int $assetId
+     * @return  void
+     */
+    public function update(Request $request, $assetId)
+    {
+        
+
     }
 
     //Delete from the db and remove from uploads

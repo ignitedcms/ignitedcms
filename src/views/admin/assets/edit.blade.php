@@ -18,29 +18,32 @@
             <div class="panel br drop-shadow">
                 <div class="row">
                     <div class="col">
-                        <div class="form-group">
-                            @foreach ($data as $row)
-                                <label for="title">Alt Title</label>
-                                <div class="small text-muted m-b">If you have an
-                                    image you can add an Alt title
-                                </div>
-                                <input class="form-control" type="text" name="alt_title" value="{{ $row->alt_title }}"
-                                    placeholder="Start typing" />
-                        </div>
+                       <form action='{{ url("admin/assets/update/$assetId") }} ' method="POST">
+                          @csrf
+                           <div class="form-group">
+                               @foreach ($data as $row)
+                                   <label for="title">Alt Title</label>
+                                   <div class="small text-muted m-b">If you have an
+                                       image you can add an Alt title
+                                   </div>
+                                   <input class="form-control" type="text" name="alt_title" value="{{ $row->alt_title }}"
+                                       placeholder="Start typing" />
+                           </div>
 
-                        <div class="form-group">
-                            <label for="Filename">Filename</label>
-                            <div class="small text-muted">The file name </div>
-                            {{ $row->filename }}
-                        </div>
-                        @if (in_array($row->kind, ['jpeg', 'jpg', 'png', 'gif', 'bmp', 'svg']))
-                            <div class="form-group">
-                                <img src="{{ $row->url }}" class="img-responsive"></img>
-                            </div>
-                        @else
-                            <a href="{{ $row->url }}">Download</a>
-                        @endif
-                        @endforeach
+                           <div class="form-group">
+                               <label for="Filename">Filename</label>
+                               <div class="small text-muted">The file name </div>
+                               {{ $row->filename }}
+                           </div>
+                           @if (in_array($row->kind, ['jpeg', 'jpg', 'png', 'gif', 'bmp', 'svg']))
+                               <div class="form-group">
+                                   <img src="{{ $row->url }}" class="img-responsive"></img>
+                               </div>
+                           @else
+                               <a href="{{ $row->url }}">Download</a>
+                           @endif
+                           @endforeach
+                        </form>
                     </div>
                 </div>
             </div>
