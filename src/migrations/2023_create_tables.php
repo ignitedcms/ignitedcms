@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('url', 200)->nullable();
             $table->string('thumb', 300)->nullable();
             $table->string('fieldname', 200)->nullable();
+            $table->string('alt_title', 200)->nullable();
             $table->timestamps();
         });
 
