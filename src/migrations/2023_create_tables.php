@@ -19,6 +19,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('site_settings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('enabled')->nullable();
+            $table->string('name', 255)->nullable();
+            $table->string('extensions', 500)->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('assetfields', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('entryid')->nullable();
