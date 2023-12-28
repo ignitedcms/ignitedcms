@@ -4,10 +4,10 @@
     <div class="front-matrix-block" v-for="row in matrix">
         <div class="front-matrix-block__header">
             @{{row.title}}
-            <div class="" @click="row.collapsed = !row.collapsed">Collapse</div>
-            <div class="matrix-del" @click="deleteItem(row)">
+            <div class="h-a" @click="row.collapsed = !row.collapsed">Collapse</div>
+            <div class="matrix-del"  @click="deleteItem(row)">
                <span>
-                  <i data-feather="trash"></i>    
+                  <i data-feather="trash" style="height:18px; width:18px;"></i>    
                </span>
             </div>
         </div>
