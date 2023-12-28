@@ -132,13 +132,10 @@
                 },
                 methods: {
                    onEditorBlur(quill) {
-                       console.log('editor blur!', quill)
                    },
                    onEditorFocus(quill) {
-                       console.log('editor focus!', quill)
                    },
                    onEditorReady(quill) {
-                       console.log('editor ready!', quill)
                    },
                     toggle_sidemenu() {
                         this.show = !this.show;
