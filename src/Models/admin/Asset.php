@@ -49,7 +49,15 @@ class Asset
             ->where('id', '=', $id)
             ->limit(1)
             ->get();
+    }
 
+    public static function updateAltTitle($id, $altTitle)
+    {
+        DB::table('assetfields')
+            ->where('id', '=', $id)
+            ->update([
+                'alt_title' => $altTitle,
+            ]);
     }
 
     public static function destroy($id)

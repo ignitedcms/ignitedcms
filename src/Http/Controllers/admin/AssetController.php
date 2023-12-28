@@ -128,8 +128,13 @@ class AssetController extends Controller
      */
     public function update(Request $request, $assetId)
     {
-        
+        $validated = $request->validate([
+            'alt_title' => 'required',
+        ]);
+        //If pass then let's update the db
+        Asset::updateAltTitle($assetId, $request->alt_title);
 
+        return redirect('admin/assets')->with('status', 'Alt title updated');
     }
 
     //Delete from the db and remove from uploads

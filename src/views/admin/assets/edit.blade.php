@@ -43,16 +43,17 @@
                                <a href="{{ $row->url }}">Download</a>
                            @endif
                            @endforeach
+                           <div class="row">
+                              <div class="col right">
+                                 <button type="submit" class="btn btn-primary">Save</button>
+
+                              </div>
+                           </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col right">
-                    <button type="submit" class="btn btn-primary">Save</button>
-
-                </div>
-            </div>
+            
             <div class="gap"></div>
         </div>
     </div>

@@ -204,6 +204,7 @@ class Parser
             foreach ($query as $row) {
                 $url = $row->url;
             }
+
             return $url;
 
         } elseif ($type == 'matrix') {
@@ -230,6 +231,7 @@ class Parser
                         }
                     }
                 }
+
                 return $b;
             }
         } else {
