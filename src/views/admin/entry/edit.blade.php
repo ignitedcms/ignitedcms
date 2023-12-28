@@ -90,7 +90,6 @@
                 <div class="panel br drop-shadow">
 
                      @include('ignitedcms::admin.entry.vue')
-                     <div class="gap"></div>
 
                     @if (Helper::isMultiple($sectionid) == true)
                   
