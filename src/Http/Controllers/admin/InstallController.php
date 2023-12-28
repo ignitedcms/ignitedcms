@@ -107,14 +107,14 @@ class InstallController extends Controller
 
         //Finally add the asset upload file allowed types
         $sql4 = 'INSERT INTO `'.$prefix."site_settings`(`name`, `extensions`, `enabled`) VALUES
-           ('Audio','mp3,wav,ogg,acc,flac','0'),
-           ('Zip','zip,rar','0'),
-           ('Microsoft','doc,docx,xls,xlsx,ppt,pptx','0'),
-           ('Image','jpg,jpeg,bmp,png,svg,gif','0'),
-           ('Javascript','js','0'),
-           ('PDF','pdf','0'),
-           ('Text','txt','0'),
-           ('Video','avi,mp4,mpeg,quicktime','0');";
+           ('Audio','mp3,wav,ogg,acc,flac',0),
+           ('Zip','zip,rar',0),
+           ('Microsoft','doc,docx,xls,xlsx,ppt,pptx',0),
+           ('Image','jpg,jpeg,bmp,png,svg,gif',0),
+           ('Javascript','js',0),
+           ('PDF','pdf',0),
+           ('Text','txt',0),
+           ('Video','avi,mp4,mpeg,quicktime',0);";
 
         DB::statement($sql1);
         DB::statement($sql2);
