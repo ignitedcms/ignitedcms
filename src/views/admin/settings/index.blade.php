@@ -20,7 +20,7 @@
             </div>
 
             @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success m-b-2">
                     {{ session('status') }}
                 </div>
             @endif
@@ -32,27 +32,31 @@
                   your end users can upload globally to your CMS for security
                </div>
             </div>
-            
-            <div class="panel br drop-shadow p-b-5">
-               Restrict allowed file types to (these settings are applied globally)
-                
-               <div class="form-group">
-               @foreach ($data as $row)
-                   <div>
-                    <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}" class="form-check-input">
-                    <label for="the label">{{ $row->name }}</label> 
-                     <span class="small tet-muted">[ {{ $row->extensions }} ] </span>
-                  </div>
-               @endforeach
-               </div>   
-                  
-                  
-               </div>
-               <div class="form-group right">
-                  <button type="submit" class="btn btn-primary">Save</button>
-               </div>
-            </div>
+        
+            <form action="{{ url('admin/settings/update') }} " method="POST">
+               @csrf    
+               <div class="panel br drop-shadow p-b-5">
+                  Restrict allowed file types to (these settings are applied globally)
 
+
+                  <div class="form-group">
+                     @foreach ($data as $row)
+                     <div>
+                        <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}" 
+                           class="form-check-input" @if ($row->enabled) checked @endif>
+                        <label for="the label">{{ $row->name }}</label> 
+                        <span class="small tet-muted">[ {{ $row->extensions }} ] </span>
+                     </div>
+                     @endforeach
+                  </div>   
+
+
+                  <div class="form-group right">
+                     <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+
+               </div>
+            </form>
         </div>
     </div>
 @endsection

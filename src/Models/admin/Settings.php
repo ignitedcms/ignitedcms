@@ -33,15 +33,34 @@ class Settings
      * and change enabled to true (1)
      *
      *
-     * @param   string $name
+     * @param   array of $names
      * @return  void
      */
-    public static function update($name)
+    public static function updateSettings($names)
     {
+       //first we need to nuke all the enabled
+       $query =  DB::table('site_settings')
+          ->select('*')
+         ->get();
+
+       foreach($query as $row)
+       {
         DB::table('site_settings')
-            ->where('name', '=', $name)
+            ->where('name', '=', $row->name)
+            ->update([
+                'enabled' => 0,
+            ]);
+         
+       }
+
+       foreach($names as $row)
+       {
+
+        DB::table('site_settings')
+            ->where('name', '=', $row)
             ->update([
                 'enabled' => 1,
             ]);
+       }
     }
 }

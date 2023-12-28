@@ -37,5 +37,18 @@ class SettingsController extends Controller
 
     }
 
+    public function update(Request $request)
+    {
+         $validated = $request->validate([
+                'fileTypes' => 'required',
+            ]);
+            $map = $request->input('fileTypes');
+
+            Settings::updateSettings( $map);
+
+            return redirect('admin/settings')->with('status', 'Allowed filetypes updated!');
+
+    }
+
 }
 
