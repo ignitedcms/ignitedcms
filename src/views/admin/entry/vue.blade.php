@@ -138,10 +138,10 @@
                                    <div class="p-3">
 
                                       <div class="row b-b">
-                                         <div class="col"><h4>Preview </h4></div>
-                                         <div class="col"><h4>Handle </h4></div>
-                                         <div class="col"><h4>Type </h4></div>
-                                         <div class="col"><h4>Action </h4></div>
+                                         <div class="col"><h5>Preview </h5></div>
+                                         <div class="col"><h5>Handle </h5></div>
+                                         <div class="col"><h5>Type </h5></div>
+                                         <div class="col"><h5>Action </h5></div>
                                       </div>
 
                                       @foreach ($assets as $field)

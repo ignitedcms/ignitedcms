@@ -12,7 +12,7 @@
                   <span>
                      <i data-feather="plus"></i>    
                   </span>
-                 <strong>Add an asset</strong>
+                 Add an asset
              </div>
          </div>
          <div class="col-8">
