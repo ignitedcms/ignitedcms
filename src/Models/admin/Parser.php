@@ -204,7 +204,6 @@ class Parser
             foreach ($query as $row) {
                 $url = $row->url;
             }
-
             return $url;
 
         } elseif ($type == 'matrix') {
@@ -213,7 +212,6 @@ class Parser
 
             //check if not empty
             if ($json) {
-
                 $arr = [];
                 $counter = 0; //needed to loop!
 
@@ -229,16 +227,11 @@ class Parser
                             //nothing in content so dump checkedvalues
                             $b[$counter][$r->title] = json_encode($r->checkedValues);
                             array_push($arr, $b);
-
                         }
-
                     }
                 }
-
                 return $b;
-
             }
-
         } else {
             return $val;
         }
