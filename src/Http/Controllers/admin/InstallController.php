@@ -105,7 +105,6 @@ class InstallController extends Controller
         $sql3 = 'INSERT INTO `'.$prefix."permission_groups`(`groupID`, `groupName`) VALUES
          (1,'Administrators');";
 
-
         //Finally add the asset upload file allowed types
         $sql4 = 'INSERT INTO `'.$prefix."site_settings`(`name`, `extensions`) VALUES
            ('Audio','mp3,wav,ogg,acc,flac'),
