@@ -19,7 +19,7 @@
              <div  v-if="tmp.length > 0">
                  <img :src="url" class="m-l" />
                  <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                  <span class="small bg-light p-l p-r  b br drop-shadow">
+                  <span class="small bg-light p-l p-r  b br ">
                     Delete
                   </span>
                  </div>
@@ -59,7 +59,7 @@
                   </div>
                   <div class="col v-a">
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                        <div type="submit" class="drop-shadow p-l p-r b br bg-white">Add</div>
+                        <div type="submit" class=" p-l p-r b br bg-white">Add</div>
                      </div>
                   </div>
                </div>
