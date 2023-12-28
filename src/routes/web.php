@@ -66,6 +66,8 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
     Route::get('/admin/profile', [ProfileController::class, 'index']);
     Route::post('/admin/profile/update', [ProfileController::class, 'update']);
+    Route::get('/admin/profile/password', [ProfileController::class, 'passwordView']);
+    Route::post('/admin/profile/password', [ProfileController::class, 'password']);
 });
 
 //users

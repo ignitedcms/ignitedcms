@@ -55,4 +55,18 @@ class ProfileController extends Controller
         return redirect('admin/profile')->with('status', 'Updated successfully');
 
     }
+
+    public function passwordView()
+    {
+       $data = '';
+        return view('ignitedcms::admin.profile.password')->with([
+            'data' => $data,
+        ]);
+    }
+
+    //Update password using session user_id
+    public function password(Request $request)
+    {
+
+    }
 }

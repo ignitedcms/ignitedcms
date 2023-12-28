@@ -17,7 +17,10 @@
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>
                 </div>
-                <div class="breadcrumb-item">Profile</div>
+                <div class="breadcrumb-item">
+                    <a href="{{ url('admin/profile') }}">Profile</a>
+                </div>
+                <div class="breadcrumb-item">Password reset</div>
             </div>
 
             @if (session('status'))
@@ -27,28 +30,18 @@
             @endif
 
             <div class="panel br drop-shadow">
-                <form action="{{ url('admin/profile/update') }} " method="POST">
+                <form action="{{ url('admin/profile/password') }} " method="POST">
                     @csrf
-                    <h3>Profile</h3>
+                    <h3>Password</h3>
                     <div class="form-group">
-                        <label for="title">Full name</label>
-                        <div class="small text-muted">Please enter your full name</div>
-                        <input class="form-control" name="fullname" value="{{ old('fullname', $data->fullname) }}"
+                        <label for="title">Password</label>
+                        <div class="small text-muted">Please enter a new password</div>
+                        <input class="form-control m-t" type="password" name="password" value=""
                             placeholder="Start typing" />
-                        @error('fullname')
-                            <div class="small text-danger">{{ $message }}</div>
-                        @enderror
 
                     </div>
-                    <div class="form-group">
-                        <label for="title">Email</label>
-                        <div class="small text-muted">Current email address, [you cannot change this]</div>
-                        <input class="form-control" name="email" value="{{ old('email', $data->email) }}"
-                            placeholder="Start typing" disabled />
-                    </div>
-                    <div class="form-group">
-                      <a href="{{ url('admin/profile/password') }}">Reset my password?</a>
-                    </div>
+                    
+                    
                     <div class="form-group right">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
@@ -59,3 +52,4 @@
 
     </div>
 @endsection
+
