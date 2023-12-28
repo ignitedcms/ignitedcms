@@ -66,7 +66,7 @@
                                 <td>{{ $field->kind }}</td>
                                 <td>
                                     <span class="right">
-                                        <tooltip link="delete">
+                                        <tooltip link="Delete">
                                             <form action="{{ url('/admin/assets/delete', $field->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn  rm-btn-styles">Ok</button>
