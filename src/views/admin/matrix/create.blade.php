@@ -65,7 +65,7 @@
                                 <div class="matrix-item no-select">
                                      @{{todo.title}} (@{{todo.type}})
                                     <div class="hand m-l-2 p badge badge-danger" @click="deleteItem(todo)">
-                                       <span class="text-black">
+                                       <span class="text-white">
                                           Delete
                                        </span>
                                     </div>
