@@ -105,9 +105,22 @@ class InstallController extends Controller
         $sql3 = 'INSERT INTO `'.$prefix."permission_groups`(`groupID`, `groupName`) VALUES
          (1,'Administrators');";
 
+
+        //Finally add the asset upload file allowed types
+        $sql4 = 'INSERT INTO `'.$prefix."site_settings`(`name`, `extensions`) VALUES
+           ('Audio','mp3,wav,ogg,acc,flac'),
+           ('Zip','zip,rar'),
+           ('Microsoft','doc,docx,xls,xlsx,ppt,pptx'),
+           ('Image','jpg,jpeg,bmp,png,svg,gif'),
+           ('Javascript','js'),
+           ('PDF','pdf'),
+           ('Text','txt'),
+           ('Video','avi,mp4,mpeg,quicktime');";
+
         DB::statement($sql1);
         DB::statement($sql2);
         DB::statement($sql3);
+        DB::statement($sql4);
 
         return redirect('login')->with('final', 'Account successfully created');
     }

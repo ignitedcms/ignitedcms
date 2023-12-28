@@ -34,7 +34,7 @@
             </div>
             
             <div class="panel br drop-shadow p-b-5">
-               Restrict allowed file types (Global)
+               Restrict allowed file types to (these settings are applied globally)
                 
                <div class="form-group">
                   <div>
