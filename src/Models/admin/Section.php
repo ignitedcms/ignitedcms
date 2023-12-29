@@ -36,20 +36,18 @@ class Section
     //necessary for template parser
     public static function doesGlobalConflictWithMatrix($globalName)
     {
-       $query =  DB::table('fields')
-          ->select('*')
-          ->where('type','=', 'matrix')
-          ->where('name','=', $globalName)
-          ->get();
+        $query = DB::table('fields')
+            ->select('*')
+            ->where('type', '=', 'matrix')
+            ->where('name', '=', $globalName)
+            ->get();
 
-       if($query->count() > 0)
-       {
-          return true;
-       }
-       else {
-          return false;
-       }
-       
+        if ($query->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public static function create($name, $sectiontype, $fields)

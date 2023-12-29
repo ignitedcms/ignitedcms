@@ -57,17 +57,28 @@ class SectionController extends Controller
         $name = $request->input('name');
         $sectiontype = $request->input('sectiontype');
 
-        /*
-        |---------------------------------------------------------------
-        | Now let's add the fields to section_layout
-        |---------------------------------------------------------------
-        */
+        if ($sectiontype == 'global') {
+            if (Section::doesGlobalConflictWithMatrix($name)) {
 
-        $fields = $request->input('order');
+                return redirect('admin/section')->with('error', 'Failed matrix conflict');
+            } else {
 
-        Section::create($name, $sectiontype, $fields);
+                $fields = $request->input('order');
 
-        return redirect('admin/section')->with('status', 'Section created');
+                Section::create($name, $sectiontype, $fields);
+
+                return redirect('admin/section')->with('status', 'Section created');
+            }
+
+        } else {
+
+            $fields = $request->input('order');
+
+            Section::create($name, $sectiontype, $fields);
+
+            return redirect('admin/section')->with('status', 'Section created');
+        }
+
     }
 
     public function createView()
