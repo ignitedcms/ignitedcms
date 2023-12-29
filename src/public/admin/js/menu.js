@@ -19,7 +19,7 @@ Vue.component('mega-menu', {
   ],
   template: `
     <div style="top:0; position:sticky; z-index:2;">
-      <div class="menu">
+      <div class="menu" :aria-labelledby="title">
         <div class="menu-logo">
           <a
             class="rm-link-styles"
@@ -34,7 +34,7 @@ Vue.component('mega-menu', {
         <div class="menu-item-container">
           <slot></slot>
         </div>
-        <button type="button" class="btn btn-white">{{title}}</button>
+        <button type="button" class="btn btn-white" :id="title">{{title}}</button>
       </div>
     </div>
   `,
@@ -53,7 +53,7 @@ Vue.component('menu-items', {
     'url'
   ],
   template: `
-    <div @keyup.escape="escapePressed()">
+    <div @keyup.escape="escapePressed()" :aria-controls="title">
       <div
         v-if="children !== 'yes'"
       >
@@ -69,8 +69,9 @@ Vue.component('menu-items', {
         class="menu-main m-l-2 hand v-a pos-rel"
         @click="toggle"
         v-click-outside="away"
+        :aria-expanded="show.toString()"
       >
-        <button class="rm-btn-styles">{{title}}</button>
+        <button class="rm-btn-styles" :id="title">{{title}}</button>
         <span class="m-l v-a">
           <i data-feather="chevron-down" class=""></i>
         </span>
@@ -91,7 +92,7 @@ Vue.component('menu-items', {
   },
   methods: {
     toggle() {
-        this.show = !this.show;
+      this.show = !this.show;
     },
     away() {
       this.show = false;
