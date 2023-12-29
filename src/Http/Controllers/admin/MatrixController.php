@@ -60,12 +60,19 @@ class MatrixController extends Controller
             echo $validator->errors();
         } else {
 
-            $items = $request->input('items');
-            $data = json_encode($items);
+            if (Matrix::doesNameConflictWithGlobal($matrix_name)) {
+                echo 'Name conflict';
 
-            Matrix::addMatrix($matrix_name, $data);
+            } else {
 
-            echo json_encode('success');
+                $items = $request->input('items');
+                $data = json_encode($items);
+
+                Matrix::addMatrix($matrix_name, $data);
+
+                echo json_encode('success');
+            }
+
         }
 
     }

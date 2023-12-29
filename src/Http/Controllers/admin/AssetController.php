@@ -66,7 +66,7 @@ class AssetController extends Controller
 
         //Hard coded for time bein
         $request->validate([
-            'file' => 'required|file|mimes:'. $csvArray. '|max:10048', // Validation rules for the file
+            'file' => 'required|file|mimes:'.$csvArray.'|max:10048', // Validation rules for the file
         ]);
 
         if ($request->hasFile('file')) {

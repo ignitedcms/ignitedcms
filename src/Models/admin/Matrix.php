@@ -19,26 +19,22 @@ use Illuminate\Support\Facades\Schema;
 
 class Matrix
 {
-
     //Let's check if matrix name doesn't conflict with globals
     //for the template parser
     public static function doesNameConflictWithGlobal($matrixName)
     {
-      $query = DB::table('section')
-         ->select('*')
-         ->where('sectiontype','=', 'global')
-         ->where('name','=', $matrixName)
-         ->get();
+        $query = DB::table('section')
+            ->select('*')
+            ->where('sectiontype', '=', 'global')
+            ->where('name', '=', $matrixName)
+            ->get();
 
-      if($query->count() > 0 )
-      {
-         return true;
-      }
-      else{
-         return false;
-      }
+        if ($query->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
 
     /**
      *  @Description: Add new matrix fields to database

@@ -30,21 +30,19 @@ class Settings
 
     public static function getFileExtensions()
     {
-       $string = "";
-       $query = DB::table('site_settings')
-          ->select('*')
-         ->where('enabled','=', 1)
-        ->get();
+        $string = '';
+        $query = DB::table('site_settings')
+            ->select('*')
+            ->where('enabled', '=', 1)
+            ->get();
 
-       foreach($query as $row)
-       {
-          $string = $string . $row->extensions . ',';
-       }
+        foreach ($query as $row) {
+            $string = $string.$row->extensions.',';
+        }
 
-       //remove trailing ,
-       return trim($string,",");;
-         
-       
+        //remove trailing ,
+        return trim($string, ',');
+
     }
 
     /*
@@ -57,29 +55,27 @@ class Settings
      */
     public static function updateSettings($names)
     {
-       //first we need to nuke all the enabled
-       $query =  DB::table('site_settings')
-          ->select('*')
-         ->get();
+        //first we need to nuke all the enabled
+        $query = DB::table('site_settings')
+            ->select('*')
+            ->get();
 
-       foreach($query as $row)
-       {
-        DB::table('site_settings')
-            ->where('name', '=', $row->name)
-            ->update([
-                'enabled' => 0,
-            ]);
-         
-       }
+        foreach ($query as $row) {
+            DB::table('site_settings')
+                ->where('name', '=', $row->name)
+                ->update([
+                    'enabled' => 0,
+                ]);
 
-       foreach($names as $row)
-       {
+        }
 
-        DB::table('site_settings')
-            ->where('name', '=', $row)
-            ->update([
-                'enabled' => 1,
-            ]);
-       }
+        foreach ($names as $row) {
+
+            DB::table('site_settings')
+                ->where('name', '=', $row)
+                ->update([
+                    'enabled' => 1,
+                ]);
+        }
     }
 }

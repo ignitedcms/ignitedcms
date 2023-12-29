@@ -30,7 +30,8 @@ class SettingsController extends Controller
     //load the view
     public function index()
     {
-       $data = Settings::all();
+        $data = Settings::all();
+
         return view('ignitedcms::admin.settings.index')->with([
             'data' => $data,
         ]);
@@ -39,16 +40,14 @@ class SettingsController extends Controller
 
     public function update(Request $request)
     {
-         $validated = $request->validate([
-                'fileTypes' => 'required',
-            ]);
-            $map = $request->input('fileTypes');
+        $validated = $request->validate([
+            'fileTypes' => 'required',
+        ]);
+        $map = $request->input('fileTypes');
 
-            Settings::updateSettings( $map);
+        Settings::updateSettings($map);
 
-            return redirect('admin/settings')->with('status', 'Allowed filetypes updated!');
+        return redirect('admin/settings')->with('status', 'Allowed filetypes updated!');
 
     }
-
 }
-
