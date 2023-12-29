@@ -114,6 +114,15 @@ p {
   background-color: #ffffff;
 }
 
+.sidebar-logout {
+  transition: all 0.4s;
+}
+
+.sidebar-logout:hover {
+  color: #0053ff !important;
+  margin-left: 5px;
+}
+
 @media (max-width: 1000px) {
   .igs-code {
     padding: 10px;
