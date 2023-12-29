@@ -32,6 +32,26 @@ class Section
         return $line[0];
     }
 
+    //Checks if global section conflicts with matrix
+    //necessary for template parser
+    public static function doesGlobalConflictWithMatrix($globalName)
+    {
+       $query =  DB::table('fields')
+          ->select('*')
+          ->where('type','=', 'matrix')
+          ->where('name','=', $globalName)
+          ->get();
+
+       if($query->count() > 0)
+       {
+          return true;
+       }
+       else {
+          return false;
+       }
+       
+    }
+
     public static function create($name, $sectiontype, $fields)
     {
         DB::table('section')->insert([
