@@ -39,6 +39,9 @@
       <div class="modal-body">
          <div class="p-3">
 
+            @php $amount = count($assets); @endphp
+
+            @if($amount > 0)
             <div class="row b-b">
                <div class="col"><h5>Preview </h5></div>
                <div class="col"><h5>Handle </h5></div>
@@ -64,6 +67,12 @@
                   </div>
                </div>
                @endforeach
+
+            
+            @else
+               <div  style="min-height:300px;">You need to add an <a href="{{ url('admin/assets') }}"> asset </a> first!</div>
+            @endif
+
 
          </div>
       </div>
