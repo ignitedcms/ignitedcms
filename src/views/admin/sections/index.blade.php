@@ -25,6 +25,12 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             @if(count($fields) > 0)
 
             <div class="row">
