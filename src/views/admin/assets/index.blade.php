@@ -61,7 +61,13 @@
 
                         @foreach ($data as $field)
                             <tr>
-                                <td> <img src="{{ $field->thumb }}"></img></td>
+                            <td> 
+                              @if($field->kind !="jpg" and $field->kind != "png" and $field->kind != "bmp" and $field->kind != "jpeg")
+                                 <img src="{{ asset('admin/images/file.jpg') }}"></img>
+                              @else
+                              <img src="{{ $field->thumb }}"></img>
+                              @endif
+                            </td>
                                 <td ><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
                                 <td>{{ $field->kind }}</td>
                                 <td>
