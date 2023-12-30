@@ -161,7 +161,7 @@
                                          </div>
                                          <div class="col v-a">
                                             <div v-on:click="part.content = '{{$field->url}}'; part.showAssets = false"> 
-                                               <div type="submit" class="drop-shadow p-l p-r b br bg-white">Add</div>
+                                               <div type="submit" class="hand p-l p-r b br bg-white">Add</div>
                                             </div>
                                          </div>
                                       </div>
