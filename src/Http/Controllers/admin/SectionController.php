@@ -43,49 +43,32 @@ class SectionController extends Controller
         ]);
     }
 
-    public function create(Request $request)
-    {
+   public function create(Request $request)
+   {
+       $validated = $request->validate([
+           'name' => [
+               'required',
+               'lowercase',
+               'min:1',
+               'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+               'unique:section',
+           ],
+           'sectiontype' => 'required',
+           'order' => 'required',
+       ]);
 
-        $validated = $request->validate([
-            'name' => [
-                'required',
-                'lowercase',
-                'min:1',
-                'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-                'unique:section',
-            ],
+       $name = $request->input('name');
+       $sectiontype = $request->input('sectiontype');
+       $fields = $request->input('order');
 
-            'sectiontype' => 'required',
-            'order' => 'required',
+       if ($sectiontype == 'global' && Section::doesGlobalConflictWithMatrix($name)) {
+           return redirect('admin/section')->with('error', 'Failed matrix conflict');
+       }
 
-        ]);
+       Section::create($name, $sectiontype, $fields);
 
-        $name = $request->input('name');
-        $sectiontype = $request->input('sectiontype');
-
-        if ($sectiontype == 'global') {
-            if (Section::doesGlobalConflictWithMatrix($name)) {
-
-                return redirect('admin/section')->with('error', 'Failed matrix conflict');
-            } else {
-
-                $fields = $request->input('order');
-
-                Section::create($name, $sectiontype, $fields);
-
-                return redirect('admin/section')->with('status', 'Section created');
-            }
-
-        } else {
-
-            $fields = $request->input('order');
-
-            Section::create($name, $sectiontype, $fields);
-
-            return redirect('admin/section')->with('status', 'Section created');
-        }
-
-    }
+       return redirect('admin/section')->with('status', 'Section created');
+   }
 
     public function createView()
     {
