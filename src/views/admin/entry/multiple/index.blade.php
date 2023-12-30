@@ -107,18 +107,29 @@
                 <form action="{{ url("admin/multiple/delete/$sectionid") }}" method="POST">
                     @csrf
 
-                    <div class="row pull-right">
-                        <div class="col-12 no-margin">
-                            <tooltip link="Delete selected items?">
+                    <div class="row">
+                    <div class="col">
+                       <input class="form-control" 
+                             value="" 
+                             placeholder="Search" />
+                    </div>
+                        
+                    </div>
 
-                                <button type="submit" class="rm-btn-styles ">OK</button>
+                    <div class="row">
+                       <div class="col-6">
+                          <h3>{{ $sectionname }}</h3>
+                       </div>
+                       <div class="col-6 right">
+                          <tooltip link="Delete selected items?"  class="pull-right">
 
-                            </tooltip>
-                        </div>
+                          <button type="submit" class="rm-btn-styles ">OK</button>
+
+                          </tooltip>
+                       </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h3>{{ $sectionname }}</h3>
-
+                    
                     <div id="sortable-list">
                         @foreach ($data as $row)
                             <!-- tidy this up later   -->
@@ -139,10 +150,6 @@
 
                     </div>
 
-                    <!--<h5 class="m-t-2">Debug bar</h5>-->
-                    <!--<div class="code m-t no-select">-->
-                    <!--@{{ items }} -->
-                    <!--</div>-->
                 </form>
             </div>
         </div>
