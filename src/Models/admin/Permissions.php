@@ -27,7 +27,7 @@ class Permissions
     {
         return DB::table('permissions')
             ->select('*')
-            ->orderBy('order_position', 'asc')
+            ->orderBy('permission', 'asc')
             ->get();
 
     }
