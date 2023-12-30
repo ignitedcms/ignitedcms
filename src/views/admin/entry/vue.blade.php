@@ -109,7 +109,6 @@
                         <div class="col-3">
                             <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
                                 <span class="v-a">
-                                   <i data-feather="plus"></i>    
                                    Add asset
                                 </span>
                             </div>
