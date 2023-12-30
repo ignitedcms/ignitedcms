@@ -137,6 +137,10 @@
                                     
                                    <div class="p-3">
 
+                                     @if(count($assets) == 0)
+                                       You need to upload an <a href="{{ url('admin/assets') }}">asset</a> first!
+                                     @else
+
                                       <div class="row b-b">
                                          <div class="col"><h5>Preview </h5></div>
                                          <div class="col"><h5>Handle </h5></div>
@@ -162,6 +166,8 @@
                                          </div>
                                       </div>
                                       @endforeach
+
+                                   @endif
 
                                    </div>
                                 </div>
