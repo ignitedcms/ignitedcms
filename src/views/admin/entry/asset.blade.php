@@ -52,7 +52,11 @@
                @foreach ($assets as $field)
                <div class="row b-b">
                   <div class="col">
+                     @if($field->kind !="jpg" and $field->kind != "png" and $field->kind != "bmp" and $field->kind != "jpeg")
+                     <img src="{{ asset('admin/images/file.jpg') }}"></img>
+                     @else
                      <img src="{{ $field->thumb }}"></img>
+                     @endif
                   </div>
                   <div class="col v-a">
                      {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
