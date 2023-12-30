@@ -83,9 +83,23 @@ class TestCase extends Orchestra
         $sql3 = 'INSERT INTO `'.$prefix."permission_groups`(`groupID`, `groupName`) VALUES
          (1,'Administrators');";
 
+        //Finally add the asset upload file allowed types
+        $sql4 = 'INSERT INTO `'.$prefix."site_settings`(`name`, `extensions`, `enabled`) VALUES
+           ('Audio','mp3,wav,ogg,acc,flac',0),
+           ('Zip','zip,rar',0),
+           ('Microsoft','doc,docx,xls,xlsx,ppt,pptx',0),
+           ('Image','jpg,jpeg,bmp,png,svg,gif',0),
+           ('Javascript','js',0),
+           ('PDF','pdf',0),
+           ('Text','txt',0),
+           ('Video','avi,mp4,mpeg,quicktime',0);";
+
+
+
         DB::statement($sql1);
         DB::statement($sql2);
         DB::statement($sql3);
+        DB::statement($sql4);
 
     }
 }
