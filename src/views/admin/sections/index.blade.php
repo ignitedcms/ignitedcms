@@ -25,6 +25,7 @@
                 </div>
             @endif
 
+            @if(count($data)>0)
 
             <div class="row">
                 <div class="col-12 right">
@@ -33,6 +34,14 @@
                     </a>
                 </div>
             </div>
+            @else
+            <div class="row">
+               <div class="col m-b-3">
+                  <a href="{{ url('admin/fields') }}">You need to create a field first!</a>
+               </div>
+            </div>
+            @endif
+
             <!--main part for section styles -->
             <div class="panel br drop-shadow p-b-5">
 
