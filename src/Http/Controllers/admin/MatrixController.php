@@ -67,7 +67,12 @@ class MatrixController extends Controller
         }
 
         $items = $request->input('items');
-        $data = json_encode($items);
+        $data = json_encode($items); //json string
+
+        if (str_contains($data, '[]')) {
+
+            return response()->json('No content');
+         }
 
 
         Matrix::addMatrix($matrix_name, $data);
