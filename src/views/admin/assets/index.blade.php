@@ -68,7 +68,7 @@
                               <img src="{{ $field->thumb }}"></img>
                               @endif
                             </td>
-                                <td ><a href="{{ url('admin/assets/update', $field->id) }}">{{ $field->filename }}</a></td>
+                                <td ><a href="{{ url('admin/assets/update', $field->id) }}">{{ \Illuminate\Support\Str::limit($field->filename, 19, '...') }}</a></td>
                                 <td>{{ $field->kind }}</td>
                                 <td>
                                     <span class="right">
