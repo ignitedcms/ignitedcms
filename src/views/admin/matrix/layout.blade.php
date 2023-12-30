@@ -106,6 +106,14 @@
                          {
                              window.location.href = '{{ url('admin/fields') }}'
                          }
+                         else if(data == "Name conflict")
+                         {
+                              this.matrix_name_validation = 'Name collison';
+                         }
+                         else if(data == "No content")
+                         {
+                              this.matrix_name_validation = 'You need to add at least one field from below';
+                         }
                          else{
                              this.matrix_name_validation = data.matrix_name;
                          }

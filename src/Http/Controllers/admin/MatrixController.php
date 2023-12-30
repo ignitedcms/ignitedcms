@@ -39,40 +39,36 @@ class MatrixController extends Controller
 
     public function create(Request $request)
     {
-        $matrix_name = $request->input('matrix_name');
-
-        /*
-        |---------------------------------------------------------------
-        | Warning need to do reserved words
-        |---------------------------------------------------------------
-        */
         $validator = Validator::make($request->all(), [
             'matrix_name' => [
                 'required',
                 'alpha:ascii',
                 'unique:fields,name',
-                Rule::notIn(['url', 'content', 'id', 'section', 'field',
-                    'entryid', 'entrytitle']),
+                Rule::notIn(['url', 'content', 'id', 'section', 'field', 'entryid', 'entrytitle']),
             ],
         ]);
 
         if ($validator->fails()) {
-            echo $validator->errors();
+            return response()->json($validator->errors());
+        }
+
+        $matrix_name = $request->input('matrix_name');
+
+        if (Matrix::doesNameConflictWithGlobal($matrix_name)) {
+            return response()->json('Name conflict');
+        }
+
+        $items = $request->input('items');
+        $data = json_encode($items);
+
+        if (empty($items['content'])) {
+
+            return response()->json('No content');
         } else {
 
-            if (Matrix::doesNameConflictWithGlobal($matrix_name)) {
-                echo 'Name conflict';
+            Matrix::addMatrix($matrix_name, $data);
 
-            } else {
-
-                $items = $request->input('items');
-                $data = json_encode($items);
-
-                Matrix::addMatrix($matrix_name, $data);
-
-                echo json_encode('success');
-            }
-
+            return response()->json('success');
         }
 
     }

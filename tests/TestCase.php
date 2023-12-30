@@ -94,8 +94,6 @@ class TestCase extends Orchestra
            ('Text','txt',0),
            ('Video','avi,mp4,mpeg,quicktime',0);";
 
-
-
         DB::statement($sql1);
         DB::statement($sql2);
         DB::statement($sql3);
