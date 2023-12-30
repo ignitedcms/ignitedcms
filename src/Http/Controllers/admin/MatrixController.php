@@ -44,7 +44,15 @@ class MatrixController extends Controller
                 'required',
                 'alpha:ascii',
                 'unique:fields,name',
-                Rule::notIn(['url', 'content', 'id', 'section', 'field', 'entryid', 'entrytitle']),
+                Rule::notIn([
+                   'url', 
+                   'content', 
+                   'id',
+                   'section',
+                   'field',
+                   'entryid',
+                   'entrytitle'
+                ]),
             ],
         ]);
 
@@ -61,15 +69,10 @@ class MatrixController extends Controller
         $items = $request->input('items');
         $data = json_encode($items);
 
-        if (empty($items['content'])) {
 
-            return response()->json('No content');
-        } else {
+        Matrix::addMatrix($matrix_name, $data);
 
-            Matrix::addMatrix($matrix_name, $data);
-
-            return response()->json('success');
-        }
+        return response()->json('success');
 
     }
 
