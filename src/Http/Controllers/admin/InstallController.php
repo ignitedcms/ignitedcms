@@ -110,7 +110,7 @@ class InstallController extends Controller
            ('Audio','mp3,wav,ogg,acc,flac',0),
            ('Zip','zip,rar',0),
            ('Microsoft','doc,docx,xls,xlsx,ppt,pptx',0),
-           ('Image','jpg,jpeg,bmp,png,svg,gif',0),
+           ('Image','jpg,jpeg,bmp,png,svg,gif',1),
            ('Javascript','js',0),
            ('PDF','pdf',0),
            ('Text','txt',0),
