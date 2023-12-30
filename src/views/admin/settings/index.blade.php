@@ -25,6 +25,13 @@
                 </div>
             @endif
 
+            @if (session('errors'))
+                <div class="alert alert-danger m-b-2">
+                  <div>Error</div>
+                  <div class="small">You must select at least one!</div>
+                </div>
+            @endif
+
             <div class="alert alert-success m-b-3">
                <div class="text-black">Information</div>
                <div class="text-muted">
