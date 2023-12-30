@@ -85,20 +85,23 @@ class Section
         //Now insert into entry
         //Beware of multiples
 
-        DB::table('entry')->insert([
-            'sectionid' => $insert_id,
-            'type' => $sectiontype,
-            'datecreated' => date('Y-m-d'),
+        if ($sectiontype == 'multiple') {
+            //do nothing
+        } else {
 
-        ]);
+            DB::table('entry')->insert([
+                'sectionid' => $insert_id,
+                'type' => $sectiontype,
+                'datecreated' => date('Y-m-d'),
+            ]);
 
-        $entry_id = DB::getPdo()->lastInsertId();
-        //add a line to the content table
-        //Beware of multiples
-        DB::table('content')->insert([
-            'entryid' => $entry_id,
-
-        ]);
+            $entry_id = DB::getPdo()->lastInsertId();
+            //add a line to the content table
+            //Beware of multiples
+            DB::table('content')->insert([
+                'entryid' => $entry_id,
+            ]);
+        }
 
         //finally add route
 

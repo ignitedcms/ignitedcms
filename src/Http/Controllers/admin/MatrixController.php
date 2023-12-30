@@ -45,13 +45,13 @@ class MatrixController extends Controller
                 'alpha:ascii',
                 'unique:fields,name',
                 Rule::notIn([
-                   'url', 
-                   'content', 
-                   'id',
-                   'section',
-                   'field',
-                   'entryid',
-                   'entrytitle'
+                    'url',
+                    'content',
+                    'id',
+                    'section',
+                    'field',
+                    'entryid',
+                    'entrytitle',
                 ]),
             ],
         ]);
@@ -72,8 +72,7 @@ class MatrixController extends Controller
         if (str_contains($data, '[]')) {
 
             return response()->json('No content');
-         }
-
+        }
 
         Matrix::addMatrix($matrix_name, $data);
 
