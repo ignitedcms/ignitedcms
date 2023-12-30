@@ -60,7 +60,7 @@
                     instructions: '',
                     fieldlength: '100',
                     filetype: 'jpg|png|gif',
-                    variations: 'option1,option2,option3',
+                    variations: '',
                     matrixContent: [],
                 },
                 methods: {

@@ -33,8 +33,14 @@ class SectionController extends Controller
     public function index()
     {
         $data = Section::all();
+        $fields = Fields::all();
 
-        return view('ignitedcms::admin.sections.index')->with('data', $data);
+        //dd($fields);
+
+        return view('ignitedcms::admin.sections.index')->with([
+           'data'=> $data,
+           'fields'=> $fields
+           ]);
     }
 
     public function create(Request $request)
