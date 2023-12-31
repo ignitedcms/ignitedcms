@@ -1,7 +1,7 @@
 <!-- <pre class="code">@{{matrix}}</pre> -->
 <!-- This id is needed for sortable	 -->
 <div id="items">
-    <div class="front-matrix-block" v-for="row in matrix">
+    <div class="front-matrix-block p-b-3" v-for="row in matrix">
         <div class="front-matrix-block__header">
             @{{row.title}}
             <div class="h-a" @click="row.collapsed = !row.collapsed">Collapse</div>
@@ -115,10 +115,10 @@
                         </div>
                         <div class="col-9">
                             <div class="img-save" v-if="part.content.length > 0">
-                                <img :src="part.thumb" alt="" class="img-save-class"/>
-                                <div class="img-save-rem" v-on:click="part.content = ''">
-                                   <span>
-                                      <i data-feather="trash"></i>    
+                                <img :src="part.thumb" alt="" class="m-l"/>
+                                <div class="hand" style="max-width:80px;" v-on:click="part.content = ''">
+                                   <span class="small bg-light p-l p-r b br">
+                                       Delete
                                    </span>
                                 </div>
                             </div>
