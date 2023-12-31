@@ -29,7 +29,7 @@ Vue.component('password', {
           :type="textType"
           placeholder="placeholder"
           class="form-control"
-        />
+        >
       </div>
       <div class="small text-danger"></div>
     </div>
