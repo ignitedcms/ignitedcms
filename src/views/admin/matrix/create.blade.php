@@ -119,7 +119,7 @@
                                     <div class="form-group">
                                         <label>Options</label>
                                         <div class="small text-muted">Please separate with commas</div>
-                                        <textarea v-model="variations" class="form-control" rows="5" placeholder="Type here" ></textarea>
+                                        <textarea v-model="variations" class="form-control" rows="5" placeholder="E.g Dog,Cat"></textarea>
                                         <div class="small text-danger">@{{csverrors}}</div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                         <label>Options</label>
                                         <div class="small text-muted">Please separate with commas</div>
                                         <textarea v-model="variations" class="form-control" rows="5" 
-                                            placeholder="Type here"></textarea>
+                                            placeholder="E.g Dog,Cat"></textarea>
 
                                         <div class="small text-danger">@{{csverrors}}</div>
 
@@ -139,9 +139,9 @@
                                 <div v-if="crselect=='file-upload'">
                                     <div class="form-group">
                                         <label>Allowed File types</label>
-                                        <div class="igs-small"></div>
+                                        <div class="small text-muted">Please separate with commas</div>
                                         <input v-model="variations" type="text" class="form-control"
-                                            placeholder="jpg,png,gif" value="">
+                                            placeholder="E.g jpg,png,gif" value="">
 
                                         <div class="small text-danger">@{{csverrors}}</div>
 
