@@ -26,7 +26,7 @@
                                 <label for="title">Name <span class="text-danger">*</span></label>
                                 <div class="small text-muted">What this field will
                                     be called in the control panel. (This MUST be unique and must not contain
-                                    numbers or spaces.)You can NOT use the following names:<span class="text-danger">
+                                    numbers or spaces.) You can NOT use the following names:<span class="text-black">
                                         [url,content,id,section,field,entryid,entrytitle]
                                     </span>
                                 </div>
