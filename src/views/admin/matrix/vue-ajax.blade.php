@@ -104,7 +104,8 @@ $.ajax({
                     'length': '',
                     'variations': array,
                     'showAssets': false,
-                    'content': ''
+                    'content': '',
+                    'thumb': ''
                 });
             }
             if (this.crselect == 'number') {

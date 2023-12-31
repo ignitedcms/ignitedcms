@@ -1,4 +1,4 @@
- <!--<pre class="code">@{{matrix}}</pre> -->
+<!-- <pre class="code">@{{matrix}}</pre> -->
 <!-- This id is needed for sortable	 -->
 <div id="items">
     <div class="front-matrix-block" v-for="row in matrix">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-9">
                             <div class="img-save" v-if="part.content.length > 0">
-                                <img :src="part.content" alt="" class="img-save-class"/>
+                                <img :src="part.thumb" alt="" class="img-save-class"/>
                                 <div class="img-save-rem" v-on:click="part.content = ''">
                                    <span>
                                       <i data-feather="trash"></i>    
@@ -163,7 +163,7 @@
                                             {{ $field->kind }}
                                          </div>
                                          <div class="col v-a">
-                                            <div v-on:click="part.content = '{{$field->url}}'; part.showAssets = false"> 
+                                            <div v-on:click="part.content = '{{$field->url}}'; part.thumb = '{{ $field->thumb }}'; part.showAssets = false"> 
                                                <div type="submit" class="hand p-l p-r b br bg-white">Add</div>
                                             </div>
                                          </div>
