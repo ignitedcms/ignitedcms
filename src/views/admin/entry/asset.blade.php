@@ -65,9 +65,17 @@
                      {{ $field->kind }}
                   </div>
                   <div class="col v-a">
+                       @if($field->kind !="jpg" and $field->kind != "png" and $field->kind != "bmp" and $field->kind != "jpeg")
+                
+                     <div v-on:click="tmp='{{$field->id }}'; url=' {{ asset('admin/images/file.jpg') }}'; isShown =! isShown" class="hand hover"> 
+                        <div type="submit" class=" p-l p-r b br bg-white">Add</div>
+                     </div>
+                      @else
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
                         <div type="submit" class=" p-l p-r b br bg-white">Add</div>
                      </div>
+                     
+                      @endif 
                   </div>
                </div>
                @endforeach
