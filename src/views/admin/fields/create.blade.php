@@ -84,17 +84,17 @@
                             <div v-if="crselect=='drop-down'">
                                 <div class="form-group">
                                     <label>Options</label>
-                                    <div class="igs-small">Please separate with commas</div>
+                                    <div class="small text-muted">Please separate with commas</div>
                                     <textarea v-model="variations" name="variations" class="form-control" rows="5" 
-                                         placeholder="Type here" ></textarea>
+                                         placeholder="E.g Dog,Cat" ></textarea>
                                 </div>
                             </div>
                             <div v-if="crselect=='check-box'">
                                 <div class="form-group">
                                     <label>Options</label>
-                                    <div class="igs-small">Please separate with commas</div>
+                                    <div class="small text-muted">Please separate with commas</div>
                                     <textarea v-model="variations" name="variations" class="form-control" rows="5" 
-                                        ></textarea>
+                                        placeholder="E.g Dog,Cat"></textarea>
                                 </div>
                             </div>
                             <div v-if="crselect=='color'">
@@ -102,9 +102,9 @@
                             <div v-if="crselect=='file-upload'">
                                 <div class="form-group">
                                     <label>Allowed File types</label>
-                                    <div class="igs-small"></div>
+                                    <div class="small text-muted">Please separate with commas</div>
                                     <input v-model="variations" name="variations" type="text" class="form-control"
-                                        placeholder="jpg,png,gif" value="">
+                                        placeholder="E.g jpg,png,gif" value="">
                                 </div>
                             </div>
                             <div v-if="crselect=='number'">
