@@ -34,7 +34,7 @@
         <script src="{{ asset('admin/js/toasts.js') }}"></script>
         <script src="{{ asset('admin/js/menu.js') }}"></script>
         <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
-        <script src="{{ asset('admin/js/trees.js') }}"></script>
+        <script src="{{ asset('admin/js/password.js') }}"></script>
         <script src="{{ asset('admin/js/drawer.js') }}"></script>
 
         <!-- feather icons -->

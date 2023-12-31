@@ -31,15 +31,12 @@
                                 @enderror
 
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <div class="small text-muted">Your password [needed to access the dashboard]</div>
-                                <input type="password" name="password" class="form-control" placeholder="password"
-                                    value="">
+                            
+                                 <password name="password"></password>
                                 @error('password')
                                     <div class="small text-danger">{{ $message }}</div>
                                 @enderror
-                            </div>
+                            
                             <div class="row v-a m-t">
                                 <button class="col btn btn-primary " type="submit">Login</button>
                             </div>
@@ -50,5 +47,6 @@
                 </form>
             </div>
         </div>
+
     </div>
 @endsection

@@ -12,7 +12,7 @@
 */
 
 Vue.component('password', {
-  props: ['value'],
+  props: ['value','name'],
   template: `
     <div class="form-group">
       <label for="Password">Password</label>
@@ -25,19 +25,18 @@ Vue.component('password', {
           ></i>
         </span>
         <input
-          name="password"
+          :name="name"
           :type="textType"
-          :value="value"
           placeholder="placeholder"
           class="form-control"
-        >
+        />
       </div>
       <div class="small text-danger"></div>
     </div>
   `,
   data() {
     return {
-      textType: 'password'
+      textType: 'password',
     };
   },
   methods: {
