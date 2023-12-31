@@ -109,42 +109,37 @@ class MatrixController extends Controller
         ];
 
         $matrixContent = $request->input('matrix');
-        $this->mVal($matrixContent, $validation_matrix);
+        $this->validateMatrix($matrixContent, $validation_matrix);
     }
 
-    public function mVal($matrixContent, $validation_matrix)
+    public function validateMatrix($matrixContent, $validationMatrix)
     {
-        //First one matrixContent should be null
-        $arr = Matrix::getFieldnames($matrixContent);
-        /*
-          |---------------------------------------------------------------
-          | Now check fieldname doesn't conflict with existing array
-          |---------------------------------------------------------------
-           */
-        $flag = Helper::notInArray($validation_matrix['title'], $arr);
+        $fieldNames = Matrix::getFieldnames($matrixContent);
 
-        if ($flag == false) {
-            echo json_encode(['a' => 'Duplicate fieldname']);
+        $isFieldUnique = Helper::notInArray($validationMatrix['title'], $fieldNames);
+
+        if (! $isFieldUnique) {
+            echo json_encode(['a' => 'Duplicate field name']);
         } else {
+            $matrixType = $validationMatrix['type'];
 
-            // Perform additional check for special fieldtypes
-            // drop-down check-box file-upload
-            if (($validation_matrix['type'] == 'drop-down')
-                || ($validation_matrix['type'] == 'check-box')
-                || ($validation_matrix['type'] == 'file-upload')) {
-                $arr = Matrix::getVariations($validation_matrix['variations']);
-                //$flag = Helper::no_duplicates($arr);
-                $flag2 = Helper::isValidCsvString($validation_matrix['variations']);
+            // Perform additional checks for special field types: drop-down, check-box, file-upload
+            if (in_array($matrixType, ['drop-down', 'check-box', 'file-upload'])) {
+                $variations = $validationMatrix['variations'];
+                $variationsArray = Matrix::getVariations($variations);
 
-                if ($flag === true && $flag2 === true) {
-                    // echo 'success';
+                $hasNoDuplicates = Helper::noDuplicates($variationsArray);
+                $isValidCsv = Helper::isValidCsvString($variations);
+
+                if ($hasNoDuplicates && $isValidCsv) {
+                    // Success case, do something
                 } else {
-                    echo json_encode(['b' => 'The options MUST be unique! Or invalid csv string!']);
-                    //bail out
-                    exit();
+                    echo json_encode(['b' => 'Options must be unique or a invalid CSV string']);
+                    exit(); // Bail out
                 }
             }
-            $this->fVal($validation_matrix);
+
+            $this->fVal($validationMatrix);
         }
     }
 

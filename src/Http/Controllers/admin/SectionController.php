@@ -43,32 +43,32 @@ class SectionController extends Controller
         ]);
     }
 
-   public function create(Request $request)
-   {
-       $validated = $request->validate([
-           'name' => [
-               'required',
-               'lowercase',
-               'min:1',
-               'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-               'unique:section',
-           ],
-           'sectiontype' => 'required',
-           'order' => 'required',
-       ]);
+    public function create(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => [
+                'required',
+                'lowercase',
+                'min:1',
+                'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
+                'unique:section',
+            ],
+            'sectiontype' => 'required',
+            'order' => 'required',
+        ]);
 
-       $name = $request->input('name');
-       $sectiontype = $request->input('sectiontype');
-       $fields = $request->input('order');
+        $name = $request->input('name');
+        $sectiontype = $request->input('sectiontype');
+        $fields = $request->input('order');
 
-       if ($sectiontype == 'global' && Section::doesGlobalConflictWithMatrix($name)) {
-           return redirect('admin/section')->with('error', 'Failed matrix conflict');
-       }
+        if ($sectiontype == 'global' && Section::doesGlobalConflictWithMatrix($name)) {
+            return redirect('admin/section')->with('error', 'Failed matrix conflict');
+        }
 
-       Section::create($name, $sectiontype, $fields);
+        Section::create($name, $sectiontype, $fields);
 
-       return redirect('admin/section')->with('status', 'Section created');
-   }
+        return redirect('admin/section')->with('status', 'Section created');
+    }
 
     public function createView()
     {
