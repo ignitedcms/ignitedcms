@@ -7,15 +7,15 @@
 @endphp
 <div>
      <div class="row">
-         <div class="col-4">
+         <div class="col-3">
              <div class="btn btn-white " v-on:click="isShown = !isShown" v-click-outside="away">
                   <span>
                      <i data-feather="plus"></i>    
                   </span>
-                 Add an asset
+                 Add asset
              </div>
          </div>
-         <div class="col-8">
+         <div class="col-9">
              <div  v-if="tmp.length > 0">
                  <img :src="url" class="m-l" />
                  <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
