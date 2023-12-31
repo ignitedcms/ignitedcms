@@ -16,6 +16,8 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\SettingsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
 use Ignitedcms\Ignitedcms\Models\admin\Router;
 
+use Illuminate\Support\Facades\Route;
+
 //Installer
 Route::middleware('web')->group(function () {
     Route::get('/installer', [InstallController::class, 'index']);
@@ -50,7 +52,8 @@ Route::middleware('web')->group(function () {
     Route::post('/admin/assets/delete/{id}', [AssetController::class, 'destroy']);
 });
 
-Route::middleware('web')->group(function () {
+//Introduce IP throttling for login
+Route::middleware(['web','throttle:20,1'])->group(function () {
     //Login
     Route::get('/login', [LoginController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout']);
