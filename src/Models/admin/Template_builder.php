@@ -149,7 +149,13 @@ class Template_builder
 
         $string = "\n\t\t";
         foreach ($query as $row) {
-            $string = $string.'{{ $'.$row->name.' }}'."\n\t\t";
+            if ($row->type == 'matrix') {
+
+                $string = $string.'{{ print_r( $'.$row->name.') }}'."\n\t\t";
+            } else {
+
+                $string = $string.'{{ $'.$row->name.' }}'."\n\t\t";
+            }
         }
 
         return $string;
