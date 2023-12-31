@@ -124,7 +124,7 @@ class MatrixController extends Controller
         $flag = Helper::notInArray($validation_matrix['title'], $arr);
 
         if ($flag == false) {
-            echo json_encode(['a' => 'duplicate fieldname']);
+            echo json_encode(['a' => 'Duplicate fieldname']);
         } else {
 
             // Perform additional check for special fieldtypes
