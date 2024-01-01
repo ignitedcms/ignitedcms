@@ -112,27 +112,32 @@
             <!--main part for section styles -->
             <div class="panel br drop-shadow p-b-3">
 
+                <form action="{{ url("admin/multiple/search/$sectionid") }} " method="POST">
+                   @csrf
+               <div class="row">
+                  <div class="col">
+                     <div class="pos-rel">
+
+                        <span>
+                           <i 
+                          data-feather="search"
+                          class="icon-inside hand"
+                          ></i>
+                        </span>
+
+                        <input class="form-control" 
+                               name="searchQuery"
+                               value="" 
+                               placeholder="Start typing to search then hit enter" />
+                     </div>    
+                  </div>
+
+               </div>
+               </form>
                 <form action="{{ url("admin/multiple/delete/$sectionid") }}" method="POST">
                     @csrf
 
-                    <div class="row">
-                    <div class="col">
-                       <div class="pos-rel">
-
-                          <span>
-                             <i 
-                                data-feather="search"
-                                class="icon-inside hand"
-                              ></i>
-                          </span>
-
-                          <input class="form-control" 
-                                 value="" 
-                                 placeholder="Start typing to search" />
-                       </div>    
-                    </div>
-                        
-                    </div>
+                    
 
                     <div class="row">
                        <div class="col-6">

@@ -21,10 +21,21 @@ class Multiple
     public static function all($sectionid)
     {
         return DB::table('entry')
-           ->join('content', 'entry.id', '=', 'content.entryid')
+            ->join('content', 'entry.id', '=', 'content.entryid')
             ->where('sectionid', '=', $sectionid)
             ->orderBy('sort_order')  //make sure we order
             ->get();
+    }
+
+    public static function search($sectionid, $searchQuery)
+    {
+        return DB::table('entry')
+            ->join('content', 'entry.id', '=', 'content.entryid')
+            ->where('sectionid', '=', $sectionid)
+            ->where('content.entrytitle', 'like', "%$searchQuery%")
+            ->orderBy('sort_order')  //make sure we order
+            ->get();
+
     }
 
     //creates a single multiple

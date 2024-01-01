@@ -45,6 +45,30 @@ class MultipleController extends Controller
         ]);
     }
 
+    /*
+     * Search and filter multiples
+     *
+     *
+     * @param   int $sectionid
+     * @param   string $searchQuery POST
+     * @return  array search matches
+     */
+    public function search(Request $request, $sectionid)
+    {
+        $searchQuery = $request->input('searchQuery');
+
+        $data = Multiple::search($sectionid, $searchQuery);
+
+        $sectionname = Multiple::getSectionName($sectionid);
+
+        return view('ignitedcms::admin.entry.multiple.index')->with([
+
+            'data' => $data,
+            'sectionid' => $sectionid,
+            'sectionname' => $sectionname,
+        ]);
+    }
+
     //create a new entry for multiple by section id
     //modal
     public function create(Request $request)

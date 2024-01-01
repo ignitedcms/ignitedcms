@@ -3,8 +3,8 @@
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
-use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\EmailController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
@@ -34,7 +34,7 @@ Route::middleware('web')->group(function () {
     Route::post('admin/settings/update', [SettingsController::class, 'update']);
 });
 
-//Email 
+//Email
 Route::middleware('web')->group(function () {
     Route::get('admin/email', [EmailController::class, 'index']);
 });
@@ -153,6 +153,7 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/multiple/update/{sid}/{eid}', [MultipleController::class, 'updateView']);
     Route::post('/admin/multiple/delete/{sid}', [MultipleController::class, 'destroy']);
     Route::post('/admin/multiple/order_multiples', [MultipleController::class, 'orderMultiples']);
+    Route::post('/admin/multiple/search/{sid}', [MultipleController::class, 'search']);
 
 });
 
