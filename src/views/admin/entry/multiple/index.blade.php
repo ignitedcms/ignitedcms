@@ -158,7 +158,7 @@
                                     <input type="checkbox" class="form-check-input" name="id[]"
                                         value="{{ $row->id }}">
                                     <span class="m-l">
-                                        {{ Helper::getEntrytitle($row->id) }}
+                                       {{ $row->entrytitle }}   
                                     </span>
                                     <span class="pull-right m-r-2">
                                        <i data-feather="more-vertical"></i>    

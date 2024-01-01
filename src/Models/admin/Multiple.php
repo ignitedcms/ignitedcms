@@ -21,6 +21,7 @@ class Multiple
     public static function all($sectionid)
     {
         return DB::table('entry')
+           ->join('content', 'entry.id', '=', 'content.entryid')
             ->where('sectionid', '=', $sectionid)
             ->orderBy('sort_order')  //make sure we order
             ->get();
