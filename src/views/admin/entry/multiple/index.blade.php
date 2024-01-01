@@ -128,7 +128,7 @@
 
                           <input class="form-control" 
                                  value="" 
-                                 placeholder="Search" />
+                                 placeholder="Start typing to search" />
                        </div>    
                     </div>
                         
