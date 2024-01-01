@@ -29,7 +29,8 @@
             <div class="alert alert-success">
                <div class="text-black">Information</div>
                <div class="small text-muted">
-                  Test if your email configuration is setup correctly.
+                  Test if your email configuration is setup correctly
+                  with your preferred email service provider.
 
                   You will need to edit your email setting in the
                   .env file. If you don't receive an email in your
