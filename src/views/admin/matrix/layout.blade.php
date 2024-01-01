@@ -67,6 +67,7 @@
                     matrixContent: [],
                     fielderrors: '',
                     csverrors: '',
+                    showToast: false
 
                 },
                 methods: {
@@ -109,13 +110,16 @@
                          else if(data == "Name conflict")
                          {
                               this.matrix_name_validation = 'Name collison';
+                              this.showToast = true;
                          }
                          else if(data == "No content")
                          {
                               this.matrix_name_validation = 'You need to add at least one field from below';
+                              this.showToast = true;
                          }
                          else{
                              this.matrix_name_validation = data.matrix_name;
+                              this.showToast = true;
                          }
                        }
                      }); /*End ajax*/

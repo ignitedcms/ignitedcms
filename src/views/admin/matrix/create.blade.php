@@ -22,7 +22,20 @@
                 <div class="breadcrumb-item">Create matrix</div>
             </div>
 
+            <div v-show="showToast" class="toasts">
+               <toast time="7000">
+               <div class="p-2">
+                  <div class="text-danger">
+                     Error
+                  </div>
+                  <p class="text-danger small">
+                   Something went wrong please check
+                  </p>
+               </div>
+               </toast>
 
+            </div>
+             
 
             <div class="alert alert-info m-b-3">
                <div class="text-black">Information</div>
