@@ -62,7 +62,7 @@
                         <input style="display:none;" class="form-control" name="order" value="" placeholder="order"
                             v-model="hiddenOrder" />
                         @error('order')
-                            <div class="small text-danger">{{ $message }}</div>
+                            <div class="small text-danger">You need to drag in at least one field from below into the page</div>
                         @enderror
 
                     </div>
