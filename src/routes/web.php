@@ -4,6 +4,7 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\EntryController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\EmailController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\FieldsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
@@ -31,6 +32,11 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
     Route::get('admin/settings', [SettingsController::class, 'index']);
     Route::post('admin/settings/update', [SettingsController::class, 'update']);
+});
+
+//Email 
+Route::middleware('web')->group(function () {
+    Route::get('admin/email', [EmailController::class, 'index']);
 });
 
 //matrix
