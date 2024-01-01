@@ -150,6 +150,9 @@
                                     <span class="m-l">
                                         {{ Helper::getEntrytitle($row->id) }}
                                     </span>
+                                    <span class="pull-right m-r-2">
+                                       <i data-feather="more-vertical"></i>    
+                                    </span>
 
                                 </div>
 
