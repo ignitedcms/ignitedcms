@@ -13,7 +13,10 @@
 
             @if (session('error'))
                 <div class="alert alert-danger m-b-3">
-                    {{ session('error') }}
+                    <div>Error</div>
+                       <div class="small">
+                       {{ session('error') }}
+                       </div>
                 </div>
             @endif
             <div class="breadcrumb m-b-3">
@@ -94,15 +97,20 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="alert alert-info ">
-                        Drag and drop to re-order the position, this can be used to
-                        display multiples in a specific order.
-                    </div>
+                   <div class="alert alert-info ">
+                      <div class="text-black">Did you know?</div>
+                      <div class="small text-muted">
+                         You can drag and drop to re-order the position, this can be used to
+                         display multiples in a specific order.
+                      </div>
+                   </div>
                 </div>
             </div>
 
+            <div class="m-b-3"></div>
+
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-5">
+            <div class="panel br drop-shadow p-b-3">
 
                 <form action="{{ url("admin/multiple/delete/$sectionid") }}" method="POST">
                     @csrf
@@ -123,7 +131,7 @@
                        <div class="col-6 right">
                           <tooltip link="Delete selected items?"  class="pull-right">
 
-                          <button type="submit" class="rm-btn-styles ">OK</button>
+                          <button type="submit" class="rm-btn-styles ">Ok</button>
 
                           </tooltip>
                        </div>
