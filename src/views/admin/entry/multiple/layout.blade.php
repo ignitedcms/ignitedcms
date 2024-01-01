@@ -62,7 +62,8 @@
                     items: @php  echo json_encode($data,true) @endphp,
                     entrytitle: '',
                     sectionid:{{ $sectionid }},
-                    errs: '' //entrytitle error feedback
+                    errs: '', //entrytitle error feedback
+                    showToast: false 
 
 
                 },
@@ -127,6 +128,9 @@
                             $.ajax({
                                 type: 'POST',
                                 url: "{{ url('admin/multiple/order_multiples') }}",
+                                async: true,
+                                context:this,
+
                                 data: {
                                     "_token": "{{ csrf_token() }}",
                                     "items": this.items
@@ -134,7 +138,8 @@
                                 dataType: 'json', // Specify the data type you expect back from the server
                                 success: function(response) {
                                     // Handle the successful response from the server
-                                    alert(response.message);
+                                   // alert(response.message);
+                                    this.showToast = true;
                                 },
                                 error: function(xhr, status, error) {
                                     // Handle errors here

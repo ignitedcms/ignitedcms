@@ -19,6 +19,22 @@
                        </div>
                 </div>
             @endif
+
+
+            <div v-show="showToast" class="toasts">
+               <toast time="7000">
+               <div class="p-2">
+                  <div class="text-black">
+                     Success
+                  </div>
+                  <p class="text-muted small">Everytime you reorder
+                   it will now be saved automatically
+                  </p>
+               </div>
+               </toast>
+
+            </div>            
+
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
                     <a href="{{ url('admin/dashboard') }}">Dashboard</a>
