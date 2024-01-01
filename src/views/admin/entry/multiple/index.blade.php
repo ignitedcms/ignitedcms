@@ -117,9 +117,19 @@
 
                     <div class="row">
                     <div class="col">
-                       <input class="form-control" 
-                             value="" 
-                             placeholder="Search" />
+                       <div class="pos-rel">
+
+                          <span>
+                             <i 
+                                data-feather="search"
+                                class="icon-inside hand"
+                              ></i>
+                          </span>
+
+                          <input class="form-control" 
+                                 value="" 
+                                 placeholder="Search" />
+                       </div>    
                     </div>
                         
                     </div>
