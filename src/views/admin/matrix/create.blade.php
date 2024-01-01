@@ -4,7 +4,13 @@
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3">
 
-            <drawer title="Help"></drawer>
+           <drawer title="Help">
+              <div class="p-3">
+                 <h4>Matrix</h4>
+                 <p class="text-muted">For more help please see</p>
+                 <a href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Matrix</a>
+              </div>
+           </drawer>
 
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
@@ -19,9 +25,13 @@
 
 
             <div class="alert alert-info m-b-3">
+               <div class="text-black">Information</div>
+               <div class="small text-muted">
                 The matrix is a special field where you can
                 create repeatable content in your section types.
-                <br /><br /> For more information please refer to the documentation.
+                <br /> For more information please refer to the 
+                <a href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Documentation</a>.
+               </div>
             </div>
 
             <div class="row">
