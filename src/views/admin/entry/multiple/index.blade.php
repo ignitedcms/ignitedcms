@@ -21,16 +21,12 @@
             @endif
 
 
-            <div v-show="showToast" class="toasts">
-               <toast time="7000">
-               <div class="p-2">
-                  <div class="text-black">
-                     Success
+            <div  class="toasts">
+               <toast ref="toast">
+                  <div class="p-2">
+                     <div class="text-black">Success</div>
+                     <div class="text-muted small">Order saved to db!</div>
                   </div>
-                  <p class="text-muted small">Everytime you reorder
-                   it will now be saved automatically
-                  </p>
-               </div>
                </toast>
 
             </div>            
