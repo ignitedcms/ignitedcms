@@ -90,11 +90,14 @@ class AssetController extends Controller
 
                 $thumb = url(asset("uploads/$thumb"));
             }
+            else{
+
+               $thumb = url(asset('admin/images/file.jpg'));
+            }
 
             //$filename = $file->getClientOriginalName();
             $kind = $file->getClientOriginalExtension();
             $url = url(asset("uploads/$fileName"));
-            $thumb = url(asset('admin/images/file.jpg'));
 
             $fieldname = '';
 
