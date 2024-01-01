@@ -41,7 +41,7 @@
                     <h3>Password</h3>
                     <div class="form-group">
                         <label for="title">Password</label>
-                        <div class="small text-muted">Please enter a new password</div>
+                        <div class="small text-muted">Please enter a new password, make sure it is fairly strong</div>
                         <input class="form-control m-t" type="password" name="password" value=""
                             placeholder="Start typing" />
                     
