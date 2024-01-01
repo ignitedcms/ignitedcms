@@ -1,8 +1,8 @@
 .combo-btn-container {
   position: relative;
-  width: 300px;
+  width: 280px;
 }
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .combo-btn-container {
     width: 100%;
   }
@@ -12,21 +12,21 @@
   position: relative;
   margin-top: 5px;
   height: 300px;
-  width: 300px;
+  width: 280px;
   overflow-x: hidden;
   border: 1px solid #cccccc;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .combobox-container {
     width: 100%;
   }
 }
 .combobox-container-item {
   height: 40px;
-  width: 280px;
+  width: 260px;
   background-color: #fff;
   display: flex;
   flex-direction: row;
@@ -37,7 +37,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .combobox-container-item {
     width: 100%;
   }
@@ -45,7 +45,7 @@
 .combobox-container-item:hover {
   background-color: rgb(243, 243, 243);
 }
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .combobox-container-item:hover {
     width: 97%;
   }
@@ -53,7 +53,7 @@
 .combobox-container-item-highlighted {
   background-color: rgb(243, 243, 243);
 }
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .combobox-container-item-highlighted {
     width: 97%;
   }

@@ -55,6 +55,11 @@
 .btn-white:hover {
   background-color: #f2f2f2;
 }
+.btn-danger {
+  background-color: #d53237;
+  color: #fff;
+  border: 1px solid #d53237;
+}
 .btn-light {
   background-color: #ffffff;
   color: #333;

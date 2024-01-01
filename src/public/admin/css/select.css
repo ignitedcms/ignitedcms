@@ -1,0 +1,33 @@
+.form-select {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  padding: 0.275rem 0.85rem;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.8em;
+  color: #495057;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  appearance: none;
+}
+.form-select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #7f7f7f;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #bfbfbf;
+}
+.form-select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 red;
+}
+
+/*# sourceMappingURL=select.css.map */

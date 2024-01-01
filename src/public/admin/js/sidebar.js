@@ -32,13 +32,13 @@ Vue.component('sidebar', {
       </div>
       <div class="main-content" id="main-content">
         <div class="search-container">
-          <div 
+          <button 
            class="sidebar-toggle hand b br"
            @click="toggle" 
            v-click-outside="away" 
           >
             <i data-feather="menu"></i>
-          </div>
+          </button>
           <div style="width:60%;" class="m-l-2">
             <input class="form-control" placeholder="Search then hit enter" />
           </div>

@@ -68,6 +68,13 @@
          background-color:#f2f2f2;
         }
     }
+    
+    &-danger {
+        background-color: #d53237;
+        color: #fff;
+        border: 1px solid #d53237;
+    
+    }
 
     &-light {
         background-color: #ffffff;

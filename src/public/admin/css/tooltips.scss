@@ -15,7 +15,7 @@
     background-color: #fff;
     border: 1px double #ccc;
     width: 200px;
-    text-align: center;
+    //text-align: center;
     padding:15px;
     bottom:150%; 
     left:50%;
@@ -78,7 +78,7 @@
 }
 
 .tooltip-highlight{
-    border-bottom: 2px dashed $link-color;
+    border-bottom: 2px solid $primary;
     text-decoration-style: dashed; 
     padding-left:5px;
     padding-right:5px;
