@@ -26,6 +26,7 @@
 
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
+        <script src="{{ asset('admin/js/focus-trap.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/tooltips.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
@@ -67,7 +68,6 @@
                     matrixContent: [],
                     fielderrors: '',
                     csverrors: '',
-                    showToast: false
 
                 },
                 methods: {
@@ -110,16 +110,19 @@
                          else if(data == "Name conflict")
                          {
                               this.matrix_name_validation = 'Name collison';
-                              this.showToast = true;
+                              this.$refs.toast.showToast(4000);
+
                          }
                          else if(data == "No content")
                          {
                               this.matrix_name_validation = 'You need to add at least one field from below';
-                              this.showToast = true;
+                              this.$refs.toast.showToast(4000);
+
                          }
                          else{
                              this.matrix_name_validation = data.matrix_name;
-                              this.showToast = true;
+                             this.$refs.toast.showToast(4000);
+
                          }
                        }
                      }); /*End ajax*/

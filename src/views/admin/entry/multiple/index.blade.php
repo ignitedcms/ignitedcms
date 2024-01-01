@@ -21,7 +21,7 @@
             @endif
 
 
-            <div  class="toasts">
+            <div class="toasts">
                <toast ref="toast">
                   <div class="p-2">
                      <div class="text-black">Success</div>

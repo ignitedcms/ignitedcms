@@ -148,7 +148,8 @@ $.ajax({
 
         } else {
             //alert('error');
-            this.showToast = true;
+            this.$refs.toast.showToast(4000);
+
             this.fielderrors = data.a;
             this.csverrors = data.b;
         }

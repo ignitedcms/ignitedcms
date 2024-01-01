@@ -22,16 +22,14 @@
                 <div class="breadcrumb-item">Create matrix</div>
             </div>
 
-            <div v-show="showToast" class="toasts">
-               <toast time="7000">
-               <div class="p-2">
-                  <div class="text-danger">
-                     Error
+            <div class="toasts">
+               <toast ref="toast">
+                  <div class="p-2">
+                     <div class="text-danger">Error</div>
+                     <div class="text-danger small">
+                        There are one or more items on the form that need addressing
+                     </div>
                   </div>
-                  <p class="text-danger small">
-                   Something went wrong please check
-                  </p>
-               </div>
                </toast>
 
             </div>
