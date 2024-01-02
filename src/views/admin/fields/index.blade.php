@@ -60,12 +60,12 @@
                                 <td>{{ $field->type }}</td>
                                 <td>
                                     <span class="right">
-                                        <tooltip link="Delete">
+                                        <popover link="Delete">
                                             <form action="{{ url('/admin/fields/delete', $field->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn  rm-btn-styles">Ok</button>
                                             </form>
-                                        </tooltip>
+                                        </popover>
                                     </span>
                                 </td>
                             </tr>

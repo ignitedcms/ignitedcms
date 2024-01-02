@@ -65,12 +65,12 @@
                             <td>...</td>
                             <td>
                                <span class="right">
-                                  <tooltip link="Delete">
+                                  <popover link="Delete">
                                   <form action="{{ url('/admin/permissions/delete', $row->groupID) }}" method="POST">
                                      @csrf
                                      <button type="submit" class="btn  rm-btn-styles">Ok</button>
                                   </form>
-                                  </tooltip>
+                                  </popover>
                                </span>
 
                             </td>
