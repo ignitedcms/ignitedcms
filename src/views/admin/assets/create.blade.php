@@ -1,4 +1,4 @@
-@extends('ignitedcms::admin.fields.layout')
+@extends('ignitedcms::admin.assets.layout')
 @section('content')
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
@@ -26,8 +26,9 @@
                            </div>
                            <div class="form-group">
                               <label  for="upload">Upload</label>
-                              <div class="small text-muted">Make sure it is a suitable file</div>
-                              <input type="file" name="file" class="form-control m-t">
+                              <div class="small text-muted m-b">Make sure it is a suitable file</div>
+                              
+                              <file-upload name="file"> </file-upload>
                               @error('file')
                                  <div class="small text-danger"> {{ $message }} </div>
                               @enderror
