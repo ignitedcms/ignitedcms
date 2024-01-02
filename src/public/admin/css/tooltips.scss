@@ -1,87 +1,31 @@
 @import "variables";
 
-/*
-|---------------------------------------------------------------
-| CSS for tooltip components
-|---------------------------------------------------------------
-|
-| Ref: https://www.w3schools.com/howto/howto_css_tooltip.asp 
-|
-*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted $link-color;
+}
 
-.tooltip{
+.tooltip .tooltiptext {
+  display:none;
+  width: 120px;
+  background-color: $primary;
+  color: #fff;
+  text-align: center;
+  font-size:14px;
+  border-radius: $border-radius;
+  padding: 4px;
 
-    position: absolute;
-    background-color: #fff;
-    border: 1px double #ccc;
-    width: 200px;
-    text-align: center;
-    padding:15px;
-    bottom:150%; 
-    left:50%;
-    margin-left: -100px;
-    border-radius:$border-radius;
-    //box-shadow:$shadow;
-    z-index: 1;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
 
-    &::before{
-          content: "";
-          position: absolute;
-          top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
-          top: calc(100% - 10px); /*i.e. half the height*/
-          left: 90px; 
-          height: 20px;
-          width: 20px;
-          background: #fff;
-          transform: rotate(45deg);
-          border-bottom:inherit;
-          border-right:inherit;
-          box-shadow:inherit;
-    }
-
-    &-dark{
-        position: absolute;
-        background-color: $tertiary;
-        border: 1px double #ccc;
-        width: 200px;
-        color:#fff;
-        //text-align: center;
-        padding:15px;
-        bottom:150%; 
-        left:50%;
-        margin-left: -100px;
-        border-radius:$border-radius;
-        //box-shadow:$shadow;
-        z-index: 1;
-
-
-    &::before{
-      content: "";
-      position: absolute;
-      top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
-      top: calc(100% - 10px); /*i.e. half the height*/
-      left: 90px; 
-      height: 20px;
-      width: 20px;
-      background: $tertiary;
-      transform: rotate(45deg);
-      border-bottom:inherit;
-      border-right:inherit;
-      box-shadow:inherit;
-    }
-  }
+.tooltip:hover .tooltiptext {
+   display:block;
 }
 
 
-.tooltip-rel{
-    position: relative;
-}
-
-.tooltip-highlight{
-    border-bottom: 2px solid $primary;
-    text-decoration-style: dashed; 
-    padding-left:5px;
-    padding-right:5px;
-    //color: $link-color;
-
-}

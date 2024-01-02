@@ -13,32 +13,34 @@
 Vue.component('drop-down', {
   props: ['buttonTitle'],
   template: `
-    <button
-      :id="'dropdown-' + uniqueId"
-      type="button"
-      aria-haspopup="menu"
-      :aria-expanded="arr"
-      class="btn btn-white pos-rel"
-      @keyup.esc="escapePressed"
-      @click="toggle"
-      v-click-outside="away"
-      @keydown.down.prevent="navigate('down')"
-      @keydown.up.prevent="navigate('up')"
-      @keydown.enter.prevent="selectItem"
-    >
-      {{ buttonTitle }}
+    <div class="pos-rel">
+      <button
+        :id="'dropdown-' + uniqueId"
+        type="button"
+        aria-haspopup="menu"
+        :aria-expanded="arr"
+        class="btn btn-white pos-rel"
+        @keyup.esc="escapePressed"
+        @click="toggle"
+        v-click-outside="away"
+      >
+        {{ buttonTitle }}
+      </button>
       <div
-        v-if="show"
+        v-show="show"
+        tabindex="-1"
         role="menu"
         :aria-labelledby="'dropdown-' + uniqueId"
-        class="dropdown br drop-shadow fade-in"
-        @click.stop
+        class="pos-abs dropdown br drop-shadow fade-in"
+        @keydown.down.prevent="navigate('down')"
+        @keydown.up.prevent="navigate('up')"
+        @keydown.enter.prevent="selectItem"
+        @keyup.esc="escapePressed"
+        ref="drop"
       >
-        <focus-trap :active="show">
-          <slot></slot>
-        </focus-trap>
+        <slot></slot>
       </div>
-    </button>
+    </div>
   `,
   data() {
     return {
@@ -52,6 +54,10 @@ Vue.component('drop-down', {
     toggle() {
       this.show = !this.show;
       this.arr = this.show ? 'true' : 'false';
+
+      this.$nextTick(() => {
+        this.$refs.drop.focus();
+      });
     },
     away() {
       this.show = false;
@@ -63,17 +69,20 @@ Vue.component('drop-down', {
       this.arr = 'false';
       this.selectedIndex = -1; // Reset selected index on escape
     },
-    navigate(direction) {
-      if (this.show) {
-        const items = this.$el.querySelectorAll('.dropdown-item');
-        if (direction === 'down') {
-          this.selectedIndex = (this.selectedIndex + 1) % items.length;
-        } else if (direction === 'up') {
-          this.selectedIndex = this.selectedIndex <= 0 ? items.length - 1 : this.selectedIndex - 1;
-        }
-        items[this.selectedIndex].focus(); // Set focus on the selected item
-      }
-    },
+     navigate(direction) {
+     if (this.show) {
+       const items = this.$el.querySelectorAll('.dropdown-item');
+       if (direction === 'down') {
+         this.selectedIndex = Math.min(this.selectedIndex + 1, items.length - 1);
+       } else if (direction === 'up') {
+         this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+       }
+       if (items.length > 0) {
+         items[this.selectedIndex].focus(); // Set focus on the selected item if it exists
+       }
+     }
+   },
+
     selectItem() {
       if (this.show && this.selectedIndex !== -1) {
         const items = this.$el.querySelectorAll('.dropdown-item');
@@ -81,10 +90,9 @@ Vue.component('drop-down', {
         // Perform action based on the selected item (e.g., emit an event)
         this.$emit('item-selected', selectedItem.textContent);
         this.toggle(); // Close dropdown after selection
+      } else {
+        this.toggle();
       }
-       else{
-          this.toggle();
-       }
     },
   },
 });

@@ -10,8 +10,10 @@
   z-index: 3;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(225, 225, 225, 0.5);
-  backdrop-filter: blur(14px);
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+  border-radius: 5px;
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
 /* Modal Content */

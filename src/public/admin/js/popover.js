@@ -1,6 +1,6 @@
 /*
 |---------------------------------------------------------------
-| Tooltips (popover) component
+| Popover  component
 |---------------------------------------------------------------
 |
 |
@@ -11,12 +11,12 @@
 |
 */
 
-Vue.component('tooltip', {
+Vue.component('popover', {
   props: ['link', 'width'],
   template: `
     <button
       type="button"
-      class="btn rm-btn-styles tooltip-rel"
+      class="btn rm-btn-styles popover-rel"
       aria-haspopup="dialog"
       :aria-expanded="arr"
       :aria-controls="'popover-' + uniqueId"
@@ -24,10 +24,10 @@ Vue.component('tooltip', {
       @click="tmp"
       v-click-outside="away"
     >
-      <span class="tooltip-highlight"> {{link}} </span>
+      <span class="popover-highlight"> {{link}} </span>
       <div
         :id="'popover-' + uniqueId"
-        class="tooltip fade-in"
+        class="popover fade-in"
         role="dialog"
         v-if="show"
         :style="{ width: width }"

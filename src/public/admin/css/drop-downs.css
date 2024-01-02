@@ -3,13 +3,16 @@
   overflow: hidden;
   font-family: inherit;
   font-size: inherit;
-  top: 45px;
+  top: 40px;
   right: 0;
   background-color: #ffffff;
   min-width: 200px;
   min-height: 100px;
   border: 1px solid #ccc;
   z-index: 1;
+}
+.dropdown:focus {
+  outline: none;
 }
 .dropdown-item {
   padding: 10px;

@@ -59,6 +59,31 @@
   color: #2b6739;
   border: 1px solid #2b6739;
 }
+
+.form-upload{
+
+  background-color: #fff;
+  border:1px solid $grey;
+  color: $font-color;
+  font-size:14px;
+  padding:6px;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+.upload-hide{
+   width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+   &:focus + label {
+	   outline: -webkit-focus-ring-color auto 5px;
+   }
+}
+
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #cccccc;

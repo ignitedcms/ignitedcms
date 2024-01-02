@@ -22,12 +22,12 @@
 @import url("filemenu.css");
 @import url("feeds.css");
 @import url("animations.css");
+@import url("popover.css");
 @import url("tabs.css");
 @import url("switch.css");
 @import url("modals.css");
 @import url("matrix.css");
 @import url("accordions.css");
-@import url("tooltips.css");
 @import url("datepicker.css");
 @import url("documentation.css");
 @import url("gallery.css");
@@ -44,6 +44,7 @@
 @import url("spinner.css");
 @import url("splide.min.css");
 @import url("tables.css");
+@import url("tooltips.css");
 @import url("trees.css");
 @import url("random.css");
 @import url("landing.css");

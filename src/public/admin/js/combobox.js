@@ -14,7 +14,7 @@
 Vue.component('combobox', {
   props: ['value', 'name'],
   template: `
-    <div @keyup.escape="escapePressed">
+    <div @keyup.escape="escapePressed" class="pos-rel">
      <label  :for="name">{{name}}</label>
       <div class="m-b"></div>
 
@@ -32,7 +32,7 @@ Vue.component('combobox', {
         :aria-expanded="arr"
         :aria-controls="name"
         ref="button"
-        class="pos-rel form-control hand left combo-btn-container"
+        class="form-control hand left combo-btn-container"
         :name="name"
         :value="value"
         v-click-outside="away"
@@ -42,11 +42,14 @@ Vue.component('combobox', {
           <i data-feather='chevron-down' class='icon-inside hand'></i>
         </span>
         {{ selectedItem }}
-        
-         <div v-if="show" 
-            :id="name"
+
+      </button>
+
+        <div 
+           v-if="show" 
+           :id="name"
            class="combobox-container fade-in" 
-           style="position:absolute; top:40px; left:0; z-index:2;"
+           style="position:absolute; top:75px; left:0; z-index:2;"
            @click.stop
          >
            <div class="pos-rel">
@@ -92,10 +95,6 @@ Vue.component('combobox', {
            </div>
                  <slot></slot>
          </div>
-
-
-      </button>
-
       
     </div>
   `,

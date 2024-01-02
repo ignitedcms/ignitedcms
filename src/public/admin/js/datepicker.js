@@ -14,7 +14,7 @@
 Vue.component('datepicker', {
   props: ['value', 'name'],
   template: `
-  <div class="date-container"
+  <div class="date-container pos-rel"
       @keydown.up.prevent
       @keydown.down.prevent
       @keyup.escape="escapePressed"
@@ -29,7 +29,7 @@ Vue.component('datepicker', {
       >
 
       <button
-        class="pos-rel form-control left hand"
+        class=" form-control left hand"
         style="height:40px;"
         aria-haspopup="dialog"
         :aria-expanded="arr"
@@ -51,8 +51,9 @@ Vue.component('datepicker', {
           readonly
           style="display:none;"
         >
+      </button>
 
-        <div
+      <div
           v-show="show"
           :id="'datepicker-'+ uniqueId"
           role="dialog"
@@ -61,7 +62,7 @@ Vue.component('datepicker', {
           tabindex="-1"
           @click.stop
           @keydown="handleKeyDown"
-        >
+      >
           <focus-trap :active="show">
             <div class="date-buttons-container">
               <button
@@ -129,7 +130,6 @@ Vue.component('datepicker', {
             </div>
           </focus-trap>
         </div>
-      </button>
     </div>
   `,
   data() {

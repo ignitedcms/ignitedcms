@@ -15,7 +15,7 @@
 }
 
 .date-container {
-  width: 280px;
+  width: 250px;
 }
 @media (max-width: 500px) {
   .date-container {
@@ -25,8 +25,8 @@
 
 .date-flyout {
   position: relative;
-  min-height: 360px;
-  width: 280px;
+  min-height: 300px;
+  width: 250px;
   margin-top: 10px;
   padding: 10px;
   background-color: #ffffff;
@@ -51,6 +51,7 @@
 .year-box {
   padding: 5px;
   border: 1px solid #ccc;
+  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -130,7 +131,7 @@
   position: relative;
   float: left;
   width: 14.2857142857%;
-  min-height: 40px;
+  min-height: 38px;
 }
 
 /*# sourceMappingURL=datepicker.css.map */

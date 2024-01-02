@@ -58,13 +58,11 @@
    .code {
 
       position: relative;
-      font-size: 15px;
+      font-size: 14px;
       padding: $margin;
       color:#FFFFFF;
       background-color: $tertiary;
       overflow-x:auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
       font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
       border-radius: $border-radius;
 

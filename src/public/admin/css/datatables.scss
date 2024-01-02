@@ -22,7 +22,7 @@
   color: #666666;
   border: 1px solid #ccc;
 
-  padding: 10px 25px;
+  padding: 7px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -40,7 +40,7 @@
   color: #666666;
   border: 1px solid #ccc;
 
-  padding: 10px 25px;
+  padding: 7px 20px;
 
   text-align: center;
   text-decoration: none;
@@ -59,7 +59,7 @@
   border: 1px solid #ccc;
 
   margin-left:10px;
-  padding: 10px 25px;
+  padding: 7px 20px;
 
   text-align: center;
   text-decoration: none;
@@ -78,7 +78,7 @@
   margin-left:10px;
   color: #666666;
   border: 1px solid #ccc;
-  padding: 10px 25px;
+  padding: 7px 20px;
 
   text-align: center;
   text-decoration: none;
@@ -96,8 +96,9 @@
 .paginate_enabled_previous:hover,
 .paginate_disabled_next:hover,
 .paginate_enabled_next:hover {
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04), 0 7px 10px 0 rgba(0, 0, 0, 0.19);
+
   color:#333;
+  background-color: $light-grey;
 
 }
 

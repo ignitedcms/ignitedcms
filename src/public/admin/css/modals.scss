@@ -12,11 +12,13 @@
   border-radius:$border-radius;
   //box-shadow:$shadow;
 
-    z-index: 3;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(225, 225, 225, 0.5);
-    backdrop-filter: blur(14px);
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  border-radius:$border-radius;
+  box-shadow:$shadow;
 }
 
 /* Modal Content */

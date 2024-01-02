@@ -1,0 +1,74 @@
+/*
+|---------------------------------------------------------------
+| CSS for popover components
+|---------------------------------------------------------------
+|
+| Ref: https://www.w3schools.com/howto/howto_css_tooltip.asp 
+|
+*/
+.popover {
+  position: absolute;
+  background-color: #fff;
+  border: 1px double #ccc;
+  width: 200px;
+  padding: 15px;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -100px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.popover::before {
+  content: "";
+  position: absolute;
+  top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
+  top: calc(100% - 10px); /*i.e. half the height*/
+  left: 90px;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+  border-bottom: inherit;
+  border-right: inherit;
+  box-shadow: inherit;
+}
+.popover-dark {
+  position: absolute;
+  background-color: #292F3E;
+  border: 1px double #ccc;
+  width: 200px;
+  color: #fff;
+  padding: 15px;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -100px;
+  border-radius: 5px;
+  z-index: 1;
+}
+.popover-dark::before {
+  content: "";
+  position: absolute;
+  top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
+  top: calc(100% - 10px); /*i.e. half the height*/
+  left: 90px;
+  height: 20px;
+  width: 20px;
+  background: #292F3E;
+  transform: rotate(45deg);
+  border-bottom: inherit;
+  border-right: inherit;
+  box-shadow: inherit;
+}
+
+.popover-rel {
+  position: relative;
+}
+
+.popover-highlight {
+  border-bottom: 2px solid #cccccc;
+  text-decoration-style: dashed;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/*# sourceMappingURL=popover.css.map */
