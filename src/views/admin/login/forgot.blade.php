@@ -5,13 +5,19 @@
         <div class="gap"></div>
         <div class="small-container" id="app">
             @if (session('status'))
-                <div class="alert alert-danger">
+                <div class="alert alert-success">
+                  <div class="text-black">Success</div>
+                   <div class="small text-muted">
                     {{ session('status') }}
+                   </div>
                 </div>
             @endif
-            @if (session('final'))
-                <div class="alert alert-success">
-                    {{ session('final') }}
+            @if (session('error'))
+                <div class="alert alert-danger">
+                   <div>Error</div>
+                   <div class="small">
+                    {{ session('error') }}
+                   </div>
                 </div>
             @endif
             <div class="panel m-t-2 br drop-shadow">

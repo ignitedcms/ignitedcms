@@ -46,8 +46,7 @@ class LoginController extends Controller
         if ($check) {
             return redirect('login/forgot')->with('status', 'Check your email');
         } else {
-
-            return redirect('login/forgot')->with('errors', 'Failed');
+            return redirect('login/forgot')->with('error', 'Failed')->withInput();
         }
 
     }
