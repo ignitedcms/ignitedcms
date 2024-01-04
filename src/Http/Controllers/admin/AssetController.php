@@ -89,10 +89,9 @@ class AssetController extends Controller
                 $image->save(public_path("uploads/$thumb"));
 
                 $thumb = url(asset("uploads/$thumb"));
-            }
-            else{
+            } else {
 
-               $thumb = url(asset('admin/images/file.jpg'));
+                $thumb = url(asset('admin/images/file.jpg'));
             }
 
             //$filename = $file->getClientOriginalName();

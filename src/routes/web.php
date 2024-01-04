@@ -61,6 +61,8 @@ Route::middleware('web')->group(function () {
 Route::middleware(['web', 'throttle:20,1'])->group(function () {
     //Login
     Route::get('/login', [LoginController::class, 'index']);
+    Route::get('/login/forgot', [LoginController::class, 'forgotView']);
+    Route::post('/login/forgot', [LoginController::class, 'forgot']);
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::post('/login/validate_login', [LoginController::class, 'validateLogin']);
 

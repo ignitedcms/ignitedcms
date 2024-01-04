@@ -30,6 +30,16 @@ class LoginController extends Controller
         return view('ignitedcms::admin.login.index');
     }
 
+    public function forgotView()
+    {
+        return view('ignitedcms::admin.login.forgot');
+    }
+
+    public function forgot(Request $request)
+    {
+        //handle password resetting
+    }
+
     public function logout(Request $request)
     {
         $request->session()->flush();
