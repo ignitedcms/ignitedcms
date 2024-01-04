@@ -15,7 +15,7 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 //use App\Http\Controllers\Controller;
-use App\Models\admin\Login;
+use Ignitedcms\Ignitedcms\Models\admin\Login;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,6 @@ class LoginController extends Controller
 {
     public function index()
     {
-        //Login::foo();
 
         return view('ignitedcms::admin.login.index');
     }
@@ -37,7 +36,25 @@ class LoginController extends Controller
 
     public function forgot(Request $request)
     {
-        //handle password resetting
+        $validated = $request->validate([
+            'email' => 'required|email|max:255',
+        ]);
+
+        $email = $request->input('email');
+        $check = Login::sendPasswordReset($email);
+
+        if ($check) {
+            return redirect('login/forgot')->with('status', 'Check your email');
+        } else {
+
+            return redirect('login/forgot')->with('errors', 'Failed');
+        }
+
+    }
+
+    public function forgotAuthorizeHash()
+    {
+
     }
 
     public function logout(Request $request)
