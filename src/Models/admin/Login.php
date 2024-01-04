@@ -26,17 +26,26 @@ class Login
             ->get();
 
         if ($query->count() > 0) {
-            $random = Str::random(30);
+            $token = Str::random(30);
             //now update db
             DB::table('user')
                 ->where('email', '=', $email)
                 ->update([
-                    'activ_key' => $random,
+                    'activ_key' => $token,
                 ]);
+
+            self::sendEmail($token)
 
             return true;
         } else {
             return false;
         }
+    }
+
+    //Send an email with reset token link
+    public static function sendEmail($token)
+    {
+       //Send email
+       //Assumes email config in .env file
     }
 }
