@@ -34,7 +34,7 @@ class Login
                     'activ_key' => $token,
                 ]);
 
-            self::sendEmail($token)
+            self::sendEmail($token);
 
             return true;
         } else {
@@ -45,7 +45,7 @@ class Login
     //Send an email with reset token link
     public static function sendEmail($token)
     {
-       //Send email
-       //Assumes email config in .env file
+        //Send email
+        //Assumes email config in .env file
     }
 }
