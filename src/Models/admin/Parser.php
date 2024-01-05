@@ -211,29 +211,8 @@ class Parser
 
             $json = json_decode($val);
 
-            //check if not empty
-            if ($json) {
-                $arr = [];
-                $counter = 0; //needed to loop!
+            return $json;
 
-                foreach ($json as $key) {
-                    $titre = $json[0]->title;
-                    $counter++;
-                    foreach ($key->content as $r) {
-                        if ($r->type != 'check-box') {
-                            $b[$counter][$r->title] = $r->content;
-                            array_push($arr, $b);
-
-                        } else {
-                            //nothing in content so dump checkedvalues
-                            $b[$counter][$r->title] = json_encode($r->checkedValues);
-                            array_push($arr, $b);
-                        }
-                    }
-                }
-
-                return $b;
-            }
         } else {
             return $val;
         }
