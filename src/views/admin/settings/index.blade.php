@@ -34,7 +34,7 @@
 
             <div class="alert alert-success m-b-3">
                <div class="text-black">Information</div>
-               <div class="text-muted">
+               <div class="text-muted small">
                   Restrict what type of files
                   your end users can upload globally to your CMS for security
                </div>

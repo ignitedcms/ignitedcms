@@ -31,9 +31,12 @@
                 <div class="breadcrumb-item">Assets</div>
             </div>
 
-            <div class="alert alert-info">
-               <p>Struggling to upload a large file greater than 5mb? Use 
-               our large asset file <a href="#">uploader</a></p>
+            <div class="alert alert-success">
+               <div class="text-black">Information</div>
+               <div class="small text-muted">
+                  Struggling to upload a large file greater than 5mb? Use 
+                  our large asset file <a href="#">uploader</a>
+               </div>
             </div>
 
             <div class="row">

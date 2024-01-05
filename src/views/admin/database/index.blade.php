@@ -21,10 +21,14 @@
                 </div>
                 <div class="breadcrumb-item">Database</div>
             </div>
-            <div class="alert alert-info">
-                This handy function will export your
-                MySQL database. Please note this only
-                supports MySQL with limited functionality!
+            <div class="alert alert-success">
+               <div class="text-black">Information</div>
+               <div class="small text-muted">
+
+                  This handy function will export your
+                  MySQL database. Please note this only
+                  supports MySQL with limited functionality!
+               </div>
             </div>
             <div class="panel br drop-shadow m-t-3">
                 <h3>Database utility</h3>
