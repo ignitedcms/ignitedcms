@@ -15,6 +15,7 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
+use Helper;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Illuminate\Http\Request;
@@ -73,11 +74,13 @@ class FieldsController extends Controller
         */
         $formValidation = '';
 
-        /*                                                                          
-        |---------------------------------------------------------------            
+        /*
+        |---------------------------------------------------------------
         | Here we need to sanity check csv on variations
-        |---------------------------------------------------------------            
-        */       
+        |---------------------------------------------------------------
+        */
+        $csvCheck = true;
+
         if ($type == 'plain-text') {
             $formValidation = "max:$length";
         } elseif ($type == 'multi-line') {
@@ -85,25 +88,35 @@ class FieldsController extends Controller
         } elseif ($type == 'rich-text') {
             $formValidation = '';
         } elseif ($type == 'drop-down') {
+            $csvCheck = Helper::isValidCsvString($variations);
             $formValidation = '';
         } elseif ($type == 'check-box') {
+            $csvCheck = Helper::isValidCsvString($variations);
             $formValidation = '';
         } elseif ($type == 'file-upload') {
+            $csvCheck = Helper::isValidCsvString($variations);
             $formValidation = '';
         } else {
             $formValidation = '';
         }
 
-        Fields::create(
-            $name,
-            $instructions,
-            $type,
-            $length,
-            $variations,
-            $formValidation
-        );
+        if ($csvCheck) {
 
-        return response()->json('success');
+            Fields::create(
+                $name,
+                $instructions,
+                $type,
+                $length,
+                $variations,
+                $formValidation
+            );
+
+            return response()->json('success');
+        } else {
+
+            return response()->json('Invalid csv string');
+        }
+
     }
 
     public function createView()

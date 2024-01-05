@@ -60,6 +60,7 @@
                     fieldnameError: '',
                     instructions: '',
                     fieldlength: '100',
+                    fieldtypeError: '',
                     filetype: 'jpg|png|gif',
                     variations: '',
                     matrixContent: [],
@@ -96,6 +97,11 @@
                            if(data == 'success')
                            {
                              window.location.href = '{{ url('admin/fields') }}'
+                           }
+                           else if(data == 'Invalid csv string')
+                           {
+                              this.fieldtypeError = data;
+                              this.$refs.toast.showToast(4000);
                            }
                            else {
                               this.fieldnameError = data.name;

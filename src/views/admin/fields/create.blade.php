@@ -18,7 +18,8 @@
                       <div class="p-2">
                          <div class="text-danger">Error</div>
                          <div class="text-danger small">
-                            An error occurred
+                            Please check the entire form
+                            for possible errors
                          </div>
                       </div>
                    </toast>
@@ -71,7 +72,7 @@
                                     <option value="date">Date</option>
                                     <option value="switch">Switch</option>
                                 </select>
-                                <div class="errors"></div>
+                                
                             </div>
                             <div v-if="crselect=='plain-text'">
                                 <div class="form-group">
@@ -93,6 +94,9 @@
                                     <div class="small text-muted">Please separate with commas</div>
                                     <textarea v-model="variations" name="variations" class="form-control" rows="5" 
                                          placeholder="E.g Dog,Cat" ></textarea>
+                                    <div class="small text-danger">
+                                       @{{ fieldtypeError }}
+                                    </div>
                                 </div>
                             </div>
                             <div v-if="crselect=='check-box'">
@@ -101,6 +105,9 @@
                                     <div class="small text-muted">Please separate with commas</div>
                                     <textarea v-model="variations" name="variations" class="form-control" rows="5" 
                                         placeholder="E.g Dog,Cat"></textarea>
+                                    <div class="small text-danger">
+                                       @{{ fieldtypeError }}
+                                    </div>
                                 </div>
                             </div>
                             <div v-if="crselect=='color'">
@@ -111,6 +118,10 @@
                                     <div class="small text-muted">Please separate with commas</div>
                                     <input v-model="variations" name="variations" type="text" class="form-control"
                                         placeholder="E.g jpg,png,gif" value="">
+
+                                    <div class="small text-danger">
+                                       @{{ fieldtypeError }}
+                                    </div>
                                 </div>
                             </div>
                             <div v-if="crselect=='number'">
@@ -119,6 +130,8 @@
                             </div>
                             <div v-if="crselect=='switch'">
                             </div>
+
+                            
 
                         </div>
                     </div>
