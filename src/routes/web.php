@@ -63,6 +63,7 @@ Route::middleware(['web', 'throttle:20,1'])->group(function () {
     Route::get('/login', [LoginController::class, 'index']);
     Route::get('/login/forgot', [LoginController::class, 'forgotView']);
     Route::post('/login/forgot', [LoginController::class, 'forgot']);
+    Route::get('/login/token/{hash}', [LoginController::class, 'token']);
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::post('/login/validate_login', [LoginController::class, 'validateLogin']);
 

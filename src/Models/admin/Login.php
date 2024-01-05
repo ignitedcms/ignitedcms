@@ -48,4 +48,5 @@ class Login
         //Send email
         //Assumes email config in .env file
     }
+
 }

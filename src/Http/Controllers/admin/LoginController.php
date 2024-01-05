@@ -51,9 +51,12 @@ class LoginController extends Controller
 
     }
 
-    public function forgotAuthorizeHash()
+    //authorize token
+    //POST request
+    //consider using a signed url
+    public function token(Request $request, $token)
     {
-
+         echo ("iamerhere");
     }
 
     public function logout(Request $request)
