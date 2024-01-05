@@ -24,17 +24,38 @@
             </div>
 
             @if (session('status'))
-                <div class="alert alert-success m-b-3">
-                    {{ session('status') }}
-                </div>
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-black">Success</div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
 
             @if (session('errors'))
-                <div class="alert alert-danger m-b-3">
-                    Error
-                   <div class="small">Failed</div>
-                </div>
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
+
+
             <div class="panel br drop-shadow">
                 <form action="{{ url('admin/profile/password') }} " method="POST">
                     @csrf

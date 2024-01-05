@@ -18,9 +18,10 @@
             <!--main part for section styles -->
 
             <div class="alert alert-info m-b-3">
-                <p>
+               <div class="text-black">Information</div>
+                <p class="text-muted small">
                     You are only allowed to update this users
-                    group permissions.
+                     permission role.
                 </p>
             </div>
 
