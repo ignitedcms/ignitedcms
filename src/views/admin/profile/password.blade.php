@@ -38,7 +38,7 @@
             <div class="panel br drop-shadow">
                 <form action="{{ url('admin/profile/password') }} " method="POST">
                     @csrf
-                    <h3>Password</h3>
+                    <h3>Reset password</h3>
                     <div class="form-group">
                         <label for="title">Password</label>
                         <div class="small text-muted">Please enter a new password, make sure it is fairly strong</div>
