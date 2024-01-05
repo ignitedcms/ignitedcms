@@ -56,7 +56,11 @@ class LoginController extends Controller
     //consider using a signed url
     public function token(Request $request, $token)
     {
-         echo ("iamerhere");
+        if (Login::authorizeToken($token)) {
+            echo 'you can change password';
+        } else {
+            echo 'you can NOT change password!  ';
+        }
     }
 
     public function logout(Request $request)

@@ -49,4 +49,26 @@ class Login
         //Assumes email config in .env file
     }
 
+    /*
+     * Authorize token, if ok
+     * allow password reset
+     *
+     *
+     * @param   string $token
+     * @return  void
+     */
+    public static function authorizeToken($token)
+    {
+        $query = DB::table('user')
+            ->select('*')
+            ->where('activ_key', '=', $token)
+            ->get();
+
+        if ($query->count() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
