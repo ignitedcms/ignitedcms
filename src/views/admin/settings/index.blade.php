@@ -1,4 +1,4 @@
-@extends('ignitedcms::admin.sections.layout')
+@extends('ignitedcms::admin.dashboard.layout')
 @section('content')
 <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
@@ -20,17 +20,36 @@
             </div>
 
             @if (session('status'))
-                <div class="alert alert-success m-b-2">
-                    {{ session('status') }}
-                </div>
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-black">Success</div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
 
             @if (session('errors'))
-                <div class="alert alert-danger m-b-2">
-                  <div>Error</div>
-                  <div class="small">You must select at least one!</div>
-                </div>
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     You much check at least ONE
+                     field type.
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
+
 
             <div class="alert alert-success m-b-3">
                <div class="text-black">Information</div>
