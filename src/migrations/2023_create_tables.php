@@ -82,6 +82,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('sectionid')->nullable();
             $table->string('type', 200)->nullable();
+            $table->integer('user_id')->nullable();
             $table->date('datecreated')->nullable();
             $table->integer('sort_order')->nullable();
             $table->timestamps();
