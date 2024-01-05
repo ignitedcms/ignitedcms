@@ -21,6 +21,7 @@ use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class FieldsController extends Controller
 {
@@ -39,21 +40,26 @@ class FieldsController extends Controller
 
     public function create(Request $request)
     {
-        //$validated = $request->validate([
-            //'name' => [
-                //'required',
-                //'lowercase',
-                //'alpha:ascii',
-                //'unique:fields',
-                //Rule::notIn(['url', 'content', 'id', 'section', 'field',
-                    //'entryid', 'entrytitle']),
-            //],
+         $validator = Validator::make($request->all(), [
 
-            //'instructions' => '',
-            //'type' => 'required',
-            //'length' => 'integer',
-            //'variations' => '',
-        //]);
+            'name' => [
+                'required',
+                'lowercase',
+                'alpha:ascii',
+                'unique:fields',
+                Rule::notIn(['url', 'content', 'id', 'section', 'field',
+                    'entryid', 'entrytitle']),
+            ],
+
+            'instructions' => '',
+            'type' => 'required',
+            'length' => 'integer',
+            'variations' => '',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
 
         $name = $request->input('name');
         $instructions = $request->input('instructions');
