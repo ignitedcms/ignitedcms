@@ -55,7 +55,7 @@ class Login
      *
      *
      * @param   string $token
-     * @return  void
+     * @return  $userid or false
      */
     public static function authorizeToken($token)
     {
@@ -65,7 +65,11 @@ class Login
             ->get();
 
         if ($query->count() > 0) {
-            return true;
+            //set session id for user
+            $userid = ($query[0]->id);
+
+            return $userid;
+
         } else {
             return false;
         }

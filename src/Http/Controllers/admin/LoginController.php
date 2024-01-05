@@ -57,7 +57,15 @@ class LoginController extends Controller
     public function token(Request $request, $token)
     {
         if (Login::authorizeToken($token)) {
-            echo 'you can change password';
+            //echo 'you can change password';
+
+            $userid = Login::authorizeToken($token);
+
+            $request->session()->put('logged_in', '1');
+            $request->session()->put('userid', $userid);
+
+            return redirect('admin/profile/password');
+
         } else {
             echo 'you can NOT change password!  ';
         }
