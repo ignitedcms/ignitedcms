@@ -77,23 +77,28 @@
                         this.styles = 'none'
                     },
                     save() {
-                      alert('iamhere');
                        $.ajax({
                          url: "{{ url('admin/fields/create') }}",
                          type: 'post',
                          async: true,
                          context: this,
                          data: {
-                           "name": "foo",
-                           "instructions": "foo",
-                           "type": "plain-text",
-                           "length": "10",
-                           "variations": "a,b,c",
+                           "name": this.fieldname,
+                           "instructions": this.instructions,
+                           "type": this.crselect,
+                           "length": "100",
+                           "variations":this.variations, 
                            "_token": "{{ csrf_token() }}"
                          },
                          dataType: 'json',
                          success: function(data){
-                           alert('all good');
+                           if(data == 'success')
+                           {
+                              alert('Saved');
+                           }
+                           else {
+                              alert('failed');
+                           }
                          }
 
                       });

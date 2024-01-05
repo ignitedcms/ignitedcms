@@ -28,7 +28,7 @@
                                         [url,content,id,section,field,entryid,entrytitle]
                                     </span>
                                 </div>
-                                <input class="form-control" name="name" value="{{ old('name') }}"
+                                <input class="form-control" v-model="fieldname" value="{{ old('name') }}"
                                     placeholder="Start typing" />
                                 @error('name')
                                     <div class="small text-danger">{{ $message }}</div>
@@ -39,7 +39,7 @@
                                 <div class="small text-muted">
                                     Helper text to guide the author
                                 </div>
-                                <input class="form-control" name="instructions" value="{{ old('instructions') }}"
+                                <input class="form-control" v-model="instructions" value="{{ old('instructions') }}"
                                     placeholder="Start typing" />
                                 @error('instructions')
                                     <div class="small text-danger">{{ $message }}</div>

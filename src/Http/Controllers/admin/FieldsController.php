@@ -20,8 +20,8 @@ use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class FieldsController extends Controller
 {
@@ -40,7 +40,7 @@ class FieldsController extends Controller
 
     public function create(Request $request)
     {
-         $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
 
             'name' => [
                 'required',
@@ -95,8 +95,7 @@ class FieldsController extends Controller
             $formValidation
         );
 
-         return response()->json('success');
-        //return redirect('admin/fields')->with('status', 'Field added successfully');
+        return response()->json('success');
     }
 
     public function createView()
