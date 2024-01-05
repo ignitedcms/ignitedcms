@@ -8,7 +8,7 @@
               <div class="p-3">
                  <h4>Sections</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/section-types" target="_blank">Sections</a>
+                 <a href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
               </div>
            </drawer>
 
