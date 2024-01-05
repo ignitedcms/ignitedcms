@@ -42,7 +42,9 @@
                                 </div>
                                 <input class="form-control" v-model="fieldname" value=""
                                     placeholder="Start typing" />
-                                    <div class="small text-danger"></div>
+                                    <div class="small text-danger">
+                                      @{{ fieldnameError }}
+                                    </div>
                             </div>
                             <div class="form-group">
                                 <label for="title">Instructions</label>

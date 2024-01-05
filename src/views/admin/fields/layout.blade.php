@@ -57,6 +57,7 @@
                     styles: 'none',
                     crselect: 'plain-text',
                     fieldname: '',
+                    fieldnameError: '',
                     instructions: '',
                     fieldlength: '100',
                     filetype: 'jpg|png|gif',
@@ -97,7 +98,7 @@
                              window.location.href = '{{ url('admin/fields') }}'
                            }
                            else {
-                              alert(JSON.stringify(data));
+                              this.fieldnameError = data.name;
                               this.$refs.toast.showToast(4000);
                            }
                          }
