@@ -15,7 +15,6 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-//use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Illuminate\Http\Request;
@@ -74,6 +73,11 @@ class FieldsController extends Controller
         */
         $formValidation = '';
 
+        /*                                                                          
+        |---------------------------------------------------------------            
+        | Here we need to sanity check csv on variations
+        |---------------------------------------------------------------            
+        */       
         if ($type == 'plain-text') {
             $formValidation = "max:$length";
         } elseif ($type == 'multi-line') {
@@ -81,6 +85,10 @@ class FieldsController extends Controller
         } elseif ($type == 'rich-text') {
             $formValidation = '';
         } elseif ($type == 'drop-down') {
+            $formValidation = '';
+        } elseif ($type == 'check-box') {
+            $formValidation = '';
+        } elseif ($type == 'file-upload') {
             $formValidation = '';
         } else {
             $formValidation = '';
