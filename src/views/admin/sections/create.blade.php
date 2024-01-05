@@ -3,6 +3,40 @@
     <div class="full-screen" id="app">
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3">
+
+            @if (session('status'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-black">Success</div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
+
+            @if (session('errors'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
+         
+
             <form action="{{ url('admin/section/create') }}" method="POST">
                 @csrf
 
@@ -15,6 +49,12 @@
                     </div>
                     <div class="breadcrumb-item">Create section</div>
                 </div>
+
+
+
+            
+
+
                 <!--main part for section styles -->
                 <div class="panel br drop-shadow">
                     <div class="row">

@@ -2,6 +2,25 @@
 @section('content')
     <div class="full-screen" id="app">
         @include('ignitedcms::admin.sidebar')
+      
+         @if (session('errors'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+         @endif
+
+
         <div class="main-content p-3">
             <form action='{{ url("admin/section/update/$id") }}' method="POST">
                 @csrf

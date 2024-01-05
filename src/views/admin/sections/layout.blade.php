@@ -86,6 +86,7 @@
                     }
                 },
                 mounted() {
+                   
                     var list1 = document.getElementById('list1');
                     var list2 = document.getElementById('list2');
 
@@ -99,6 +100,8 @@
                         group: 'shared',
                         animation: 150
                     });
+                  
+                    this.$refs.toast.showToast(4000);
                 }
             });
         </script>
