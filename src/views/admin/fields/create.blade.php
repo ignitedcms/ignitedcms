@@ -12,6 +12,18 @@
                     </div>
                     <div class="breadcrumb-item">Add new field</div>
                 </div>
+   
+                <div class="toasts">
+                   <toast ref="toast">
+                      <div class="p-2">
+                         <div class="text-danger">Error</div>
+                         <div class="text-danger small">
+                            An error occurred
+                         </div>
+                      </div>
+                   </toast>
+
+                </div>               
 
                 <!--main part for section styles -->
                 <div class="panel br drop-shadow">
@@ -28,22 +40,18 @@
                                         [url,content,id,section,field,entryid,entrytitle]
                                     </span>
                                 </div>
-                                <input class="form-control" v-model="fieldname" value="{{ old('name') }}"
+                                <input class="form-control" v-model="fieldname" value=""
                                     placeholder="Start typing" />
-                                @error('name')
-                                    <div class="small text-danger">{{ $message }}</div>
-                                @enderror
+                                    <div class="small text-danger"></div>
                             </div>
                             <div class="form-group">
                                 <label for="title">Instructions</label>
                                 <div class="small text-muted">
                                     Helper text to guide the author
                                 </div>
-                                <input class="form-control" v-model="instructions" value="{{ old('instructions') }}"
+                                <input class="form-control" v-model="instructions" value=""
                                     placeholder="Start typing" />
-                                @error('instructions')
-                                    <div class="small text-danger">{{ $message }}</div>
-                                @enderror
+                                    <div class="small text-danger"></div>
                             </div>
 
                             <div class="form-group">
@@ -69,9 +77,7 @@
                                     <div class="small text-muted">(Must be valid whole number)</div>
                                     <input v-model="fieldlength" type="text" class="form-control"  name="length" value="">
 
-                                    @error('length')
-                                        <div class="small text-danger">{{ $message }}</div>
-                                    @enderror
+                                    <div class="small text-danger"></div>
 
                                 </div>
                             </div>

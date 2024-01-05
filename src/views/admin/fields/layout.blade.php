@@ -94,10 +94,11 @@
                          success: function(data){
                            if(data == 'success')
                            {
-                              alert('Saved');
+                             window.location.href = '{{ url('admin/fields') }}'
                            }
                            else {
-                              alert('failed');
+                              alert(JSON.stringify(data));
+                              this.$refs.toast.showToast(4000);
                            }
                          }
 
