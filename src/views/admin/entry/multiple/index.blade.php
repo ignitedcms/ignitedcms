@@ -5,11 +5,6 @@
         <div class="main-content p-3" id="main-content">
 
 
-            @if (session('status'))
-                <div class="alert alert-success m-b-3">
-                    {{ session('status') }}
-                </div>
-            @endif
 
             @if (session('error'))
                 <div class="alert alert-danger m-b-3">
