@@ -70,8 +70,12 @@
 
                     <!--drag and drop content-->
                     <div class="nothing">
-                        <div class="alert alert-info m-t-2 m-b-2">Drag and drop the fields you need, reorder and click save
-                        </div>
+                       <div class="alert alert-success m-t-2 m-b-2">
+                          <div class="text-black">Information</div>
+                          <div class="small text-muted">
+                             Drag and drop the fields you need, reorder and click save
+                          </div>
+                       </div>
                     </div>
 
                     <!--create hidden input and sent to controller-->
