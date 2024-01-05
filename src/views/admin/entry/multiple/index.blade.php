@@ -156,11 +156,11 @@
                           <h3>{{ $sectionname }}</h3>
                        </div>
                        <div class="col-6 right">
-                          <tooltip link="Delete selected items?"  class="pull-right">
+                          <popover link="Delete selected items?"  class="pull-right">
 
                           <button type="submit" class="rm-btn-styles ">Ok</button>
 
-                          </tooltip>
+                          </popover>
                        </div>
                     </div>
                     <div class="clearfix"></div>
