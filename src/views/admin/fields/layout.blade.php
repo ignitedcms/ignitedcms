@@ -75,10 +75,32 @@
                     away() {
                         this.show = false;
                         this.styles = 'none'
+                    },
+                    save() {
+                      alert('iamhere');
+                       $.ajax({
+                         url: "{{ url('admin/fields/create') }}",
+                         type: 'post',
+                         async: true,
+                         context: this,
+                         data: {
+                           "name": "foo",
+                           "instructions": "foo",
+                           "type": "plain-text",
+                           "length": "10",
+                           "variations": "a,b,c",
+                           "_token": "{{ csrf_token() }}"
+                         },
+                         dataType: 'json',
+                         success: function(data){
+                           alert('all good');
+                         }
+
+                      });
                     }
                 },
                 mounted() {
-                     this.$refs.toast.showToast(4000);
+                    // this.$refs.toast.showToast(4000);
                 }
             });
         </script>

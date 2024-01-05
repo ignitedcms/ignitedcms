@@ -3,8 +3,6 @@
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
         <div class="main-content p-3" id="main-content">
-            <form action="{{ url('admin/fields/create') }}" method="POST">
-                @csrf
                 <div class="breadcrumb m-b-3">
                     <div class="breadcrumb-item">
                         <a href="{{ url('admin/dashboard') }}">Dashboard</a>
@@ -119,11 +117,10 @@
                 </div>
                 <div class="row">
                     <div class="col-12 right">
-                        <button type="submit" class="m-l btn btn-primary">Save</button>
+                        <button type="submit" @click="save" class="m-l btn btn-primary">Save</button>
                     </div>
                 </div>
 
-            </form>
         </div>
     </div>
 @endsection

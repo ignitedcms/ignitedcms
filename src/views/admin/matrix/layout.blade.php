@@ -83,7 +83,7 @@
                         this.show = false;
                         this.styles = 'none'
                     },
-                     save: function () {
+                     save() {
    
                      $.ajax({
                        url: "{{ url('admin/matrix/create') }}",
@@ -127,7 +127,7 @@
                        }
                      }); /*End ajax*/
                    },
-                  someFunc: function () {
+                  someFunc () {
 
                    @include('ignitedcms::admin.matrix.vue-ajax');
 

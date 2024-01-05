@@ -39,21 +39,21 @@ class FieldsController extends Controller
 
     public function create(Request $request)
     {
-        $validated = $request->validate([
-            'name' => [
-                'required',
-                'lowercase',
-                'alpha:ascii',
-                'unique:fields',
-                Rule::notIn(['url', 'content', 'id', 'section', 'field',
-                    'entryid', 'entrytitle']),
-            ],
+        //$validated = $request->validate([
+            //'name' => [
+                //'required',
+                //'lowercase',
+                //'alpha:ascii',
+                //'unique:fields',
+                //Rule::notIn(['url', 'content', 'id', 'section', 'field',
+                    //'entryid', 'entrytitle']),
+            //],
 
-            'instructions' => '',
-            'type' => 'required',
-            'length' => 'integer',
-            'variations' => '',
-        ]);
+            //'instructions' => '',
+            //'type' => 'required',
+            //'length' => 'integer',
+            //'variations' => '',
+        //]);
 
         $name = $request->input('name');
         $instructions = $request->input('instructions');
@@ -89,7 +89,8 @@ class FieldsController extends Controller
             $formValidation
         );
 
-        return redirect('admin/fields')->with('status', 'Field added successfully');
+         return response()->json('success');
+        //return redirect('admin/fields')->with('status', 'Field added successfully');
     }
 
     public function createView()
