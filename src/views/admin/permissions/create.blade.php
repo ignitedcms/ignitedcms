@@ -13,6 +13,42 @@
                 <div class="breadcrumb-item">Add new group</div>
             </div>
 
+            @if (session('status'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-black">Success</div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
+
+   
+            @if (session('errors'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
+
+
+
+
             <!--main part for section styles -->
             <form action="{{ url('admin/permissions/create') }} " method="POST">
                @csrf
