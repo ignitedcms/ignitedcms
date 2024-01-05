@@ -44,10 +44,7 @@
 
             <div class="alert alert-success">
                <div class="text-black">Information</div>
-               <div class="small text-muted">
-                  Struggling to upload a large file greater than 5mb? Use 
-                  our large asset file <a href="#">uploader</a>
-               </div>
+               <div class="small text-muted">Upload all your media here</div>
             </div>
 
             <div class="row">
