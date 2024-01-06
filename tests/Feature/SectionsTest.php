@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class SectionsTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_sections_page()
     {
         //$this->withoutExceptionHandling();
@@ -16,5 +17,4 @@ class SectionsTest extends TestCase
 
         $response->assertSee('Sections');
     }
-
 }

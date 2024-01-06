@@ -20,10 +20,10 @@ class FieldsTest extends TestCase
 
     public function test_insert_field()
     {
-       $response = $this->withSession([
-          'logged_in' => 1, 
-          'userid' => '1'
-       ])
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ])
             ->post('admin/fields/create', [
                 'name' => 'foo',
                 'instructions' => 'foo',
@@ -32,32 +32,37 @@ class FieldsTest extends TestCase
                 'variations' => '',
             ]);
 
-
         $this->assertDatabaseHas('fields', [
             'name' => 'foo',
         ]);
     }
 
-    /*                                                                          
-    |---------------------------------------------------------------            
-    | Need to figure out how to test ajax
-    |---------------------------------------------------------------            
-    */       
+    /*
+    |---------------------------------------------------------------
+    | Special case for testing ajax responses
+    |---------------------------------------------------------------
+    */
     public function test_insert_field_noname()
     {
-       //$response = $this->withSession([
-          //'logged_in' => 1, 
-          //'userid' => '1'
-       //])
-            //->post('admin/fields/create', [
-                //'name' => '',
-                //'instructions' => 'foo',
-                //'type' => 'plain-text',
-                //'length' => '100',
-                //'variations' => '',
-            //]);
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ]);
 
-      //$response->assertSessionHasErrors('name');
+        $requestData = [
+            'name' => '',
+            'instructions' => 'foo',
+            'type' => 'plain-text',
+            'length' => '100',
+            'variations' => '',
+        ];
 
+        $response = $this->json('POST', 'admin/fields/create', $requestData);
+
+        $response->assertStatus(200) // assert the expected status code
+            ->assertJson([    // assert the expected JSON response
+                'name' => ['The name field is required.'],
+                // assert other expected response data
+            ]);
     }
 }
