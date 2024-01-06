@@ -37,6 +37,37 @@ class FieldsTest extends TestCase
         ]);
     }
 
+    public function test_duplicate_field()
+    {
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ])
+            ->post('admin/fields/create', [
+                'name' => 'foo',
+                'instructions' => 'foo',
+                'type' => 'plain-text',
+                'length' => '100',
+                'variations' => '',
+            ]);
+
+        $requestData = [
+            'name' => 'foo',
+            'instructions' => 'foo',
+            'type' => 'plain-text',
+            'length' => '100',
+            'variations' => '',
+        ];
+
+        $response = $this->json('POST', 'admin/fields/create', $requestData);
+
+        $response->assertStatus(200) // assert the expected status code
+            ->assertJson([    // assert the expected JSON response
+                'name' => ['The name has already been taken.'],
+                // assert other expected response data
+            ]);
+    }
+
     /*
     |---------------------------------------------------------------
     | Special case for testing ajax responses
