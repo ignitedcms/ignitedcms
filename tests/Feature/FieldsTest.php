@@ -96,4 +96,52 @@ class FieldsTest extends TestCase
                 // assert other expected response data
             ]);
     }
+
+    public function test_insert_field_reserved_word()
+    {
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ]);
+
+        $requestData = [
+            'name' => 'url',
+            'instructions' => 'foo',
+            'type' => 'plain-text',
+            'length' => '100',
+            'variations' => '',
+        ];
+
+        $response = $this->json('POST', 'admin/fields/create', $requestData);
+
+        $response->assertStatus(200) // assert the expected status code
+            ->assertJson([    // assert the expected JSON response
+                'name' => ['The selected name is invalid.'],
+                // assert other expected response data
+            ]);
+    }
+
+    //not sure why not working!
+    public function test_insert_field_csv()
+    {
+         $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ])
+            ->post('admin/fields/create', [
+                'name' => 'tester',
+                'instructions' => 'ello',
+                'type' => 'drop-down',
+                'length' => '100',
+                'variations' => "a,b,c"
+            ]);
+
+        $this->assertDatabaseHas('fields', [
+            'name' => 'tester',
+        ]);
+
+
+    }
+    
+
 }
