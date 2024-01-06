@@ -1,6 +1,7 @@
 <?php
 
 namespace Ignitedcms\Ignitedcms\Tests;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AssetTest extends TestCase
@@ -17,7 +18,4 @@ class AssetTest extends TestCase
         $response->assertSee('Upload all your media here');
 
     }
-
-
 }
-

@@ -37,7 +37,7 @@ class ProfileTest extends TestCase
     public function test_profile_update_no_password()
     {
 
-      $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+        $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
             ->post('admin/profile/password', [
                 'password' => '',
             ]);

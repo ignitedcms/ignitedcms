@@ -1,11 +1,13 @@
 <?php
 
 namespace Ignitedcms\Ignitedcms\Tests;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PermissionTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_permissions_dashboard()
     {
         //$this->withoutExceptionHandling();
