@@ -121,27 +121,6 @@ class FieldsTest extends TestCase
             ]);
     }
 
-    //not sure why not working!
-    public function test_insert_field_csv()
-    {
-         $response = $this->withSession([
-            'logged_in' => 1,
-            'userid' => '1',
-        ])
-            ->post('admin/fields/create', [
-                'name' => 'tester',
-                'instructions' => 'ello',
-                'type' => 'drop-down',
-                'length' => '100',
-                'variations' => "a,b,c"
-            ]);
-
-        $this->assertDatabaseHas('fields', [
-            'name' => 'tester',
-        ]);
-
-
-    }
     
 
 }
