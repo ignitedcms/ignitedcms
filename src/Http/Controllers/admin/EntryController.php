@@ -111,32 +111,6 @@ class EntryController extends Controller
     {
         $data = Entry::sectionAllFields($sectionid);
 
-        /*
-        |---------------------------------------------------------------
-        | Check if multiple
-        |---------------------------------------------------------------
-        |
-        | If true we need to save the entrytitle POST data
-        |
-        */
-
-        //hidden input to detect multiples
-        //$xxx = $request->input('xxx');
-
-        //$sectionname = Entry::get_section_name($sectionid);
-
-        //if ($xxx != null) {
-        //$entrytitle = $request->input('entrytitle');
-        //$validated = $request->validate([
-        //'entrytitle' => [
-        //'required',
-        //'min:1',
-        //'regex:/^(?!-)(?!.*--)[a-z-]+(?<!-)$/',
-        //],
-
-        //]);
-        //Entry::save_to_content_as_multiple($sectionid, $entryid, $entrytitle);
-        //}
 
         /*
         |---------------------------------------------------------------
@@ -146,21 +120,24 @@ class EntryController extends Controller
         | Saving is fine except for checkboxes . . .
         */
 
+        //get the userid
+        $userid = session('userid');
+
         foreach ($data as $row) {
             if ($row->type != 'check-box') {
                 //not a checkbox all good save to db
                 $postdata = $request->input($row->name);
-                Entry::saveToContent($entryid, $row->name, $postdata);
+                Entry::saveToContent($userid, $entryid, $row->name, $postdata);
             } else {
                 $postdata = $request->input($row->name);
                 if ($postdata == null) {
                     //no postdata so save a blank string to db
-                    Entry::saveToContent($entryid, $row->name, '');
+                    Entry::saveToContent($userid, $entryid, $row->name, '');
                 } else {
                     //postdata true so format to csv and
                     //save to db
                     $csv = Entry::checkboxFormat($postdata);
-                    Entry::saveToContent($entryid, $row->name, $csv);
+                    Entry::saveToContent($userid, $entryid, $row->name, $csv);
                 }
             }
         }
