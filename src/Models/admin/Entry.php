@@ -60,15 +60,12 @@ class Entry
     }
 
     //save or rather update as entry already exists
-    public static function saveToContent($userid, $entryid, $fieldname, $data)
+    public static function saveToContent($entryid, $fieldname, $data)
     {
 
         $affected = DB::table('content')
             ->where('entryid', $entryid)
-            ->update([
-               $userid => $userid,
-               $fieldname => $data
-            ]);
+            ->update([$fieldname => $data]);
     }
 
     //A funky way to handle single rich text fields in the entries
