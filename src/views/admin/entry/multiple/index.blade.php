@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-9 right">
 
-                    <a href="{{ url(Helper::getSectionName($sectionid)) }}" target="_blank"
+                    <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
                   
 
