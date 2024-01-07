@@ -20,6 +20,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Section;
+use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -55,17 +56,37 @@ class SectionController extends Controller
             ],
             'sectiontype' => 'required',
             'order' => 'required',
+            'template' => '',
         ]);
+         
+        //null or on
+        $template = $request->input('template');   
+        $sectiontype = $request->input('sectiontype');
+
+
 
         $name = $request->input('name');
-        $sectiontype = $request->input('sectiontype');
         $fields = $request->input('order');
 
         if ($sectiontype == 'global' && Section::doesGlobalConflictWithMatrix($name)) {
             return redirect('admin/section')->with('error', 'Failed matrix conflict');
         }
 
-        Section::create($name, $sectiontype, $fields);
+        $sid = Section::create($name, $sectiontype, $fields);
+
+        //Let's build the template if selected
+        if($template == 'on')
+        {
+           if($sectiontype == 'single')
+           {
+             Template_builder::buildSingle($sid);
+           }
+
+           if($sectiontype == 'multiple')
+           {
+              Template_builder::buildMultiple($sid);
+           }
+        }
 
         return redirect('admin/section')->with('status', 'Section created');
     }

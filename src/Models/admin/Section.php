@@ -50,7 +50,20 @@ class Section
 
     }
 
-    public static function create($name, $sectiontype, $fields)
+    /*
+     * Create section, and if needed template
+     *
+     *
+     * @param   string $name
+     * @param   string $sectiontype
+     * @param   csvarray $fields
+     * @return  int $sectionid
+     */
+    public static function create(
+       $name,
+       $sectiontype,
+       $fields
+    )
     {
         DB::table('section')->insert([
             'name' => $name,
@@ -60,6 +73,8 @@ class Section
         //Grab the insertid to use for section
         //layout
         $insert_id = DB::getPdo()->lastInsertId();
+
+        //If template is true let's create it
 
         /*
         |---------------------------------------------------------------
@@ -121,6 +136,8 @@ class Section
                 'controller' => "admin/parser/display/$insert_id/$entry_id",
             ]);
         }
+
+        return $insert_id;
     }
 
     public static function update($id, $fields)

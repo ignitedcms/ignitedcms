@@ -30,10 +30,9 @@ class Template_builder
      *
      *
      * @param   int $sectionid
-     * @param   int $entryid
      * @return  void Writes files to views directory
      */
-    public static function buildSingle($sectionid, $entryid)
+    public static function buildSingle($sectionid)
     {
 
         $sectionname = self::getSectionName($sectionid);

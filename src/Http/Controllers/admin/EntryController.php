@@ -15,12 +15,10 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-//use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
-//use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -53,20 +51,6 @@ class EntryController extends Controller
         ]);
     }
 
-    //public function buildSingle($sid, $eid)
-    //{
-        //Template_builder::buildSingle($sid, $eid);
-
-        //return redirect("admin/entry/update/$sid/$eid");
-
-    //}
-
-    //public function buildMultiple($sid)
-    //{
-        //Template_builder::buildMultiple($sid);
-
-        //return redirect("admin/multiple/$sid");
-    //}
 
     public function updateView($sectionid, $entryid)
     {

@@ -174,12 +174,8 @@
                            </div>
                            <div class="col no-margin right">
                               <div>
-                                 <label for="title"></label> 
                                  <div class="m-b"></div>
-                                 <label class="form-switch">
-                                    <input type="checkbox" role="switch"> <i></i> 
-                                    <div class="switch-text no-select">Yes/No</div>
-                                 </label>
+                                 <switch-ios value="" name="template"></switch-ios>
                               </div>
                            </div>
                         </div>
