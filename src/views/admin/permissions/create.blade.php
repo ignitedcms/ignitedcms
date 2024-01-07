@@ -86,15 +86,16 @@
 
 
                   </div>
-
-               </div>
-               <div class="row">
-                  <div class="col-12 right">
-                     <button type="submit" class="m-l btn btn-primary">Save</button>
+                  <div class="row">
+                     <div class="col-12 right">
+                        <button type="submit" class="m-l btn btn-primary">Save</button>
+                     </div>
                   </div>
                </div>
+               
             </form>
 
+        <div class="gap"></div>
         </div>
     </div>
 @endsection
