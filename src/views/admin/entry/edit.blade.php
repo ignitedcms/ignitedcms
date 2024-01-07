@@ -38,9 +38,18 @@
             @endif
 
             @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-black">Success</div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
 
             <!--main part for section styles -->

@@ -176,6 +176,8 @@
                   
                 },
                 mounted() {
+                  
+
                 var self = this;
                  self.$nextTick(function(){
                    var sortable = Sortable.create(document.getElementById('items'), {
@@ -194,6 +196,8 @@
                      }
                    }); 
                  });
+
+                this.$refs.toast.showToast(4000);
                },
             });
         </script>
