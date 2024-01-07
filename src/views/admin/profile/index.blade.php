@@ -20,6 +20,13 @@
                 <div class="breadcrumb-item">Profile</div>
             </div>
 
+            <div class="alert alert-success m-b-3">
+               <div class="text-black">Information</div>
+               <div class="text-muted small">
+                  Save your full name or change your password here
+               </div>
+            </div>
+
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">

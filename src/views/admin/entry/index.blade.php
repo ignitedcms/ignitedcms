@@ -20,6 +20,14 @@
                 <div class="breadcrumb-item">Entry</div>
             </div>
 
+            <div class="alert alert-success m-b-3">
+               <div class="text-black">Information</div>
+               <div class="text-muted small">
+                  Create and edit the content for your
+                  section types here
+               </div>
+            </div>
+
             <!--main part for section styles -->
             <div class="panel br drop-shadow p-b-5">
 

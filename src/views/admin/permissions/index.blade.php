@@ -20,6 +20,16 @@
                 <div class="breadcrumb-item">Permissions</div>
             </div>
 
+            <div class="alert alert-success m-b-3">
+               <div class="text-black">Information</div>
+               <div class="text-muted small">
+                  Add new permission groups, so you can
+                  control what your users have visibility to 
+                  on their dashboard
+
+               </div>
+            </div>
+
             <div class="row">
                 <div class="col-12 right">
                     <a href="{{ url('admin/permissions/create') }}">

@@ -19,6 +19,13 @@
                 <div class="breadcrumb-item">Fields</div>
             </div>
 
+            <div class="alert alert-success m-b-3">
+               <div class="text-black">Information</div>
+               <div class="text-muted small">
+                  Add new fields here
+               </div>
+            </div>
+
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
