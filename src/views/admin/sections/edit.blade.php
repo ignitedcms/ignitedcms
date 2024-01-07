@@ -117,7 +117,7 @@
                                style="min-height:200px;"  >
 
                                 @foreach ($data as $field)
-                                    <?php if(Helper::isFieldInSection($field->id, $id)) : ?>
+                                    <?php if(isFieldInSection($field->id, $id)) : ?>
                                     <div class="pill" id="{{ $field->id }}">
                                         <div>{{ $field->name }}</div>
                                         <div>
