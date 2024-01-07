@@ -31,7 +31,6 @@ Finally, publish the assets by running, do NOT skip this step!
 
 ```
 php artisan vendor:publish --tag=assets --force
-php artisan vendor:publish --tag=helper --force
 php artisan vendor:publish --tag=config --force
 php artisan vendor:publish --tag=views --force
 ```
