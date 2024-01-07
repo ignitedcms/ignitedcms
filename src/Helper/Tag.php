@@ -360,6 +360,7 @@ if (! function_exists('isChecked')) {
                 $stopper = false;
             }
         }
+
         return $stopper;
     }
 }

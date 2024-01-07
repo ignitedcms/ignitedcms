@@ -37,6 +37,44 @@ class FieldsTest extends TestCase
         ]);
     }
 
+    public function test_insert_a_csv()
+    {
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ])
+            ->post('admin/fields/create', [
+                'name' => 'hello',
+                'instructions' => 'foo',
+                'type' => 'drop-down',
+                'length' => '100',
+                'variations' => 'a,b,c',
+            ]);
+
+        $this->assertDatabaseHas('fields', [
+            'name' => 'hello',
+        ]);
+    }
+
+    public function test_insert_a_malformed_csv()
+    {
+        $response = $this->withSession([
+            'logged_in' => 1,
+            'userid' => '1',
+        ])
+            ->post('admin/fields/create', [
+                'name' => 'hellothere',
+                'instructions' => 'foo',
+                'type' => 'drop-down',
+                'length' => '100',
+                'variations' => 'a,b,,.c',
+            ]);
+
+        $this->assertDatabaseMissing('fields', [
+            'name' => 'hellothere',
+        ]);
+    }
+
     public function test_duplicate_field()
     {
         $response = $this->withSession([
