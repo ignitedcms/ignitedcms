@@ -152,6 +152,41 @@
                         </div>
                     </div>
                     <!--end-->
+
+                  <div class="form-group">
+                     <div class="p-2 bg-white  b br">
+                        <div class="row">
+                           <div class="col no-margin">
+                              <div class="row">
+                                 <div class="col no-margin">
+                                    <div class="text-black">Template builder</div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col no-margin">
+                                    <div class="small text-muted">
+                                       Enabling this will automatically create and
+                                       overwrite the template in the 
+                                       resources > views > custom directory.
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col no-margin right">
+                              <div>
+                                 <label for="title"></label> 
+                                 <div class="m-b"></div>
+                                 <label class="form-switch">
+                                    <input type="checkbox" role="switch"> <i></i> 
+                                    <div class="switch-text no-select">Yes/No</div>
+                                 </label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+
                     <div class="row">
                        <div class="col-12 right">
                           <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
