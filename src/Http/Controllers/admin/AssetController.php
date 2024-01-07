@@ -136,7 +136,7 @@ class AssetController extends Controller
     public function update(Request $request, $assetId)
     {
         $validated = $request->validate([
-            'alt_title' => 'required',
+            'alt_title' => '',
         ]);
         //If pass then let's update the db
         Asset::updateAltTitle($assetId, $request->alt_title);

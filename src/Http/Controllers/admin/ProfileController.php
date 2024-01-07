@@ -46,7 +46,7 @@ class ProfileController extends Controller
         $userid = session('userid');
 
         $validated = $request->validate([
-            'fullname' => 'required|max:255',
+            'fullname' => 'max:255',
         ]);
 
         $fullname = $request->input('fullname');

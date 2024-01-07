@@ -75,7 +75,6 @@ class UserController extends Controller
 
         $permissionGroupId = Users::usersPermissionGroup($id);
 
-
         return view('ignitedcms::admin.users.edit')->with([
             'data' => $data,
             'email' => $email,
