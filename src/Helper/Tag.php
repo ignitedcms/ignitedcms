@@ -1,5 +1,4 @@
 <?php
-
 /*
 |---------------------------------------------------------------
 | Global helper functions
@@ -7,6 +6,10 @@
 |
 | Used in various files controllers and views
 |
+| @author: IgnitedCMS
+| @license: MIT
+| @version: 1.0
+| @since: 1.0
 */
 
 if (! function_exists('validSelect')) {
@@ -44,7 +47,6 @@ if (! function_exists('validVariableNames')) {
         } else {
             return false;
         }
-
     }
 }
 
@@ -94,7 +96,6 @@ if (! function_exists('notInArray')) {
         }
 
         return $pass;
-
     }
 }
 
@@ -148,7 +149,6 @@ if (! function_exists('isFieldInSection')) {
         } else {
             return true;
         }
-
     }
 }
 
@@ -166,5 +166,213 @@ if (! function_exists('getContent')) {
             return false;
         }
 
+    }
+}
+
+if (! function_exists('getThumb')) {
+    function getThumb($entryid, $fieldname)
+    {
+        $rows = DB::table('content')
+            ->select($fieldname)
+            ->where('entryid', '=', $entryid)
+            ->get();
+
+        $id = $rows[0]->$fieldname;
+
+        $rows2 = DB::table('assetfields')
+            ->select('thumb')
+            ->where('id', '=', $id)
+            ->get();
+
+        if ($rows2->count() > 0) {
+            return $rows2[0]->thumb;
+        } else {
+            return false;
+        }
+    }
+}
+
+if (! function_exists('getAsset')) {
+    function getAsset($assetid)
+    {
+        $rows = DB::table('assetfields')
+            ->select('url')
+            ->where('id', '=', $assetid)
+            ->get();
+
+        if ($rows->count() > 0) {
+            return $rows[0]->url;
+        } else {
+            return false;
+        }
+    }
+}
+
+if (! function_exists('getSwitchState')) {
+    function getSwitchState($entryid, $fieldname)
+    {
+        $rows = DB::table('content')
+            ->select($fieldname)
+            ->where('entryid', '=', $entryid)
+            ->get();
+
+        if ($rows[0]->$fieldname == '0') {
+            return '';
+        } else {
+            return 'checked';
+        }
+    }
+}
+
+if (! function_exists('getEntrytitle')) {
+    function getEntrytitle($entryid)
+    {
+        $rows = DB::table('content')
+            ->select('entrytitle')
+            ->where('entryid', '=', $entryid)
+            ->get();
+
+        if (strlen($rows[0]->entrytitle) > 0) {
+            return $rows[0]->entrytitle;
+        } else {
+            return 'No title';
+        }
+    }
+}
+
+if (! function_exists('isMultiple')) {
+    function isMultiple($sectionid)
+    {
+        $rows = DB::table('section')
+            ->select('sectiontype')
+            ->where('id', '=', $sectionid)
+            ->limit(1)
+            ->get();
+
+        $type = $rows[0]->sectiontype;
+
+        if ($type == 'multiple') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+if (! function_exists('isSingle')) {
+    function isSingle($sectionid)
+    {
+        $rows = DB::table('section')
+            ->select('sectiontype')
+            ->where('id', '=', $sectionid)
+            ->limit(1)
+            ->get();
+
+        $type = $rows[0]->sectiontype;
+
+        if ($type == 'single') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+if (! function_exists('buildDropdown')) {
+
+    function buildDropdown($entryid, $fieldname)
+    {
+        //get saved content from db
+        $saved_content = getContent($entryid, $fieldname);
+
+        $rows = DB::table('fields')
+            ->where('name', '=', $fieldname)
+            ->limit(1)
+            ->get();
+
+        $line = $rows[0]->opts;
+
+        $csv = explode(',', $line);
+
+        foreach ($csv as $part) {
+            if ($part == $saved_content) {
+                echo "<option value='$part' selected>$part</option>";
+                echo '<br>';
+            } else {
+                echo "<option value='$part'>$part</option>";
+                echo '<br>';
+            }
+        }
+    }
+}
+
+if (! function_exists('buildCheckboxes')) {
+
+    function buildCheckboxes($entryid, $fieldname)
+    {        //get saved content from db
+        // Format "a,b,c"
+        $saved_content = getContent($entryid, $fieldname);
+
+        $csvarray = explode(',', $saved_content);
+        /*
+        |---------------------------------------------------------------
+        | IMPORTANT edge case
+        |---------------------------------------------------------------
+        |
+        | If not boxes are selected no POST data will be present to update
+        | database
+        |
+        */
+
+        $rows = DB::table('fields')
+            ->where('name', '=', $fieldname)
+            ->limit(1)
+            ->get();
+
+        $line = $rows[0]->opts;
+
+        $csv = explode(',', $line);
+
+        foreach ($csv as $part) {
+            // add the word 'checked' to the end of the input markup!
+            if (isChecked($part, $csvarray)) {
+                echo "<input name='$fieldname"."[]'"." value='$part' type='checkbox' class='form-check-input' checked>";
+                echo "<label for='$part'>$part</label>";
+                echo '<br>';
+            } else {
+                echo "<input name='$fieldname"."[]'"." value='$part' type='checkbox' class='form-check-input'>";
+                echo "<label for='$part'>$part</label>";
+                echo '<br>';
+            }
+        }
+    }
+}
+
+if (! function_exists('isChecked')) {
+    function isChecked($checkbox_name, $csvarray)
+    {
+        $stopper = false;
+        foreach ($csvarray as $row) {
+            if ($checkbox_name == $row) {
+                $stopper = true;
+                break;
+            } else {
+                $stopper = false;
+            }
+        }
+        return $stopper;
+    }
+}
+
+if (! function_exists('getSectionName')) {
+    function getSectionName($sectionid)
+    {
+        $data = DB::table('section')
+            ->where('id', '=', $sectionid)
+            ->select('name')
+            ->limit(1)
+            ->get();
+
+        return $data[0]->name;
     }
 }
