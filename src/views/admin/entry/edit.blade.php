@@ -60,30 +60,6 @@
                     <div class="col-3 v-a">
 
 
-                        @if (isSingle($sectionid) == true)
-                            <modal button-title="Create Template" modal-header="Create single template">
-                                <p class="p-2">
-                                <div class="rows">
-                                    <div class="col p-b-2">
-
-                                        <div class="form-group">
-
-                                            Warning this will overwrite any previous templates you have created
-                                            in the resources > views > custom folder. Are you sure?
-                                        </div>
-                                        <div class="form-group right">
-
-                                            <a href="{{ url("admin/entry/build_single/$sectionid/$entryid") }}"
-                                                class="btn btn-white m-r-2 rm-link-styles">Create template
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                </p>
-                            </modal>
-                        @endif
-
                     </div>
                     <div class="col-9 right">
 
