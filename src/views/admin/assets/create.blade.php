@@ -2,6 +2,25 @@
 @section('content')
     <div id="app" class="full-screen">
         @include('ignitedcms::admin.sidebar')
+
+         @if (session('errors'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
+
+
         <div class="main-content p-3" id="main-content">
 
             <form action="{{ url('admin/assets/create') }} " method="POST" 
@@ -30,18 +49,19 @@
                               
                               <file-upload name="file"> </file-upload>
                               @error('file')
-                                 <div class="small text-danger"> {{ $message }} </div>
+                                 <div class="small text-danger m-t"> {{ $message }} </div>
                               @enderror
                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 right">
-                        <button type="submit" 
-                           class="m-l btn btn-primary">Upload</button>
+                    <div class="row">
+                       <div class="col-12 right">
+                          <button type="submit" 
+                                  class="m-l btn btn-primary">Upload</button>
+                       </div>
                     </div>
                 </div>
+                
 
             </form>
         </div>
