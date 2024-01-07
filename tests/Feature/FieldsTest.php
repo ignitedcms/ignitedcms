@@ -120,7 +120,4 @@ class FieldsTest extends TestCase
                 // assert other expected response data
             ]);
     }
-
-    
-
 }

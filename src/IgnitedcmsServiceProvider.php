@@ -12,7 +12,7 @@ class IgnitedcmsServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        require_once(__DIR__.'/Helper/Tag.php');
+        require_once __DIR__.'/Helper/Tag.php';
 
         /*
          * Optional methods to load your package assets

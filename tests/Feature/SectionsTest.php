@@ -2,11 +2,10 @@
 
 namespace Ignitedcms\Ignitedcms\Tests;
 
-
-use Illuminate\Support\Facades\DB;
 use Ignitedcms\Ignitedcms\Models\admin\Section;
-
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+
 class SectionsTest extends TestCase
 {
     use RefreshDatabase;
@@ -23,19 +22,19 @@ class SectionsTest extends TestCase
 
     public function test_home_section()
     {
-      //first create a field
+        //first create a field
 
-      $insertid = DB::table('fields')->insertGetId([
-         'name' => 'foo',
-         'type' => 'plain-text'
-      ]);
+        $insertid = DB::table('fields')->insertGetId([
+            'name' => 'foo',
+            'type' => 'plain-text',
+        ]);
 
         $this->assertDatabaseHas('fields', [
             'name' => 'foo',
         ]);
 
-      Section::create('home','single', '1') ;
-       
+        Section::create('home', 'single', '1');
+
         $this->assertDatabaseHas('section', [
             'name' => 'home',
         ]);
