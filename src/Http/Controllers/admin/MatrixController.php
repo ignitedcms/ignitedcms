@@ -11,7 +11,6 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-use Helper;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
@@ -116,7 +115,7 @@ class MatrixController extends Controller
     {
         $fieldNames = Matrix::getFieldnames($matrixContent);
 
-        $isFieldUnique = Helper::notInArray($validationMatrix['title'], $fieldNames);
+        $isFieldUnique = notInArray($validationMatrix['title'], $fieldNames);
 
         if (! $isFieldUnique) {
             echo json_encode(['a' => 'Duplicate field name']);
@@ -128,8 +127,8 @@ class MatrixController extends Controller
                 $variations = $validationMatrix['variations'];
                 $variationsArray = Matrix::getVariations($variations);
 
-                $hasNoDuplicates = Helper::noDuplicates($variationsArray);
-                $isValidCsv = Helper::isValidCsvString($variations);
+                $hasNoDuplicates = noDuplicates($variationsArray);
+                $isValidCsv = isValidCsvString($variations);
 
                 if ($hasNoDuplicates && $isValidCsv) {
                     // Success case, do something
