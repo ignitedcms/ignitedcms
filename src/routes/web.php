@@ -145,8 +145,8 @@ Route::middleware('web')->group(function () {
     Route::post('/admin/entry/save/{sid}/{eid}', [EntryController::class, 'update']);
 
     //template generator to do make post request
-    Route::get('/admin/entry/build_single/{sid}/{eid}', [EntryController::class, 'buildSingle']);
-    Route::get('/admin/entry/build_multiple/{sid}', [EntryController::class, 'buildMultiple']);
+    //Route::get('/admin/entry/build_single/{sid}/{eid}', [EntryController::class, 'buildSingle']);
+    //Route::get('/admin/entry/build_multiple/{sid}', [EntryController::class, 'buildMultiple']);
 
     //template removal make post request
 

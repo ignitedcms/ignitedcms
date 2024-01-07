@@ -20,7 +20,7 @@ use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
 use Ignitedcms\Ignitedcms\Models\admin\Entry;
 use Ignitedcms\Ignitedcms\Models\admin\Matrix;
-use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
+//use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -53,36 +53,20 @@ class EntryController extends Controller
         ]);
     }
 
-    /*
-     * Write single template to view directory
-     *
-     *
-     * @param   int $sectionid
-     * @param   int $entryid
-     * @return  void Writes files
-     */
-    public function buildSingle($sid, $eid)
-    {
-        Template_builder::buildSingle($sid, $eid);
+    //public function buildSingle($sid, $eid)
+    //{
+        //Template_builder::buildSingle($sid, $eid);
 
-        return redirect("admin/entry/update/$sid/$eid");
+        //return redirect("admin/entry/update/$sid/$eid");
 
-    }
+    //}
 
-    /*
-     * Write folder AND file for multiples
-     *
-     *
-     * @param   int $sectionid
-     * @return  void Writes folder and files
-     */
-    public function buildMultiple($sid)
-    {
-        Template_builder::buildMultiple($sid);
+    //public function buildMultiple($sid)
+    //{
+        //Template_builder::buildMultiple($sid);
 
-        return redirect("admin/multiple/$sid");
-        //redirect
-    }
+        //return redirect("admin/multiple/$sid");
+    //}
 
     public function updateView($sectionid, $entryid)
     {
