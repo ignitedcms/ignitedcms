@@ -130,6 +130,9 @@
                         <div class="col-4">
                             <div class="nothing">
                                 <h4>Fields</h4>
+                                <div class="small text-muted m-b-2">
+                                    Drag and drop from RHS 
+                                </div>
                             </div>
                             <div id='list2' class='scroll-y bg-grey b br p-2' 
                               style="min-height:200px;">
@@ -149,14 +152,14 @@
                         </div>
                     </div>
                     <!--end-->
-
-                </div>
-
-                <div class="row">
-                    <div class="col-12 right">
-                        <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
+                    <div class="row">
+                       <div class="col-12 right">
+                          <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
+                       </div>
                     </div>
                 </div>
+
+                
 
                 <div class="gap"></div>
                 <!--end main part-->

@@ -132,14 +132,14 @@
                         </div>
                     </div>
                     <!--end-->
-
-                </div>
-
-                <div class="row">
-                    <div class="col-12 right">
-                        <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
+                    <div class="row">
+                       <div class="col-12 right">
+                          <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
+                       </div>
                     </div>
                 </div>
+
+                
 
                 <div class="gap"></div>
                 <!--end main part-->
