@@ -40,9 +40,9 @@ class IgnitedcmsServiceProvider extends ServiceProvider
             ], 'assets');
 
             // Publishing Helper.
-            $this->publishes([
+            /*$this->publishes([
                 __DIR__.'/Helper/Helper.php' => app_path('Helper/Helper.php'),
-            ], 'helper');
+            ], 'helper');*/
 
             // Publishing the translation files.
             /*$this->publishes([
