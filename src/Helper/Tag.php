@@ -17,8 +17,8 @@ if (! function_exists('validSelect')) {
             array_push($ar, $var->option);
         }
 
-        $a = self::noDuplicates($ar);
-        $b = self::validVariableNames($ar);
+        $a = noDuplicates($ar);
+        $b = validVariableNames($ar);
         if ($a && $b) {
             return true;
         } else {
@@ -63,7 +63,7 @@ if (! function_exists('isValidCsvString')) {
         $validate_count = 0;
         foreach ($data as $key) {
             // Also make sure string is only alphanumeric
-            if (self::alphaNumeric($key)) {
+            if (alphaNumeric($key)) {
                 $validate_count++;
             }
         }
@@ -131,5 +131,40 @@ if (! function_exists('checkPermissions')) {
                 echo 'checked';
             }
         }
+    }
+}
+
+if (! function_exists('isFieldInSection')) {
+    function isFieldInSection($fieldid, $sectionid)
+    {
+        $rows = DB::table('section_layout')
+            ->select('fieldid')
+            ->where('fieldid', '=', $fieldid)
+            ->where('sectionid', '=', $sectionid)
+            ->get();
+
+        if ($rows->count() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+}
+
+if (! function_exists('getContent')) {
+    function getContent($entryid, $fieldname)
+    {
+        $rows = DB::table('content')
+            ->select($fieldname)
+            ->where('entryid', '=', $entryid)
+            ->get();
+
+        if ($rows->count() > 0) {
+            return $rows[0]->$fieldname;
+        } else {
+            return false;
+        }
+
     }
 }
