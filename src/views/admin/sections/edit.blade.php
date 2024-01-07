@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label for="sectiontype">Section type</label>
                                 <div class="small text-muted">Disabled</div>
-                                <select name="sectiontype" class="form-select" aria-label="Default select example" disabled >
+                                <select name="sectiontype" class="form-select" aria-label="Default select example" disabled>
                                     <option value="single" selected>Single</option>
                                     <option value="multiple">Multiple</option>
                                     <option value="global">Global</option>
@@ -156,10 +156,8 @@
                                 <div>
                                    <label for="title"></label> 
                                    <div class="m-b"></div>
-                                   <label class="form-switch">
-                                      <input type="checkbox" role="switch"> <i></i> 
-                                      <div class="switch-text no-select">Yes/No</div>
-                                   </label>
+                                    <switch-ios value="" name="template"></switch-ios>
+
                                 </div>
                              </div>
                           </div>

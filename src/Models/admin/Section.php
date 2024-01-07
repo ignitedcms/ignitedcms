@@ -50,6 +50,18 @@ class Section
 
     }
 
+    public static function getSectionType($sid)
+    {
+        $query = DB::table('section')
+            ->select('sectiontype')
+            ->where('id', '=', $sid)
+            ->limit(1)
+            ->get();
+
+        return $query[0]->sectiontype;
+
+    }
+
     /*
      * Create section, and if needed template
      *
@@ -60,11 +72,10 @@ class Section
      * @return  int $sectionid
      */
     public static function create(
-       $name,
-       $sectiontype,
-       $fields
-    )
-    {
+        $name,
+        $sectiontype,
+        $fields
+    ) {
         DB::table('section')->insert([
             'name' => $name,
             'sectiontype' => $sectiontype,

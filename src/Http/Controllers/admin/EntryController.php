@@ -51,7 +51,6 @@ class EntryController extends Controller
         ]);
     }
 
-
     public function updateView($sectionid, $entryid)
     {
         $data = Entry::sectionAllFields($sectionid);
@@ -88,7 +87,6 @@ class EntryController extends Controller
         |
         */
 
-
         /*
         |---------------------------------------------------------------
         | Now loop through the fields and save the POST data
@@ -117,6 +115,6 @@ class EntryController extends Controller
         }
 
         return redirect("admin/entry/update/$sectionid/$entryid")
-           ->with('status', 'Saved successfully');
+            ->with('status', 'Saved successfully');
     }
 }

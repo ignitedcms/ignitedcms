@@ -16,7 +16,6 @@
 
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
-//use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
 use Ignitedcms\Ignitedcms\Models\admin\Section;
@@ -58,12 +57,10 @@ class SectionController extends Controller
             'order' => 'required',
             'template' => '',
         ]);
-         
+
         //null or on
-        $template = $request->input('template');   
+        $template = $request->input('template');
         $sectiontype = $request->input('sectiontype');
-
-
 
         $name = $request->input('name');
         $fields = $request->input('order');
@@ -75,17 +72,14 @@ class SectionController extends Controller
         $sid = Section::create($name, $sectiontype, $fields);
 
         //Let's build the template if selected
-        if($template == 'on')
-        {
-           if($sectiontype == 'single')
-           {
-             Template_builder::buildSingle($sid);
-           }
+        if ($template == 'on') {
+            if ($sectiontype == 'single') {
+                Template_builder::buildSingle($sid);
+            }
 
-           if($sectiontype == 'multiple')
-           {
-              Template_builder::buildMultiple($sid);
-           }
+            if ($sectiontype == 'multiple') {
+                Template_builder::buildMultiple($sid);
+            }
         }
 
         return redirect('admin/section')->with('status', 'Section created');
@@ -130,10 +124,23 @@ class SectionController extends Controller
     {
 
         $validated = $request->validate([
-
             'order' => 'required',
-
         ]);
+
+        //Let's build template if needed
+        $template = $request->input('template');
+        $sectiontype = Section::getSectionType($id);
+
+        if ($template == 'on') {
+            if ($sectiontype == 'single') {
+                Template_builder::buildSingle($id);
+            }
+
+            if ($sectiontype == 'multiple') {
+                Template_builder::buildMultiple($id);
+            }
+        }
+
         $fields = $request->input('order');
 
         Section::update($id, $fields);
