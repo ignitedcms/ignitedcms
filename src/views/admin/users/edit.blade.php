@@ -45,7 +45,9 @@
                         <div class="small text-muted">Select a role</div>
                         <select class="form-select" name="permissiongroup" aria-label="Default select example">
                             @foreach ($data as $row)
-                                <option value="{{ $row->groupID }}">{{ $row->groupName }}</option>
+                                <option value="{{ $row->groupID }}" @if($permissionid == $row->groupID ) selected @endif>
+                                 {{ $row->groupName }}
+                                </option>
                             @endforeach
                         </select>
                     </div>

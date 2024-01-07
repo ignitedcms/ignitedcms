@@ -40,6 +40,25 @@ class Users
     }
 
     /*
+     * Get the users existing permission group
+     *
+     *
+     * @param   int $userid
+     * @return  int $permissiongroup
+     */
+    public static function usersPermissionGroup($userid)
+    {
+        $query = DB::table('user')
+            ->select('permissiongroup')
+            ->where('id', '=', $userid)
+            ->limit(1)
+            ->get();
+
+        return $query[0]->permissiongroup;
+
+    }
+
+    /*
      * Creates a new user in the db
      * checks to see if email is available
      * adds password and assign permission group

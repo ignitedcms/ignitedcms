@@ -73,10 +73,14 @@ class UserController extends Controller
 
         $email = Users::getEmail($id);
 
+        $permissionGroupId = Users::usersPermissionGroup($id);
+
+
         return view('ignitedcms::admin.users.edit')->with([
             'data' => $data,
             'email' => $email,
             'id' => $id,
+            'permissionid' => $permissionGroupId,
         ]);
     }
 
@@ -117,7 +121,7 @@ class UserController extends Controller
 
             Users::destroy($id);
 
-            return redirect('admin/users');
+            return redirect('admin/users')->with('status', 'User deleted');
         }
     }
 }
