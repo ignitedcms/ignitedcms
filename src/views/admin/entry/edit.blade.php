@@ -15,7 +15,7 @@
                 </div>
             </drawer>
 
-            @if (Helper::isMultiple($sectionid) == true)
+            @if (isMultiple($sectionid) == true)
                 <div class="breadcrumb m-b-3">
                     <div class="breadcrumb-item">
                         <a href="{{ url('admin/dashboard') }}">Dashboard</a>
@@ -51,7 +51,7 @@
                     <div class="col-3 v-a">
 
 
-                        @if (Helper::isSingle($sectionid) == true)
+                        @if (isSingle($sectionid) == true)
                             <modal button-title="Create Template" modal-header="Create single template">
                                 <p class="p-2">
                                 <div class="rows">
@@ -78,18 +78,18 @@
                     </div>
                     <div class="col-9 right">
 
-                        @if (Helper::isSingle($sectionid) == true)
+                        @if (isSingle($sectionid) == true)
                            
 
-                            <a href="{{ url(Helper::getSectionName($sectionid)) }}" target="_blank"
+                            <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
                                 class="btn btn-white m-r-2 rm-link-styles">Preview</a>
                         @endif
 
-                        @if (Helper::isMultiple($sectionid) == true)
+                        @if (isMultiple($sectionid) == true)
 
                         @php
-                           $sectName = Helper::getSectionName($sectionid);
-                           $entTitle = Helper::getContent($entryid, 'entrytitle');
+                           $sectName = getSectionName($sectionid);
+                           $entTitle = getContent($entryid, 'entrytitle');
                         @endphp
 
                             <a href="{{ url($sectName . '/' . $entTitle) }}" target="_blank"
@@ -103,11 +103,11 @@
 
                     @include('ignitedcms::admin.entry.vue')
 
-                    @if (Helper::isMultiple($sectionid) == true)
+                    @if (isMultiple($sectionid) == true)
                         <label for="entry title">Entry title</label>
                         <div class="small text-muted">This is a required field*</div>
                         <input class="form-control" name="entrytitle"
-                            value="{{ Helper::getContent($entryid, 'entrytitle') }}" disabled />
+                            value="{{ getContent($entryid, 'entrytitle') }}" disabled />
 
                         @error('entrytitle')
                             <div class="small text-danger">{{ $message }}</div>
@@ -123,7 +123,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
-                                    value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="Start typing" />
+                                    value="{{ getContent($entryid, $row->name) }}" placeholder="Start typing" />
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
@@ -139,7 +139,7 @@
                                 <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
-                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ Helper::getContent($entryid, $row->name) }}</textarea>
+                                <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ getContent($entryid, $row->name) }}</textarea>
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
                                 <div class="clearfix m-b-2"></div>
@@ -169,7 +169,7 @@
                                 <div>
                                     <div class="form-group">
 
-                                        {{ Helper::buildCheckboxes($entryid, $row->name) }}
+                                        {{ buildCheckboxes($entryid, $row->name) }}
                                     </div>
                                 </div>
                                 <div class="divider m-b-2"></div>
@@ -178,7 +178,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
-                                    value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="" />
+                                    value="{{ getContent($entryid, $row->name) }}" placeholder="" />
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'drop-down')
                                 <div class="clearfix m-b-2"></div>
@@ -187,7 +187,7 @@
 
                                 <select class="form-select" name="{{ $row->name }}"
                                     aria-label="Default select example">
-                                    {{ Helper::buildDropdown($entryid, $row->name) }}
+                                    {{ buildDropdown($entryid, $row->name) }}
                                 </select>
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'file-upload')
@@ -196,8 +196,8 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
                                 <asset-container fieldname2='{{ $row->name }}'
-                                    assetid='{{ Helper::getContent($entryid, $row->name) }}'
-                                    url='{{ Helper::getThumb($entryid, $row->name) }}'>
+                                    assetid='{{ getContent($entryid, $row->name) }}'
+                                    url='{{ getThumb($entryid, $row->name) }}'>
                                 </asset-container>
 
 
@@ -207,7 +207,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
-                                    value="{{ Helper::getContent($entryid, $row->name) }}" placeholder="test" />
+                                    value="{{ getContent($entryid, $row->name) }}" placeholder="test" />
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'date')
                                 <div class="clearfix m-b-2"></div>
@@ -215,7 +215,7 @@
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div class="form-group">
                                     <datepicker name="{{ $row->name }}"
-                                        value="{{ Helper::getContent($entryid, $row->name) }}">
+                                        value="{{ getContent($entryid, $row->name) }}">
                                     </datepicker>
                                 </div>
                                 <div class="divider m-b-2"></div>
@@ -224,7 +224,7 @@
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
-                                    value="{{ Helper::getContent($entryid, $row->name) }}"></switch-ios>
+                                    value="{{ getContent($entryid, $row->name) }}"></switch-ios>
                                 <div class="divider m-b-2"></div>
                             @else
                             @endif
