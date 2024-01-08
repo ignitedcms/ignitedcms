@@ -377,3 +377,37 @@ if (! function_exists('getSectionName')) {
         return $data[0]->name;
     }
 }
+
+if (! function_exists('sidebarGuard')) {
+    function sidebarGuard($arg)
+    {
+               //get userid from session and return all
+        //controllers they have access to
+        $userid = session('userid');
+        $row = DB::table('user')
+            ->select('permissiongroup')
+            ->where('id', '=', $userid)
+            ->limit(1)
+            ->get();
+
+        $permissiongroup = $row[0]->permissiongroup;
+
+        //now get all from permission map
+        $rows = DB::table('permission_map')
+            ->select('permissionID')
+            ->where('groupID', '=', $permissiongroup)
+            ->orderBy('permissionID', 'asc')
+            ->get();
+
+        $pass = false;
+        foreach ($rows as $row) {
+            if ($arg == $row->permissionID) {
+                $pass = true;
+                break;
+            }
+        }
+
+        return $pass;
+
+    }
+}
