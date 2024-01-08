@@ -124,6 +124,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name', 100)->nullable();
             $table->string('sectiontype', 200)->nullable();
+            $table->string('user_access', 300)->nullable();
             $table->timestamps();
         });
 
