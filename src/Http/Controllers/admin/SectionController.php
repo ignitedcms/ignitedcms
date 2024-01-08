@@ -18,6 +18,7 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Fields;
+use Ignitedcms\Ignitedcms\Models\admin\Permissions;
 use Ignitedcms\Ignitedcms\Models\admin\Section;
 use Ignitedcms\Ignitedcms\Models\admin\Template_builder;
 use Illuminate\Http\Request;
@@ -94,8 +95,12 @@ class SectionController extends Controller
         */
 
         $data = Fields::all();
+        $data2 = Permissions::all();
 
-        return view('ignitedcms::admin.sections.create')->with('data', $data);
+        return view('ignitedcms::admin.sections.create')->with([
+            'data' => $data,
+            'data2' => $data2,
+        ]);
     }
 
     // We need to list all fields - used fields
@@ -109,13 +114,16 @@ class SectionController extends Controller
         $data3 = Section::fieldsInUse($id);
 
         //right pills
-        $data4 = Section::fieldsNotInUse($id);
+        //$data4 = Section::fieldsNotInUse($id);
+
+        $data5 = Permissions::all();
 
         return view('ignitedcms::admin.sections.edit')->with([
             'id' => $id,
             'data' => $data,
             'data2' => $data2,
             'data3' => $data3,
+            'data5' => $data5,
         ]);
     }
 

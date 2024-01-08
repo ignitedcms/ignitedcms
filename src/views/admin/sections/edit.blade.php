@@ -165,20 +165,19 @@
                     </div>
 
                     <div class="form-group bg-white p-2 br b">
-                       <h5>User access</h5>
-                       <div class="text-black">Information</div>
-                       <div class="small text-muted m-b">
-                          Select who has access to add and edit content in this section
-                       </div>
-                       <div>
-                          <input type="checkbox" name="" class="form-check-input">
-                          <label for="the label">Administrators</label>
-                       </div>
-                       <div>
-                          <input type="checkbox" name="" class="form-check-input"  checked>
-                          <label for="the label">Bloggers</label>
-                       </div>
-                    </div>
+                     <h5>User access</h5>
+                     <div class="text-black">Information</div>
+                     <div class="small text-muted m-b">
+                        Select who has access to add and edit content in this section
+                     </div>
+                     @foreach($data5 as $row)
+                     <div>
+                        <input type="checkbox" name="user_access[]" value="{{ $row->groupID }}" class="form-check-input">
+                        <label for="the label">{{ $row->groupName }}</label>
+                     </div>
+                     @endforeach
+                     
+                  </div>
 
 
                     <div class="row">
