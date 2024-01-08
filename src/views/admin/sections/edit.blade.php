@@ -97,7 +97,12 @@
                             <div id='list1' class='scroll-y bg-white cross-grid p-2 b br' style="height:500px;">
                                 @foreach ($data3 as $field)
                                     <div class="pill" id="{{ $field->id }}">
-                                        <div>{{ $field->name }}</div>
+                                       <div class="v-a">
+                                          <span>
+                                             <i data-feather="more-vertical" class="v-a"></i>    
+                                          </span>
+                                          {{ $field->name }}
+                                       </div>
                                         <div>
                                             <span class="small text-muted">
                                                 {{ $field->type }}

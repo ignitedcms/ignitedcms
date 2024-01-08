@@ -139,7 +139,13 @@
 
                                 @foreach ($data as $field)
                                     <div class="pill" id="{{ $field->id }}">
-                                        <div>{{ $field->name }}</div>
+                                       
+                                       <div class="v-a">
+                                          <span>
+                                             <i data-feather="more-vertical" class="v-a"></i>    
+                                          </span>
+                                          {{ $field->name }}
+                                       </div>
                                         <div>
                                             <span class="small text-muted">
                                                 {{ $field->type }}
