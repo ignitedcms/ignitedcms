@@ -71,12 +71,7 @@
                     }
                 },
                 mounted() {
-                  @if (session('status'))
                      this.$refs.toast.showToast(4000);
-                  @endif
-                  @if (session('errors'))
-                     this.$refs.toast.showToast(4000);
-                  @endif
                 }
             });
         </script>
