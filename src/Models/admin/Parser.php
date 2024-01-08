@@ -195,17 +195,25 @@ class Parser
         if ($type == 'file-upload') {
 
             $query = DB::table('assetfields')
-                ->select('url')
+                ->select('url','alt_title')
                 ->where('id', '=', $val)
                 ->limit(1)
                 ->get();
 
             $url = '';
+            $alt_title = '';
             foreach ($query as $row) {
                 $url = $row->url;
+                $alt_title = $row->alt_title;
             }
 
-            return $url;
+            $imageArray = [
+               'url' => $url,
+               'title' => $alt_title
+            ];
+
+            //return $url;
+            return $imageArray;
 
         } elseif ($type == 'matrix') {
 
