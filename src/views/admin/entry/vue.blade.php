@@ -1,4 +1,4 @@
-<!-- <pre class="code">@{{matrix}}</pre> -->
+ <pre class="code">@{{matrix}}</pre> 
 <!-- This id is needed for sortable	 -->
 <div id="items">
     <div class="front-matrix-block p-b-3" v-for="row in matrix">
