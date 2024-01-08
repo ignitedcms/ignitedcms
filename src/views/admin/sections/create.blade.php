@@ -186,7 +186,7 @@
                      <h5>User access</h5>
                      <div class="text-black">Information</div>
                      <div class="small text-muted m-b">
-                        Select who has access to edit this section
+                        Select who has access to add and edit content in this section
                      </div>
                      <div>
                         <input type="checkbox" name="" class="form-check-input">
