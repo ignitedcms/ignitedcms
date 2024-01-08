@@ -418,15 +418,9 @@ if (! function_exists('sidebarGuard')) {
 |---------------------------------------------------------------            
 */       
 
-/**
- *  @Description: ne (not empty)
- *       @Params: Matrix name, array key
- *
- *     @returns: True or false
- */
-if (!function_exists('ne'))
+if (!function_exists('not_empty'))
 {
-	function ne($name, $array)
+	function not_empty($name, $array)
 	{
 		$val = false;
 		foreach ($array->content as $key)
@@ -447,15 +441,29 @@ if (!function_exists('ne'))
 	}
 }
 
-if (!function_exists('v'))
+if (!function_exists('print_content'))
 {
-	function v($name, $array)
+	function print_content($name, $array)
 	{
 		foreach ($array->content as $key)
 		{
 			if ($key->title == $name)
 			{
 				echo $key->content;
+			}
+		}
+	}
+}
+
+if (!function_exists('print_title'))
+{
+	function print_title($name, $array)
+	{
+		foreach ($array->content as $key)
+		{
+			if ($key->title == $name)
+			{
+				echo $key->alttitle;
 			}
 		}
 	}
