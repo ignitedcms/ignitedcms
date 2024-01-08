@@ -114,10 +114,13 @@ class Section
         if ($sectiontype == 'multiple') {
             //do nothing
         } else {
+           
+            $userid = session('userid');
 
             DB::table('entry')->insert([
                 'sectionid' => $insert_id,
                 'type' => $sectiontype,
+                'user_id' => $userid,
                 'datecreated' => date('Y-m-d'),
             ]);
 
