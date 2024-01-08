@@ -3,7 +3,10 @@
 <div id="items">
     <div class="front-matrix-block p-b-3" v-for="row in matrix">
         <div class="front-matrix-block__header">
-            @{{row.title}}
+            <span class="v-a">
+               <i data-feather="more-vertical" style="height:18px; width:18px;"></i>    
+              @{{row.title}}
+            </span>
             <div class="h-a" @click="row.collapsed = !row.collapsed">Collapse</div>
             <div class="matrix-del"  @click="deleteItem(row)">
                <span>
