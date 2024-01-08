@@ -26,6 +26,7 @@
 
                 </div>               
 
+
                 <!--main part for section styles -->
                 <div class="panel br drop-shadow">
                     <div class="row">
