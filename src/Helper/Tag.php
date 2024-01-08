@@ -449,6 +449,12 @@ if (!function_exists('print_content'))
 		{
 			if ($key->title == $name)
 			{
+            if($key->type == 'check-box')
+            {
+               $array = $key->checkedValues;
+               array_shift($array);
+               return $array;
+            }
 				return $key->content;
 			}
 		}
