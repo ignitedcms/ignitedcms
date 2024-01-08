@@ -1,4 +1,4 @@
- <!--<pre class="code">@{{matrix}}</pre> -->
+ <pre class="code">@{{matrix}}</pre> 
 <!-- This id is needed for sortable	 -->
 <div id="items">
     <div class="front-matrix-block p-b-3" v-for="row in matrix">
@@ -68,6 +68,7 @@
                         <div v-for="y in part.variations">
                             <input v-model="part.checkedValues" class="form-check-input" type="checkbox" :value="y" /> @{{y}}
                         </div>
+                            <input v-model="part.content = part.checkedValues.toString()" style="display:none;">
                     </div>
                 </div>
                 <div v-if="part.type=='rich-text'">
