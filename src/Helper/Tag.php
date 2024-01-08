@@ -411,3 +411,53 @@ if (! function_exists('sidebarGuard')) {
 
     }
 }
+
+/*                                                                          
+|---------------------------------------------------------------            
+| Matrix helper remove later
+|---------------------------------------------------------------            
+*/       
+
+/**
+ *  @Description: ne (not empty)
+ *       @Params: Matrix name, array key
+ *
+ *     @returns: True or false
+ */
+if (!function_exists('ne'))
+{
+	function ne($name, $array)
+	{
+		$val = false;
+		foreach ($array->content as $key)
+		{
+			if ($key->title === $name)
+			{
+				if (strlen($key->content) > 0)
+				{
+					$val = true;
+				}
+				else
+				{
+					$val = false;
+				}
+			}
+		}
+		return $val;
+	}
+}
+
+if (!function_exists('v'))
+{
+	function v($name, $array)
+	{
+		foreach ($array->content as $key)
+		{
+			if ($key->title == $name)
+			{
+				echo $key->content;
+			}
+		}
+	}
+}
+
