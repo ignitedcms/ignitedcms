@@ -469,7 +469,7 @@ if (!function_exists('print_title'))
 		{
 			if ($key->title == $name)
 			{
-				echo $key->alttitle;
+				return $key->alttitle;
 			}
 		}
 	}
