@@ -449,7 +449,7 @@ if (!function_exists('print_content'))
 		{
 			if ($key->title == $name)
 			{
-				echo $key->content;
+				return $key->content;
 			}
 		}
 	}
