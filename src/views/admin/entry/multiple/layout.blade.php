@@ -64,7 +64,6 @@
                 entrytitle: '',
                 sectionid: {{ $sectionid }},
                 errs: '', //entrytitle error feedback
-                search: ''
 
 
             },

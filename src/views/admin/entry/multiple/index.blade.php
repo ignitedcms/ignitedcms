@@ -118,7 +118,6 @@
 
                         <input class="form-control" 
                                name="searchQuery"
-                               v-model="search"
                                value="" 
                                placeholder="Start typing to search then hit enter" />
                      </div>    
