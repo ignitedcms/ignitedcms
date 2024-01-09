@@ -7,24 +7,23 @@
 @endphp
 <div>
      <div class="row">
-         <div class="col-3">
+         <div class="col v-a">
              <div class="btn btn-white " v-on:click="isShown = !isShown" v-click-outside="away">
                   <span>
                      <i data-feather="plus"></i>    
                   </span>
                  Add asset
              </div>
-         </div>
-         <div class="col-9">
-             <div  v-if="tmp.length > 0">
-                 <img :src="url" class="m-l" />
-                 <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                  <span class="small bg-light p-l p-r  b br ">
-                    Delete
-                  </span>
-                 </div>
+             <div  v-if="tmp.length > 0" class="m-l-2" style="display:inline-block;">
+                <img :src="url" class="m-l p b br" />
+                <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
+                   <span class="m-l small bg-light p-l p-r b br" style="margin-left:12px;">
+                      Delete
+                   </span>
+                </div>
              </div>
          </div>
+         
      </div>
       <!-- Needed for POST input -->
       <input v-bind:name="name" v-bind:value="tmp" style="display:none;" >
