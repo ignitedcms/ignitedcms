@@ -55,18 +55,39 @@ class Section
      * i.e who can edit entry
      *
      *
-     * @param   array $user_acess 
-     * @param   int $sectionid 
+     * @param   array $user_acess
+     * @param   int $sectionid
      * @return  void
      */
     public static function sectionPermissions($user_access, $sectionid)
     {
-       DB::table('section')
-          ->where('id', '=', $sectionid)
-          ->update([
-             'user_access' => $user_access
-         ]);
-       
+        DB::table('section')
+            ->where('id', '=', $sectionid)
+            ->update([
+                'user_access' => $user_access,
+            ]);
+    }
+
+    /*
+     * Get the section permissions
+     * return as array
+     *
+     *
+     * @param   int $sectionid
+     * @return  array
+     */
+    public static function getPermissions($sectionid)
+    {
+        $query = DB::table('section')
+            ->select('user_access')
+            ->where('id', '=', $sectionid)
+            ->limit(1)
+            ->get();
+
+        $csvArray = json_decode($query[0]->user_access);
+
+        return $csvArray;
+
     }
 
     public static function getSectionType($sid)
@@ -133,7 +154,7 @@ class Section
         if ($sectiontype == 'multiple') {
             //do nothing
         } else {
-           
+
             $userid = session('userid');
 
             DB::table('entry')->insert([

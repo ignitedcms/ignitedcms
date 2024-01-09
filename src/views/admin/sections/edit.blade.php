@@ -182,7 +182,10 @@
                      </div>
                      @foreach($data5 as $row)
                      <div>
-                        <input type="checkbox" name="user_access[]" value="{{ $row->groupID }}" class="form-check-input">
+                        <input type="checkbox" name="user_access[]" 
+                           value="{{ $row->groupID }}" class="form-check-input"
+                           @if (in_array($row->groupID,$data6)) checked @endif
+                        >
                         <label for="the label">{{ $row->groupName }}</label>
                      </div>
                      @endforeach

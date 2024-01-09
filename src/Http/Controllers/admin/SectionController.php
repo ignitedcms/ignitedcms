@@ -57,9 +57,8 @@ class SectionController extends Controller
             'sectiontype' => 'required',
             'order' => 'required',
             'template' => '',
-            'user_access' => '',
+            'user_access' => 'required',
         ]);
-
 
         //null or on
         $template = $request->input('template');
@@ -75,7 +74,7 @@ class SectionController extends Controller
         $sid = Section::create($name, $sectiontype, $fields);
 
         //array of permission group ids
-        $user_access = $request->input('user_access');   
+        $user_access = $request->input('user_access');
         Section::sectionPermissions($user_access, $sid);
 
         //Let's build the template if selected
@@ -122,7 +121,10 @@ class SectionController extends Controller
         //right pills
         //$data4 = Section::fieldsNotInUse($id);
 
+        //get section permissions as array
+
         $data5 = Permissions::all();
+        $array = Section::getPermissions($id);
 
         return view('ignitedcms::admin.sections.edit')->with([
             'id' => $id,
@@ -130,6 +132,7 @@ class SectionController extends Controller
             'data2' => $data2,
             'data3' => $data3,
             'data5' => $data5,
+            'data6' => $array,
         ]);
     }
 
@@ -139,6 +142,7 @@ class SectionController extends Controller
 
         $validated = $request->validate([
             'order' => 'required',
+            'user_access' => 'required',
         ]);
 
         //Let's build template if needed
@@ -146,7 +150,7 @@ class SectionController extends Controller
         $sectiontype = Section::getSectionType($id);
 
         //Update section permissions
-        $user_access = $request->input('user_access');   
+        $user_access = $request->input('user_access');
         Section::sectionPermissions($user_access, $id);
 
         if ($template == 'on') {

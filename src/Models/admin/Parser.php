@@ -195,7 +195,7 @@ class Parser
         if ($type == 'file-upload') {
 
             $query = DB::table('assetfields')
-                ->select('url','alt_title')
+                ->select('url', 'alt_title')
                 ->where('id', '=', $val)
                 ->limit(1)
                 ->get();
@@ -208,8 +208,8 @@ class Parser
             }
 
             $imageArray = [
-               'url' => $url,
-               'title' => $alt_title
+                'url' => $url,
+                'title' => $alt_title,
             ];
 
             //return $url;

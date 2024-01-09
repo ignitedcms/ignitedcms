@@ -381,7 +381,7 @@ if (! function_exists('getSectionName')) {
 if (! function_exists('sidebarGuard')) {
     function sidebarGuard($arg)
     {
-               //get userid from session and return all
+        //get userid from session and return all
         //controllers they have access to
         $userid = session('userid');
         $row = DB::table('user')
@@ -412,66 +412,55 @@ if (! function_exists('sidebarGuard')) {
     }
 }
 
-/*                                                                          
-|---------------------------------------------------------------            
+/*
+|---------------------------------------------------------------
 | Matrix helper remove later
-|---------------------------------------------------------------            
-*/       
+|---------------------------------------------------------------
+*/
 
-if (!function_exists('not_empty'))
-{
-	function not_empty($name, $array)
-	{
-		$val = false;
-		foreach ($array->content as $key)
-		{
-			if ($key->title === $name)
-			{
-				if (strlen($key->content) > 0)
-				{
-					$val = true;
-				}
-				else
-				{
-					$val = false;
-				}
-			}
-		}
-		return $val;
-	}
-}
-
-if (!function_exists('print_content'))
-{
-	function print_content($name, $array)
-	{
-		foreach ($array->content as $key)
-		{
-			if ($key->title == $name)
-			{
-            if($key->type == 'check-box')
-            {
-               $array = $key->checkedValues;
-               array_shift($array);
-               return $array;
+if (! function_exists('not_empty')) {
+    function not_empty($name, $array)
+    {
+        $val = false;
+        foreach ($array->content as $key) {
+            if ($key->title === $name) {
+                if (strlen($key->content) > 0) {
+                    $val = true;
+                } else {
+                    $val = false;
+                }
             }
-				return $key->content;
-			}
-		}
-	}
+        }
+
+        return $val;
+    }
 }
 
-if (!function_exists('print_title'))
-{
-	function print_title($name, $array)
-	{
-		foreach ($array->content as $key)
-		{
-			if ($key->title == $name)
-			{
-				return $key->alttitle;
-			}
-		}
-	}
+if (! function_exists('print_content')) {
+    function print_content($name, $array)
+    {
+        foreach ($array->content as $key) {
+            if ($key->title == $name) {
+                if ($key->type == 'check-box') {
+                    $array = $key->checkedValues;
+                    array_shift($array);
+
+                    return $array;
+                }
+
+                return $key->content;
+            }
+        }
+    }
 }
 
+if (! function_exists('print_title')) {
+    function print_title($name, $array)
+    {
+        foreach ($array->content as $key) {
+            if ($key->title == $name) {
+                return $key->alttitle;
+            }
+        }
+    }
+}
