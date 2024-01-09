@@ -105,15 +105,20 @@
                   <div class="col">
                      <div class="pos-rel">
 
-                        <span>
+                        <button 
+                          type="submit"
+                          class="rm-btn-styles pos-abs"
+                          style="top:0px; right:-5px;"
+                        >
                            <i 
-                          data-feather="search"
+                          data-feather="x"
                           class="icon-inside hand"
                           ></i>
-                        </span>
+                        </button>
 
                         <input class="form-control" 
                                name="searchQuery"
+                               v-model="search"
                                value="" 
                                placeholder="Start typing to search then hit enter" />
                      </div>    
