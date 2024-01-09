@@ -110,23 +110,23 @@
                         </div>
                      </div>
                      <div class="row">
-                        <div class="col-3">
+                        <div class="col v-a">
                             <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
                                 <span class="v-a">
                                    Add asset
                                 </span>
                             </div>
-                        </div>
-                        <div class="col-9">
-                            <div class="img-save" v-if="part.content.length > 0">
-                                <img :src="part.thumb" alt="" class="m-l"/>
-                                <div class="hand" style="max-width:80px;" v-on:click="part.content = ''">
-                                   <span class="small bg-light p-l p-r b br">
-                                       Delete
-                                   </span>
-                                </div>
+                            <div class="m-l-2" v-if="part.content.length > 0">
+                               <img :src="part.thumb" alt="" class="m-l p b br"/>
+                               <div class="hand" style="max-width:80px;" v-on:click="part.content = ''">
+                                  <span class="small bg-light p-l p-r b br" style="margin-left:12px;">
+                                     Delete
+                                  </span>
+                               </div>
                             </div>
                         </div>
+                        
+                        
 
                     </div>
                     <!-- modal -->
