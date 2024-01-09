@@ -15,7 +15,6 @@ Vue.component('switch-ios', {
   props: ['name', 'value'],
   template: `
   <div>
-     <label for="title">{{name}}</label>
      <div class="m-b"></div>
      <label class="form-switch">
         <input
