@@ -50,6 +50,25 @@ class Section
 
     }
 
+    /*
+     * Update section permissions
+     * i.e who can edit entry
+     *
+     *
+     * @param   array $user_acess 
+     * @param   int $sectionid 
+     * @return  void
+     */
+    public static function sectionPermissions($user_access, $sectionid)
+    {
+       DB::table('section')
+          ->where('id', '=', $sectionid)
+          ->update([
+             'user_access' => $user_access
+         ]);
+       
+    }
+
     public static function getSectionType($sid)
     {
         $query = DB::table('section')

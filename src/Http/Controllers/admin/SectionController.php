@@ -57,7 +57,9 @@ class SectionController extends Controller
             'sectiontype' => 'required',
             'order' => 'required',
             'template' => '',
+            'user_access' => '',
         ]);
+
 
         //null or on
         $template = $request->input('template');
@@ -71,6 +73,10 @@ class SectionController extends Controller
         }
 
         $sid = Section::create($name, $sectiontype, $fields);
+
+        //array of permission group ids
+        $user_access = $request->input('user_access');   
+        Section::sectionPermissions($user_access, $sid);
 
         //Let's build the template if selected
         if ($template == 'on') {
@@ -138,6 +144,10 @@ class SectionController extends Controller
         //Let's build template if needed
         $template = $request->input('template');
         $sectiontype = Section::getSectionType($id);
+
+        //Update section permissions
+        $user_access = $request->input('user_access');   
+        Section::sectionPermissions($user_access, $id);
 
         if ($template == 'on') {
             if ($sectiontype == 'single') {
