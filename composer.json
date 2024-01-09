@@ -29,7 +29,7 @@
             "Ignitedcms\\Ignitedcms\\": "src"
         },
         "files": [
-            "src/Helper/Tag.php"
+            "src/Helper/Helper.php"
          ]
     },
     "autoload-dev": {
