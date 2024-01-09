@@ -30,6 +30,7 @@
         <script src="{{ asset('admin/js/popover.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>
+        <script src="{{ asset('admin/js/password.js') }}"></script>
         <script src="{{ asset('admin/js/datepicker.js') }}"></script>
         <script src="{{ asset('admin/js/accordions.js') }}"></script>
         <script src="{{ asset('admin/js/switch.js') }}"></script>

@@ -1,25 +1,41 @@
-@extends('ignitedcms::admin.layout')
+@extends('ignitedcms::admin.dashboard.layout')
 
 @section('content')
     <div class="full-screen bg-light-grey">
         <div class="gap"></div>
         <div class="small-container" id="app">
             @if (session('status'))
-                <div class="alert alert-success">
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
                   <div class="text-black">Success</div>
-                   <div class="small text-muted">
-                    {{ session('status') }}
-                   </div>
-                </div>
+                  <div class="text-muted small">
+                     {{ session('status') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
-            @if (session('error'))
-                <div class="alert alert-danger">
-                   <div>Error</div>
-                   <div class="small">
-                    {{ session('error') }}
-                   </div>
-                </div>
+
+            @if (session('errors'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                     @endforeach
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
             @endif
+
             <div class="panel m-t-2 br drop-shadow">
                 <h2 class="center">Forgot password</h2>
                 <form method="POST" action="{{ url('login/forgot') }}">
@@ -47,7 +63,7 @@
 
                 </form>
             </div>
-            <div class="m-b-3"></div>
+            <div class="m-b"></div>
             <div class="row">
                <div class="col center">
                   <a href="{{ url('login') }}">Go back</a></div>
