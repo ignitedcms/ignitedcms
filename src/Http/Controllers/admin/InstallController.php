@@ -71,20 +71,20 @@ class InstallController extends Controller
         $prefix = '';
 
         $sql1 = 'INSERT INTO `'.$prefix."permissions` (`permissionID`, `permission`,`order_position`) VALUES
-         (3, 'email',6),
-         (5, 'permissions',8),
-         (6, 'profile',1),
-         (9,'users',9),
-         (7,'menu',2),
-         (10,'database',10),
-         (13,'field_builder',13),
-         (14,'sections',14),
-         (15,'entries',15),
-         (17,'asset_lib',17),
-         (18,'site_settings',18),
-         (19,'paypal',19),
-         (20,'plugins',20),
-         (21,'ipn',21);";
+         (3, 'Email',6),
+         (5, 'Permissions',8),
+         (6, 'Profile',1),
+         (9,'Users',9),
+         (7,'Menu',2),
+         (10,'Database',10),
+         (13,'Fields',13),
+         (14,'Sections',14),
+         (15,'Entries',15),
+         (17,'Assets',17),
+         (18,'Site settings',18),
+         (19,'Paypal',19),
+         (20,'Plugins',20),
+         (21,'IPN',21);";
 
         $sql2 = 'INSERT INTO `'.$prefix.'permission_map`(`groupID`, `permissionID`) VALUES
          (1,3),
