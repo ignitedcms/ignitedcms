@@ -116,6 +116,7 @@ return new class extends Migration
         Schema::create('permissions', function (Blueprint $table) {
             $table->increments('permissionID');
             $table->string('permission', 200)->nullable();
+            $table->string('permission_name', 200)->nullable();
             $table->integer('order_position')->nullable();
             $table->timestamps();
         });
