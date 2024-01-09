@@ -3,25 +3,27 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted $link-color;
+  //border-bottom: 1px dotted $link-color;
 }
 
 .tooltip .tooltiptext {
   display:none;
-  width: 120px;
-  background-color: $primary;
-  color: #fff;
-  text-align: center;
+  min-width: 180px;
+  background-color: #fff;
+  border:1px solid #ccc;
+  box-shadow: $shadow;
+  //color: #fff;
+  //text-align: center;
   font-size:14px;
   border-radius: $border-radius;
-  padding: 4px;
+  padding: 10px;
 
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
+  bottom: 120%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: calc(-180px / 2);
 }
 
 .tooltip:hover .tooltiptext {

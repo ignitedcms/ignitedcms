@@ -1,24 +1,23 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted #0053ff;
 }
 
 .tooltip .tooltiptext {
   display: none;
-  width: 120px;
-  background-color: #292F3E;
-  color: #fff;
-  text-align: center;
+  min-width: 180px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
   font-size: 14px;
   border-radius: 5px;
-  padding: 4px;
+  padding: 10px;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
+  bottom: 120%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -90px;
 }
 
 .tooltip:hover .tooltiptext {

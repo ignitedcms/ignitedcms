@@ -67,6 +67,7 @@
 .date-years {
   position: relative;
   max-height: 300px;
+  font-size: 14px;
   overflow: auto;
   margin-top: 15px;
 }
@@ -130,6 +131,7 @@
   color: #666;
   position: relative;
   float: left;
+  font-size: 14px;
   width: 14.2857142857%;
   min-height: 38px;
 }

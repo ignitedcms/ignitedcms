@@ -109,5 +109,9 @@ td {
 | Search bar styles on datatables                                                
 |---------------------------------------------------------------            
 */
+table.dataTable thead th, table.dataTable tfoot th {
+  font-weight: normal !important;
+  color: #000;
+}
 
 /*# sourceMappingURL=datatables.css.map */

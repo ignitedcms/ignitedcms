@@ -36,7 +36,7 @@ Vue.component('modal', {
         @keyup.escape="escapePressed"
       >
         <div 
-          class="modal-content fade-in" 
+          class="modal-content fade-in-bottom" 
           :id="'modal-' + uniqueId"
           role="dialog"
           @click.stop

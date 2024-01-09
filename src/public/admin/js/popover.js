@@ -27,7 +27,7 @@ Vue.component('popover', {
       <span class="popover-highlight"> {{link}} </span>
       <div
         :id="'popover-' + uniqueId"
-        class="popover fade-in"
+        class="popover fade-in-bottom"
         role="dialog"
         v-if="show"
         :style="{ width: width }"

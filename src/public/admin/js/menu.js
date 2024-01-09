@@ -78,7 +78,7 @@ Vue.component('menu-items', {
         <div
           v-if="show"
           @click.stop
-          class="menu-dropdown fade-in"
+          class="menu-dropdown fade-in-bottom"
         >
           <slot></slot>
         </div>

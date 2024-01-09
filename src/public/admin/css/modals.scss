@@ -9,15 +9,13 @@
   left: 0;
   top: 0;
   overflow: auto; /* Enable scroll if needed */
-  border-radius:$border-radius;
-  //box-shadow:$shadow;
+  //border-radius:$border-radius;
 
   z-index: 3;
   width: 100vw;
   height: 100vh;
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-  border-radius:$border-radius;
   box-shadow:$shadow;
 }
 

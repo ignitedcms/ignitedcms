@@ -6,13 +6,11 @@
   left: 0;
   top: 0;
   overflow: auto; /* Enable scroll if needed */
-  border-radius: 5px;
   z-index: 3;
   width: 100vw;
   height: 100vh;
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-  border-radius: 5px;
   box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 

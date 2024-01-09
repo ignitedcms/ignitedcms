@@ -27,7 +27,7 @@ Vue.component('password', {
         <input
           :name="name"
           :type="textType"
-          placeholder="placeholder"
+          placeholder="Password"
           class="form-control"
         >
       </div>

@@ -132,3 +132,8 @@ td {
   //max-width: 200px;
   //float: right;
 }
+
+table.dataTable thead th, table.dataTable tfoot th {
+    font-weight: normal !important;
+    color:#000;
+}

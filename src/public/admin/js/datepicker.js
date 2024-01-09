@@ -58,7 +58,7 @@ Vue.component('datepicker', {
           :id="'datepicker-'+ uniqueId"
           role="dialog"
           style="position:absolute; top:35px; left:0;"
-          class="date-flyout drop-shadow fade-in"
+          class="date-flyout drop-shadow fade-in-bottom"
           tabindex="-1"
           @click.stop
           @keydown="handleKeyDown"
