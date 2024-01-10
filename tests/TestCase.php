@@ -92,7 +92,7 @@ class TestCase extends Orchestra
            ('Javascript','js',0),
            ('PDF','pdf',0),
            ('Text','txt',0),
-           ('Video','avi,mp4,mpeg,quicktime',0);";
+           ('Video','avi,mp4,mpeg,quicktime,mov',0);";
 
         $sql5 = 'INSERT INTO `'.$prefix."url_settings`(`id`, `name`) VALUES
          (1,'');";

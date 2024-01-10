@@ -64,16 +64,12 @@
                     max_retries: 2,
                     multi_selection: false,
                     filters: {
-                       // mime_types: [{
-                       //         title: "Image files",
-                       //         extensions: "jpg,gif,png"
-                       //     },
-                       //     {
-                       //         title: "Zip files",
-                       //         extensions: "zip"
-                       //     }
-                       // ],
-                       // max_file_size: '10mb'
+                        mime_types: [{
+                                title: "file",
+                                extensions: "{{ $data }}"
+                            }
+                        ],
+                      //  max_file_size: '10mb'
                     },
                     multipart_params: {
                         // Extra Parameter Needed!

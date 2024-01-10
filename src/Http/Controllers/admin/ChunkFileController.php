@@ -21,8 +21,10 @@ namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 //use App\Http\Controllers\Controller;
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
 use Ignitedcms\Ignitedcms\Models\admin\Asset;
+use Ignitedcms\Ignitedcms\Models\admin\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 
 class ChunkFileController extends Controller
 {
@@ -33,7 +35,12 @@ class ChunkFileController extends Controller
 
     public function index()
     {
-        return view('ignitedcms::admin.chunks.index');
+        $csvArray = Settings::getFileExtensions();
+        //dd($csvArray);
+
+        return view('ignitedcms::admin.chunks.index')->with([
+              'data' => $csvArray,
+          ]);
     }
 
     /**
@@ -48,7 +55,8 @@ class ChunkFileController extends Controller
 
         // THE UPLOAD DESTINATION - CHANGE THIS TO YOUR OWN
 
-        $filePath = 'uploads';
+        //$token = Str::random(30);
+        $filePath = "uploads";
 
         if (! file_exists($filePath)) {
             if (! mkdir($filePath, 0777, true)) {
