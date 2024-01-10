@@ -32,6 +32,7 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
     Route::get('admin/settings', [SettingsController::class, 'index']);
     Route::post('admin/settings/update', [SettingsController::class, 'update']);
+    Route::post('admin/settings/saveSiteUrl', [SettingsController::class, 'saveSiteUrl']);
 });
 
 //Email

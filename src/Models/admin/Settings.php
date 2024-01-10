@@ -30,11 +30,33 @@ class Settings
 
     public static function getSections()
     {
-       return DB::table('section')
-          ->select('*')
-          ->where('sectiontype','!=', 'global')
-          ->get();
-       
+        return DB::table('section')
+            ->select('*')
+            ->where('sectiontype', '!=', 'global')
+            ->get();
+    }
+
+    public static function setUrl($site_url)
+    {
+        //first let's delete any routes with '/'
+        DB::table('routes')
+            ->where('route', '=', '/')
+            ->delete();
+
+        $query = DB::table('routes')
+            ->select('controller')
+            ->where('route', '=', $site_url)
+            ->limit(1)
+            ->get();
+
+        $controller = $query[0]->controller;
+
+        //now insert into routes
+        $insertid = DB::table('routes')->insertGetId([
+            'route' => '/',
+            'controller' => $controller,
+        ]);
+
     }
 
     public static function getFileExtensions()

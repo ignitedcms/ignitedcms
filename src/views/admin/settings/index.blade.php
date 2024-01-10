@@ -73,6 +73,8 @@
             </div>
          </tab-item>
          <tab-item title="Site url settings">
+             <form action="{{ url('admin/settings/saveSiteUrl') }} " method="POST">
+                @csrf
             <div class="p-2">
                <div class="form-group">
                   <label for="title">Default site url</label>
@@ -81,7 +83,7 @@
                   </div>
                   <select class="form-select" name="site_url" aria-label="Default select example">
                      @foreach ($data2 as $row)
-                     <option value="{{ $row->id }}">{{ $row->name }}</option>
+                     <option value="{{ $row->name }}">{{ $row->name }}</option>
                      @endforeach
                   </select>
                </div>
@@ -89,6 +91,7 @@
                   <button type="submit" class="btn btn-primary">Save</button>
                </div>
             </div>
+            </form>
          </tab-item>
       </tabs>
       <div class="gap"></div>

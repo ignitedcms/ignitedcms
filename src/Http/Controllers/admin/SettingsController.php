@@ -42,6 +42,20 @@ class SettingsController extends Controller
 
     }
 
+    public function saveSiteUrl(Request $request)
+    {
+        $validated = $request->validate([
+            'site_url' => 'required',
+        ]);
+
+        $site_url = $request->input('site_url');
+
+        //Let's add this to a route '/'
+        Settings::setUrl($site_url);
+
+        return redirect('admin/settings')->with('status', 'Default site url changed');
+    }
+
     public function update(Request $request)
     {
         $validated = $request->validate([
