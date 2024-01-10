@@ -44,7 +44,10 @@
 
             <div class="alert alert-success">
                <div class="text-black">Information</div>
-               <div class="small text-muted">Upload all your media here</div>
+               <div class="small text-muted">Upload all your media here. 
+                Struggling to upload files greater than 10mb? Try
+                our large file <a href="#">uploader</a>
+               </div>
             </div>
 
             <div class="row">
