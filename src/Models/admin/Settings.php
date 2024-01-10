@@ -28,6 +28,15 @@ class Settings
         return DB::table('site_settings')->get();
     }
 
+    public static function getSections()
+    {
+       return DB::table('section')
+          ->select('*')
+          ->where('sectiontype','!=', 'global')
+          ->get();
+       
+    }
+
     public static function getFileExtensions()
     {
         $string = '';

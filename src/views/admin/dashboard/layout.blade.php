@@ -39,6 +39,7 @@
         <script src="{{ asset('admin/js/menu.js') }}"></script>
         <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
         <script src="{{ asset('admin/js/trees.js') }}"></script>
+        <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/drawer.js') }}"></script>
 
         <!-- feather icons -->
