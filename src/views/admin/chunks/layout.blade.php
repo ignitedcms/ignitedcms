@@ -1,36 +1,55 @@
-@extends('ignitedcms::admin.dashboard.layout')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <div id="app" class="full-screen">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
 
-        @include('ignitedcms::admin.sidebar')
+        <!-- datatables -->
+        <link rel="stylesheet" href="{{ asset('admin/datatables/datatables.css') }}">
 
-        <div class="main-content " id="main-content">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
 
-        <div class="p-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card w-50 m-auto">
-                        <div class="card-header bg-info text-white">
-                            <h4>Chunked uploader</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group" id="file-input">
-                                <input type="file" id="pickfiles" class="form-control">
-                                <div id="filelist"></div>
-                            </div>
-                            <div class="form-group">
-                                <a id="upload" href="javascript:;" class="button">Upload file</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-   </div>
+    </head>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <body class="full-screen bg-light-grey">
+
+        @yield('content')
+
+        <!-- vue 2 -->
+        <script src="{{ asset('admin/js/vue2.js') }}"></script>
+
+        <!-- Click out must go before all other scripts -->
+        <script src="{{ asset('admin/js/click-outside.js') }}"></script>
+        <script src="{{ asset('admin/js/tabs.js') }}"></script>
+        <script src="{{ asset('admin/js/popover.js') }}"></script>
+        <script src="{{ asset('admin/js/modals.js') }}"></script>
+        <script src="{{ asset('admin/js/dropdown.js') }}"></script>
+        <script src="{{ asset('admin/js/password.js') }}"></script>
+        <script src="{{ asset('admin/js/datepicker.js') }}"></script>
+        <script src="{{ asset('admin/js/accordions.js') }}"></script>
+        <script src="{{ asset('admin/js/switch.js') }}"></script>
+        <script src="{{ asset('admin/js/range-sliders.js') }}"></script>
+        <script src="{{ asset('admin/js/toasts.js') }}"></script>
+        <script src="{{ asset('admin/js/menu.js') }}"></script>
+        <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
+        <script src="{{ asset('admin/js/trees.js') }}"></script>
+        <script src="{{ asset('admin/js/tabs.js') }}"></script>
+        <script src="{{ asset('admin/js/drawer.js') }}"></script>
+
+        <!-- feather icons -->
+        <script src="{{ asset('admin/js/feather.js') }}"></script>
+
+        <script src="{{ asset('admin/datatables/jquery.min.js') }}"></script>
+
+        <!-- datatables -->
+        <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
+
 
         <script src="{{ asset('admin/plupload/js/plupload.full.min.js') }}"></script>
         <script type="text/javascript">
@@ -117,6 +136,47 @@
                 uploader.init();
             });
         </script>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    show: false,
+                    dark: false, //dark or light mode
+                    styles: 'none'
+                },
+                methods: {
+                    toggle_sidemenu() {
+                        this.show = !this.show;
+                        if (this.show) {
+                            this.styles = 'block'
+                        } else {
+                            this.styles = 'none'
+                        }
+                    },
+                    away() {
+                        this.show = false;
+                        this.styles = 'none'
+                    }
+                },
+                mounted() {
+                     this.$refs.toast.showToast(4000);
+                }
+            });
+        </script>
+
+        <script>
+            feather.replace({
+                class: "font-primary",
+            });
+        </script>
+
+        <script>
+            $('#example').dataTable({
+                "iDisplayLength": 10
+            });
+        </script>
     </body>
 
 </html>
+
