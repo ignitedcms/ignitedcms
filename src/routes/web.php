@@ -1,6 +1,7 @@
 <?php
 
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\AssetController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\ChunkFileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DashboardController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\DatabaseController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\EmailController;
@@ -56,6 +57,14 @@ Route::middleware('web')->group(function () {
     Route::get('/admin/assets/update/{id}', [AssetController::class, 'updateView']);
     Route::post('/admin/assets/update/{id}', [AssetController::class, 'update']);
     Route::post('/admin/assets/delete/{id}', [AssetController::class, 'destroy']);
+});
+
+//Chunking
+
+Route::middleware('web')->group(function () {
+
+    Route::get('/admin/chunking', [ChunkFileController::class, 'index']);
+    Route::post('/admin/chunking/chunkStore', [ChunkFileController::class, 'chunkStore']);
 });
 
 //Introduce IP throttling for login
