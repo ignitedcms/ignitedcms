@@ -83,7 +83,7 @@
                   </div>
                   <select class="form-select" name="site_url" aria-label="Default select example">
                      @foreach ($data2 as $row)
-                     <option value="{{ $row->name }}">{{ $row->name }}</option>
+                     <option value="{{ $row->name }}" @if ($row->name == $data3) selected @endif>{{ $row->name }}</option>
                      @endforeach
                   </select>
                </div>

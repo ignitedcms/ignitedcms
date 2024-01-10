@@ -6,8 +6,8 @@
 |
 | Uploader for only files > 10mb!
 | Depends on Plupload
-| 
-| 
+|
+|
 |
 |
 | @author: IgnitedCMS
@@ -30,13 +30,13 @@ class ChunkFileController extends Controller
     {
         $this->middleware(Igs_auth::class.':17');
     }
-   
+
     public function index()
     {
-       return view('ignitedcms::admin.chunks.index');
+        return view('ignitedcms::admin.chunks.index');
     }
 
-     /**
+    /**
      * Write code on Method
      *
      * @return response()
@@ -89,8 +89,8 @@ class ChunkFileController extends Controller
             //ChunkFile::create($array);
 
             $url = url(asset("uploads/$fileName"));
-            $thumb = url(asset("admin/images/file.jpg"));
-            $fieldname = "";
+            $thumb = url(asset('admin/images/file.jpg'));
+            $fieldname = '';
 
             Asset::create(
                 $fileName,
@@ -107,6 +107,4 @@ class ChunkFileController extends Controller
 
         return response()->json(['ok' => $ok, 'info' => $info]);
     }
-
 }
-

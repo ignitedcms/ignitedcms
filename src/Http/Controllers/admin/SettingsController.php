@@ -35,9 +35,12 @@ class SettingsController extends Controller
         //Let's get all sections
         $data2 = Settings::getSections();
 
+        $data3 = Settings::getUrl();
+
         return view('ignitedcms::admin.settings.index')->with([
             'data' => $data,
             'data2' => $data2,
+            'data3' => $data3,
         ]);
 
     }

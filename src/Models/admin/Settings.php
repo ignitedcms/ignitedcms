@@ -57,6 +57,25 @@ class Settings
             'controller' => $controller,
         ]);
 
+        //Finally add to url_settings table
+        DB::table('url_settings')
+            ->where('id', '=', '1')
+            ->update([
+                'name' => $site_url,
+            ]);
+
+    }
+
+    //return the base url if set
+    public static function getUrl()
+    {
+        $query = DB::table('url_settings')
+            ->select('name')
+            ->where('id', '=', 1)
+            ->limit(1)
+            ->get();
+
+        return $query[0]->name;
     }
 
     public static function getFileExtensions()
