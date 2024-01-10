@@ -35,6 +35,10 @@
                        <input type="file" id="pickfiles" class="form-control">
                        <div id="filelist" class="m-t-2 m-b-2"></div>
                     </div>
+                    <div class="progress">
+                       <div id="progress" class="progress-bar-primary" role="progressbar" 
+                           aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                     <div class="form-group">
                        <a id="upload" href="javascript:;" class="button">Upload file</a>
                     </div>

@@ -102,6 +102,9 @@
                             //console.log(file);
                             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML =
                                 '<span>' + file.percent + "%</span>";
+                           
+                            document.getElementById("progress").style.width = file.percent + "%";
+
                         },
                         FileUploaded: function(up, file, result) {
 
@@ -123,7 +126,7 @@
                             }
                         },
                         UploadComplete: function(up, file) {
-                            alert('done');
+                            alert('File uploaded');
                             // toastr.success('Your File Uploaded Successfully!!', 'Success Alert', {timeOut: 5000});
                         },
                         Error: function(up, err) {
