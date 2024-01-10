@@ -42,7 +42,7 @@
             <div class="panel br drop-shadow">
 
                <div class="row">
-                  <div class="col">
+                  <div class="col no-margin">
                      <h4>Email</h4>
                   </div>
                </div>
