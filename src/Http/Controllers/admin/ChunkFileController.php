@@ -87,6 +87,19 @@ class ChunkFileController extends Controller
             rename("{$filePath}.part", $filePath);
             $array = ['file' => $fileName];
             //ChunkFile::create($array);
+
+            $url = url(asset("uploads/$fileName"));
+            $thumb = url(asset("admin/images/file.jpg"));
+            $fieldname = "";
+
+            Asset::create(
+                $fileName,
+                'unknown',
+                $url,
+                $thumb,
+                $fieldname
+            );
+
         }
 
         $info = 'Upload OK';
