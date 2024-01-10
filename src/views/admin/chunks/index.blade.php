@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Chunk File Upload in Laravel</title>
+        <title>Dashboard</title>
     </head>
 
     <body>
@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="card w-50 m-auto">
                         <div class="card-header bg-info text-white">
-                            <h4>Chunk File Upload in Laravel</h4>
+                            <h4>Chunked uploader</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group" id="file-input">
@@ -21,7 +21,7 @@
                                 <div id="filelist"></div>
                             </div>
                             <div class="form-group">
-                                <a id="upload" href="javascript:;" class="button">Upload files</a>
+                                <a id="upload" href="javascript:;" class="button">Upload file</a>
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,9 @@
                     browse_button: 'pickfiles',
                     container: document.getElementById('file-input'),
                     url: '{{ url('admin/chunking/chunkStore') }}',
-                    chunk_size: '2mb', // 5 MB
+                    chunk_size: '2mb', // 2 MB
                     max_retries: 2,
+                    multi_selection: false,
                     filters: {
                        // mime_types: [{
                        //         title: "Image files",
@@ -55,7 +56,7 @@
                        // max_file_size: '10mb'
                     },
                     multipart_params: {
-                        // Extra Parameter
+                        // Extra Parameter Needed!
                         "_token": "{{ csrf_token() }}"
                     },
                     init: {
