@@ -151,7 +151,11 @@ class Template_builder
             if ($row->type == 'matrix') {
 
                 $string = $string.'{{ print_r( $'.$row->name.') }}'."\n\t\t";
-            } else {
+            } elseif ($row->type == 'file-upload') {
+
+                $string = $string.'{{ $'.$row->name.'[\'url\'] }}'."\n\t\t";
+            }
+            else {
 
                 $string = $string.'{{ $'.$row->name.' }}'."\n\t\t";
             }
