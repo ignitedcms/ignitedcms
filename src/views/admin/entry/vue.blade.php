@@ -89,7 +89,7 @@
 
                 <div v-if="part.type == 'date'">
                     <div class="form-group">
-                        <label class="date">[@{{part.title}}]<br>
+                        <label >[@{{part.title}}]<br>
                         </label>
                         <div class="small text-muted">@{{part.instructions}}</div>
                         <datepicker v-model="part.content"></datepicker>
@@ -97,6 +97,9 @@
                 </div>
                 <div v-if="part.type == 'switch'">
                     <div class="form-group">
+                        
+                        <label >[@{{part.title}}]<br>
+                        </label>
                         <div class="small text-muted">@{{part.instructions}}</div>
                         <switch-ios v-model="part.content" ></switch-ios>                        
 
