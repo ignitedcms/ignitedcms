@@ -116,10 +116,14 @@ class InstallController extends Controller
            ('Text','txt',0),
            ('Video','avi,mp4,mpeg,quicktime',0);";
 
+        $sql5 = 'INSERT INTO `'.$prefix."url_settings`(`id`, `name`) VALUES
+         (1,'');";
+
         DB::statement($sql1);
         DB::statement($sql2);
         DB::statement($sql3);
         DB::statement($sql4);
+        DB::statement($sql5);
 
         return redirect('login')->with('final', 'Account successfully created');
     }

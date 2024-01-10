@@ -27,6 +27,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('url_settings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 255)->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('assetfields', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('entryid')->nullable();
