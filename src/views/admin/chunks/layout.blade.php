@@ -126,7 +126,8 @@
                             }
                         },
                         UploadComplete: function(up, file) {
-                            alert('File uploaded');
+                            window.location.href = '{{ url('admin/assets') }}'
+                            //alert('File uploaded');
                             // toastr.success('Your File Uploaded Successfully!!', 'Success Alert', {timeOut: 5000});
                         },
                         Error: function(up, err) {
