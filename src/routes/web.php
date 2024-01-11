@@ -64,7 +64,7 @@ Route::middleware('web')->group(function () {
 Route::middleware('web')->group(function () {
 
     Route::get('/admin/chunking', [ChunkFileController::class, 'index']);
-    Route::post('/admin/chunking/chunkStore', [ChunkFileController::class, 'chunkStore']);
+    Route::post('/admin/chunking/chunkStore/{folder}', [ChunkFileController::class, 'chunkStore']);
 });
 
 //Introduce IP throttling for login

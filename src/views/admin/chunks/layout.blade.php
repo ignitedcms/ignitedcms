@@ -56,10 +56,12 @@
             $(document).ready(function() {
                 var path = "{{ asset('admin/plupload/js/') }}";
 
+                var folder = Math.random().toString(36).substring(2);
+
                 var uploader = new plupload.Uploader({
                     browse_button: 'pickfiles',
                     container: document.getElementById('file-input'),
-                    url: '{{ url('admin/chunking/chunkStore') }}',
+                    url: '{{ url('admin/chunking/chunkStore') }}' + '/' + folder,
                     chunk_size: '2mb', // 2 MB
                     max_retries: 2,
                     multi_selection: false,

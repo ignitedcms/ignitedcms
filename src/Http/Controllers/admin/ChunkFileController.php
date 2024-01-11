@@ -48,7 +48,7 @@ class ChunkFileController extends Controller
      *
      * @return response()
      */
-    public function chunkStore(Request $request)
+    public function chunkStore(Request $request, $folder)
     {
         $_REQUEST['name'];
         $input = $request->all();
@@ -56,7 +56,7 @@ class ChunkFileController extends Controller
         // THE UPLOAD DESTINATION - CHANGE THIS TO YOUR OWN
 
         //$token = Str::random(30);
-        $filePath = "uploads";
+        $filePath = "uploads/$folder";
 
         if (! file_exists($filePath)) {
             if (! mkdir($filePath, 0777, true)) {
@@ -96,7 +96,7 @@ class ChunkFileController extends Controller
             $array = ['file' => $fileName];
             //ChunkFile::create($array);
 
-            $url = url(asset("uploads/$fileName"));
+            $url = url(asset("uploads/$folder/$fileName"));
             $thumb = url(asset('admin/images/file.jpg'));
             $fieldname = '';
 
