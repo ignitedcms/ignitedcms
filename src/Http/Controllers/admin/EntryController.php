@@ -53,6 +53,14 @@ class EntryController extends Controller
 
     public function updateView($sectionid, $entryid)
     {
+
+        //check if user has access otherwise deny
+        if(!Entry::hasAccess($sectionid))
+        {
+           return redirect('admin/dashboard');
+        }
+
+
         $data = Entry::sectionAllFields($sectionid);
         $assets = Asset::all();
 
