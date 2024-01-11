@@ -154,8 +154,7 @@ class Template_builder
             } elseif ($row->type == 'file-upload') {
 
                 $string = $string.'{{ $'.$row->name.'[\'url\'] }}'."\n\t\t";
-            }
-            else {
+            } else {
 
                 $string = $string.'{{ $'.$row->name.' }}'."\n\t\t";
             }

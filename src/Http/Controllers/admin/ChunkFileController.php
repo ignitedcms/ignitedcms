@@ -39,8 +39,8 @@ class ChunkFileController extends Controller
         //dd($csvArray);
 
         return view('ignitedcms::admin.chunks.index')->with([
-              'data' => $csvArray,
-          ]);
+            'data' => $csvArray,
+        ]);
     }
 
     /**

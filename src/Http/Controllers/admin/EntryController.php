@@ -55,11 +55,9 @@ class EntryController extends Controller
     {
 
         //check if user has access otherwise deny
-        if(!Entry::hasAccess($sectionid))
-        {
-           return redirect('admin/dashboard');
+        if (! Entry::hasAccess($sectionid)) {
+            return redirect('admin/dashboard');
         }
-
 
         $data = Entry::sectionAllFields($sectionid);
         $assets = Asset::all();

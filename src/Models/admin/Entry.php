@@ -53,25 +53,23 @@ class Entry
 
     public static function hasAccess($sectionid)
     {
-       $userid = session('userid');
+        $userid = session('userid');
 
-       $query = DB::table('section')
-          ->select('user_access')
-          ->where('id','=', $sectionid)
-         ->limit(1)
-          ->get();
+        $query = DB::table('section')
+            ->select('user_access')
+            ->where('id', '=', $sectionid)
+            ->limit(1)
+            ->get();
 
-       //convert to array
-       $access = json_decode($query[0]->user_access);
+        //convert to array
+        $access = json_decode($query[0]->user_access);
 
-       //Now check if userid is in array
-       if(in_array($userid, $access))
-       {
-         return true;
-       }
-       else{
-         return false;
-       }
+        //Now check if userid is in array
+        if (in_array($userid, $access)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static function sectionAllFields($sectionid)

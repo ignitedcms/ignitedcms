@@ -70,60 +70,69 @@ class InstallController extends Controller
 
         $prefix = '';
 
-        $sql1 = 'INSERT INTO `'.$prefix."permissions` (`permissionID`, `permission`,`order_position`) VALUES
-         (3, 'Email',6),
-         (5, 'Permissions',8),
-         (6, 'Profile',1),
-         (9,'Users',9),
-         (7,'Menu',2),
-         (10,'Database',10),
-         (13,'Fields',13),
-         (14,'Sections',14),
-         (15,'Entries',15),
-         (17,'Assets',17),
-         (18,'Site settings',18),
-         (19,'Paypal',19),
-         (20,'Plugins',20),
-         (21,'IPN',21);";
+        $sql1 = [
+            ['permissionID' => 3, 'permission' => 'Email', 'order_position' => 6],
+            ['permissionID' => 5, 'permission' => 'Permissions', 'order_position' => 8],
+            ['permissionID' => 6, 'permission' => 'Profile', 'order_position' => 1],
+            ['permissionID' => 9, 'permission' => 'Users', 'order_position' => 9],
+            ['permissionID' => 7, 'permission' => 'Menu', 'order_position' => 2],
+            ['permissionID' => 10, 'permission' => 'Database', 'order_position' => 10],
+            ['permissionID' => 13, 'permission' => 'Fields', 'order_position' => 13],
+            ['permissionID' => 14, 'permission' => 'Sections', 'order_position' => 14],
+            ['permissionID' => 15, 'permission' => 'Entries', 'order_position' => 15],
+            ['permissionID' => 17, 'permission' => 'Assets', 'order_position' => 17],
+            ['permissionID' => 18, 'permission' => 'Site settings', 'order_position' => 18],
+            ['permissionID' => 19, 'permission' => 'Paypal', 'order_position' => 19],
+            ['permissionID' => 20, 'permission' => 'Plugins', 'order_position' => 20],
+            ['permissionID' => 21, 'permission' => 'IPN', 'order_position' => 21],
+        ];
 
-        $sql2 = 'INSERT INTO `'.$prefix.'permission_map`(`groupID`, `permissionID`) VALUES
-         (1,3),
-         (1,5),
-         (1,6),
-         (1,7),
-         (1,9),
-         (1,10),
-         (1,13),
-         (1,14),
-         (1,15),
-         (1,17),
-         (1,18),
-         (1,19),
-         (1,20),
-         (1,21);';
+        DB::table($prefix.'permissions')->insert($sql1);
 
-        $sql3 = 'INSERT INTO `'.$prefix."permission_groups`(`groupID`, `groupName`) VALUES
-         (1,'Administrators');";
+        $sql2 = [
+            ['groupID' => 1, 'permissionID' => 3],
+            ['groupID' => 1, 'permissionID' => 5],
+            ['groupID' => 1, 'permissionID' => 6],
+            ['groupID' => 1, 'permissionID' => 7],
+            ['groupID' => 1, 'permissionID' => 9],
+            ['groupID' => 1, 'permissionID' => 10],
+            ['groupID' => 1, 'permissionID' => 13],
+            ['groupID' => 1, 'permissionID' => 14],
+            ['groupID' => 1, 'permissionID' => 15],
+            ['groupID' => 1, 'permissionID' => 17],
+            ['groupID' => 1, 'permissionID' => 18],
+            ['groupID' => 1, 'permissionID' => 19],
+            ['groupID' => 1, 'permissionID' => 20],
+            ['groupID' => 1, 'permissionID' => 21],
+        ];
+
+        DB::table($prefix.'permission_map')->insert($sql2);
+
+        $sql3 = [
+            ['groupID' => 1, 'groupName' => 'Administrators'],
+        ];
+
+        DB::table($prefix.'permission_groups')->insert($sql3);
 
         //Finally add the asset upload file allowed types
-        $sql4 = 'INSERT INTO `'.$prefix."site_settings`(`name`, `extensions`, `enabled`) VALUES
-           ('Audio','mp3,wav,ogg,acc,flac',0),
-           ('Zip','zip,rar',0),
-           ('Microsoft','doc,docx,xls,xlsx,ppt,pptx',0),
-           ('Image','jpg,jpeg,bmp,png,svg,gif',1),
-           ('Javascript','js',0),
-           ('PDF','pdf',0),
-           ('Text','txt',0),
-           ('Video','avi,mp4,mpeg,quicktime,mov',0);";
+        $sql4 = [
+            ['name' => 'Audio', 'extensions' => 'mp3,wav,ogg,acc,flac', 'enabled' => 0],
+            ['name' => 'Zip', 'extensions' => 'zip,rar', 'enabled' => 0],
+            ['name' => 'Microsoft', 'extensions' => 'doc,docx,xls,xlsx,ppt,pptx', 'enabled' => 0],
+            ['name' => 'Image', 'extensions' => 'jpg,jpeg,bmp,png,svg,gif', 'enabled' => 1],
+            ['name' => 'Javascript', 'extensions' => 'js', 'enabled' => 0],
+            ['name' => 'PDF', 'extensions' => 'pdf', 'enabled' => 0],
+            ['name' => 'Text', 'extensions' => 'txt', 'enabled' => 0],
+            ['name' => 'Video', 'extensions' => 'avi,mp4,mpeg,quicktime,mov', 'enabled' => 0],
+        ];
 
-        $sql5 = 'INSERT INTO `'.$prefix."url_settings`(`id`, `name`) VALUES
-         (1,'');";
+        DB::table($prefix.'site_settings')->insert($sql4);
 
-        DB::statement($sql1);
-        DB::statement($sql2);
-        DB::statement($sql3);
-        DB::statement($sql4);
-        DB::statement($sql5);
+        $sql5 = [
+            ['id' => 1, 'name' => ''],
+        ];
+
+        DB::table($prefix.'url_settings')->insert($sql5);
 
         return redirect('login')->with('final', 'Account successfully created');
     }
