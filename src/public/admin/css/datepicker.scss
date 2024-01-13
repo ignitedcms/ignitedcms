@@ -1,17 +1,17 @@
 @import "variables";
 
-.current-date{
+.current-date {
 
-   background-color: $grey;
-   color:#fff !important;
-   border-radius: $border-radius;
+    background-color: $grey;
+    color: #fff !important;
+    border-radius: $border-radius;
 }
 
 .focused {
-   //outline: 2px solid #ccc;
-   background-color: $primary;
-   color:#fff !important;
-   border-radius: $border-radius;
+    //outline: 2px solid #ccc;
+    background-color: $primary;
+    color: #fff !important;
+    border-radius: $border-radius;
 }
 
 .datepicker {
@@ -21,26 +21,24 @@
 .date-container {
     width: 250px;
 
-    @media (max-width: $mobile) 
-    {
-       width:100%;
+    @media (max-width: $mobile) {
+        width: 100%;
     }
 }
 
-.date-flyout{
+.date-flyout {
     position: relative;
     min-height: 300px;
     width: 250px;
-    margin-top:10px;
+    margin-top: 10px;
     padding: 10px;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: $border-radius;
     z-index: 2;
 
-    @media (max-width: $mobile) 
-    {
-       width:100%;
+    @media (max-width: $mobile) {
+        width: 100%;
     }
 }
 
@@ -53,40 +51,40 @@
     flex-wrap: wrap;
 }
 
-.year-box{
-    padding:5px;
+.year-box {
+    padding: 5px;
     border: 1px solid #ccc;
-    font-size:16px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
 
-    &:hover{
-       background-color:$light-grey;
+    &:hover {
+        background-color: $light-grey;
     }
 }
 
-.date-chunk{
+.date-chunk {
     float: left;
     width: 33.33%;
 }
 
 
-.date-years{
+.date-years {
     position: relative;
     max-height: 300px;
-    font-size:14px;
+    font-size: 14px;
     overflow: auto;
     margin-top: 15px;
 
-    &-row{
-        padding:10px;
+    &-row {
+        padding: 10px;
         background-color: $light-grey;
         width: 100%;
         text-align: center;
         cursor: pointer;
-        
-        &:hover{
-            background-color: darken($light-grey,10);
+
+        &:hover {
+            background-color: darken($light-grey, 10);
         }
     }
 }
@@ -107,8 +105,8 @@
     user-select: none;
     border: 1px solid #cccccc;
 
-    &:hover{
-       background-color:$light-grey;
+    &:hover {
+        background-color: $light-grey;
     }
 
 }
@@ -127,12 +125,12 @@
 
     &:hover {
         background-color: $primary;
-        color:#fff;
+        color: #fff;
         border-radius: 4px;
     }
 
-    &-no-hover{
-        &:hover{
+    &-no-hover {
+        &:hover {
             background-color: #ffffff;
         }
     }
@@ -147,7 +145,7 @@
     color: #666;
     position: relative;
     float: left;
-    font-size:14px;
+    font-size: 14px;
     width: 14.2857142857%;
     min-height: 38px;
 

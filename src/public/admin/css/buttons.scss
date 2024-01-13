@@ -21,7 +21,7 @@
     transition: all 0.5s;
     user-select: none;
 
-    &-block{
+    &-block {
         width: 100%;
     }
 
@@ -29,7 +29,7 @@
         background-color: $primary;
         color: #ffffff;
 
-        &-outline{
+        &-outline {
             background-color: #ffffff;
             color: $primary;
             border: 1px solid $primary;
@@ -41,7 +41,7 @@
         background-color: $secondary;
         color: #ffffff;
 
-        &-outline{
+        &-outline {
             background-color: #ffffff;
             color: $secondary;
             border: 1px solid $secondary;
@@ -52,7 +52,7 @@
         background-color: $tertiary;
         color: #ffffff;
 
-        &-outline{
+        &-outline {
             background-color: #ffffff;
             color: $tertiary;
             border: 1px solid $tertiary;
@@ -63,26 +63,26 @@
         background-color: #ffffff;
         color: #333;
         border: 1px solid #ccc;
-    
-        &:hover{
-         background-color:#f2f2f2;
+
+        &:hover {
+            background-color: #f2f2f2;
         }
     }
-    
+
     &-danger {
         background-color: #d53237;
         color: #fff;
         border: 1px solid #d53237;
-    
+
     }
 
     &-light {
         background-color: #ffffff;
         color: #333;
         border: 1px solid #ccc;
-    
-        &:hover{
-           background-color:#f2f2f2;
+
+        &:hover {
+            background-color: #f2f2f2;
         }
     }
 }
@@ -122,20 +122,4 @@
 
 .btn-group button:not(:last-child) {
     border-right: none;
-}
-
-/*
-|---------------------------------------------------------------
-| Button utility classes IMP must remove outline:inherit for accessiblity
-|---------------------------------------------------------------
-*/
-.rm-btn-styles {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    // outline: inherit;
-    text-align: left;
 }

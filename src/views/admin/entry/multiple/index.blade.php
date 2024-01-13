@@ -52,7 +52,7 @@
 
                           <div class="col p-b-2">
 
-                              <div class="alert alert-info">
+                              <div class="alert alert-success">
                                  To add another item to the multiple, you must first create
                                  an entry title, this must be unique and contain only lowercase
                                  letters with dashes e.g 'hello-world'
@@ -84,7 +84,7 @@
 
             <div class="row">
                 <div class="col-12">
-                   <div class="alert alert-info ">
+                   <div class="alert alert-success ">
                       <div class="text-black">Did you know?</div>
                       <div class="small text-muted">
                          You can drag and drop to re-order the position, this can be used to

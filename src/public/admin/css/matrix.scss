@@ -70,7 +70,7 @@
     cursor: pointer;
 }
 
-.matrix-collapse{
+.matrix-collapse {
 
     // position: absolute;
     height: 20px;
@@ -129,11 +129,12 @@
 
     &__item {
         margin-right: 20px;
-        float:left;
+        float: left;
         cursor: pointer;
         transition: 0.4s all;
+
         &:hover {
-            transform: translateY(-5px) ;
+            transform: translateY(-5px);
         }
     }
 }
@@ -151,13 +152,13 @@
     &-rem {
         position: absolute;
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
         flex-direction: row;
         height: 30px;
         width: 30px;
-        border-radius:20px;
-        cursor: pointer; 
+        border-radius: 20px;
+        cursor: pointer;
         background-color: $background;
         color: $primary;
         top: -10px;
@@ -168,7 +169,7 @@
 //style for the hideApp div
 //This is for the new upload
 //Will toggle the main app id to visible or hidden
-.hide-app{
+.hide-app {
     cursor: pointer;
     position: relative;
     margin-top: 5px;
@@ -179,7 +180,7 @@
 //--------------------------------------------------------
 // | Styles for the rich text code block 
 //--------------------------------------------------------
-.quill-code-block{
+.quill-code-block {
     background-color: #333333;
-    color:#ffffff;
+    color: #ffffff;
 }

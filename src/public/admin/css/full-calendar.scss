@@ -14,28 +14,28 @@
     transition: all 0.4s;
     cursor: pointer;
 
-    &-week{
+    &-week {
 
-      height: 98px;
+        height: 98px;
     }
 
-    &-disabled{
+    &-disabled {
         background-color: $background;
         border: 1px solid #ccc;
     }
 
-    &-headers{
-       border: 1px solid #ccc;
-       height: 38px;
-       width: 14.2757142857%;
-       padding: 5px;
-       float:left;
-       text-align:center;
-       background-color: #ffffff;
-       margin-top: -1px;
-       margin-left: -1px;
-       transition: all 0.4s;
-       cursor: pointer;
+    &-headers {
+        border: 1px solid #ccc;
+        height: 38px;
+        width: 14.2757142857%;
+        padding: 5px;
+        float: left;
+        text-align: center;
+        background-color: #ffffff;
+        margin-top: -1px;
+        margin-left: -1px;
+        transition: all 0.4s;
+        cursor: pointer;
 
     }
 }
@@ -44,11 +44,10 @@
     background: $light-grey;
 }
 
-@media (max-width: $tablet) 
-{
-   .day{
-      height:70px;
+@media (max-width: $tablet) {
+    .day {
+        height: 70px;
 
-   }
+    }
 
 }

@@ -11,7 +11,6 @@
   background-color: #fff;
   border: 1px double #ccc;
   width: 200px;
-  text-align: center;
   padding: 15px;
   bottom: 150%;
   left: 50%;
@@ -22,8 +21,10 @@
 .popover::before {
   content: "";
   position: absolute;
-  top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
-  top: calc(100% - 10px); /*i.e. half the height*/
+  top: -webkit-calc(100% - 10px);
+  /*may require prefix for old browser support*/
+  top: calc(100% - 10px);
+  /*i.e. half the height*/
   left: 90px;
   height: 20px;
   width: 20px;
@@ -49,8 +50,10 @@
 .popover-dark::before {
   content: "";
   position: absolute;
-  top: -webkit-calc(100% - 10px); /*may require prefix for old browser support*/
-  top: calc(100% - 10px); /*i.e. half the height*/
+  top: -webkit-calc(100% - 10px);
+  /*may require prefix for old browser support*/
+  top: calc(100% - 10px);
+  /*i.e. half the height*/
   left: 90px;
   height: 20px;
   width: 20px;

@@ -1,111 +1,110 @@
 @import "variables";
 
-   *,
-   *::before,
-   *::after {
-      box-sizing: border-box;
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+html {
+   box-sizing: border-box;
+   margin: 0;
+   //background-color: $background;
+   padding: 0;
+}
+
+body {
+   font-size: $font-size;
+   font-family: $font;
+   color: $font-color;
+   line-height: $line-height;
+   letter-spacing: .01em;
+}
+
+p {
+   margin-top: 10px;
+}
+
+strong {
+   font-weight: bold;
+}
+
+em {
+   font-style: italic;
+}
+
+.small {
+   position: relative;
+   //padding-top: 10px;
+   font-size: 14px;
+}
+
+a {
+   color: $link-color;
+   transition: all .1s ease;
+}
+
+a:hover {
+   color: $link-color;
+}
+
+label {
+   position: relative;
+   color: #111111;
+   margin-bottom: 5px;
+}
+
+// for showing code
+.code {
+
+   position: relative;
+   font-size: 14px;
+   padding: $margin;
+   color: #FFFFFF;
+   background-color: $tertiary;
+   overflow-x: auto;
+   font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+   border-radius: $border-radius;
+
+   @media (max-width: $desktop) {
+      padding: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      width: 100%;
+      overflow-x: auto;
    }
 
-   html {
-      box-sizing: border-box;
-      margin: 0;
-      //background-color: $background;
-      padding: 0;
-   }
+}
 
-   body {
-      font-size: $font-size;
-      font-family: $font;
-      color: $font-color;
-      line-height: $line-height;
-      letter-spacing: .01em;
-   }
-
-   p {
-      margin-top: 10px;
-   }
-
-   strong {
-      font-weight: bold;
-   }
-
-   em {
-      font-style: italic;
-   }
-
-   .small {
-      position: relative;
-      //padding-top: 10px;
-      font-size: 14px;
-   }
-
-   a {
-      color: $link-color;
-      transition: all .1s ease;
-   }
-
-   a:hover {
-      color: $link-color;
-   }
-
-   label {
-      position: relative;
-      color: #111111;
-      margin-bottom: 5px;
-   }
-
-   // for showing code
-   .code {
-
-      position: relative;
-      font-size: 14px;
-      padding: $margin;
-      color:#FFFFFF;
-      background-color: $tertiary;
-      overflow-x:auto;
-      font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
-      border-radius: $border-radius;
-
-      @media (max-width: $desktop) 
-      {
-         padding:10px;
-         white-space: pre-wrap;
-         word-wrap: break-word;
-         width:100%;
-         overflow-x: auto;
-      }
-
-   }
-   
-   /*                                                                          
+/*                                                                          
    |---------------------------------------------------------------            
    | cross hatch grid styles                                                
    |---------------------------------------------------------------            
-   */       
-   .cross-grid{
-      background-size: 40px 40px;
-      background-image:
+   */
+.cross-grid {
+   background-size: 40px 40px;
+   background-image:
       linear-gradient(to right, #f2f2f2 1px, transparent 1px),
-      linear-gradient(to bottom,#f2f2f2  1px, transparent 1px);
-   }
+      linear-gradient(to bottom, #f2f2f2 1px, transparent 1px);
+}
 
 
-   /*                                                                          
+/*                                                                          
    |---------------------------------------------------------------            
    | Divider content for dashboard                                                
    |---------------------------------------------------------------            
    | Draws a thin grey line
    |
-   */       
-   .divider{
-      border-bottom:1px solid $grey;
-      padding-top:30px;
-      margin-left: -30px;
-      margin-right: -30px;
-   }
+   */
+.divider {
+   border-bottom: 1px solid $grey;
+   padding-top: 30px;
+   margin-left: -30px;
+   margin-right: -30px;
+}
 
 
-   /*
+/*
    |---------------------------------------------------------------
    | Grid system
    |---------------------------------------------------------------
@@ -280,7 +279,7 @@ ol {
 }
 
 .bg-danger {
-   background-color: #983538; 
+   background-color: #983538;
    color: #ffffff;
 }
 
@@ -289,8 +288,8 @@ ol {
    background-color: #ffffff;
 }
 
-.bg-light-grey{
-   background-color:$background;
+.bg-light-grey {
+   background-color: $background;
 }
 
 .bg-white {
@@ -307,7 +306,15 @@ ol {
 }
 
 .drop-shadow {
-  box-shadow: $shadow;
+   box-shadow: $shadow;
+}
+
+.display-none {
+   display: none !important;
+}
+
+.inline-block {
+   display: inline-block;
 }
 
 .br {
@@ -344,13 +351,13 @@ ol {
    height: 40px;
    width: 40px;
 
-   &-inside{
-      height:20px;
-      width:20px;
-      position:absolute;
-      top:10px;
-      right:15px;
-      z-index:1;
+   &-inside {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      z-index: 1;
    }
 }
 
@@ -366,13 +373,13 @@ ol {
    padding: 0;
 }
 
-.scroll-y{
-   overflow-y : auto;
+.scroll-y {
+   overflow-y: auto;
    -webkit-overflow-scrolling: touch;
 }
 
-.scroll-x{
-   overflow-x : auto;
+.scroll-x {
+   overflow-x: auto;
    -webkit-overflow-scrolling: touch;
 }
 
@@ -383,8 +390,8 @@ ol {
  */
 .gap {
    padding-top: 60px;
-   @media (max-width: $tablet) 
-   {
+
+   @media (max-width: $tablet) {
       padding-top: 20px;
    }
 }
@@ -392,27 +399,34 @@ ol {
 .m {
    margin: $margin;
 
-   &-2{
-      margin:($margin*2);
+   &-2 {
+      margin: ($margin*2);
+
       @media screen and (max-width:$tablet) {
          margin: $margin;
       }
 
    }
-   &-3{
-      margin:($margin*3);
+
+   &-3 {
+      margin: ($margin*3);
+
       @media screen and (max-width:$tablet) {
          margin: $margin;
       }
    }
-   &-4{
-      margin:($margin*4);
+
+   &-4 {
+      margin: ($margin*4);
+
       @media screen and (max-width:$tablet) {
          margin: $margin;
       }
    }
-   &-5{
-      margin:($margin*5);
+
+   &-5 {
+      margin: ($margin*5);
+
       @media screen and (max-width:$tablet) {
          margin: $margin;
       }
@@ -420,27 +434,35 @@ ol {
 
    &-t {
       margin-top: $margin;
-      &-2{
-         margin-top:($margin*2);
+
+      &-2 {
+         margin-top: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
 
       }
-      &-3{
-         margin-top:($margin*3);
+
+      &-3 {
+         margin-top: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-4{
-         margin-top:($margin*4);
+
+      &-4 {
+         margin-top: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-5{
-         margin-top:($margin*5);
+
+      &-5 {
+         margin-top: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
@@ -449,27 +471,35 @@ ol {
 
    &-l {
       margin-left: $margin;
-      &-2{
-         margin-left:($margin*2);
+
+      &-2 {
+         margin-left: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
 
       }
-      &-3{
-         margin-left:($margin*3);
+
+      &-3 {
+         margin-left: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-4{
-         margin-left:($margin*4);
+
+      &-4 {
+         margin-left: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-5{
-         margin-left:($margin*5);
+
+      &-5 {
+         margin-left: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
@@ -478,27 +508,35 @@ ol {
 
    &-r {
       margin-right: $margin;
-      &-2{
-         margin-right:($margin*2);
+
+      &-2 {
+         margin-right: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
 
       }
-      &-3{
-         margin-right:($margin*3);
+
+      &-3 {
+         margin-right: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-4{
-         margin-right:($margin*4);
+
+      &-4 {
+         margin-right: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-5{
-         margin-right:($margin*5);
+
+      &-5 {
+         margin-right: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
@@ -507,27 +545,35 @@ ol {
 
    &-b {
       margin-bottom: $margin;
-      &-2{
-         margin-bottom:($margin*2);
+
+      &-2 {
+         margin-bottom: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
 
       }
-      &-3{
-         margin-bottom:($margin*3);
+
+      &-3 {
+         margin-bottom: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-4{
-         margin-bottom:($margin*4);
+
+      &-4 {
+         margin-bottom: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
       }
-      &-5{
-         margin-bottom:($margin*5);
+
+      &-5 {
+         margin-bottom: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             margin: $margin;
          }
@@ -538,27 +584,33 @@ ol {
 .p {
    padding: $margin;
 
-   &-2{
-      padding:($margin*2);
+   &-2 {
+      padding: ($margin*2);
 
       @media screen and (max-width:$tablet) {
          padding: $margin;
       }
    }
-   &-3{
-      padding:($margin*3);
+
+   &-3 {
+      padding: ($margin*3);
+
       @media screen and (max-width:$tablet) {
          padding: $margin;
       }
    }
-   &-4{
-      padding:($margin*4);
+
+   &-4 {
+      padding: ($margin*4);
+
       @media screen and (max-width:$tablet) {
          padding: $margin;
       }
    }
-   &-5{
-      padding:($margin*5);
+
+   &-5 {
+      padding: ($margin*5);
+
       @media screen and (max-width:$tablet) {
          padding: $margin;
       }
@@ -567,27 +619,35 @@ ol {
 
    &-t {
       padding-top: $margin;
-      &-2{
-         padding-top:($margin*2);
+
+      &-2 {
+         padding-top: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
 
       }
-      &-3{
-         padding-top:($margin*3);
+
+      &-3 {
+         padding-top: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-4{
-         padding-top:($margin*4);
+
+      &-4 {
+         padding-top: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-5{
-         padding-top:($margin*5);
+
+      &-5 {
+         padding-top: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
@@ -596,27 +656,35 @@ ol {
 
    &-l {
       padding-left: $margin;
-      &-2{
-         padding-left:($margin*2);
+
+      &-2 {
+         padding-left: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
 
       }
-      &-3{
-         padding-left:($margin*3);
+
+      &-3 {
+         padding-left: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-4{
-         padding-left:($margin*4);
+
+      &-4 {
+         padding-left: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-5{
-         padding-left:($margin*5);
+
+      &-5 {
+         padding-left: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
@@ -625,27 +693,35 @@ ol {
 
    &-r {
       padding-right: $margin;
-      &-2{
-         padding-right:($margin*2);
+
+      &-2 {
+         padding-right: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
 
       }
-      &-3{
-         padding-right:($margin*3);
+
+      &-3 {
+         padding-right: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-4{
-         padding-right:($margin*4);
+
+      &-4 {
+         padding-right: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-5{
-         padding-right:($margin*5);
+
+      &-5 {
+         padding-right: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
@@ -654,27 +730,35 @@ ol {
 
    &-b {
       padding-bottom: $margin;
-      &-2{
-         padding-bottom:($margin*2);
+
+      &-2 {
+         padding-bottom: ($margin*2);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
 
       }
-      &-3{
-         padding-bottom:($margin*3);
+
+      &-3 {
+         padding-bottom: ($margin*3);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-4{
-         padding-bottom:($margin*4);
+
+      &-4 {
+         padding-bottom: ($margin*4);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
       }
-      &-5{
-         padding-bottom:($margin*5);
+
+      &-5 {
+         padding-bottom: ($margin*5);
+
          @media screen and (max-width:$tablet) {
             padding: $margin;
          }
@@ -714,11 +798,64 @@ ol {
 | remove link and button styles
 |---------------------------------------------------------------
 */
-.rm-link-styles{
-    text-decoration: none;
-    color: $font-color !important;
+.rm-link-styles {
+   text-decoration: none;
+   color: $font-color !important;
 }
 
+/*
+|---------------------------------------------------------------
+| Button utility classes IMP must remove outline:inherit for accessiblity
+|---------------------------------------------------------------
+*/
+.rm-btn-styles {
+   background: none;
+   color: inherit;
+   border: none;
+   font: inherit;
+   cursor: pointer;
+   // outline: inherit;
+   text-align: left;
+}
+
+/*
+|---------------------------------------------------------------
+| List utility classes 
+|---------------------------------------------------------------
+*/
+
+.rm-list-styles {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+
+/*
+|---------------------------------------------------------------
+| Remove input styles
+|---------------------------------------------------------------
+*/
+
+.rm-input-styles {
+   position: relative;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   width: 100%;
+   padding: .275rem .85rem;
+   font-family: inherit;
+   font-size: 1em;
+   line-height: 1.8em;
+   color: #495057;
+   background-color: #fff;
+   background-clip: padding-box;
+   border: 1px solid #fff;
+
+   &:focus {
+
+      background-color: #fff;
+      outline: 0;
+   }
+}
 
 /*
 |---------------------------------------------------------------
@@ -740,17 +877,6 @@ ol {
    }
 }
 
-.top {
-   &-0 {
-      top: -15px;
-   }
-}
-
-.left {
-   &-0 {
-      left: 20px;
-   }
-}
 
 /*
 |---------------------------------------------------------------
@@ -767,7 +893,7 @@ ol {
    height: auto;
 }
 
-.img-center{
+.img-center {
    margin: 0 auto;
    display: block;
 }
@@ -805,6 +931,18 @@ ol {
    justify-content: center;
 }
 
+.v-e {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.h-e {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
 .center,
 .right {
    align-items: center;
@@ -830,33 +968,38 @@ ol {
    width: 100%;
 }
 
-.fancy-hover{
+.fancy-hover {
 
-    transition: all 0.4s;
+   transition: all 0.4s;
 
-    &:hover{
+   &:hover {
 
-        transform: translateY(-10px);
-        -webkit-box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
-        box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+      transform: translateY(-10px);
+      -webkit-box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
+      box-shadow: -1px 25px 10px -8px rgba(0, 0, 0, 0.28);
 
-         @media (max-width: $desktop) 
-         {
-            transform: none;
-            box-shadow:none;
-         }
-    }
+      @media (max-width: $desktop) {
+         transform: none;
+         box-shadow: none;
+      }
+   }
 }
 
-.grey-hover{
+.grey-hover {
 
-    transition: all 0.4s;
-    cursor:pointer;
+   transition: all 0.4s;
+   cursor: pointer;
 
-    &:hover{
-         background-color:$light-grey;
+   &:hover {
+      background-color: $light-grey;
 
-    }
+   }
+}
+
+.underline-hover{
+   &:hover{
+      text-decoration: underline;
+   }
 }
 
 @media screen and (max-width:$mobile) {
@@ -886,5 +1029,15 @@ ol {
 }
 
 
+@media screen and (min-width:1000px) {
+   .show-desktop {
+      display: none;
+   }
+}
 
 
+@media screen and (max-width:1000px) {
+   .hide-desktop {
+      display: none;
+   }
+}

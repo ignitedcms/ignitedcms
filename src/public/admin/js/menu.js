@@ -18,20 +18,21 @@ Vue.component('mega-menu', {
     'url'
   ],
   template: `
-    <div style="top:0; position:sticky; z-index:2;">
-      <div class="menu" :aria-labelledby="title">
-        <div class="menu-logo">
+    <div style="top:0; position:sticky; z-index:2;" class="hide-tablet">
+      <div class="h-e v-a bg-white p-2 b-b" :aria-labelledby="title">
+        <div class="">
           <a
             class="rm-link-styles"
             :href="url"
           >
             <img
               :src="logo"
+              style="width:150px;"
               alt="Ignitedcms logo"
             ></img>
           </a>
         </div>
-        <div class="menu-item-container">
+        <div class="h-e" style="min-width:300px;">
           <slot></slot>
         </div>
         <button type="button" class="btn btn-white" :id="title">{{title}}</button>
@@ -59,26 +60,27 @@ Vue.component('menu-items', {
       >
         <a
           :href="url"
-          class="menu-main rm-link-styles m-l-2"
+          class="rm-link-styles"
         >
           {{title}}
         </a>
       </div>
       <div
         v-if="children === 'yes'"
-        class="menu-main m-l-2 hand v-a pos-rel"
+        class="hand v-a pos-rel"
         @click="toggle"
         v-click-outside="away"
         :aria-expanded="show.toString()"
       >
         <button class="rm-btn-styles" :id="title">{{title}}</button>
         <span class="m-l v-a">
-          <i data-feather="chevron-down" class=""></i>
+          <i data-feather="chevron-down"></i>
         </span>
         <div
           v-if="show"
           @click.stop
-          class="menu-dropdown fade-in-bottom"
+          class="pos-abs fade-in-bottom bg-white b p br drop-shadow"
+          style="top:40px; left:-10px; min-height:100px;  min-width:250px;"
         >
           <slot></slot>
         </div>
@@ -110,10 +112,10 @@ Vue.component('menu-item', {
     'url'
   ],
   template: `
-    <div class="row m-t">
+    <div class="row m-t hand">
       <a
         :href="url"
-        class="rm-link-styles col v-a no-margin menu-large-items"
+        class="rm-link-styles col v-a no-margin grey-hover br"
       >
         <img
           :src="icon"

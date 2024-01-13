@@ -1,6 +1,6 @@
 @import "variables";
 
-.badge{
+.badge {
     display: inline-block;
     margin-right: 10px;
     min-width: 10px;
@@ -10,33 +10,31 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 20px; 
+    border-radius: 20px;
 
-    &-primary{
+    &-primary {
         background-color: $primary;
         color: #ffffff;
     }
 
-    &-secondary{
+    &-secondary {
         background-color: #f2f2f2;
         color: #111;
     }
 
-    &-danger{
+    &-danger {
         background-color: #d53237;
         color: #fff;
         border: 1px solid #d53237;
     }
 
-    &-light{
+    &-light {
         background-color: #ffffff;
         border: 1px solid #111;
     }
 
-    &-dark{
+    &-dark {
         background-color: $tertiary;
         color: #ffffff;
     }
 }
-
-

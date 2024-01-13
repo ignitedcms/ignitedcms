@@ -17,6 +17,7 @@ Vue.component('popover', {
     <button
       type="button"
       class="btn rm-btn-styles popover-rel"
+      style="padding:0;"
       aria-haspopup="dialog"
       :aria-expanded="arr"
       :aria-controls="'popover-' + uniqueId"

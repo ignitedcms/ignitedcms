@@ -16,7 +16,8 @@
 
 .event {
   position: relative;
-  margin-bottom: 60px; /* Increased the margin to create larger gaps */
+  margin-bottom: 60px;
+  /* Increased the margin to create larger gaps */
   padding-left: 30px;
 }
 
@@ -28,13 +29,17 @@
   content: "";
   position: absolute;
   top: 0;
-  left: -10px; /* Adjusted the left position */
-  width: 20px; /* Increased the width */
-  height: 20px; /* Increased the height */
+  left: -10px;
+  /* Adjusted the left position */
+  width: 20px;
+  /* Increased the width */
+  height: 20px;
+  /* Increased the height */
   border-radius: 50%;
   background: #292F3E;
   border: 4px solid rgb(243, 243, 243);
-  margin-top: -10px; /* Added margin to create larger vertical gap */
+  margin-top: -10px;
+  /* Added margin to create larger vertical gap */
 }
 
 .date {

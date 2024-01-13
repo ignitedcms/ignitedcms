@@ -9,18 +9,6 @@
   padding: 20px;
   border-radius: 5px;
 }
-.alert-info {
-  background-color: #FFFFFF;
-  position: relative;
-  padding: 20px;
-  border-radius: 5px;
-}
-.alert-warning {
-  background-color: #FFFFFF;
-  position: relative;
-  padding: 20px;
-  border-radius: 5px;
-}
 .alert-danger {
   background-color: #FFFFFF;
   position: relative;

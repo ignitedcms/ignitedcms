@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["spinner.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAIF;AACA;EACE;IAAK;;EACL;IAAO;;;AAGT;EACE;IAAK;;EACL;IAAO","file":"spinner.css"}
+{"version":3,"sourceRoot":"","sources":["spinner.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA;AACA;EACA;;;AAIF;AACA;EACE;IACE;;EAGF;IACE;;;AAIJ;EACE;IACE;;EAGF;IACE","file":"spinner.css"}

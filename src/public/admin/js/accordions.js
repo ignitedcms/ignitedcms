@@ -33,7 +33,8 @@ Vue.component('accordion-item', {
           :aria-expanded="isActive.toString()" 
           :aria-controls="'accordion-' + uniqueId" 
           :id="'accordion-title-' + uniqueId" 
-          class="accordion-title rm-btn-styles"
+          class="h-e v-a underline-hover p-2 rm-btn-styles"
+          style="width:100%; border-bottom:1px solid #ccc;"
           @click="toggle"
         >
           <div class="text-black">
@@ -47,7 +48,7 @@ Vue.component('accordion-item', {
           v-if="isActive"
           :id="'accordion-' + uniqueId" 
           role="region"
-          class="accordion-content fade-in"
+          class="p-2 fade-in"
           :aria-labelledby="'accordion-title-' + uniqueId"
         >
           <slot></slot>

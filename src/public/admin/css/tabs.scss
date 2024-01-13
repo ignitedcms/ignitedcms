@@ -5,16 +5,22 @@
     justify-content: flex-start; 
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
+    background-color:$light-grey;
+    padding:5px;
+    border-radius: $border-radius;
+    min-width:200px;
   }
   
   .tab-header {
-    min-width: 50px;
-    font-size: 16px;
+    min-width: 100px;
+    text-align:center;
+    margin-right:5px;
+    //font-size: 16px;
     user-select: none;
-    padding: 20px;
+    padding: 6px;
     cursor: pointer;
-    border-bottom: 5px solid #fff;
+    //background-color:$light-grey;
     &:hover{
       //border-bottom: 5px solid $primary;
     }
@@ -22,7 +28,7 @@
   
   .tab-content {
     width: 100%;
-    border-top: 1px solid #cccccc;
+    //border-top: 1px solid #cccccc;
   }
   
   @media (max-width:$mobile){
@@ -36,13 +42,9 @@
     }
   }
 
-  /*
-  |---------------------------------------------------------------
-  | remove later testing components
-  |---------------------------------------------------------------
-  |
-  */
   .tab__selected{
      color:#000;
-     border-bottom: 5px solid $primary;
+     border-radius: $border-radius;
+     box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.47);
+     background-color:#fff;
   }

@@ -105,19 +105,4 @@
   border-right: none;
 }
 
-/*
-|---------------------------------------------------------------
-| Button utility classes IMP must remove outline:inherit for accessiblity
-|---------------------------------------------------------------
-*/
-.rm-btn-styles {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  text-align: left;
-}
-
 /*# sourceMappingURL=buttons.css.map */

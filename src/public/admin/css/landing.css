@@ -1,8 +1,3 @@
-.landing {
-  background-color: red;
-  color: #ffffff;
-}
-
 .console {
   position: relative;
   width: 430px;
@@ -81,14 +76,6 @@
   margin-left: 5px;
   width: 10px;
   height: 10px;
-}
-
-.testimonial-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-  border: 4px solid #ffffff;
-  box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
 /*# sourceMappingURL=landing.css.map */

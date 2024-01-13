@@ -18,11 +18,11 @@ Vue.component('tabs', {
       <button
         type="button"
         v-for='(tab, index) in tabs'
-        :id="'tab-' + index"
+        :id="'tab-' +uniqueId+ index"
         role="tab"
         :class='{"tab__selected": (index == currentIndex)}'
         :aria-selected='index === currentIndex ? "true" : "false"'
-        :aria-controls="'tabpanel-' + index"
+        :aria-controls="'tabpanel-'+uniqueId + index"
         :tabindex="currentIndex === index ? 0 : -1"
         class="rm-btn-styles tab-header"
         @click='selectTab(index)'
@@ -41,7 +41,9 @@ Vue.component('tabs', {
     return {
       currentIndex: 0,
       tabs: [],
-      tabIds: []
+      tabIds: [],
+      uniqueId: Math.random().toString(36).substring(2) // Generate a unique ID
+
     }
   },
   created() {
@@ -107,10 +109,10 @@ Vue.component('tab-item', {
   template: `
     <div
      class='tab-content'
-     :id="'tabpanel-'+ tabIndex"
+     :id="'tabpanel-'+ getIdFromParent+ tabIndex"
      role="tabpanel"
      v-show='isActive'
-     :aria-labelledby="'tab-' + tabIndex"
+     :aria-labelledby="'tab-' + getIdFromParent+ tabIndex"
      :aria-hidden="isActive === true ? 'false' : 'true'"
      :tabindex="isActive === true ? 0 : -1"
      ref="tabPanels"
@@ -127,7 +129,19 @@ Vue.component('tab-item', {
     tabIndex() {
       // Find the index of the parent tab to associate with aria-labelledby
       return this.$parent.tabs.indexOf(this);
-    }
+    },
+   getIdFromParent() {
+        // Access the parent component (tabs)
+        const parentTabs = this.$parent;
+
+        // Check if the parent exists and has a uniqueId property
+        if (parentTabs && parentTabs.uniqueId) {
+          return parentTabs.uniqueId;
+        } else {
+          console.error('Parent tabs component not found or missing uniqueId.');
+          return null; // or any default value/error handling you prefer
+        }
+      }
   }
 });
 

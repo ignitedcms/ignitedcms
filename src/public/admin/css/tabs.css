@@ -3,20 +3,22 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  background-color: rgb(243, 243, 243);
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 200px;
 }
 
 .tab-header {
-  min-width: 50px;
-  font-size: 16px;
+  min-width: 100px;
+  text-align: center;
+  margin-right: 5px;
   user-select: none;
-  padding: 20px;
+  padding: 6px;
   cursor: pointer;
-  border-bottom: 5px solid #fff;
 }
 .tab-content {
   width: 100%;
-  border-top: 1px solid #cccccc;
 }
 
 @media (max-width: 500px) {
@@ -29,15 +31,11 @@
     width: 100%;
   }
 }
-/*
-|---------------------------------------------------------------
-| remove later testing components
-|---------------------------------------------------------------
-|
-*/
 .tab__selected {
   color: #000;
-  border-bottom: 5px solid #292F3E;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px -1px rgba(0, 0, 0, 0.47);
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=tabs.css.map */

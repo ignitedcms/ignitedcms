@@ -1,19 +1,19 @@
 @import "variables";
 
-.breadcrumb{
+.breadcrumb {
     display: flex;
-    justify-content: flex-start; 
-    background-color: #ffffff; 
-    padding:15px;
-    border-radius: $border-radius; 
-    border:1px solid $grey;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: $border-radius;
+    border: 1px solid $grey;
 
-    &-item{
+    &-item {
         padding-right: 20px;
         cursor: pointer;
     }
 
-    @media (max-width:$tablet){
+    @media (max-width:$tablet) {
         padding: 5px;
         background-color: $background;
         border: none;

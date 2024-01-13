@@ -35,7 +35,7 @@ Vue.component('file-upload', {
   },
   methods: {
     handleFileInputChange(event) {
-       this.fileName = event.target.files[0].name;
+      this.fileName = event.target.files[0].name;
     },
   }
 });

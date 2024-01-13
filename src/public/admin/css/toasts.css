@@ -20,22 +20,4 @@
   box-shadow: 2px 5px 9px 0px rgba(99, 99, 99, 0.29);
 }
 
-.toast-danger {
-  background-color: #FCEAEB;
-  color: #983538;
-  border: 1px solid #983538;
-  min-width: 40px;
-}
-
-.toast-success {
-  background-color: #ECFEEC;
-  color: #2b6739;
-  border: 1px solid #2b6739;
-  min-width: 40px;
-}
-
-.hide-toast {
-  display: none;
-}
-
 /*# sourceMappingURL=toasts.css.map */

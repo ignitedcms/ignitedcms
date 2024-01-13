@@ -18,13 +18,14 @@ Vue.component('mobile-menu', {
     'url'
   ],
   template: `
-    <div style="top:0; position:sticky; z-index:2;">
-      <div class="menu-bar">
-        <div class="menu-logo">
+    <div style="top:0; position:sticky; z-index:2;" class="show-tablet">
+      <div class="h-e bg-white b-b v-a" style="padding:20px;">
+        <div  style="width:150px;">
           <a 
             :href="url"
           >
             <img 
+              class="v-a"
               :src="logo"
             ></img>
           </a>
@@ -43,7 +44,8 @@ Vue.component('mobile-menu', {
 
       <div 
         v-if="show"
-        class="menu-overlay fade-in-bottom" 
+        class="fade-in-bottom bg-white" 
+        style="position:fixed; height:100%; width:100%;" 
       >
         <slot></slot>
 
@@ -53,7 +55,8 @@ Vue.component('mobile-menu', {
           class="rm-link-styles"
         >
           <div 
-            class="menu-item"
+            class="p-2 bg-white"
+            style="padding:20px;"
           >
             {{title}}
           </div>
@@ -87,7 +90,8 @@ Vue.component('mobile-menu-items', {
         class="rm-link-styles"
       >
         <div 
-          class="menu-item"
+          class="row p-2 bg-white b-b v-a"
+          style="padding:20px;"
         >
           {{title}}
         </div>
@@ -95,7 +99,8 @@ Vue.component('mobile-menu-items', {
 
       <div 
         v-if="children === 'yes'" 
-        class="menu-item no-select"
+        class="v-a bg-white b-b h-e no-select"
+        style="padding:20px;"
         @click="toggle" 
       >
         <div>
@@ -103,15 +108,11 @@ Vue.component('mobile-menu-items', {
         </div>
         <div>
           +
-          <i 
-            data-feather="menu" 
-            class="hand"
-          ></i>
         </div>
       </div>
       <div 
         v-if="show" 
-        class="item-content no-select"
+        class="no-select p-2 bg-light-grey"
       >
         <slot></slot>
       </div>

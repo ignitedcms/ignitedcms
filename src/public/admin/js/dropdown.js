@@ -31,7 +31,8 @@ Vue.component('drop-down', {
         tabindex="-1"
         role="menu"
         :aria-labelledby="'dropdown-' + uniqueId"
-        class="pos-abs dropdown br drop-shadow fade-in-bottom"
+        class="pos-abs b bg-white br  drop-shadow fade-in"
+        style="min-width:200px;top:45px; right:0; padding:5px;"
         @keydown.down.prevent="navigate('down')"
         @keydown.up.prevent="navigate('up')"
         @keydown.enter.prevent="selectItem"
@@ -69,31 +70,31 @@ Vue.component('drop-down', {
       this.arr = 'false';
       this.selectedIndex = -1; // Reset selected index on escape
     },
-     navigate(direction) {
+   navigate(direction) {
      if (this.show) {
-       const items = this.$el.querySelectorAll('.dropdown-item');
+       const items = this.$refs.drop.children;
        if (direction === 'down') {
          this.selectedIndex = Math.min(this.selectedIndex + 1, items.length - 1);
        } else if (direction === 'up') {
          this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
        }
        if (items.length > 0) {
-         items[this.selectedIndex].focus(); // Set focus on the selected item if it exists
+         items[this.selectedIndex].focus();
        }
      }
    },
+   selectItem() {
+     if (this.show && this.selectedIndex !== -1) {
+       const items = this.$refs.drop.children;
+       const selectedItem = items[this.selectedIndex];
+       // Perform action based on the selected item (e.g., emit an event)
+       this.$emit('item-selected', selectedItem.textContent);
+       this.toggle(); // Close dropdown after selection
+     } else {
+       this.toggle();
+     }
+   },
 
-    selectItem() {
-      if (this.show && this.selectedIndex !== -1) {
-        const items = this.$el.querySelectorAll('.dropdown-item');
-        const selectedItem = items[this.selectedIndex];
-        // Perform action based on the selected item (e.g., emit an event)
-        this.$emit('item-selected', selectedItem.textContent);
-        this.toggle(); // Close dropdown after selection
-      } else {
-        this.toggle();
-      }
-    },
   },
 });
 
@@ -101,10 +102,11 @@ Vue.component('item', {
   props: ['title', 'url'],
   template: `
     <div
-      class="row"
+      class="row "
       tabindex="-1"
       role="menuitem"
-      class="dropdown-item"
+      class="col grey-hover no-margin br"
+      style="padding:7px;"
       @click="$emit('item-selected', title)"
     >
       <div :href="url" class="left">{{ title }}</div>

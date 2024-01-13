@@ -48,13 +48,13 @@ Vue.component('drawer', {
     };
   },
   methods: {
-    toggle(){
+    toggle() {
       this.show = !this.show;
-      if(this.show == true) {
-         this.arr = 'true';
+      if (this.show == true) {
+        this.arr = 'true';
       }
       else {
-         this.arr = 'false';
+        this.arr = 'false';
       }
     },
     away() {

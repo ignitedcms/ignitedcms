@@ -35,7 +35,7 @@
             </div>
              
 
-            <div class="alert alert-info m-b-3">
+            <div class="alert alert-success m-b-3">
                <div class="text-black">Information</div>
                <div class="small text-muted">
                 The matrix is a special field where you can
