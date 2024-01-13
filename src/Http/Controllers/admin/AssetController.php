@@ -100,7 +100,12 @@ class AssetController extends Controller
 
             $fieldname = '';
 
+            $folder = ''; //used for large files
+            $large_file = 0; //used for large files
+
             Asset::create(
+                $folder,
+                $large_file,
                 $fileName,
                 $kind,
                 $url,

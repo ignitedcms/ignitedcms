@@ -101,13 +101,13 @@ class ChunkFileController extends Controller
             $fieldname = '';
 
             Asset::create(
+                $folder,
+                '1',
                 $fileName,
                 'unknown',
                 $url,
                 $thumb,
-                $fieldname
-            );
-
+                $fieldname);
         }
 
         $info = 'Upload OK';

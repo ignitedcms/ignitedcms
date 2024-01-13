@@ -26,20 +26,25 @@ class Asset
     //Go ahead and insert the upload info
     //into our database
     public static function create(
+        $folder,
+        $large_file,
         $filename,
         $kind,
         $url,
         $thumb,
         $fieldname
     ) {
+        $user_id = session('userid');
         $insertid = DB::table('assetfields')->insertGetId([
+            'user_id' => $user_id,
+            'folder' => $folder,
+            'large_file' => $large_file,
             'filename' => $filename,
             'kind' => $kind,
             'url' => $url,
             'thumb' => $thumb,
             'fieldname' => $fieldname,
         ]);
-
     }
 
     public static function update($id)
