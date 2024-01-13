@@ -35,7 +35,10 @@ return new class extends Migration
 
         Schema::create('assetfields', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->nullable();
             $table->integer('entryid')->nullable();
+            $table->integer('large_file')->nullable();
+            $table->string('folder', 255)->nullable();
             $table->string('filename', 255)->nullable();
             $table->string('kind', 50)->nullable();
             $table->string('width', 10)->nullable();
