@@ -82,17 +82,14 @@ class Asset
 
         $filePath = public_path("uploads/$filename");
 
-
         //Delete large files including folder
 
-        if($large_file)
-        {
-           $directoryPath = public_path("uploads/$folder");
+        if ($large_file) {
+            $directoryPath = public_path("uploads/$folder");
 
-           File::deleteDirectory($directoryPath, true);
-           File::deleteDirectory($directoryPath);
+            File::deleteDirectory($directoryPath, true);
+            File::deleteDirectory($directoryPath);
         }
-
 
         // Check if the file exists
         if (File::exists($filePath)) {
