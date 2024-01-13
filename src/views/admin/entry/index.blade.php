@@ -12,6 +12,20 @@
               </div>
            </drawer>
 
+            @if (session('error'))
+            <div class="toasts">
+               <toast ref="toast">
+               <div class="p-2">
+                  <div class="text-danger">Error</div>
+                  <div class="text-danger small">
+                     {{ session('error') }}
+                  </div>
+               </div>
+               </toast>
+
+            </div>
+                
+            @endif
 
             <div class="breadcrumb m-b-3">
                 <div class="breadcrumb-item">
