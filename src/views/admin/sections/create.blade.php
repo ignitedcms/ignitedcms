@@ -138,9 +138,9 @@
                               style="min-height:200px;">
 
                                 @foreach ($data as $field)
-                                    <div class="pill" id="{{ $field->id }}">
+                                    <div class="pill m-t bg-white h-e b br p drop-shadow hand v-a" id="{{ $field->id }}">
                                        
-                                       <div class="v-a">
+                                       <div class="v-a text-black">
                                           <span>
                                              <i data-feather="more-vertical" class="v-a"></i>    
                                           </span>
