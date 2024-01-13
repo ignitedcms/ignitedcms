@@ -11,12 +11,12 @@ use Ignitedcms\Ignitedcms\Http\Controllers\admin\InstallController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\LoginController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\MatrixController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\MultipleController;
+use Ignitedcms\Ignitedcms\Http\Controllers\admin\PaymentController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\PermissionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\ProfileController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SectionController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\SettingsController;
 use Ignitedcms\Ignitedcms\Http\Controllers\admin\UserController;
-use Ignitedcms\Ignitedcms\Models\admin\Router;
 use Illuminate\Support\Facades\Route;
 
 //Installer
@@ -39,6 +39,11 @@ Route::middleware('web')->group(function () {
 //Email
 Route::middleware('web')->group(function () {
     Route::get('admin/email', [EmailController::class, 'index']);
+});
+
+//Payments
+Route::middleware('web')->group(function () {
+    Route::get('admin/payment', [PaymentController::class, 'index']);
 });
 
 //matrix

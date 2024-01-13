@@ -56,7 +56,7 @@ class EntryController extends Controller
 
         //check if user has access otherwise deny
         if (! Entry::hasAccess($sectionid)) {
-            return redirect('admin/entry')->with('error','Access denied');
+            return redirect('admin/entry')->with('error', 'Access denied');
         }
 
         $data = Entry::sectionAllFields($sectionid);
