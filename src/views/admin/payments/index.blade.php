@@ -196,6 +196,18 @@
                                placeholder="" />
                      </div>
                      <div class="form-group">
+                        <modal button-title="Webhook endpoint" modal-header="Endpoint">
+                        <div class="p-3">
+                           <p>
+                           Add the following pre-generated webhook endpoint 
+                             <span class="text-black" class="font-weight:500;">'https://siteurl'</span>
+                              to your <a href="#">Stripe account settings</a> (if there isn't one already)
+                              This will enable you to receive notifications on the charge statuses.
+                           </p>
+                        </div>
+                        </modal>
+                     </div>
+                     <div class="form-group">
                         <label for="title">Webhook secret</label>
                         <div class="small text-muted">Get your webhook signing secret from the webhooks section in your Stripe account</div>
                         <div class="m-b"></div>
@@ -204,6 +216,8 @@
                                name="webhook_secret" 
                                placeholder="" />
                      </div>
+
+                     
                      
                      <div class="form-group right">
                         <button type="submit" class="btn btn-primary">Save</button>
