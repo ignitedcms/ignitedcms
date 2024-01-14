@@ -48,7 +48,7 @@
                
                <tabs>
                <tab-item title="Payment options">
-                  <div class="p">
+                  <div class="">
                      <div class="form-group">
                         <div class="p-2 bg-white b br">
                            <div class="row">
