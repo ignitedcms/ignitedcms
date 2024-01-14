@@ -48,7 +48,7 @@
                
                <tabs>
                <tab-item title="Payment options">
-                  <div class="p-2">
+                  <div class="p">
                      <div class="form-group">
                         <div class="p-2 bg-white b br">
                            <div class="row">
@@ -117,17 +117,97 @@
                   </div>
                </tab-item>
                <tab-item title="Paypal settings">
-                  <div class="p-2">
-                     <p>
+                  <div class="p">
+                     <div class="form-group">
+                        <tooltip text="To test your paypal settings you can use the sandbox mode">
+                        <div>
+                           <input type="checkbox" name="" class="form-check-input">
+                           <label for="the label">Sandbox mode</label>
+                        </div>
+                        </tooltip>
+                        
 
-                     </p>
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live paypal email address</label>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                              type="text"
+                              name="email_address" 
+                              placeholder="" />
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live merchant Id</label>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                              type="text"
+                              name="merchant_id" 
+                              placeholder="" />
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live client Id</label>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                              type="text"
+                              name="client_id" 
+                              placeholder="" />
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live secret key</label>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                              type="text"
+                              name="secret_key" 
+                              placeholder="" />
+                     </div>
+                     <div class="form-group right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                     </div>
                   </div>
                </tab-item>
                <tab-item title="Stripe settings">
-                  <div class="p-2">
-                     <p>
+                  <div class="p">
+                     <div class="form-group">
+                        <tooltip text="To test your Stripe settings you can use the 'test' mode">
+                        <div>
+                           <input type="checkbox" name="" class="form-check-input">
+                           <label for="the label">Test mode</label>
+                        </div>
+                        </tooltip>
 
-                     </p>
+
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live publishable key</label>
+                        <div class="small text-muted">Only values starting with 'pk_live' will be saved</div>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                               type="text"
+                               name="publishable_key" 
+                               placeholder="" />
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Live secret key</label>
+                        <div class="small text-muted">Only values starting with 'sk_live' or 'rk_live' will be saved</div>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                               type="text"
+                               name="secret_key" 
+                               placeholder="" />
+                     </div>
+                     <div class="form-group">
+                        <label for="title">Webhook secret</label>
+                        <div class="small text-muted">Get your webhook signing secret from the webhooks section in your Stripe account</div>
+                        <div class="m-b"></div>
+                        <input class="form-control" 
+                               type="text"
+                               name="webhook_secret" 
+                               placeholder="" />
+                     </div>
+                     
+                     <div class="form-group right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                     </div>
                   </div>
                </tab-item>
                </tabs>
