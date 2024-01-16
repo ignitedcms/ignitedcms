@@ -5,6 +5,7 @@
 |---------------------------------------------------------------
 |
 | Manual setup where user needs to refer to Laravel docs
+| to set the variables from the .env file
 |
 |
 | @author: IgnitedCMS
@@ -16,7 +17,11 @@
 namespace Ignitedcms\Ignitedcms\Http\Controllers\admin;
 
 use Ignitedcms\Ignitedcms\Http\Middleware\Igs_auth;
+use Ignitedcms\Ignitedcms\Mail\WelcomeMail;
+use Illuminate\Http\Request;
+//For emailing
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -27,10 +32,23 @@ class EmailController extends Controller
 
     public function index()
     {
+
         $data = '';
 
         return view('ignitedcms::admin.email.index')->with([
             'data' => $data,
         ]);
+    }
+
+    public function sendMail(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $email = $request->input('email');
+        Mail::to($email)->send(new WelcomeMail());
+
+        return redirect('admin/email');
     }
 }

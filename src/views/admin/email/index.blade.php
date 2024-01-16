@@ -46,6 +46,8 @@
                      <h4>Email</h4>
                   </div>
                </div>
+                <form action="{{ url('admin/email/send') }} " method="POST">
+                   @csrf
                <div class="row">
                   <div class="col">
                      <label for="email">Email</label>
@@ -61,6 +63,7 @@
                      <button type="submit" class="btn btn-primary">Send</button>
                   </div>
                </div>
+               </form>
 
             </div>
 

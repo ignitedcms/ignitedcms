@@ -39,6 +39,7 @@ Route::middleware('web')->group(function () {
 //Email
 Route::middleware('web')->group(function () {
     Route::get('admin/email', [EmailController::class, 'index']);
+    Route::post('admin/email/send', [EmailController::class, 'sendMail']);
 });
 
 //Payments
