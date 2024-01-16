@@ -89,7 +89,7 @@ class Template_builder
 
         File::put($filePath, $stubContent);
 
-        $filePath2 = base_path("resources/views/custom/$sectionname/_entry.blade.php");
+        $filePath2 = base_path("resources/views/custom/$sectionname/entry.blade.php");
 
         $content = "@extends('custom.layout')\n";
         $content .= "@section('content')";
