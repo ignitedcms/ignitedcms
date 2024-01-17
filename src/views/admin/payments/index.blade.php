@@ -92,8 +92,8 @@
                                  <div class="row">
                                     <div class="col no-margin">
                                        <div class="small text-muted">
-                                          Paypal via IPN only supported
-                                       </div>
+                                          Paypal settings
+                                      </div>
                                     </div>
                                  </div>
                               </div>
@@ -103,7 +103,7 @@
                                     <div class="m-b"></div>
                                     <div>
                                        <div class="m-b"></div>
-                                          <switch-ios name="paypal" value="checked"></switch-ios>
+                                          <switch-ios name="paypal" value=""></switch-ios>
                                     </div>
                                  </div>
                               </div>
