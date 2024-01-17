@@ -13,7 +13,9 @@
 
 namespace Ignitedcms\Ignitedcms\Models\admin;
 
+use Ignitedcms\Ignitedcms\Mail\ResetMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class Login
@@ -34,7 +36,7 @@ class Login
                     'activ_key' => $token,
                 ]);
 
-            self::sendEmail($token);
+            self::sendEmail($token, $email);
 
             return true;
         } else {
@@ -43,10 +45,14 @@ class Login
     }
 
     //Send an email with reset token link
-    public static function sendEmail($token)
+    public static function sendEmail($token, $email)
     {
         //Send email
         //Assumes email config in .env file
+
+        $url = url("login/token/$token");
+
+        Mail::to($email)->send(new ResetMail($url));
     }
 
     /*

@@ -49,6 +49,6 @@ class EmailController extends Controller
         $email = $request->input('email');
         Mail::to($email)->send(new WelcomeMail());
 
-        return redirect('admin/email')->with('status','Check your inbox');
+        return redirect('admin/email')->with('status', 'Check your inbox');
     }
 }

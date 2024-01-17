@@ -67,7 +67,7 @@ class LoginController extends Controller
             return redirect('admin/profile/password');
 
         } else {
-            echo 'you can NOT change password!  ';
+            echo 'Credentials are incorrect';
         }
     }
 
