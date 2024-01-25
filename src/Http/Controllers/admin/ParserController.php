@@ -49,7 +49,7 @@ class ParserController extends Controller
             // Get section name
             $section_name = Parser::getSectionName($sid);
 
-            return view("custom.$section_name._entry")->with($data);
+            return view("custom.$section_name.entry")->with($data);
         } else {
             //is Single type
 
