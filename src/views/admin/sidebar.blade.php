@@ -31,9 +31,6 @@
          @if (sidebarGuard(3))
             <li class="m-t"><a href="{{ url('admin/email') }}">Email</a></li>
          @endif
-         @if (sidebarGuard(19))
-            <li class="m-t"><a href="{{ url('admin/payment') }}">Payment gateway</a></li>
-         @endif
          @if (sidebarGuard(18))
             <li class="m-t"><a href="{{ url('admin/settings') }}">Site settings</a></li>
          @endif
@@ -76,9 +73,6 @@
            @endif
            @if (sidebarGuard(3))
            <li class="m-t"><a href="{{ url('admin/email') }}">Email</a></li>
-           @endif
-           @if (sidebarGuard(19))
-               <li class="m-t"><a href="{{ url('admin/payment') }}">Payment gateway</a></li>
            @endif
            @if (sidebarGuard(18))
            <li class="m-t"><a href="{{ url('admin/settings') }}">Site settings</a></li>
