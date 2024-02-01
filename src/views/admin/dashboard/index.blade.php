@@ -11,9 +11,8 @@
 
              @include('ignitedcms::admin.sidebar')
                
-               
             </ul>
-        <div class="main-content " id="main-content">
+        <div class="main-content" id="main-content">
             <!--dashboard underneath-->
             <div class="p-3">
                <div class="row">
