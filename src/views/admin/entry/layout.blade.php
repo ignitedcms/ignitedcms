@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
-        <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin/css/output.css') }}">
 
         <!-- datatables -->
         <link rel="stylesheet" href="{{ asset('admin/datatables/datatables.css') }}">
@@ -20,7 +20,7 @@
 
     </head>
 
-    <body class="full-screen bg-light-grey">
+    <body class="v-screen h-screen bg-light-gray">
 
         @yield('content')
 

@@ -1,13 +1,19 @@
 @extends('ignitedcms::admin.dashboard.layout')
 
 @section('content')
-    <div class="full-screen bg-light-grey">
+    <div>
+        <div class="gap"></div>
         <div class="gap"></div>
         <div class="small-container" id="app">
+
+
+         <dark-mode>
+         </dark-mode>
+
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -22,7 +28,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -36,7 +42,7 @@
                 
             @endif
 
-            <div class="panel m-t-2 br drop-shadow">
+            <div class="panel mt-2 ">
                 <h2 class="center">Forgot password</h2>
                 <form method="POST" action="{{ url('login/forgot') }}">
                     @csrf
@@ -63,9 +69,9 @@
 
                 </form>
             </div>
-            <div class="m-b"></div>
+            <div class="mb"></div>
             <div class="row">
-               <div class="col center">
+               <div class="col text-center">
                   <a href="{{ url('login') }}">Go back</a></div>
             </div>
         </div>
