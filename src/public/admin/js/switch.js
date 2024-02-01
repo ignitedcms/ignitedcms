@@ -15,7 +15,7 @@ Vue.component('switch-ios', {
   props: ['name', 'value'],
   template: `
   <div>
-     <div class="m-b"></div>
+     <div class=""></div>
      <label class="form-switch">
         <input
          :name="name"
@@ -25,7 +25,7 @@ Vue.component('switch-ios', {
          @change="handleChange"
         />
         <i></i>
-        <div class="switch-text no-select">{{message}}</div>
+        <div class="switch-text select-none dark:text-white">{{message}}</div>
      </label>
   </div>
   `,

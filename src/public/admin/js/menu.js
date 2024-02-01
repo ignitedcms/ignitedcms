@@ -18,8 +18,22 @@ Vue.component('mega-menu', {
     'url'
   ],
   template: `
-    <div style="top:0; position:sticky; z-index:2;" class="hide-tablet">
-      <div class="h-e v-a bg-white p-2 b-b" :aria-labelledby="title">
+    <div 
+     class="hide-tablet
+      top-0
+      sticky
+      z-20"
+    >
+     <div 
+      class="
+       h-e
+       v-a
+       bg-white
+       p-4
+       border-b
+       border-[--gray]"
+       :aria-labelledby="title"
+      >
         <div class="">
           <a
             class="rm-link-styles"
@@ -27,15 +41,19 @@ Vue.component('mega-menu', {
           >
             <img
               :src="logo"
-              style="width:150px;"
+              class="w-[150px]"
               alt="Ignitedcms logo"
             ></img>
           </a>
         </div>
-        <div class="h-e" style="min-width:300px;">
+        <nav class="min-w-[250px]">
+          <ul class="rm-list-styles h-e">
           <slot></slot>
-        </div>
-        <button type="button" class="btn btn-white" :id="title">{{title}}</button>
+          </ul>
+        </nav>
+        <button-component variant="outline" :id="title">
+         {{title}}
+        </button-component>
       </div>
     </div>
   `,
@@ -54,7 +72,7 @@ Vue.component('menu-items', {
     'url'
   ],
   template: `
-    <div @keyup.escape="escapePressed()" :aria-controls="title">
+    <li @keyup.escape="escapePressed()" class="relative">
       <div
         v-if="children !== 'yes'"
       >
@@ -67,25 +85,47 @@ Vue.component('menu-items', {
       </div>
       <div
         v-if="children === 'yes'"
-        class="hand v-a pos-rel"
+        class="
+         v-a
+         relative
+         cursor-pointer"
+
         @click="toggle"
         v-click-outside="away"
-        :aria-expanded="show.toString()"
       >
-        <button class="rm-btn-styles" :id="title">{{title}}</button>
-        <span class="m-l v-a">
+        <button
+          class="rm-btn-styles"
+          :id="title"
+          aria-haspopup="true"
+          :aria-expanded="show.toString()"
+        >
+         {{title}}
+        </button>
+        <span class="ml v-a">
           <i data-feather="chevron-down"></i>
         </span>
-        <div
-          v-if="show"
-          @click.stop
-          class="pos-abs fade-in-bottom bg-white b p br drop-shadow"
-          style="top:40px; left:-10px; min-height:100px;  min-width:250px;"
-        >
-          <slot></slot>
-        </div>
       </div>
-    </div>
+      <ul
+        v-if="show"
+        @click.stop
+        class="
+         absolute 
+         top-[40px]
+         left-[-10px]
+         min-h-[100px]
+         min-w-[250px]
+         overflow-hidden
+         fade-in-bottom
+         bg-white
+         p
+         rounded-[--big-radius]
+         border
+         border-[--gray]
+         shadow-md"
+      >
+        <slot></slot>
+      </ul>
+    </li>
   `,
   data() {
     return {
@@ -112,23 +152,30 @@ Vue.component('menu-item', {
     'url'
   ],
   template: `
-    <div class="row m-t hand">
+    <li class="row m-t hand">
       <a
         :href="url"
-        class="rm-link-styles col v-a no-margin grey-hover br"
+        class="
+         rm-link-styles
+         rm-list-styles
+         p-2
+         col
+         v-a
+         m
+         hover:bg-light-gray
+         rounded-sm"
       >
         <img
           :src="icon"
           :alt="title"
-          style="width:40px; height:auto;"
+          class="w-[40px] h-[40px]"
         ></img>
-        <div class="m-l-2">{{title}}</div>
+        <div class="ml-2">{{title}}</div>
       </a>
-    </div>
+    </li>
   `,
   data() {
     return {};
   },
   methods: {}
 });
-

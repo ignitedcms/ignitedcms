@@ -14,10 +14,41 @@
 Vue.component('tooltip', {
   props: ['text'],
   template: `
-  <div class="tooltip hand" @mouseover="showTooltip" @mouseleave="hideTooltip">
+  <div class=" hand" @mouseover="showTooltip" @mouseleave="hideTooltip">
     <slot></slot>
-    <div v-if="displayTooltip" class="tooltiptext fade-in-bottom">
-      {{ text }}
+    <div 
+     v-if="displayTooltip"
+      class="
+       relative
+       fade-in
+       dark:bg-darkest
+       dark:shadow-none
+       dark:border-slate-600"
+    >
+      <div
+         class="
+          small
+          fade-in-bottom
+          absolute
+          bg-white
+          w-[200px]
+          p-2
+          bottom-[30px]
+          rounded-[--small-radius]
+          border
+          border-[--gray]
+          text-center
+          left-[-85px]
+          z-10
+          shadow-md
+          dark:shadow-none
+          dark:bg-darkest
+          dark:text-white 
+          dark:border-slate-600"
+      >
+
+        {{ text }}
+      </div>
     </div>
   </div>
   `,

@@ -15,20 +15,25 @@ Vue.component('password', {
   props: ['value','name'],
   template: `
     <div class="form-group">
-      <label for="Password">Password</label>
-      <div class="small text-muted m-b">password</div>
-      <div class="pos-rel">
+      <label for="Password" class="dark:text-white">Password</label>
+      <div class="small text-muted dark:text-white">password</div>
+      <div class="relative">
         <span @click="eyeball">
           <i
             data-feather="eye"
-            class="icon-inside hand"
+            class="icon-inside cursor-pointer dark:text-white"
           ></i>
         </span>
         <input
           :name="name"
           :type="textType"
+          class="
+           form-control
+           dark:bg-darkest
+           dark:text-white
+           dark:border-slate-600"
+
           placeholder="Password"
-          class="form-control"
         >
       </div>
       <div class="small text-danger"></div>

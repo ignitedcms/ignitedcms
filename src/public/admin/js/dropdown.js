@@ -13,13 +13,13 @@
 Vue.component('drop-down', {
   props: ['buttonTitle'],
   template: `
-    <div class="pos-rel" style="display:inline-block;" v-click-outside="away">
+    <div class="relative inline-block" v-click-outside="away">
       <button
         :id="'dropdown-' + uniqueId"
         type="button"
         aria-haspopup="menu"
         :aria-expanded="arr"
-        class="btn btn-white pos-rel"
+        class="btn-white relative"
         @keyup.esc="escapePressed"
         @click="toggle"
         v-click-outside="away"
@@ -31,8 +31,23 @@ Vue.component('drop-down', {
         tabindex="-1"
         role="menu"
         :aria-labelledby="'dropdown-' + uniqueId"
-        class="pos-abs b bg-white br  drop-shadow fade-in"
-        style="min-width:200px;top:45px; right:0; padding:5px;"
+        class="
+         absolute
+         min-w-[150px]
+         top-[40px] 
+         overflow-hidden
+         rounded-[--big-radius]
+         border
+         border-[--gray]
+         right-0
+         bg-white
+         shadow-md
+         fade-in-bottom
+         z-10
+         dark:bg-darkest
+         dark:shadow-none
+         dark:border-slate-600"
+
         @keydown.down.prevent="navigate('down')"
         @keydown.up.prevent="navigate('up')"
         @keydown.enter.prevent="selectItem"
@@ -102,11 +117,20 @@ Vue.component('item', {
   props: ['title', 'url'],
   template: `
     <div
-      class="row "
+      class="row"
       tabindex="-1"
       role="menuitem"
-      class="col grey-hover no-margin br"
-      style="padding:7px;"
+      class="
+       col
+       text-sm
+       m-0
+       p-2
+       rounded-[--small-radius]
+       cursor-pointer
+       hover:bg-gray-100
+       dark:text-white
+       dark:hover:bg-dark"
+
       @click="$emit('item-selected', title)"
     >
       <div :href="url" class="left">{{ title }}</div>

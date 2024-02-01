@@ -14,7 +14,7 @@
 Vue.component('datepicker', {
   props: ['value', 'name'],
   template: `
-  <div class="date-container pos-rel"
+  <div class="relative"
       @keydown.up.prevent
       @keydown.down.prevent
       @keyup.escape="escapePressed"
@@ -29,8 +29,14 @@ Vue.component('datepicker', {
       >
 
       <button
-        class=" form-control left hand"
-        style="height:40px;"
+        class="
+         form-control 
+         w-[250px]
+         v-e
+         dark:bg-darkest
+         dark:text-white
+         dark:border-slate-600"
+
         aria-haspopup="dialog"
         :aria-expanded="arr"
         :aria-controls="'datepicker-'+ uniqueId"
@@ -57,16 +63,36 @@ Vue.component('datepicker', {
           v-show="show"
           :id="'datepicker-'+ uniqueId"
           role="dialog"
-          style="position:absolute; top:35px; left:0;"
-          class="date-flyout drop-shadow fade-in-bottom"
+          class=" 
+          absolute
+          top-[45px]
+          bg-white
+          p-2
+          border
+          border-[--gray]
+          shadow-md
+          rounded-[--big-radius]
+          w-[250px]
+          z-10
+          dark:bg-darkest
+          dark:shadow-none
+          dark:border-slate-600
+          fade-in-bottom"
           tabindex="-1"
           @click.stop
           @keydown="handleKeyDown"
       >
           <focus-trap :active="show">
-            <div class="date-buttons-container">
+            <div class="h-e px-1 py-4">
               <button
-                class="date-button rm-btn-styles"
+                class=" 
+                border
+                border-[--gray]
+                rounded-[--small-radius]
+                dark:bg-darker
+                dark:text-white
+                dark:border-slate-600
+                "
                 aria-label="previous month"
                 @click="showPreviousMonth"
                 @focus="focusPreviousMonth"
@@ -76,13 +102,26 @@ Vue.component('datepicker', {
                 <i data-feather="chevron-left"></i>
               </button>
               <button
-                class="year-box rm-btn-styles"
+                class=" 
+                text-sm
+                text-black
+                dark:hover:bg-darkest
+                dark:text-white
+                dark:border-slate-600
+                "
                 @click.prevent
               >
                 {{ getMonthName(currentMonth) }} {{ currentYear }}
               </button>
               <button
-                class="date-button rm-btn-styles"
+                class=" 
+                border
+                border-[--gray]
+                rounded-[--small-radius]
+                dark:bg-darker
+                dark:text-white
+                dark:border-slate-600
+                "
                 aria-label="next month"
                 @click="showNextMonth"
                 @focus="focusNextMonth"
@@ -92,31 +131,44 @@ Vue.component('datepicker', {
                 <i data-feather="chevron-right"></i>
               </button>
             </div>
-            <div class="date-holder rm-btn-styles">
-              <div class="date-days">
-                <div class="cal-no-hover cal-day">Su</div>
-                <div class="cal-no-hover cal-day">Mo</div>
-                <div class="cal-no-hover cal-day">Tu</div>
-                <div class="cal-no-hover cal-day">We</div>
-                <div class="cal-no-hover cal-day">Th</div>
-                <div class="cal-no-hover cal-day">Fr</div>
-                <div class="cal-no-hover cal-day">Sa</div>
+            <div class="rm-btn-styles">
+              <div class="h-e text-sm">
+                <div class="dark:hover:bg-darkest dark:text-white">Su</div>
+                <div class="dark:hover:bg-darkest dark:text-white">Mo</div>
+                <div class="dark:hover:bg-darkest dark:text-white">Tu</div>
+                <div class="dark:hover:bg-darkest dark:text-white">We</div>
+                <div class="dark:hover:bg-darkest dark:text-white">Th</div>
+                <div class="dark:hover:bg-darkest dark:text-white">Fr</div>
+                <div class="dark:hover:bg-darkest dark:text-white">Sa</div>
               </div>
               <button
-                class="rm-btn-styles"
-                style="width:100%;"
+                class="rm-btn-styles w-full"
                 @focus="calendarFocused"
                 ref="datepicker"
                 @click.prevent
               >
-                <div v-for="(row, rowIndex) in calendar" :key="rowIndex">
+                <div v-for="(row, rowIndex) in calendar" :key="rowIndex" class="w-full">
                   <button
                     v-for="(cell, cellIndex) in row"
                     :key="cell.date"
                     @click="selectDate(cell)"
-                    class="rm-btn-styles pull-left cal cal-day"
+                    class="flex 
+                    justify-center 
+                    items-center 
+                    flex-row 
+                    flex-wrap 
+                    text-gray-600 
+                    text-sm
+                    hover:bg-[--primary]
+                    hover:text-white
+                    hover:rounded-[--small-radius]
+                    dark:text-white
+                    relative 
+                    float-left 
+                    w-[14.2857142857%] 
+                    min-h-[38px]"
                     :class="{
-                      'current-date': isCurrentDate(cell),
+                      'current-date dark:bg-slate-400': isCurrentDate(cell),
                       focused: isFocused(rowIndex, cellIndex)
                     }"
                     tabindex="-1"

@@ -14,17 +14,25 @@
 Vue.component('tabs', {
   template: `
   <div>
-    <div class="tab-container" role="tablist">
+    <div 
+     class="
+      tab-container
+      bg-gray-100
+      p-1
+      rounded-[--small-radius]
+      dark:bg-dark" 
+
+      role="tablist">
       <button
         type="button"
         v-for='(tab, index) in tabs'
         :id="'tab-' +uniqueId+ index"
         role="tab"
-        :class='{"tab__selected": (index == currentIndex)}'
+        :class='{"bg-white shadow-md dark:bg-darkest dark:text-white": (index == currentIndex)}'
         :aria-selected='index === currentIndex ? "true" : "false"'
         :aria-controls="'tabpanel-'+uniqueId + index"
         :tabindex="currentIndex === index ? 0 : -1"
-        class="rm-btn-styles tab-header"
+        class="rm-btn-styles p-2 rounded-md  dark:text-white"
         @click='selectTab(index)'
         @keydown="onTabKeyDown($event, index)"
         ref="tabButtons"
@@ -108,7 +116,7 @@ Vue.component('tab-item', {
   props: ['title'],
   template: `
     <div
-     class='tab-content'
+     class=''
      :id="'tabpanel-'+ getIdFromParent+ tabIndex"
      role="tabpanel"
      v-show='isActive'
@@ -138,7 +146,7 @@ Vue.component('tab-item', {
         if (parentTabs && parentTabs.uniqueId) {
           return parentTabs.uniqueId;
         } else {
-          console.error('Parent tabs component not found or missing uniqueId.');
+          //console.error('Parent tabs component not found or missing uniqueId.');
           return null; // or any default value/error handling you prefer
         }
       }

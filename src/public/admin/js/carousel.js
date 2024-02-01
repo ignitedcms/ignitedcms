@@ -14,11 +14,9 @@ Vue.component('carousel', {
   template: `
     <div>
        <div :id="uniqueId" class="splide" aria-labelledby="carousel-heading">
-
           <div class="splide__track">
              <ul class="splide__list">
                 <slot></slot> 
-                
              </ul>
           </div>
        </div>
@@ -44,11 +42,23 @@ Vue.component('carousel-item', {
   props: ['title'],
   template: `
   <li class="splide__slide">
-     <div class="panel m-5 br drop-shadow v-a h-a"
-          style="min-height:380px;">
-        <h4>
-           <slot></slot>
-        </h4>
+     <div class="
+      bg-white
+      border 
+      border-[--gray]
+      shadow-md 
+      m-[60px]
+      rounded-[--big-radius]
+      m-5
+      v-a
+      h-a
+      min-h-[380px]
+      dark:bg-darkest
+      dark:border-slate-600"
+    >
+      <h4 class="text-dark">
+         <slot></slot>
+      </h4>
      </div>
   </li>
   `,

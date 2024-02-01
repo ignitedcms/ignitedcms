@@ -23,7 +23,17 @@ Vue.component('file-upload', {
        tabindex="0"
        class="upload-hide"
       />
-      <label :for="name" class="form-upload" >Choose File</label>
+      <label :for="name" 
+       class="
+        btn-white
+        cursor-pointer
+        p-2 
+        dark:bg-darkest
+        dark:border-slate-600
+        dark:text-white"
+      >
+      Choose File
+      </label>
       <span >{{ fileName }}</span>
    </div>
 

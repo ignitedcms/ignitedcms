@@ -18,16 +18,32 @@ Vue.component('mobile-menu', {
     'url'
   ],
   template: `
-    <div style="top:0; position:sticky; z-index:2;" class="show-tablet">
-      <div class="h-e bg-white b-b v-a" style="padding:20px;">
-        <div  style="width:150px;">
+    <div 
+     class="
+     top-0
+     sticky
+     z-10
+     show-tablet"
+   >
+      <div 
+       class="
+        h-e
+        bg-white
+        border-b
+        border-light-gray
+        p-4
+        v-a"
+      >
+        <div
+         class="w-[150px]">
           <a 
             :href="url"
           >
-            <img 
-              class="v-a"
-              :src="logo"
-            ></img>
+          <img 
+            class="v-a"
+            :src="logo"
+            alt="logo"
+          ></img>
           </a>
         </div> 
         <div>
@@ -36,7 +52,7 @@ Vue.component('mobile-menu', {
           >
             <i 
               data-feather="menu" 
-              class="icon hand"
+              class="icon cursor-pointer"
             ></i>
           </span>
         </div>
@@ -44,19 +60,27 @@ Vue.component('mobile-menu', {
 
       <div 
         v-if="show"
-        class="fade-in-bottom bg-white" 
-        style="position:fixed; height:100%; width:100%;" 
+        class="
+         fixed
+         h-full
+         w-full
+         border-b
+         border-gray-300
+         fade-in-bottom
+         bg-white" 
       >
         <slot></slot>
 
         <a 
           href="#" 
-          style="width:100%;" 
-          class="rm-link-styles"
+          class="rm-link-styles w-[100%]"
         >
           <div 
-            class="p-2 bg-white"
-            style="padding:20px;"
+            class="
+             p-4
+             bg-white
+             border-b
+             border-gray-300"
           >
             {{title}}
           </div>
@@ -83,15 +107,21 @@ Vue.component('mobile-menu-items', {
     'children'
   ],
   template: `
-    <div style="width:100%;"> 
+    <div> 
       <a 
         v-if="children !== 'yes'" 
         :href="url" 
         class="rm-link-styles"
       >
         <div 
-          class="row p-2 bg-white b-b v-a"
-          style="padding:20px;"
+          class="
+           row
+           p-4
+           bg-white
+           v-a 
+           border-b
+           border-gray-300 
+           cursor-pointer"
         >
           {{title}}
         </div>
@@ -99,8 +129,15 @@ Vue.component('mobile-menu-items', {
 
       <div 
         v-if="children === 'yes'" 
-        class="v-a bg-white b-b h-e no-select"
-        style="padding:20px;"
+        class="
+         v-a
+         bg-white
+         p-4
+         h-e
+         cursor-pointer
+         border-b
+         border-gray-300"
+
         @click="toggle" 
       >
         <div>
@@ -112,7 +149,7 @@ Vue.component('mobile-menu-items', {
       </div>
       <div 
         v-if="show" 
-        class="no-select p-2 bg-light-grey"
+        class="no-select"
       >
         <slot></slot>
       </div>
