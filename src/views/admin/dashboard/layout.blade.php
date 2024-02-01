@@ -27,6 +27,7 @@
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/popover.js') }}"></script>
+        <script src="{{ asset('admin/js/buttons.js') }}"></script>
         <script src="{{ asset('admin/js/dark-mode.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>
@@ -34,11 +35,11 @@
         <script src="{{ asset('admin/js/datepicker.js') }}"></script>
         <script src="{{ asset('admin/js/accordions.js') }}"></script>
         <script src="{{ asset('admin/js/switch.js') }}"></script>
+        <script src="{{ asset('admin/js/sidebar.js') }}"></script>
         <script src="{{ asset('admin/js/range-sliders.js') }}"></script>
         <script src="{{ asset('admin/js/toasts.js') }}"></script>
         <script src="{{ asset('admin/js/menu.js') }}"></script>
         <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
-        <script src="{{ asset('admin/js/trees.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/drawer.js') }}"></script>
 

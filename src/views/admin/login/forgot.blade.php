@@ -43,16 +43,16 @@
             @endif
 
             <div class="panel mt-2 ">
-                <h2 class="center">Forgot password</h2>
+                <h2 class="text-center text-dark">Forgot password</h2>
                 <form method="POST" action="{{ url('login/forgot') }}">
                     @csrf
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <div class="small text-muted">Enter a valid email address you can access</div>
+                                <label for="email" class="text-dark">Email</label>
+                                <div class="small text-muted text-dark">Enter a valid email address you can access</div>
 
-                                <input type="text" name="email" class="form-control" placeholder="Email"
+                                <input type="text" name="email" class="form-control form-dark" placeholder="Email"
                                     value="{{ old('email') }}">
                                 @error('email')
                                     <div class="small text-danger">{{ $message }}</div>
@@ -60,8 +60,10 @@
 
                             </div>
                             
-                            <div class="row v-a m-t">
-                                <button class="col btn btn-primary " type="submit">Reset</button>
+                            <div class="row v-a mt-4">
+                               <button-component variant="primary" class="w-full">
+                                Reset
+                               </button-component>
                             </div>
 
                         </div>
@@ -71,7 +73,7 @@
             </div>
             <div class="mb"></div>
             <div class="row">
-               <div class="col text-center">
+               <div class="col text-center underline text-dark">
                   <a href="{{ url('login') }}">Go back</a></div>
             </div>
         </div>
