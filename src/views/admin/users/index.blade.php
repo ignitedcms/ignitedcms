@@ -1,9 +1,16 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
+     <dark-mode>
+     </dark-mode>
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
 
-        <div class="main-content p-3">
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
+        <div class="p-3">
 
            <drawer title="Help">
            <div class="p-3">
@@ -28,7 +35,7 @@
            </div>
 
            <div class="row">
-              <div class="col-12 right">
+              <div class="col-12 ">
                  <a href="{{ url('admin/users/create') }}">
                     <button type="button" class="btn btn-primary">New User</button>
                  </a>
@@ -65,7 +72,7 @@
 
            @endif
 
-           <div class="panel br drop-shadow">
+           <div class="panel ">
 
               <h3>Users</h3>
 
@@ -108,6 +115,6 @@
            </div>
 
         </div>
-
+      </sidebar>
     </div>
 @endsection
