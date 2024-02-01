@@ -1,10 +1,10 @@
 @extends('ignitedcms::admin.layout')
 
 @section('content')
-    <div class="full-screen bg-light-grey">
+    <div class="v-screen h-screen bg-light-gray">
         <div class="gap"></div>
         <div class="small-container" id="app">
-            <div class="panel br drop-shadow">
+            <div class="panel">
                 <form method="POST" action="{{ url('installer/validate_form') }}">
                     @csrf
                     <div class="row">

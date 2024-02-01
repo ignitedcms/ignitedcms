@@ -1,7 +1,7 @@
 @extends('ignitedcms::admin.layout')
 
 @section('content')
-<div class="full-screen v-a h-a bg-light-grey">
+<div class="v-a h-a v-screen h-screen bg-light-gray">
    <div class="container" id="app">
       
        <img src="{{ asset('admin/images/ignitedcms-logo.svg') }}" class="img-center " style="max-width:170px;"></img>
