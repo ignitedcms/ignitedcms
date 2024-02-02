@@ -34,7 +34,7 @@
                   </alert-content>
             </alert>
 
-            <div class="mb-4"></div>
+            <div class="mb"></div>
 
             <div class="row">
                 <div class="col-12 ">
