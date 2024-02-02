@@ -12,7 +12,7 @@
          @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -41,7 +41,7 @@
                     <div class="breadcrumb-item">Edit section</div>
                 </div>
                 <!--main part for section styles -->
-                <div class="panel br drop-shadow">
+                <div class="panel">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -75,14 +75,13 @@
                     </div>
 
                     <!--drag and drop content-->
-                    <div class="nothing">
-                       <div class="alert alert-success m-t-2 m-b-2">
-                          <div class="text-black">Information</div>
-                          <div class="small text-muted">
+                     <alert variant="success" class="mt-4">
+                        <alert-title>Information</alert-title>
+                           <alert-content>
                              Drag and drop the fields you need, reorder and click save
-                          </div>
-                       </div>
-                    </div>
+                           </alert-content>
+                     </alert>
+                    
 
                     <!--create hidden input and sent to controller-->
                     <div class="row">
@@ -97,12 +96,12 @@
                     <div class="row">
                         <div class="col-8">
 
-                            <div class="nothing">
+                            <div>
                                 <h4>Page</h4>
                             </div>
-                            <div id='list1' class='scroll-y bg-white cross-grid p-2 b br' style="height:500px;">
+                            <div id='list1' class='scroll-y bg-white cross-grid p-4 rounded-[--small-radius] border border-[--gray]' style="height:500px;">
                                 @foreach ($data3 as $field)
-                                    <div class="pill m-t bg-white h-e b br p drop-shadow hand v-a" id="{{ $field->id }}">
+                                    <div class="pill overflow-hidden p-3 shadow-md border border-[--gray] rounded-lg  bg-white h-e v-a" id="{{ $field->id }}">
                                        <div class="v-a text-black">
                                           <span>
                                              <i data-feather="more-vertical" class="v-a"></i>    
@@ -124,12 +123,12 @@
                             <div class="nothing">
                                 <h4>Fields</h4>
                             </div>
-                            <div id='list2' class='scroll-y bg-grey b br p-2'
-                               style="min-height:200px;"  >
+                            <div id='list2' class='scroll-y bg-[--light-gray] border  border-[--gray]  rounded-[--big-radius]  p-4'
+                               style="min-height:400px;"  >
 
                                 @foreach ($data as $field)
                                     <?php if(isFieldInSection($field->id, $id)) : ?>
-                                    <div class="pill m-t bg-white h-e b br p drop-shadow hand v-a" id="{{ $field->id }}">
+                                    <div class="pill mt bg-white h-e  v-a" id="{{ $field->id }}">
                                        <div class="v-a text-black">
                                           <span>
                                              <i data-feather="more-vertical" class="v-a"></i>    
@@ -150,25 +149,18 @@
                     <!--end-->
 
                     <div class="form-group">
-                       <div class="p-2 bg-white  b br">
-                          <div class="row">
-                             <div class="col no-margin">
-                                <div class="row">
-                                   <div class="col no-margin">
+                       <div class="p-4 shadow bg-white border border-[--gray] rounded-[--big-radius]">
+                          <div class="row h-e">
+                             <div>
                                       <div class="text-black">Template builder</div>
-                                   </div>
-                                </div>
-                                <div class="row">
-                                   <div class="col no-margin">
+                                   
                                       <div class="small text-muted">
                                          Enabling this will automatically create and
                                          overwrite the template in the 
                                          resources > views > custom directory.
                                       </div>
-                                   </div>
-                                </div>
                              </div>
-                             <div class="col no-margin right">
+                             <div class=" h-a v-a">
                                 <div>
                                    <label for="title"></label> 
                                    <div class="m-b"></div>
@@ -180,10 +172,10 @@
                        </div>
                     </div>
 
-                    <div class="form-group bg-white p-2 br b">
+                    <div class="form-group bg-white p-4 border border-[--gray] shadow rounded-[--big-radius]">
                      <h5>User access</h5>
                      <div class="text-black">Information</div>
-                     <div class="small text-muted m-b">
+                     <div class="small text-muted mb-2">
                         Select who has access to add and edit content in this section
                      </div>
                      @foreach($data5 as $row)
@@ -192,7 +184,7 @@
                            value="{{ $row->groupID }}" class="form-check-input"
                            @if (in_array($row->groupID,$data6)) checked @endif
                         >
-                        <label for="the label">{{ $row->groupName }}</label>
+                        <label for="the label" class="ml-2">{{ $row->groupName }}</label>
                      </div>
                      @endforeach
                      
@@ -201,7 +193,9 @@
 
                     <div class="row">
                        <div class="col-12 right">
-                          <button @click="onClicking" type="submit" class="m-l btn btn-primary">Save</button>
+                          <button-component variant="primary" @click.native="onClicking">
+                              Save
+                          </button-component>
                        </div>
                     </div>
                 </div>
