@@ -33,7 +33,7 @@
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -48,7 +48,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -82,7 +82,9 @@
                     
                     
                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button-component variant="primary">
+                           Save
+                        </button-component>
                     </div>
                 </form>
             </div>

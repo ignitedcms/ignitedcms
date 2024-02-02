@@ -26,17 +26,20 @@
                 <div class="breadcrumb-item">Profile</div>
             </div>
 
-            <div class="alert alert-success m-b-3">
-               <div class="text-black">Information</div>
-               <div class="text-muted small">
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   Save your full name or change your password here
-               </div>
-            </div>
+                  </alert-content>
+            </alert>
+
+            <div class="mb-8"></div>
+            
 
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -51,7 +54,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -86,10 +89,12 @@
                             placeholder="Start typing" disabled />
                     </div>
                     <div class="form-group">
-                      <a href="{{ url('admin/profile/password') }}">Reset my password?</a>
+                      <a href="{{ url('admin/profile/password') }}" class="underline">Reset my password?</a>
                     </div>
                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button-component variant="primary">
+                           Save
+                        </button-component>
                     </div>
                 </form>
             </div>

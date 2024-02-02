@@ -22,14 +22,15 @@
             </div>
 
             <!--main part for section styles -->
-
-            <div class="alert alert-info m-b-3">
-               <div class="text-black">Information</div>
-                <p class="text-muted small">
+            
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                     You are only allowed to update this users
                      permission role.
-                </p>
-            </div>
+                  </alert-content>
+            </alert>
+            <div class="mb-8"></div>
 
             <div class="panel br drop-shadow">
                 <form action="{{ url("admin/users/update/$id") }} " method="POST">
@@ -58,7 +59,9 @@
                         </select>
                     </div>
                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                           <button-component variant="primary">
+                              Save
+                           </button-component>
                     </div>
                 </form>
             </div>

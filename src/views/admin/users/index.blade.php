@@ -26,17 +26,20 @@
               <div class="breadcrumb-item">Users</div>
            </div>
 
-           <div class="alert alert-success m-b-3">
-              <div class="text-black">Information</div>
-              <div class="text-muted small">
-                 Create new users and assign their roles
-              </div>
-           </div>
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
+                   Create new users and assign their roles
+                  </alert-content>
+            </alert>
+           
 
            <div class="row">
               <div class="col-12 ">
                  <a href="{{ url('admin/users/create') }}">
-                    <button type="button" class="btn btn-primary">New User</button>
+                     <button-component variant="primary">
+                        New user
+                     </button-component>
                  </a>
               </div>
            </div>
@@ -44,7 +47,7 @@
            @if (session('status'))
            <div class="toasts">
               <toast ref="toast">
-              <div class="p-2">
+              <div class="p-4">
                  <div class="text-black">Success</div>
                  <div class="text-muted small">
                     {{ session('status') }}
@@ -59,7 +62,7 @@
            @if (session('error'))
            <div class="toasts">
               <toast ref="toast">
-              <div class="p-2">
+              <div class="p-4">
                  <div class="text-danger">Error</div>
                  <div class="text-danger small">
                     {{ session('error') }}
@@ -89,7 +92,7 @@
                     <tr>
                        <td>{{ $user->id }}</td>
                        <td>
-                          <a href="{{ url("admin/users/update/$user->id") }}">
+                          <a href="{{ url("admin/users/update/$user->id") }}" class="underline">
                              {{ $user->email }}
                           </a>
 
