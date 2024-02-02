@@ -47,16 +47,16 @@
                 <div class="col">
 
                     <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
-                        class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                        class="btn-white rm-link-styles">Preview</a>
                   
 
                     <modal button-title="Add another" modal-header="Add another">
                     <div class="p-2">
                        <div class="rows">
 
-                          <div class="col p-b-2">
+                          <div class="col pb-2">
 
-                              <div class="alert alert-success">
+                              <div class="text-muted text-sm">
                                  To add another item to the multiple, you must first create
                                  an entry title, this must be unique and contain only lowercase
                                  letters with dashes e.g 'hello-world'
@@ -72,9 +72,10 @@
 
                                     <div class="small text-danger">@{{ errs }}</div>
                                 </div>
-                                <div class="form-group right">
-
-                                   <button  class="btn btn-primary" @click="save_title">Add another</button>
+                                <div class="form-group">
+                                   <button-component variant="primary" @click.native="save_title">
+                                      Add another
+                                   </button-component>
                                 </div>
                              
                           </div>
@@ -87,18 +88,18 @@
             </div>
 
             <div class="row">
-                <div class="col-12">
-                   <div class="alert alert-success ">
-                      <div class="text-black">Did you know?</div>
-                      <div class="small text-muted">
+                <div class="col">
+                  <alert variant="success">
+                     <alert-title>Did you know?</alert-title>
+                        <alert-content>
                          You can drag and drop to re-order the position, this can be used to
                          display multiples in a specific order.
-                      </div>
-                   </div>
+                        </alert-content>
+                  </alert>
                 </div>
             </div>
 
-            <div class="m-b-3"></div>
+            <div class="mb-3"></div>
 
             <!--main part for section styles -->
             <div class="panel">
@@ -109,21 +110,15 @@
                   <div class="col">
                      <div class="relative">
 
-                        <button 
-                          type="submit"
-                          class="rm-btn-styles absolute"
-                          style="top:0px; right:-5px;"
-                        >
-                           <i 
-                          data-feather="x"
-                          class="icon-inside hand"
-                          ></i>
+                        <button type="submit" class="rm-btn-styles absolute" style="top:0px; right:-5px;">
+                           <i data-feather="x" class="icon-inside hand"></i>
                         </button>
 
-                        <input class="form-control" 
-                               name="searchQuery"
-                               value="" 
-                               placeholder="Start typing to search then hit enter" />
+                        <input 
+                           class="form-control" 
+                           name="searchQuery"
+                           value="" 
+                           placeholder="Start typing to search then hit enter" />
                      </div>    
                   </div>
 
@@ -131,17 +126,16 @@
                </form>
                 <form action="{{ url("admin/multiple/delete/$sectionid") }}" method="POST">
                     @csrf
-
-                    
-
                     <div class="row h-e">
                        <div>
                           <h3>{{ $sectionname }}</h3>
                        </div>
                        <div>
-                          <popover link="Delete selected items?">
-                             <button type="submit">ok</button> 
+                        <span>
+                          <popover link="Delete" >
+                             <button type="submit">Ok</button> 
                           </popover>
+                        </span>
                        </div>
                     </div>
                     
@@ -151,12 +145,11 @@
 
                             <a href="{{ url("admin/entry/update/$sectionid/$row->id") }}" class="rm-link-styles">
                                 <div class="bg-white border border-[--gray] border-fix p-2 h-e">
-
-                                    <input type="checkbox" class="form-check-input" name="id[]"
-                                        value="{{ $row->id }}">
-                                    <span class="m-l">
-                                       {{ $row->entrytitle }}   
-                                    </span>
+                                    <div>
+                                       <input type="checkbox" class="form-check-input" name="id[]"
+                                           value="{{ $row->id }}">
+                                       <span class="ml-2">{{ $row->entrytitle }}</span>
+                                    </div>
                                     <span class="">
                                        <i data-feather="more-vertical"></i>    
                                     </span>
