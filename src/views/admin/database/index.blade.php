@@ -26,21 +26,25 @@
                 </div>
                 <div class="breadcrumb-item">Database</div>
             </div>
-            <div class="alert alert-success">
-               <div class="text-black">Information</div>
-               <div class="small text-muted">
-
+            
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   This handy function will export your
                   MySQL database. Please note this only
                   supports MySQL with limited functionality!
-               </div>
-            </div>
-            <div class="panel br drop-shadow m-t-3">
+
+                  </alert-content>
+            </alert>
+            <div class="mb-8"></div>
+            <div class="panel">
                 <h3>Database utility</h3>
 
-                <div class="form-group right">
+                <div class="form-group">
                     <a href="#">
-                        <button type="submit" class="btn btn-primary">Backup</button>
+                        <button-component variant="primary">
+                           Backup
+                        </button-component>
                     </a>
                 </div>
             </div>

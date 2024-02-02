@@ -21,7 +21,7 @@
             </div>
 
             <!--main part for section styles -->
-            <div class="panel br drop-shadow">
+            <div class="panel">
                 <div class="row">
                     <div class="col">
                        <form action='{{ url("admin/assets/update/$assetId") }} ' method="POST">
@@ -51,7 +51,9 @@
                            @endforeach
                            <div class="row">
                               <div class="col right">
-                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button-component variant="outline">
+                                    Save
+                                 </button-component>
 
                               </div>
                            </div>

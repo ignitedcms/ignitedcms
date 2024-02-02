@@ -21,7 +21,7 @@
             @if (session('error'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      {{ session('error') }}
@@ -40,23 +40,24 @@
                 <div class="breadcrumb-item">Entry</div>
             </div>
 
-            <div class="alert alert-success m-b-3">
-               <div class="text-black">Information</div>
-               <div class="text-muted small">
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   Create and edit the content for your
                   section types here
-               </div>
-            </div>
-
+                  </alert-content>
+            </alert>
+            
+            <div class="mb-8"></div>
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-5">
+            <div class="panel  pb-5">
 
                 <h3>Entries</h3>
                 <div class="row">
                     <div class="col-4">
                         <h5>Single</h5>
                         @foreach ($data as $row)
-                            <a href='{{ url("admin/entry/update/$row->sid/$row->eid") }}'>
+                            <a href='{{ url("admin/entry/update/$row->sid/$row->eid") }}' class="underline">
                                 {{ $row->name }}
                             </a>
                             <br>
@@ -67,7 +68,7 @@
                         <h5>Multiple</h5>
 
                         @foreach ($data2 as $row)
-                            <a href='{{ url("admin/multiple/$row->sid") }}'>
+                            <a href='{{ url("admin/multiple/$row->sid") }}' class="underline">
                                 {{ $row->name }}
                             </a>
                             <br>
@@ -77,7 +78,7 @@
                         <h5>Global</h5>
 
                         @foreach ($data3 as $row)
-                            <a href='{{ url("admin/entry/update/$row->sid/$row->eid") }}'>
+                            <a href='{{ url("admin/entry/update/$row->sid/$row->eid") }}' class="underline">
                                 {{ $row->name }}
                             </a>
                             <br>

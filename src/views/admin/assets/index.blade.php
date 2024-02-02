@@ -26,7 +26,7 @@
 
                 <div class="toasts">
                    <toast ref="toast">
-                   <div class="p-2">
+                   <div class="p-4">
                       <div class="text-black">Success</div>
                       <div class="text-muted small">
                     {{ session('status') }}
@@ -48,18 +48,24 @@
                 <div class="breadcrumb-item">Assets</div>
             </div>
 
-            <div class="alert alert-success">
-               <div class="text-black">Information</div>
-               <div class="small text-muted">Upload all your media here. 
-                Struggling to upload files greater than 10mb? Try
-                our large file <a href="{{ url('admin/chunking') }}">uploader</a>
-               </div>
-            </div>
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
+                 Upload all your media here. 
+                 Struggling to upload files greater than 10mb? Try
+                 our large file <a href="{{ url('admin/chunking') }}" class="underline">uploader</a>
+               
+                  </alert-content>
+            </alert>
+
+            
 
             <div class="row">
-                <div class="col-12 right">
+                <div class="col-12">
                    <a href="{{ url('admin/assets/create') }}">
-                        <button type="button" class="btn btn-primary">New asset</button>
+                        <button-component variant="outline">
+                           New asset
+                        </button-component>
                     </a>
                 </div>
             </div>
@@ -88,7 +94,7 @@
                               <img src="{{ $field->thumb }}"></img>
                               @endif
                             </td>
-                                <td ><a href="{{ url('admin/assets/update', $field->id) }}">{{ \Illuminate\Support\Str::limit($field->filename, 19, '...') }}</a></td>
+                                <td ><a href="{{ url('admin/assets/update', $field->id) }}" class="underline">{{ \Illuminate\Support\Str::limit($field->filename, 19, '...') }}</a></td>
                                 <td>{{ $field->kind }}</td>
                                 <td>
                                     <span class="right">

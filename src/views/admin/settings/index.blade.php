@@ -25,7 +25,7 @@
       @if (session('status'))
       <div class="toasts">
          <toast ref="toast">
-            <div class="p-2">
+            <div class="p-4">
                <div class="text-black">Success</div>
                <div class="text-muted small">
                   {{ session('status') }}
@@ -37,7 +37,7 @@
       @if (session('errors'))
       <div class="toasts">
          <toast ref="toast">
-            <div class="p-2">
+            <div class="p-4">
                <div class="text-danger">Error</div>
                <div class="text-danger small">
                   You much check at least ONE
@@ -47,14 +47,19 @@
          </toast>
       </div>
       @endif
-      <div class="alert alert-success m-b-3">
-         <div class="text-black">Information</div>
-         <div class="text-muted small">
+   
+      <alert variant="success">
+         <alert-title>Information</alert-title>
+            <alert-content>
             Restrict what type of files
             your end users can upload globally to your CMS for security
-         </div>
-      </div>
-      <tabs class="panel br">
+
+            </alert-content>
+      </alert>
+     
+       <div class="mb-8"></div>
+
+      <tabs class="panel">
          <tab-item title="Asset settings">
             <div class="p-2">
                <form action="{{ url('admin/settings/update') }} " method="POST">
@@ -71,8 +76,10 @@
                         </div>
                         @endforeach
                      </div>
-                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                     <div class="form-group">
+                        <button-component variant="primary">
+                           Save
+                        </button-component>
                      </div>
                   </div>
                </form>
@@ -94,7 +101,9 @@
                   </select>
                </div>
                <div class="form-group right">
-                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button-component variant="primary">
+                     Save
+                  </button-component>
                </div>
             </div>
             </form>

@@ -30,7 +30,7 @@
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -45,7 +45,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -59,20 +59,22 @@
                 
             @endif
 
-            <div class="alert alert-success">
-               <div class="text-black">Information</div>
-               <div class="small text-muted">
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   Test if your email configuration is setup correctly
                   with your preferred email service provider.
 
                   You will need to edit your email setting in the
                   .env file. If you don't receive an email in your
                   inbox you need to tweak your settings.
-               </div>
-            </div>
-            <div class="m-b-3"></div>
 
-            <div class="panel br drop-shadow">
+                  </alert-content>
+            </alert>
+            
+            <div class="mb-8"></div>
+
+            <div class="panel ">
 
                <div class="row">
                   <div class="col no-margin">
@@ -92,8 +94,10 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="col right">
-                     <button type="submit" class="btn btn-primary">Send</button>
+                  <div class="col">
+                      <button-component variant="primary">
+                         Send
+                      </button-component>
                   </div>
                </div>
                </form>
