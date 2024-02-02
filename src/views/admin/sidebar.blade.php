@@ -3,7 +3,7 @@
         <a href="{{ url('admin/dashboard') }}" class="rm-link-styles">
         <h5 class="ml mt-2">Dashboard</h5>
         </a>
-        <ul>
+        <ul class="rm-list-styles">
          @if (sidebarGuard(6))
             <li class="mt-3"><a href="{{ url('admin/profile') }}">Profile</a></li>
          @endif
@@ -37,7 +37,7 @@
             <li class="mt inline">
                <form action="{{ url('logout') }} " method="POST">
                   @csrf
-                  <button type="submit" class="rm-btn-styles ">Logout</button>
+                  <button type="submit" class="rm-btn-styles">Logout</button>
                </form>
             </li>
         </ul>
