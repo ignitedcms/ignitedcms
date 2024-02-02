@@ -14,10 +14,10 @@
                   </span>
                  Add asset
              </div>
-             <div  v-if="tmp.length > 0" class="m-l-2" style="display:inline-block;">
-                <img :src="url" class="m-l p b br" />
+             <div  v-if="tmp.length > 0" class="ml-2" style="display:inline-block;">
+                <img :src="url" class="ml p " />
                 <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                   <span class="m-l small bg-light p-l p-r b br" style="margin-left:12px;">
+                   <span class="m-l small bg-white p-l p-r" style="margin-left:12px;">
                       Delete
                    </span>
                 </div>
@@ -75,7 +75,7 @@
 
             
             @else
-               <div  style="min-height:300px;">You need to add an <a href="{{ url('admin/assets') }}"> asset </a> first!</div>
+               <div style="min-height:300px;">You need to add an <a href="{{ url('admin/assets') }}"> asset </a> first!</div>
             @endif
 
 

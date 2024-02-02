@@ -119,7 +119,7 @@
 
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})" class="m-r-2 m-t btn btn-white ">
+                                <div @click="goNow({{ $row->id }})" class="mr-2 mt-4 cursor-pointer btn-white ">
                                     <span class="v-a">
                                         <i data-feather="plus"></i>
                                         Add {{ $row->name }}

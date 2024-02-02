@@ -114,15 +114,15 @@
                      </div>
                      <div class="row">
                         <div class="col v-a">
-                            <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
+                            <button class="btn-white" @click.prevent  v-on:click="part.showAssets = !part.showAssets">
                                 <span class="v-a">
                                    Add asset
                                 </span>
-                            </div>
-                            <div class="m-l-2" v-if="part.content.length > 0">
-                               <img :src="part.thumb" alt="" class="m-l p b br"/>
-                               <div class="hand" style="max-width:80px;" v-on:click="part.content = ''">
-                                  <span class="small bg-light p-l p-r b br" style="margin-left:12px;">
+                            </button>
+                            <div class="ml-2" v-if="part.content.length > 0">
+                               <img :src="part.thumb" alt="" class="ml-2 border border-[--gray] "/>
+                               <div class="cursor-pointer" style="max-width:80px;" v-on:click="part.content = ''">
+                                  <span class="small bg-white px-2 rounded-[--small-radius] border border-[--gray]  " style="margin-left:0px;">
                                      Delete
                                   </span>
                                </div>
