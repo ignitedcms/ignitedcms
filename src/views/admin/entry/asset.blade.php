@@ -8,16 +8,13 @@
 <div>
      <div class="row">
          <div class="col v-a">
-             <div class="btn btn-white " v-on:click="isShown = !isShown" v-click-outside="away">
-                  <span>
-                     <i data-feather="plus"></i>    
-                  </span>
+             <button class="btn btn-white" @click.prevent v-on:click="isShown = !isShown" v-click-outside="away">
                  Add asset
-             </div>
+             </button>
              <div  v-if="tmp.length > 0" class="ml-2" style="display:inline-block;">
-                <img :src="url" class="ml p " />
+                <img :src="url" class="ml-4 border border-[--gray]" />
                 <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                   <span class="m-l small bg-white p-l p-r" style="margin-left:12px;">
+                   <span class="m-l small bg-white px-2 rounded-[--small-radius] cursor-pointer border border-[--gray]" style="margin-left:12px;">
                       Delete
                    </span>
                 </div>
@@ -66,7 +63,7 @@
                   <div class="col v-a">
                 
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                        <div type="submit" class=" p-l p-r b br bg-white">Add</div>
+                        <div type="submit" class="relative cursor-pointer bg-white">Add</div>
                      </div>
                      
                   </div>

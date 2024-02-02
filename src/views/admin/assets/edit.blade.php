@@ -51,7 +51,7 @@
                            @endforeach
                            <div class="row">
                               <div class="col right">
-                                 <button-component variant="outline">
+                                 <button-component variant="primary">
                                     Save
                                  </button-component>
 
