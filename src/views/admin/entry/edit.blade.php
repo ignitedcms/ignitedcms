@@ -46,7 +46,7 @@
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -63,17 +63,15 @@
                 @csrf
 
                 <div class="row">
-                    <div class="col-3 v-a">
-
-
-                    </div>
-                    <div class="col-9 right">
+                    
+                    <div class="col">
 
                         @if (isSingle($sectionid) == true)
                            
 
                             <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
-                                class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                                class="btn btn-white m-r-2 rm-link-styles">Preview
+                           </a>
                         @endif
 
                         @if (isMultiple($sectionid) == true)
@@ -84,9 +82,12 @@
                         @endphp
 
                             <a href="{{ url($sectName . '/' . $entTitle) }}" target="_blank"
-                                class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                                class="btn btn-white m-r-2 rm-link-styles">Preview
+                           </a>
                         @endif
-                        <button type="submit"class="btn btn-primary">Save</button>
+                        <button-component variant="primary" class="ml-3">
+                           Save
+                        </button-component>
 
                     </div>
                 </div>

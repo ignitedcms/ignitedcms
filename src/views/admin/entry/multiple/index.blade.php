@@ -24,7 +24,7 @@
 
             <div class="toasts">
                <toast ref="toast">
-                  <div class="p-2">
+                  <div class="p-4">
                      <div class="text-black">Success</div>
                      <div class="text-muted small">Order saved to db!</div>
                   </div>
@@ -43,10 +43,8 @@
             </div>
 
             <div class="row">
-                <div class="col-3 v-a">
-
-                </div>
-                <div class="col-9 right">
+                
+                <div class="col">
 
                     <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
                         class="btn btn-white m-r-2 rm-link-styles">Preview</a>
@@ -103,17 +101,17 @@
             <div class="m-b-3"></div>
 
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-3">
+            <div class="panel">
 
                 <form action="{{ url("admin/multiple/search/$sectionid") }} " method="POST">
                    @csrf
                <div class="row">
                   <div class="col">
-                     <div class="pos-rel">
+                     <div class="relative">
 
                         <button 
                           type="submit"
-                          class="rm-btn-styles pos-abs"
+                          class="rm-btn-styles absolute"
                           style="top:0px; right:-5px;"
                         >
                            <i 
@@ -136,33 +134,30 @@
 
                     
 
-                    <div class="row">
-                       <div class="col-6">
+                    <div class="row h-e">
+                       <div>
                           <h3>{{ $sectionname }}</h3>
                        </div>
-                       <div class="col-6 right">
-                          <popover link="Delete selected items?"  class="pull-right">
-
-                          <button type="submit" class="rm-btn-styles ">Ok</button>
-
+                       <div>
+                          <popover link="Delete selected items?">
+                             <button type="submit">ok</button> 
                           </popover>
                        </div>
                     </div>
-                    <div class="clearfix"></div>
                     
                     <div id="sortable-list">
                         @foreach ($data as $row)
                             <!-- tidy this up later   -->
 
                             <a href="{{ url("admin/entry/update/$sectionid/$row->id") }}" class="rm-link-styles">
-                                <div class="panel border-fix no-padding p-t p-l-2 p-b">
+                                <div class="bg-white border border-[--gray] border-fix p-2 h-e">
 
                                     <input type="checkbox" class="form-check-input" name="id[]"
                                         value="{{ $row->id }}">
                                     <span class="m-l">
                                        {{ $row->entrytitle }}   
                                     </span>
-                                    <span class="pull-right m-r-2">
+                                    <span class="">
                                        <i data-feather="more-vertical"></i>    
                                     </span>
 

@@ -101,7 +101,7 @@
                             </div>
                             <div id='list1' class='scroll-y bg-white cross-grid p-4 rounded-[--small-radius] border border-[--gray]' style="height:500px;">
                                 @foreach ($data3 as $field)
-                                    <div class="pill overflow-hidden p-3 shadow-md border border-[--gray] rounded-lg  bg-white h-e v-a" id="{{ $field->id }}">
+                                    <div class="pill overflow-hidden p-3 mt-2 shadow-md border border-[--gray] rounded-lg  bg-white h-e v-a" id="{{ $field->id }}">
                                        <div class="v-a text-black">
                                           <span>
                                              <i data-feather="more-vertical" class="v-a"></i>    
@@ -128,7 +128,7 @@
 
                                 @foreach ($data as $field)
                                     <?php if(isFieldInSection($field->id, $id)) : ?>
-                                    <div class="pill mt bg-white h-e  v-a" id="{{ $field->id }}">
+                                    <div class="pill overflow-hidden p-3 mt-2 shadow-md border border-[--gray] rounded-lg  bg-white h-e v-a " id="{{ $field->id }}">
                                        <div class="v-a text-black">
                                           <span>
                                              <i data-feather="more-vertical" class="v-a"></i>    
