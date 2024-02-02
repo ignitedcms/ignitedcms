@@ -1,7 +1,13 @@
 @extends('ignitedcms::admin.matrix.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3">
             <form action='{{ url("admin/matrix/update/$id") }}' method="POST">
                 @csrf
@@ -31,5 +37,6 @@
 
             </form>
         </div>
+       </sidebar>
     </div>
 @endsection

@@ -27,6 +27,8 @@
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
+        <script src="{{ asset('admin/js/buttons.js') }}"></script>
+        <script src="{{ asset('admin/js/sidebar.js') }}"></script>
         <script src="{{ asset('admin/js/popover.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>

@@ -38,11 +38,11 @@
     <script src="{{ asset('admin/js/datepicker.js') }}"></script>
     <script src="{{ asset('admin/js/accordions.js') }}"></script>
     <script src="{{ asset('admin/js/switch.js') }}"></script>
+    <script src="{{ asset('admin/js/sidebar.js') }}"></script>
     <script src="{{ asset('admin/js/range-sliders.js') }}"></script>
     <script src="{{ asset('admin/js/toasts.js') }}"></script>
     <script src="{{ asset('admin/js/menu.js') }}"></script>
     <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
-    <script src="{{ asset('admin/js/trees.js') }}"></script>
     <script src="{{ asset('admin/js/drawer.js') }}"></script>
 
     <script src="{{ asset('admin/datatables/jquery.min.js') }}"></script>

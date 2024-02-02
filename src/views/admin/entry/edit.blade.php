@@ -1,7 +1,13 @@
 @extends('ignitedcms::admin.entry.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
 
         <div class="main-content p-3" id="main-content">
 
@@ -219,6 +225,7 @@
             </form>
             <div class="gap"></div>
         </div>
+      </sidebar>
     </div>
 @endsection
 
