@@ -18,7 +18,7 @@ Vue.component('sidebar', {
  <div 
    class="
      hide-tablet
-     float-left
+     fixed
      top-0
      left-0
      border-[--gray]
@@ -28,6 +28,7 @@ Vue.component('sidebar', {
      w-[270px]"
      :class="[colorVariants[theme]]"
  >
+ <h5 class="text-dark">Dashboard</h5>
    <slot name="header"></slot>
  </div>
  <div 
