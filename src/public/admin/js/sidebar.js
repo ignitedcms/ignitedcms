@@ -28,7 +28,6 @@ Vue.component('sidebar', {
      w-[270px]"
      :class="[colorVariants[theme]]"
  >
- <h5 class="text-dark">Dashboard</h5>
    <slot name="header"></slot>
  </div>
  <div 
@@ -47,7 +46,6 @@ Vue.component('sidebar', {
   :style="{ display: styles }"
   @click.stop
  >
-   <h5 class="text-dark">Dashboard</h5>
       <slot name="header"></slot>
  </div>
  <div class="md:ml-[280px] p-8 default-container">
