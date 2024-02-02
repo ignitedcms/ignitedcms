@@ -24,18 +24,19 @@
                 </div>
                 <div class="breadcrumb-item">Fields</div>
             </div>
-
-            <div class="alert alert-success m-b-3">
-               <div class="text-black">Information</div>
-               <div class="text-muted small">
+            
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   Add new fields here
-               </div>
-            </div>
+                  </alert-content>
+            </alert>
+            
 
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -50,7 +51,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -68,11 +69,15 @@
             <div class="row">
                 <div class="col-12 right">
                     <a href="{{ url('admin/fields/create') }}">
-                        <button type="button" class="btn btn-primary">New field</button>
+                      <button-component variant="primary">
+                         New field
+                      </button-component>
                     </a>
 
                     <a href="{{ url('admin/matrix/create') }}">
-                        <button type="button" class="btn btn-white m-l-2">New matrix</button>
+                        <button-component variant="outline" class="ml-3">
+                           New matrix
+                        </button-component>
                     </a>
                 </div>
             </div>
@@ -95,7 +100,7 @@
                         @foreach ($data as $field)
                             <tr>
                                 <td>{{ $field->id }}</td>
-                                <td><a href="{{ url('admin/fields/update', $field->id) }}">{{ $field->name }}</a></td>
+                                <td><a href="{{ url('admin/fields/update', $field->id) }}" class="underline">{{ $field->name }}</a></td>
                                 <td>{{ $field->type }}</td>
                                 <td>
                                     <span class="right">

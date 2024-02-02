@@ -53,8 +53,10 @@
 
                   </div>
                   <div class="row">
-                     <div class="col-12 right">
-                        <button type="submit" class="m-l btn btn-primary">Update</button>
+                     <div class="col-12 ">
+                        <button-component variant="primary">
+                           Update
+                        </button-component>
                      </div>
                   </div>
                </div>

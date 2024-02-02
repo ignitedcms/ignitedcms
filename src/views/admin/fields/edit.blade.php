@@ -23,7 +23,7 @@
 
             @foreach ($data as $field)
                 <!--main part for section styles -->
-                <div class="panel br drop-shadow">
+                <div class="panel">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">

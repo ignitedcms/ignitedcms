@@ -25,20 +25,23 @@
                 <div class="breadcrumb-item">Permissions</div>
             </div>
 
-            <div class="alert alert-success m-b-3">
-               <div class="text-black">Information</div>
-               <div class="text-muted small">
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                   Add new permission groups, so you can
                   control what your users have visibility to 
                   on their dashboard
+                  </alert-content>
+            </alert>
 
-               </div>
-            </div>
+            <div class="mb-4"></div>
 
             <div class="row">
-                <div class="col-12 right">
+                <div class="col-12 ">
                     <a href="{{ url('admin/permissions/create') }}">
-                        <button type="button" class="btn btn-primary">New Group</button>
+                       <button-component variant="primary">
+                           New Group
+                       </button-component>
                     </a>
                 </div>
             </div>
@@ -47,7 +50,7 @@
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -62,7 +65,7 @@
             @if (session('error'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                         {{ session('error') }}
@@ -92,7 +95,7 @@
                         <tr>
                             <td>{{ $row->groupID }}</td>
                             <td>
-                               <a href='{{ url("admin/permissions/update/$row->groupID") }}'>
+                               <a href='{{ url("admin/permissions/update/$row->groupID") }}' class="underline">
                               {{ $row->groupName }}
                               </a>
                            </td>

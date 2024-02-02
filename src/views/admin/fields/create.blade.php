@@ -21,7 +21,7 @@
    
                 <div class="toasts">
                    <toast ref="toast">
-                      <div class="p-2">
+                      <div class="p-4">
                          <div class="text-danger">Error</div>
                          <div class="text-danger small">
                             Please check the entire form
@@ -34,7 +34,7 @@
 
 
                 <!--main part for section styles -->
-                <div class="panel br drop-shadow">
+                <div class="panel">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -141,8 +141,10 @@
                         </div>
                     </div>
                     <div class="row">
-                       <div class="col-12 right">
-                          <button type="submit" @click="save" class="m-l btn btn-primary">Save</button>
+                       <div class="col-12 ">
+                           <button-component variant="primary" @click.native="save">
+                              Save
+                           </button-component>
                        </div>
                     </div>
                 </div>
