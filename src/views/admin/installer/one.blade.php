@@ -34,7 +34,9 @@
                         OTHER DEALINGS IN THE SOFTWARE.
                         <div class="form-group">
                             <a href="{{ url('installer/db') }}">
-                                <button type="button" class="btn btn-block btn-primary pull-right">Next</button>
+                                 <button-component variant="primary" class="w-full">
+                                       Next
+                                 </button-component>
                             </a>
                         </div>
                     </div>
