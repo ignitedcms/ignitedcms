@@ -7,8 +7,6 @@
         <div class="gap"></div>
         <div class="small-container" id="app">
 
-         <dark-mode>
-         </dark-mode>
     
             @if (session('status'))
             <div class="toasts">

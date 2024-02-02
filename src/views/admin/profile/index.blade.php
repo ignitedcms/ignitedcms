@@ -2,8 +2,6 @@
 @section('content')
     <div class="full-screen" id="app">
 
-     <dark-mode>
-     </dark-mode>
       <sidebar theme="light">
             <ul slot="header" class="rm-list-styles">
 

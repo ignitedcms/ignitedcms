@@ -7,9 +7,6 @@
         <div class="small-container" id="app">
 
 
-         <dark-mode>
-         </dark-mode>
-
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
