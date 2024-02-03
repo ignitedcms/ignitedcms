@@ -9,17 +9,13 @@
             </ul>
 
         <div class="main-content p-3" id="main-content">
-            <div class="breadcrumb m-b-3">
 
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/users') }}">Users</a>
-                </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="User" url="{{ url('admin/users') }}"></breadcrumb-item>
+               <breadcrumb-item title="Update user" url=""></breadcrumb-item>
+            </breadcrumb>
 
-                <div class="breadcrumb-item">Update user</div>
-            </div>
 
             <!--main part for section styles -->
             

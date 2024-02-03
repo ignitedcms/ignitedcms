@@ -30,16 +30,14 @@
         <div class="main-content p-3">
             <form action='{{ url("admin/section/update/$id") }}' method="POST">
                 @csrf
+               
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Sections" url="{{ url('admin/section') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit section" url=""></breadcrumb-item>
+            </breadcrumb>
 
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/section') }}">Sections</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit section</div>
-                </div>
+                
                 <!--main part for section styles -->
                 <div class="panel">
                     <div class="row">

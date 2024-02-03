@@ -18,15 +18,13 @@
               </div>
            </drawer>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/fields') }}">Fields</a>
-                </div>
-                <div class="breadcrumb-item">Create matrix</div>
-            </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Fields" url="{{ url('admin/fields') }}"></breadcrumb-item>
+               <breadcrumb-item title="Create matrix" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             <div class="toasts">
                <toast ref="toast">
