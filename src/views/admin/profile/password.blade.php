@@ -20,15 +20,13 @@
               </div>
            </drawer>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/profile') }}">Profile</a>
-                </div>
-                <div class="breadcrumb-item">Password reset</div>
-            </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Profile" url="{{ url('admin/profile') }}"></breadcrumb-item>
+               <breadcrumb-item title="Password reset" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             @if (session('status'))
             <div class="toasts">
