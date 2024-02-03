@@ -11,10 +11,10 @@
         <div class="main-content p-3" id="main-content">
 
          <drawer title="Help">
-              <div class="p-3">
+              <div class="p-8">
                  <h4>Entries</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/entries" target="_blank">Entries</a>
+                 <a class="underline" href="https://www.ignitedcms.com/documentation/entries" target="_blank">Entries</a>
               </div>
            </drawer>
 

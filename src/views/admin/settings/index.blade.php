@@ -10,10 +10,10 @@
 
    <div class="main-content p-3" id="main-content">
       <drawer title="Help">
-         <div class="p-3">
-            <h4>Sections</h4>
+         <div class="p-8">
+            <h4>Site settings</h4>
             <p class="text-muted">For more help please see</p>
-            <a href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
+            <a class="underline" href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
          </div>
       </drawer>
    

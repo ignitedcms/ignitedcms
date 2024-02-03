@@ -11,10 +11,10 @@
         <div class="main-content p-3">
 
            <drawer title="Help">
-              <div class="p-3">
+              <div class="p-8">
                  <h4>Matrix</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Matrix</a>
+                 <a class="underline" href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Matrix</a>
               </div>
            </drawer>
 

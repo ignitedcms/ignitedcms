@@ -9,15 +9,14 @@
             </ul>
 
         <div class="main-content p-3" id="main-content">
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/permissions') }}">Permissions</a>
-                </div>
-                <div class="breadcrumb-item">Update existing group</div>
-            </div>
+           
+             <breadcrumb class="mb-3 mt-3">
+                <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+                <breadcrumb-item title="Permissions" url="{{ url('admin/permissions') }}"></breadcrumb-item>
+                <breadcrumb-item title="Update existing group" url=""></breadcrumb-item>
+             </breadcrumb>
+
+            
 
             <!--main part for section styles -->
             <form action="{{ url("admin/permissions/update/$id") }} " method="POST">

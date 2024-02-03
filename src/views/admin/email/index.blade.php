@@ -12,10 +12,10 @@
         <div class="main-content p-3">
             
            <drawer title="Help">
-              <div class="p-3">
-                 <h4>Profile</h4>
+              <div class="p-8">
+                 <h4>Email</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/email" target="_blank">Email</a>
+                 <a class="underline" href="https://www.ignitedcms.com/documentation/email" target="_blank">Email</a>
               </div>
            </drawer>
 

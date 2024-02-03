@@ -12,12 +12,12 @@
 
 
          <drawer title="Help">
-              <div class="p-3">
+              <div class="p-8">
                  <h4>Assets</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/asset-library" target="_blank">Assets</a>
+                 <a class="underline" href="https://www.ignitedcms.com/documentation/asset-library" target="_blank">Assets</a>
                  <br>
-                 <a href="https://www.ignitedcms.com/documentation/file-uploads" target="_blank">File uploads</a>
+                 <a class="underline"  href="https://www.ignitedcms.com/documentation/file-uploads" target="_blank">File uploads</a>
               </div>
            </drawer>
 
