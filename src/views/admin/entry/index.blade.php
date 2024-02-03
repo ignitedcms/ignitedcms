@@ -1,4 +1,4 @@
-@extends('ignitedcms::admin.entry.layout')
+@extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div id="app" class="full-screen">
       <sidebar theme="light">
