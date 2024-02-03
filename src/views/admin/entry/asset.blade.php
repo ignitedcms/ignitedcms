@@ -25,12 +25,31 @@
       <!-- Needed for POST input -->
       <input v-bind:name="name" v-bind:value="tmp" style="display:none;" >
 </div> 
-<div class="modal" v-if="isShown" v-on:keyup.escape="escapePressed">
-   <div class="modal-content fade-in-bottom" @click.stop>
+<div class="modal" v-show="isShown" v-on:keyup.escape="escapePressed">
+   <div 
+     class="
+      modal-content
+      bg-light-gray
+      p-4
+      rounded-[--big-radius]
+      border
+      border-[--gray]
+      fade-in-bottom
+      " @click.stop>
 
-      <div class="modal-header">
-         <button type="button" class="rm-btn-styles close m-t" v-on:click="isShown = !isShown">&times;</button>
-         <h4 class="m-t">Assets</h4>
+      <div class="modal-header relative">
+         <button 
+           type="button" 
+           style="width:30px; height:30px; "
+           class="absolute 
+            right-0
+            bg-dark
+            m-t" 
+            v-on:click="isShown = !isShown">
+          <span class="v-a h-a">
+             <i data-feather="x" class="text-white"></i>    
+          </span>
+         </button>
       </div>
       <div class="modal-body">
          <div class="p-3">
@@ -38,7 +57,7 @@
             @php $amount = count($assets); @endphp
 
             @if($amount > 0)
-            <div class="row b-b">
+            <div class="row ">
                <div class="col"><h5>Preview </h5></div>
                <div class="col"><h5>Handle </h5></div>
                <div class="col"><h5>Type </h5></div>
@@ -46,7 +65,7 @@
             </div>
 
                @foreach ($assets as $field)
-               <div class="row b-b">
+               <div class="row ">
                   <div class="col">
                      @if($field->kind !="jpg" and $field->kind != "png" and $field->kind != "bmp" and $field->kind != "jpeg")
                      <img src="{{ asset('admin/images/file.jpg') }}"></img>
@@ -63,7 +82,7 @@
                   <div class="col v-a">
                 
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                        <div type="submit" class="relative cursor-pointer bg-white">Add</div>
+                        <div type="submit" class="relative cursor-pointer bg-white px-2 rounded-md border border-[--gray]">Add</div>
                      </div>
                      
                   </div>
