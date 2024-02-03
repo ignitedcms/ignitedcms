@@ -46,19 +46,12 @@
             <form action="{{ url('admin/section/create') }}" method="POST">
                 @csrf
 
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/section') }}">Sections</a>
-                    </div>
-                    <div class="breadcrumb-item">Create section</div>
-                </div>
 
-
-
-            
+             <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Sections" url="{{ url('admin/section') }}"></breadcrumb-item>
+               <breadcrumb-item title="Create section" url=""></breadcrumb-item>
+             </breadcrumb>
 
 
                 <!--main part for section styles -->

@@ -32,15 +32,14 @@
             <form action="{{ url('admin/assets/create') }} " method="POST" 
                enctype="multipart/form-data">
                 @csrf
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/assets') }}">Asset</a>
-                    </div>
-                    <div class="breadcrumb-item">Add new asset</div>
-                </div>
+               
+               <breadcrumb class="mt-4 mb-4">
+                  <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+                  <breadcrumb-item title="Assets" url="{{ url('admin/assets') }}"></breadcrumb-item>
+                  <breadcrumb-item title="Add new asset" url=""></breadcrumb-item>
+               </breadcrumb>
+
+                
 
                 <!--main part for section styles -->
                 <div class="panel">

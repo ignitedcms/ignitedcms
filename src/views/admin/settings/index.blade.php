@@ -16,12 +16,13 @@
             <a href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
          </div>
       </drawer>
-      <div class="breadcrumb m-b-3">
-         <div class="breadcrumb-item">
-            <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-         </div>
-         <div class="breadcrumb-item">Site settings</div>
-      </div>
+   
+         <breadcrumb class="mt-4 mb-4">
+            <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+            <breadcrumb-item title="Site settings" url=""></breadcrumb-item>
+         </breadcrumb>
+
+      
       @if (session('status'))
       <div class="toasts">
          <toast ref="toast">

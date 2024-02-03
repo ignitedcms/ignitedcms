@@ -22,25 +22,22 @@
             </drawer>
 
             @if (isMultiple($sectionid) == true)
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/entry') }}">Entry</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit entry</div>
-                </div>
+
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit entry" url=""></breadcrumb-item>
+            </breadcrumb>
+
+                
             @else
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/entry') }}">Entry</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit section</div>
-                </div>
+
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit section" url=""></breadcrumb-item>
+            </breadcrumb>
+                
             @endif
 
             @if (session('status'))

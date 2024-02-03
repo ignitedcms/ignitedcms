@@ -31,16 +31,13 @@
                </toast>
 
             </div>            
+            
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="{{ $sectionname }}" url=""></breadcrumb-item>
+            </breadcrumb>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/entry') }}">Entry</a>
-                </div>
-                <div class="breadcrumb-item">{{ $sectionname }}</div>
-            </div>
 
             <div class="row">
                 
