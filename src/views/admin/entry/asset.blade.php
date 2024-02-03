@@ -75,7 +75,7 @@
                   <div class="col v-a">
                 
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 
-                        <div type="submit" class="relative cursor-pointer bg-white px-2 rounded-md border border-[--gray]">Add</div>
+                        <div type="submit" class="relative text-sm cursor-pointer bg-white px-2 rounded-md border border-[--gray]">Add</div>
                      </div>
                      
                   </div>

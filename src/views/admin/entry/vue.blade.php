@@ -188,7 +188,7 @@
                                          </div>
                                          <div class="col v-a">
                                             <div v-on:click="part.content = '{{$field->url}}'; part.thumb = '{{ $field->thumb }}'; part.alttitle = '{{ $field->alt_title }}'; part.showAssets = false"> 
-                                               <div type="submit" class="bg-white cursor-pointer px-2 rounded-md border border-[--gray]">Add</div>
+                                               <div type="submit" class="bg-white text-sm cursor-pointer px-2 rounded-md border border-[--gray]">Add</div>
                                             </div>
                                          </div>
                                       </div>
