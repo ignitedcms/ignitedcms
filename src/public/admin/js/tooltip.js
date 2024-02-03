@@ -33,12 +33,13 @@ Vue.component('tooltip', {
           bg-white
           w-[200px]
           p-2
-          bottom-[30px]
+          bottom-[40px]
           rounded-[--small-radius]
           border
           border-[--gray]
           text-center
-          left-[-85px]
+          left-[50%]
+          ml-[-100px]
           z-10
           shadow-md
           dark:shadow-none

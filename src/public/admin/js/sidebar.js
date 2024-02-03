@@ -48,7 +48,7 @@ Vue.component('sidebar', {
  >
       <slot name="header"></slot>
  </div>
- <div class="md:ml-[280px] p-8 default-container">
+ <div class="md:ml-[280px] md:p-8 p-4  default-container">
    <button 
     @click="toggle"
     v-click-outside="away"

@@ -42,7 +42,7 @@ Vue.component('drop-down', {
          right-0
          bg-white
          shadow-md
-         fade-in-bottom
+         fade-in
          z-10
          dark:bg-darkest
          dark:shadow-none

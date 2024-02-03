@@ -3574,6 +3574,42 @@ input:focus + i {
   top: 70px;
 }
 
+.bottom-\[100\%\] {
+  bottom: 100%;
+}
+
+.left-\[50\%\] {
+  left: 50%;
+}
+
+.bottom-\[120\%\] {
+  bottom: 120%;
+}
+
+.bottom-\[150\%\] {
+  bottom: 150%;
+}
+
+.bottom-\[250\%\] {
+  bottom: 250%;
+}
+
+.bottom-\[80px\] {
+  bottom: 80px;
+}
+
+.bottom-\[20px\] {
+  bottom: 20px;
+}
+
+.bottom-\[50px\] {
+  bottom: 50px;
+}
+
+.bottom-\[40px\] {
+  bottom: 40px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -3677,6 +3713,18 @@ input:focus + i {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.ml-\[-100px\] {
+  margin-left: -100px;
+}
+
+.ml-\[-400px\] {
+  margin-left: -400px;
+}
+
+.ml-\[-150px\] {
+  margin-left: -150px;
 }
 
 .block {
@@ -3865,6 +3913,10 @@ input:focus + i {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[300px\] {
+  width: 300px;
 }
 
 .min-w-\[150px\] {
@@ -4222,6 +4274,11 @@ input:focus + i {
   padding-bottom: 1rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -4298,6 +4355,12 @@ input:focus + i {
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -4473,5 +4536,9 @@ input:focus + i {
 @media (min-width: 768px) {
   .md\:ml-\[280px\] {
     margin-left: 280px;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 }

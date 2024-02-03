@@ -39,10 +39,11 @@ Vue.component('popover', {
           fade-in-bottom 
           absolute
           bg-white
-          w-[200px]
+          w-[300px]
           p-4
-          bottom-[140%] 
-          left-[-150%]
+          bottom-[40px] 
+          left-[50%]
+          ml-[-150px]
           rounded-[--small-radius]
           border
           border-[--gray]

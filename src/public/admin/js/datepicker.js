@@ -32,6 +32,7 @@ Vue.component('datepicker', {
         class="
          form-control 
          w-[250px]
+         h-[40px]
          v-e
          dark:bg-darkest
          dark:text-white

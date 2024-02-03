@@ -4,13 +4,13 @@
 @import "typography.css";
 @import "animations.css";
 @import "forms.css";
+@import "matrix.css";
 @import "feeds.css";
 @import "full-calendar.css";
 @import "checkbox.css";
 @import "select.css";
 @import "progress-bars.css";
 @import "quill.css";
-@import "matrix.css";
 @import "range-sliders.css";
 @import "spinner.css";
 @import "switch.css";
