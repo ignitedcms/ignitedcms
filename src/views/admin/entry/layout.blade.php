@@ -58,7 +58,11 @@
         <!-- datatables -->
         <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
 
-        
+        <script>
+           feather.replace({
+              class: "font-primary",
+           });
+        </script>
 
         <script>
        Vue.use(window.VueQuillEditor);
@@ -198,11 +202,7 @@
             });
         </script>
 
-        <script>
-           feather.replace({
-              class: "font-primary",
-           });
-        </script>
+        
 
         <script>
             $('#example').dataTable({

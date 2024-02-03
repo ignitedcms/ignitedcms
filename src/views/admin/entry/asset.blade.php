@@ -1,20 +1,13 @@
-@php
- /*                                                                          
- |---------------------------------------------------------------            
- | Let's build the select asset container separately
- |---------------------------------------------------------------            
- */       
-@endphp
 <div>
      <div class="row">
          <div class="col v-a">
              <button class="btn btn-white" @click.prevent v-on:click="isShown = !isShown" v-click-outside="away">
                  Add asset
              </button>
-             <div  v-if="tmp.length > 0" class="ml-2" style="display:inline-block;">
+             <div  v-if="tmp.length > 0" class="ml-2 inline-block" >
                 <img :src="url" class="ml-4 border border-[--gray]" />
                 <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                   <span class="m-l small bg-white px-2 rounded-[--small-radius] cursor-pointer border border-[--gray]" style="margin-left:12px;">
+                   <span class="ml small bg-white px-2 rounded-[--small-radius] cursor-pointer border border-[--gray]" style="margin-left:12px;">
                       Delete
                    </span>
                 </div>
