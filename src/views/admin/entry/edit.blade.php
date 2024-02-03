@@ -102,7 +102,7 @@
                             <div class="small text-danger">{{ $message }}</div>
                         @enderror
 
-                        <div class="divider m-b-2"></div>
+                        <div class="divider mb-2"></div>
                     @endif
 
                     @foreach ($data as $row)
@@ -114,7 +114,7 @@
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="Start typing" />
 
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'matrix')
                                 <div @click="goNow({{ $row->id }})" class="mr-2 mt-4 cursor-pointer btn-white ">
                                     <span class="v-a">
@@ -131,7 +131,7 @@
                                 <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ getContent($entryid, $row->name) }}</textarea>
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
 
                                 <div v-for='part in singleRichtext'>
                                     <div class='form-group' v-if='part.name == "{{ $row->name }}"'>
@@ -150,7 +150,7 @@
                                 <div class="form-group">
 
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'check-box')
                                 <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
@@ -161,16 +161,16 @@
                                         {{ buildCheckboxes($entryid, $row->name) }}
                                     </div>
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'color')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="" />
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'drop-down')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
@@ -178,9 +178,9 @@
                                     aria-label="Default select example">
                                     {{ buildDropdown($entryid, $row->name) }}
                                 </select>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'file-upload')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
@@ -190,16 +190,16 @@
                                 </asset-container>
 
 
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'number')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="test" />
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'date')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div class="form-group">
@@ -207,14 +207,14 @@
                                         value="{{ getContent($entryid, $row->name) }}">
                                     </datepicker>
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'switch')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}"></switch-ios>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @else
                             @endif
                         </div>
