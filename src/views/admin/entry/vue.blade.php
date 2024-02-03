@@ -133,11 +133,28 @@
 
                     </div>
                     <!-- modal -->
-                    <div class="modal" v-if="part.showAssets">
-                            <div class="modal-content fade-in-bottom">
-                                <div class="modal-header">
-                                    <button class="rm-btn-styles close m-t" v-on:click="part.showAssets =!part.showAssets" >&times;</button>
-                                    <h4 class="m-t">Asset Library</h4>
+                    <div class="modal" v-show="part.showAssets">
+                            <div class="
+                              modal-content 
+                              bg-light-gray
+                              p-4 
+                              border
+                              border-[--gray] 
+                              rounded-[--big-radius]
+                              fade-in-bottom">
+                                <div class="modal-header relative">
+                                    <button 
+                                       type="button"
+                                       style="width:30px; height:30px; "
+                                       class="absolute 
+                                       right-0
+                                       bg-dark
+                                       m-t" 
+                                        v-on:click="part.showAssets =!part.showAssets" >
+                                       <span class="v-a h-a">
+                                          <i data-feather="x" class="text-white"></i>    
+                                       </span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     
@@ -171,7 +188,7 @@
                                          </div>
                                          <div class="col v-a">
                                             <div v-on:click="part.content = '{{$field->url}}'; part.thumb = '{{ $field->thumb }}'; part.alttitle = '{{ $field->alt_title }}'; part.showAssets = false"> 
-                                               <div type="submit" class="hand p-l p-r b br bg-white">Add</div>
+                                               <div type="submit" class="bg-white cursor-pointer px-2 rounded-md border border-[--gray]">Add</div>
                                             </div>
                                          </div>
                                       </div>
