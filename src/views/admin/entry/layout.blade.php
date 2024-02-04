@@ -175,6 +175,7 @@
                 },
                 mounted() {
                   
+                feather.replace({});
 
                 var self = this;
                  self.$nextTick(function(){
