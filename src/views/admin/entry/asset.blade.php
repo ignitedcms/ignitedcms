@@ -6,8 +6,8 @@
              </button>
              <div  v-if="tmp.length > 0" class="ml-2 inline-block" >
                 <img :src="url" class="ml-4 border border-[--gray]" />
-                <div class="hand" style="max-width:80px;" v-on:click="tmp = ''">
-                   <span class="ml small bg-white px-2 rounded-[--small-radius] cursor-pointer border border-[--gray]" style="margin-left:12px;">
+                <div class="cursor-pointer" style="max-width:80px;" v-on:click="tmp = ''">
+                  <span class="small underline" style="margin-left:18px;">
                       Delete
                    </span>
                 </div>
@@ -39,8 +39,8 @@
             bg-dark
             m-t" 
             v-on:click="isShown = !isShown">
-          <span class="v-a h-a">
-             <i data-feather="x" class="text-white"></i>    
+          <span class="text-white mb-3 v-a h-a">
+            &times;
           </span>
          </button>
       </div>
@@ -53,7 +53,6 @@
             <div class="row ">
                <div class="col"><h5>Preview </h5></div>
                <div class="col"><h5>Handle </h5></div>
-               <div class="col"><h5>Type </h5></div>
                <div class="col"><h5>Action </h5></div>
             </div>
 
@@ -67,11 +66,9 @@
                      @endif
                   </div>
                   <div class="col v-a">
-                     {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
+                     {{ \Illuminate\Support\Str::limit($field->filename, 30, '...') }}
                   </div>
-                  <div class="col v-a">
-                     {{ $field->kind }}
-                  </div>
+                  
                   <div class="col v-a">
                 
                      <div v-on:click="tmp='{{$field->id }}'; url=' {{ $field->thumb }}'; isShown =! isShown" class="hand hover"> 

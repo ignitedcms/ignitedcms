@@ -122,7 +122,7 @@
                             <div class="ml-2" v-if="part.content.length > 0">
                                <img :src="part.thumb" alt="" class="ml-2 border border-[--gray] "/>
                                <div class="cursor-pointer" style="max-width:80px;" v-on:click="part.content = ''">
-                                  <span class="small bg-white px-2 rounded-[--small-radius] border border-[--gray]  " style="margin-left:0px;">
+                                  <span class="small underline" style="margin-left:10px;">
                                      Delete
                                   </span>
                                </div>
@@ -151,9 +151,10 @@
                                        bg-dark
                                        m-t" 
                                         v-on:click="part.showAssets =!part.showAssets" >
-                                       <span class="v-a h-a">
-                                          <i data-feather="x" class="text-white"></i>    
+                                       <span class="text-white mb-3 v-a h-a">
+                                             &times;
                                        </span>
+                                       
                                     </button>
                                 </div>
                                 <div class="modal-body">
@@ -167,7 +168,6 @@
                                       <div class="row b-b">
                                          <div class="col"><h5>Preview </h5></div>
                                          <div class="col"><h5>Handle </h5></div>
-                                         <div class="col"><h5>Type </h5></div>
                                          <div class="col"><h5>Action </h5></div>
                                       </div>
 
@@ -181,11 +181,9 @@
                                             @endif
                                          </div>
                                          <div class="col v-a">
-                                            {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
+                                            {{ \Illuminate\Support\Str::limit($field->filename, 30, '...') }}
                                          </div>
-                                         <div class="col v-a">
-                                            {{ $field->kind }}
-                                         </div>
+                                         
                                          <div class="col v-a">
                                             <div v-on:click="part.content = '{{$field->url}}'; part.thumb = '{{ $field->thumb }}'; part.alttitle = '{{ $field->alt_title }}'; part.showAssets = false"> 
                                                <div type="submit" class="bg-white text-sm cursor-pointer px-2 rounded-md border border-[--gray]">Add</div>
