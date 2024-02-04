@@ -79,12 +79,18 @@
                 
                 <div class="divider"></div>
 
-                <div class="row m-t-2">
+                <div class="row mt-2">
                     <h4>Configuration</h4> 
-                    
-                    <div class="small text-muted m-b-3">Define the types of blocks that can be created within this Matrix field, as well
+                   
+                     <alert variant="success" class="w-full mb-8">
+                        <alert-title>Informationn</alert-title>
+                           <alert-content>
+Define the types of blocks that can be created within this Matrix field, as well
                         as the fields each block type is made up of.
-                    </div>
+                    
+                           </alert-content>
+                     </alert>
+                    
                     <!-- start matrix container -->
                     <div class="matrix-container">
                         <div class="matrix-left">
