@@ -12,21 +12,21 @@
 */
 
 Vue.component('dark-mode', {
-  props: ['alt', 'path'],
+  props: ['top'],
   template: `
 <button
    @click="toggleDarkMode"
    class="fixed
-   z-30
+   z-10
+   p-1
    right-4
    border
    border-[--gray]
-   top-4
    bg-white
    dark:bg-darkest
    dark:border-slate-600
    rounded-[--big-radius]"
-   style="padding: 6px"
+   :style="{top: top}"
 >
   <div class="h-a v-a">
      <i data-feather="sun"

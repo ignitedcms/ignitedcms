@@ -47,7 +47,7 @@ Vue.component('datepicker', {
         @click="open"
         @click.prevent
       >
-        <span>
+        <span class="v-a h-a">
           <i data-feather='calendar' class='icon-inside hand'></i>
         </span>
         {{foo}}

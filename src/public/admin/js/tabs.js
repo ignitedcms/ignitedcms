@@ -32,7 +32,7 @@ Vue.component('tabs', {
         :aria-selected='index === currentIndex ? "true" : "false"'
         :aria-controls="'tabpanel-'+uniqueId + index"
         :tabindex="currentIndex === index ? 0 : -1"
-        class="rm-btn-styles p-2 rounded-md  dark:text-white"
+        class="rm-btn-styles px-2 py-1 rounded-md  dark:text-white"
         @click='selectTab(index)'
         @keydown="onTabKeyDown($event, index)"
         ref="tabButtons"

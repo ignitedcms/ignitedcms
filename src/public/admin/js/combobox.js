@@ -39,6 +39,8 @@ Vue.component("combobox", {
          h-e
          v-a 
          w-[250px]
+         h-[40px]
+         text-sm
          dark:bg-darkest 
          dark:text-white
          dark:border-slate-600"
@@ -84,6 +86,8 @@ Vue.component("combobox", {
                class="
                 rm-input-styles
                 border-b-slate-200
+                text-sm
+                h-[40px]
                 dark:bg-darkest
                 dark:border-none
                 dark:text-white"
@@ -114,6 +118,8 @@ Vue.component("combobox", {
                :key="index"
                class="
                 p-2
+                text-sm
+                dark:text-white
                 mx-2
                 cursor-pointer
                 rounded-[--small-radius]"
@@ -127,7 +133,7 @@ Vue.component("combobox", {
 
              <div
                v-if="filteredItems.length === 0 && searchQuery.trim() !== ''"
-               class="p-2 mx-2"
+               class="p-2 mx-2 text-sm"
              >
                No searches found. . .
              </div>

@@ -18,13 +18,12 @@ Vue.component('breadcrumb', {
     class="
     rm-list-styles
     flex
-    flex-start
-    px-4
+    px-2
     py-3
     bg-white
     border
     border-[--gray]
-    rounded-[--big-radius]
+    rounded-[--small-radius]
     shadow-sm
     dark:bg-darkest
     dark:border-slate-600
@@ -49,7 +48,7 @@ Vue.component('breadcrumb-item', {
     class="
     ml-3
     cursor-pointer
-    text-black
+    hover:text-gray-900
     text-dark
     "
   > 

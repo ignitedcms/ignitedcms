@@ -36,7 +36,7 @@ Vue.component('drop-down', {
          min-w-[150px]
          top-[40px] 
          overflow-hidden
-         rounded-[--big-radius]
+         rounded-[--small-radius]
          border
          border-[--gray]
          right-0
