@@ -59,9 +59,7 @@
         <script src="{{ asset('admin/datatables/jquery.dataTables.min.js') }}"></script>
 
         <script>
-           feather.replace({
-              class: "font-primary",
-           });
+           feather.replace({});
         </script>
 
         <script>
