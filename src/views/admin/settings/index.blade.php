@@ -72,7 +72,7 @@
                         <div>
                            <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}"
                            class="form-check-input" @if ($row->enabled) checked @endif>
-                           <label for="the label">{{ $row->name }}</label>
+                           <label for="the label" class="ml-2">{{ $row->name }}</label>
                            <span class="small tet-muted">[ {{ $row->extensions }} ] </span>
                         </div>
                         @endforeach

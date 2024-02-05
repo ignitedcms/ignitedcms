@@ -85,15 +85,17 @@
                      @foreach ($data as $row)
                      <div> 
                         <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" class="form-check-input">
-                        <label for="the label">{{ $row->permission }}</label>
+                        <label for="the label" class="ml-2">{{ $row->permission }}</label>
                      </div>
                      @endforeach
 
 
                   </div>
                   <div class="row">
-                     <div class="col-12 right">
-                        <button type="submit" class="m-l btn btn-primary">Save</button>
+                     <div class="col-12">
+                           <button-component variant="primary">
+                              Save
+                           </button-component>
                      </div>
                   </div>
                </div>

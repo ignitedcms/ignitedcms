@@ -45,7 +45,7 @@
                      <div> 
                         <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" 
                            class="form-check-input" {{ checkPermissions($row->permissionID, $map) }}>
-                        <label for="the label">{{ $row->permission }}</label>
+                        <label for="the label" class="ml-2">{{ $row->permission }}</label>
                      </div>
                      @endforeach
 
