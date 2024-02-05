@@ -29,6 +29,7 @@
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
         <script src="{{ asset('admin/js/alerts.js') }}"></script>
         <script src="{{ asset('admin/js/buttons.js') }}"></script>
+        <script src="{{ asset('admin/js/dark-mode.js') }}"></script>
         <script src="{{ asset('admin/js/breadcrumbs.js') }}"></script>
         <script src="{{ asset('admin/js/sidebar.js') }}"></script>
         <script src="{{ asset('admin/js/popover.js') }}"></script>
