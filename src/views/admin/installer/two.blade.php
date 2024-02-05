@@ -1,10 +1,11 @@
 @extends('ignitedcms::admin.layout')
 
 @section('content')
-    <div class="full-screen bg-light-grey">
+    <div class="v-screen h-screen bg-light-gray">
+        <div class="gap"></div>
         <div class="gap"></div>
         <div class="small-container" id="app">
-            <div class="panel br drop-shadow">
+            <div class="panel">
                 <form method="POST" action="{{ url('installer/validate_form') }}">
                     @csrf
                     <div class="row">
@@ -31,8 +32,10 @@
                                     <div class="small text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="row v-a m-t">
-                                <button class="col btn btn-primary " type="submit">Create admin user</button>
+                            <div class="row v-a mt-6">
+                                 <button-component variant="primary" class="w-full">
+                                    Create admin user
+                                 </button-component>
                             </div>
 
                         </div>

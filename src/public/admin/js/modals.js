@@ -17,13 +17,13 @@ Vue.component('modal', {
     'modal-header'
   ],
   template: `
-    <div @keyup.escape="escapePressed()">
+    <div @keyup.escape="escapePressed()" class="relative inline-block">
       <button
         type="button"
         aria-haspopup="dialog"
         :aria-expanded="arr"
         :aria-controls="'modal-' + uniqueId"
-        class="btn btn-white "
+        class=" btn btn-white "
         @click="show=true; arr='true'"
         v-click-outside="away"
       >
@@ -31,30 +31,76 @@ Vue.component('modal', {
       </button>
 
       <div
-        class="modal"
+        class="
+         fixed
+         z-20
+         w-full
+         bg-opacity-80
+         h-full
+         bg-darker
+         left-0
+         top-0
+         overflow-auto
+         v-a
+         h-a"
+
         v-show="show"
         @keyup.escape="escapePressed"
       >
         <div 
-          class="modal-content fade-in-bottom" 
+          class="
+           relative
+           w-[60%]
+           shadow-md
+           rounded-[--big-radius]
+           overflow-hidden
+           border
+           border-slate-600
+           bg-opacity-100
+           z-30
+           bg-light-gray
+           fade-in-bottom
+           dark:shadow-none " 
+
           :id="'modal-' + uniqueId"
           role="dialog"
           @click.stop
         >
 
           <focus-trap :active="show">
-            <div class="modal-header">
+            <div 
+             class="
+              relative
+              bg-white
+              border
+              border-b-[--gray]
+              h-e
+              v-a
+              px-4
+              overflow-hidden
+              rounded-t-lg
+              dark:border-none
+              dark:bg-darker"
+            >
+              <h5 
+               class="
+                mt-3
+                dark:text-white"
+              >
+              {{modalHeader}}
+              </h5>
               <button
                 type="button"
                 aria-label="Close"
-                class="rm-btn-styles close m-t"
+                class="rm-btn-styles dark:text-white"
                 @click="show = false; arr='false'"
               >
-                &times;
+              <span>
+                 <i data-feather="x"></i>    
+              </span>
               </button>
-              <h5 class="m-t">{{modalHeader}}</h5>
             </div>
-            <div class="modal-body">
+            <div class="dark:bg-darker dark:text-white dark:rounded-b-lg">
               <slot></slot>
             </div>
           </focus-trap>

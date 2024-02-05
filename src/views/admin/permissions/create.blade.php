@@ -1,17 +1,22 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
+        <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3" id="main-content">
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/permissions') }}">Permissions</a>
-                </div>
-                <div class="breadcrumb-item">Add new group</div>
-            </div>
+            
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Permissions" url="{{ url('admin/permissions') }}"></breadcrumb-item>
+               <breadcrumb-item title="Add new group" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             @if (session('status'))
             <div class="toasts">
@@ -80,15 +85,17 @@
                      @foreach ($data as $row)
                      <div> 
                         <input type="checkbox" name="boxes[]"   value="{{ $row->permissionID }}" class="form-check-input">
-                        <label for="the label">{{ $row->permission }}</label>
+                        <label for="the label" class="ml-2">{{ $row->permission }}</label>
                      </div>
                      @endforeach
 
 
                   </div>
                   <div class="row">
-                     <div class="col-12 right">
-                        <button type="submit" class="m-l btn btn-primary">Save</button>
+                     <div class="col-12">
+                           <button-component variant="primary">
+                              Save
+                           </button-component>
                      </div>
                   </div>
                </div>
@@ -97,5 +104,6 @@
 
         <div class="gap"></div>
         </div>
+        </sidebar>
     </div>
 @endsection

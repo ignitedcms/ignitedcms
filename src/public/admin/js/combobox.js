@@ -11,14 +11,15 @@
 |
 */
 
-Vue.component('combobox', {
-  props: ['value', 'name'],
+Vue.component("combobox", {
+  props: ["value", "name"],
   template: `
-    <div @keyup.escape="escapePressed" class="pos-rel">
-     <label  :for="name">{{name}}</label>
-      <div class="m-b"></div>
+    <div @keyup.escape="escapePressed" class="relative">
+     <label :for="name" class="dark:text-white">{{name}}</label>
+      <div></div>
 
-      <input class="form-control"
+      <input class="
+       form-control"
         type="text"
         :name="name"
         :value="selectedItem"
@@ -32,8 +33,17 @@ Vue.component('combobox', {
         :aria-expanded="arr"
         :aria-controls="name"
         ref="button"
-        class="form-control hand p h-e v-a"
-        style="width:250px;"
+        class="
+         form-control 
+         p
+         h-e
+         v-a 
+         w-[250px]
+         h-[40px]
+         text-sm
+         dark:bg-darkest 
+         dark:text-white
+         dark:border-slate-600"
         :name="name"
         :value="value"
         v-click-outside="away"
@@ -49,16 +59,38 @@ Vue.component('combobox', {
         <div 
            v-if="show" 
            :id="name"
-           class="pos-abs fade-in-bottom bg-white br scroll-y b drop-shadow" 
-           style="width:250px; height:300px; top:78px; left:0; z-index:2;"
+           class="
+            absolute
+            w-[250px]
+            h-[250px]
+            top-[70px]
+            p
+            rounded-[--small-radius]
+            shadow-md
+            border
+            border-[--gray]
+            fade-in-bottom
+            bg-white
+            z-20
+            scroll-y  
+            dark:bg-darkest
+            dark:border-slate-600
+            dark:shadow-none" 
            @click.stop
          >
-           <div class="pos-rel">
+           <div class="relative">
              <span>
-               <i data-feather='search' class='icon-inside hand' style="right:25px"></i>
+               <i data-feather='search'class='icon-inside dark:text-white' ></i>
              </span>
              <input
-               class="rm-input-styles br"
+               class="
+                rm-input-styles
+                border-b-slate-200
+                text-sm
+                h-[40px]
+                dark:bg-darkest
+                dark:border-none
+                dark:text-white"
                :name="name"
                aria-autocomplete="list"
                role="dialog"
@@ -74,15 +106,26 @@ Vue.component('combobox', {
                placeholder="Search list"
              />
 
-             <div class="b-t"></div>
+             <div 
+              class="b-t
+               mb-2
+               dark:border-t
+               dark:border-slate-600"
+             >
+             </div>
              <div
                v-for="(item, index) in filteredItems"
                :key="index"
-               class=" m grey-hover br"
-               style="padding:6px;"
+               class="
+                p-2
+                text-sm
+                dark:text-white
+                mx-2
+                cursor-pointer
+                rounded-[--small-radius]"
                @mouseover="setHighlighted(index)"
                @click="onClick(item.val)"
-               :class="{ 'bg-grey': index === highlightedIndex }"
+               :class="{ 'bg-gray-100 rounded-[--small-radius] dark:bg-dark  dark:text-white dark:hover:bg-dark': index === highlightedIndex }"
                v-bind="getAriaSelected(index === highlightedIndex)"
              >
                {{ item.val }}
@@ -90,7 +133,7 @@ Vue.component('combobox', {
 
              <div
                v-if="filteredItems.length === 0 && searchQuery.trim() !== ''"
-               class="p m grey-hover br"
+               class="p-2 mx-2 text-sm"
              >
                No searches found. . .
              </div>
@@ -102,19 +145,19 @@ Vue.component('combobox', {
   `,
   data() {
     return {
-      searchQuery: '',
+      searchQuery: "",
       items: [],
       highlightedIndex: 0,
       selectedItem: this.value,
       show: false,
-      arr: 'false'
+      arr: "false",
     };
   },
   mounted() {
     this.items = this.$children;
 
     //this.$nextTick(() => {
-      //this.$refs.start.focus();
+    //this.$refs.start.focus();
     //});
   },
   computed: {
@@ -122,27 +165,26 @@ Vue.component('combobox', {
       if (this.searchQuery.trim().length === 0) {
         return this.items;
       } else {
-        return this.items.filter(item =>
-          item.val.toLowerCase().includes(this.searchQuery.toLowerCase())
+        return this.items.filter((item) =>
+          item.val.toLowerCase().includes(this.searchQuery.toLowerCase()),
         );
       }
     },
   },
   methods: {
-     getAriaSelected(index) {
-        if (index ) {
-           return { 'aria-selected': 'true' };
-        } else {
-           return {}; // Empty object means no aria-selected attribute will be applied
-        }
-     },
-    updateInput(newValue)
-     {
-      this.$emit('input', newValue);
-     },
+    getAriaSelected(index) {
+      if (index) {
+        return { "aria-selected": "true" };
+      } else {
+        return {}; // Empty object means no aria-selected attribute will be applied
+      }
+    },
+    updateInput(newValue) {
+      this.$emit("input", newValue);
+    },
     load() {
       this.show = true;
-      this.arr = 'true';
+      this.arr = "true";
       this.$nextTick(() => {
         this.$refs.start.focus();
       });
@@ -154,9 +196,9 @@ Vue.component('combobox', {
       this.selectedItem = item;
       this.updateInput(this.selectedItem);
       this.show = false;
-      this.arr = 'false';
+      this.arr = "false";
       this.highlightedIndex = 0;
-      this.searchQuery = '';
+      this.searchQuery = "";
     },
     highlightNext() {
       if (this.highlightedIndex < this.filteredItems.length - 1) {
@@ -174,29 +216,29 @@ Vue.component('combobox', {
         this.selectedItem = selectedItem;
         this.updateInput(this.selectedItem);
         this.show = false;
-        this.arr = 'false';
+        this.arr = "false";
         this.highlightedIndex = 0;
-        this.searchQuery = '';
+        this.searchQuery = "";
       } else {
         this.show = false;
-        this.arr = 'false';
+        this.arr = "false";
         this.highlightedIndex = 0;
-        this.searchQuery = '';
+        this.searchQuery = "";
       }
     },
     away() {
       this.show = false;
-      this.arr = 'false';
+      this.arr = "false";
     },
     escapePressed() {
       this.show = false;
-      this.arr = 'false';
+      this.arr = "false";
     },
   },
 });
 
-Vue.component('combo-item', {
-  props: ['val'],
+Vue.component("combo-item", {
+  props: ["val"],
   template: ``,
   data() {
     return {
@@ -207,4 +249,3 @@ Vue.component('combo-item', {
     feather.replace();
   },
 });
-

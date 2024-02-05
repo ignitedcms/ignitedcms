@@ -16,8 +16,7 @@ Vue.component('popover', {
   template: `
     <button
       type="button"
-      class="btn rm-btn-styles popover-rel"
-      style="padding:0;"
+      class="relative rm-btn-styles"
       aria-haspopup="dialog"
       :aria-expanded="arr"
       :aria-controls="'popover-' + uniqueId"
@@ -25,10 +24,37 @@ Vue.component('popover', {
       @click="tmp"
       v-click-outside="away"
     >
-      <span class="popover-highlight"> {{link}} </span>
+      <span 
+       class="
+        border-b-2
+        border-[--gray]
+        dark:text-white
+        dark:border-slate-200"
+      > 
+      {{link}} 
+      </span>
       <div
         :id="'popover-' + uniqueId"
-        class="popover fade-in-bottom"
+         class="
+          fade-in-bottom 
+          absolute
+          bg-white
+          w-[200px]
+          p-4
+          bottom-[40px] 
+          left-[50%]
+          ml-[-100px]
+          rounded-[--small-radius]
+          border
+          border-[--gray]
+          text-center
+          z-10
+          shadow-md
+          dark:shadow-none
+          dark:bg-darkest
+          dark:text-white 
+          dark:border-slate-600"
+
         role="dialog"
         v-if="show"
         :style="{ width: width }"
@@ -42,7 +68,7 @@ Vue.component('popover', {
   `,
   data() {
     return {
-      message: 'Hello',
+      message: '',
       show: false,
       arr: 'false',
       uniqueId: Math.random().toString(36).substring(2) // Generate a unique ID

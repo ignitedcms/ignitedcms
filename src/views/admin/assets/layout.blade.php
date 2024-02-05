@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
-        <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin/css/output.css') }}">
 
         <!-- datatables -->
         <link rel="stylesheet" href="{{ asset('admin/datatables/datatables.css') }}">
@@ -17,7 +17,7 @@
 
     </head>
 
-    <body class="full-screen bg-light-grey">
+    <body class="v-screen h-screen bg-light-gray">
 
         @yield('content')
 
@@ -27,17 +27,18 @@
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
+        <script src="{{ asset('admin/js/alerts.js') }}"></script>
+        <script src="{{ asset('admin/js/buttons.js') }}"></script>
+        <script src="{{ asset('admin/js/breadcrumbs.js') }}"></script>
         <script src="{{ asset('admin/js/popover.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>
         <script src="{{ asset('admin/js/datepicker.js') }}"></script>
         <script src="{{ asset('admin/js/accordions.js') }}"></script>
         <script src="{{ asset('admin/js/switch.js') }}"></script>
+        <script src="{{ asset('admin/js/sidebar.js') }}"></script>
         <script src="{{ asset('admin/js/range-sliders.js') }}"></script>
         <script src="{{ asset('admin/js/toasts.js') }}"></script>
-        <script src="{{ asset('admin/js/menu.js') }}"></script>
-        <script src="{{ asset('admin/js/mobile-menu.js') }}"></script>
-        <script src="{{ asset('admin/js/trees.js') }}"></script>
         <script src="{{ asset('admin/js/drawer.js') }}"></script>
         <script src="{{ asset('admin/js/file-upload.js') }}"></script>
 

@@ -1,20 +1,24 @@
 @extends('ignitedcms::admin.matrix.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3">
             <form action='{{ url("admin/matrix/update/$id") }}' method="POST">
                 @csrf
 
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/fields') }}">Fields</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit matrix</div>
-                </div>
+             <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Fields" url="{{ url('admin/fields') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit matrix" url=""></breadcrumb-item>
+            </breadcrumb>
+
+                
                 <!--main part for section styles -->
                 <div class="panel br drop-shadow">
                    to be completed...
@@ -31,5 +35,6 @@
 
             </form>
         </div>
+       </sidebar>
     </div>
 @endsection

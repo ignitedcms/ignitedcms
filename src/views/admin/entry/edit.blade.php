@@ -1,46 +1,49 @@
 @extends('ignitedcms::admin.entry.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
 
         <div class="main-content p-3" id="main-content">
 
             <drawer title="Help">
-                <div class="p-3">
+                <div class="p-8">
                     <h4>Templating</h4>
                     <p class="text-muted">For more help please see</p>
-                    <a href="https://www.ignitedcms.com/documentation/section-types" target="_blank">Templating</a>
+                    <a class="underline" href="https://www.ignitedcms.com/documentation/section-types" target="_blank">Templating</a>
                     <br>
-                    <a href="https://www.ignitedcms.com/documentation/magic-routing">Enable magic routing</a>
+                    <a class="underline"  href="https://www.ignitedcms.com/documentation/magic-routing">Enable magic routing</a>
                 </div>
             </drawer>
 
             @if (isMultiple($sectionid) == true)
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/entry') }}">Entry</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit entry</div>
-                </div>
+
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit entry" url=""></breadcrumb-item>
+            </breadcrumb>
+
+                
             @else
-                <div class="breadcrumb m-b-3">
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ url('admin/entry') }}">Entry</a>
-                    </div>
-                    <div class="breadcrumb-item">Edit section</div>
-                </div>
+
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="Edit section" url=""></breadcrumb-item>
+            </breadcrumb>
+                
             @endif
 
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -57,17 +60,15 @@
                 @csrf
 
                 <div class="row">
-                    <div class="col-3 v-a">
-
-
-                    </div>
-                    <div class="col-9 right">
+                    
+                    <div class="col">
 
                         @if (isSingle($sectionid) == true)
                            
 
                             <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
-                                class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                                class="btn btn-white m-r-2 rm-link-styles">Preview
+                           </a>
                         @endif
 
                         @if (isMultiple($sectionid) == true)
@@ -78,9 +79,12 @@
                         @endphp
 
                             <a href="{{ url($sectName . '/' . $entTitle) }}" target="_blank"
-                                class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                                class="btn btn-white m-r-2 rm-link-styles">Preview
+                           </a>
                         @endif
-                        <button type="submit"class="btn btn-primary">Save</button>
+                        <button-component variant="primary" class="ml-3">
+                           Save
+                        </button-component>
 
                     </div>
                 </div>
@@ -98,7 +102,7 @@
                             <div class="small text-danger">{{ $message }}</div>
                         @enderror
 
-                        <div class="divider m-b-2"></div>
+                        <div class="divider mb-2"></div>
                     @endif
 
                     @foreach ($data as $row)
@@ -110,9 +114,9 @@
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="Start typing" />
 
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'matrix')
-                                <div @click="goNow({{ $row->id }})" class="m-r-2 m-t btn btn-white ">
+                                <div @click="goNow({{ $row->id }})" class="mr-2 mt-4 cursor-pointer btn-white ">
                                     <span class="v-a">
                                         <i data-feather="plus"></i>
                                         Add {{ $row->name }}
@@ -127,7 +131,7 @@
                                 <textarea class="form-control" name="{{ $row->name }}" placeholder="Start typing" rows="4">{{ getContent($entryid, $row->name) }}</textarea>
                                 <div class="divider m-b-2"></div>
                             @elseif ($row->type == 'rich-text')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
 
                                 <div v-for='part in singleRichtext'>
                                     <div class='form-group' v-if='part.name == "{{ $row->name }}"'>
@@ -146,7 +150,7 @@
                                 <div class="form-group">
 
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'check-box')
                                 <div class="clearfix m-b-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
@@ -157,16 +161,16 @@
                                         {{ buildCheckboxes($entryid, $row->name) }}
                                     </div>
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'color')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" type="color" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="" />
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'drop-down')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
@@ -174,9 +178,9 @@
                                     aria-label="Default select example">
                                     {{ buildDropdown($entryid, $row->name) }}
                                 </select>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'file-upload')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
 
@@ -186,16 +190,16 @@
                                 </asset-container>
 
 
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'number')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <input class="form-control" name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}" placeholder="test" />
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'date')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <div class="form-group">
@@ -203,14 +207,14 @@
                                         value="{{ getContent($entryid, $row->name) }}">
                                     </datepicker>
                                 </div>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @elseif ($row->type == 'switch')
-                                <div class="clearfix m-b-2"></div>
+                                <div class="clearfix mb-2"></div>
                                 <label for="title">[{{ $row->name }}]</label>
                                 <div class="small text-muted">{{ $row->instructions }}</div>
                                 <switch-ios name="{{ $row->name }}"
                                     value="{{ getContent($entryid, $row->name) }}"></switch-ios>
-                                <div class="divider m-b-2"></div>
+                                <div class="divider mb-2"></div>
                             @else
                             @endif
                         </div>
@@ -219,6 +223,7 @@
             </form>
             <div class="gap"></div>
         </div>
+      </sidebar>
     </div>
 @endsection
 

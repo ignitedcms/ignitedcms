@@ -1,10 +1,10 @@
 @extends('ignitedcms::admin.layout')
 
 @section('content')
-    <div class="full-screen bg-light-grey">
+    <div class="v-screen h-screen bg-light-gray">
         <div class="gap"></div>
         <div class="small-container" id="app">
-            <div class="panel br drop-shadow fade-in-bottom">
+            <div class="panel fade-in-bottom">
                 <div class="row">
                     <div class="col-12">
                         <h3>Terms and conditions</h3>
@@ -34,7 +34,9 @@
                         OTHER DEALINGS IN THE SOFTWARE.
                         <div class="form-group">
                             <a href="{{ url('installer/db') }}">
-                                <button type="button" class="btn btn-block btn-primary pull-right">Next</button>
+                                 <button-component variant="primary" class="w-full">
+                                       Next
+                                 </button-component>
                             </a>
                         </div>
                     </div>

@@ -1,25 +1,32 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
 <div id="app" class="full-screen">
-   @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
    <div class="main-content p-3" id="main-content">
       <drawer title="Help">
-         <div class="p-3">
-            <h4>Sections</h4>
+         <div class="p-8">
+            <h4>Site settings</h4>
             <p class="text-muted">For more help please see</p>
-            <a href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
+            <a class="underline" href="https://www.ignitedcms.com/documentation/site-settings" target="_blank">Settings</a>
          </div>
       </drawer>
-      <div class="breadcrumb m-b-3">
-         <div class="breadcrumb-item">
-            <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-         </div>
-         <div class="breadcrumb-item">Site settings</div>
-      </div>
+   
+         <breadcrumb class="mt-4 mb-4">
+            <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+            <breadcrumb-item title="Site settings" url=""></breadcrumb-item>
+         </breadcrumb>
+
+      
       @if (session('status'))
       <div class="toasts">
          <toast ref="toast">
-            <div class="p-2">
+            <div class="p-4">
                <div class="text-black">Success</div>
                <div class="text-muted small">
                   {{ session('status') }}
@@ -31,7 +38,7 @@
       @if (session('errors'))
       <div class="toasts">
          <toast ref="toast">
-            <div class="p-2">
+            <div class="p-4">
                <div class="text-danger">Error</div>
                <div class="text-danger small">
                   You much check at least ONE
@@ -41,14 +48,19 @@
          </toast>
       </div>
       @endif
-      <div class="alert alert-success m-b-3">
-         <div class="text-black">Information</div>
-         <div class="text-muted small">
+   
+      <alert variant="success">
+         <alert-title>Information</alert-title>
+            <alert-content>
             Restrict what type of files
             your end users can upload globally to your CMS for security
-         </div>
-      </div>
-      <tabs class="panel br">
+
+            </alert-content>
+      </alert>
+     
+       <div class="mb-8"></div>
+
+      <tabs class="panel">
          <tab-item title="Asset settings">
             <div class="p-2">
                <form action="{{ url('admin/settings/update') }} " method="POST">
@@ -60,13 +72,15 @@
                         <div>
                            <input type="checkbox" name="fileTypes[]" value="{{ $row->name }}"
                            class="form-check-input" @if ($row->enabled) checked @endif>
-                           <label for="the label">{{ $row->name }}</label>
+                           <label for="the label" class="ml-2">{{ $row->name }}</label>
                            <span class="small tet-muted">[ {{ $row->extensions }} ] </span>
                         </div>
                         @endforeach
                      </div>
-                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                     <div class="form-group">
+                        <button-component variant="primary">
+                           Save
+                        </button-component>
                      </div>
                   </div>
                </form>
@@ -88,7 +102,9 @@
                   </select>
                </div>
                <div class="form-group right">
-                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button-component variant="primary">
+                     Save
+                  </button-component>
                </div>
             </div>
             </form>
@@ -96,5 +112,6 @@
       </tabs>
       <div class="gap"></div>
    </div>
+ </sidebar>
 </div>
 @endsection

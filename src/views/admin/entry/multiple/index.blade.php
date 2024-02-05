@@ -1,58 +1,60 @@
 @extends('ignitedcms::admin.entry.multiple.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3" id="main-content">
 
 
 
             @if (session('error'))
-                <div class="alert alert-danger m-b-3">
-                    <div>Error</div>
-                       <div class="small">
+            <alert variant="destructive">
+               <alert-title>Error</alert-title>
+                  <alert-content>
                        {{ session('error') }}
-                       </div>
-                </div>
+                  </alert-content>
+            </alert>
+                
             @endif
 
 
             <div class="toasts">
                <toast ref="toast">
-                  <div class="p-2">
+                  <div class="p-4">
                      <div class="text-black">Success</div>
                      <div class="text-muted small">Order saved to db!</div>
                   </div>
                </toast>
 
             </div>            
+            
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Entry" url="{{ url('admin/entry') }}"></breadcrumb-item>
+               <breadcrumb-item title="{{ $sectionname }}" url=""></breadcrumb-item>
+            </breadcrumb>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/entry') }}">Entry</a>
-                </div>
-                <div class="breadcrumb-item">{{ $sectionname }}</div>
-            </div>
 
             <div class="row">
-                <div class="col-3 v-a">
-
-                </div>
-                <div class="col-9 right">
+                
+                <div class="col">
 
                     <a href="{{ url(getSectionName($sectionid)) }}" target="_blank"
-                        class="btn btn-white m-r-2 rm-link-styles">Preview</a>
+                        class="btn-white rm-link-styles">Preview</a>
                   
 
                     <modal button-title="Add another" modal-header="Add another">
                     <div class="p-2">
                        <div class="rows">
 
-                          <div class="col p-b-2">
+                          <div class="col pb-2">
 
-                              <div class="alert alert-success">
+                              <div class="text-muted text-sm">
                                  To add another item to the multiple, you must first create
                                  an entry title, this must be unique and contain only lowercase
                                  letters with dashes e.g 'hello-world'
@@ -68,9 +70,10 @@
 
                                     <div class="small text-danger">@{{ errs }}</div>
                                 </div>
-                                <div class="form-group right">
-
-                                   <button  class="btn btn-primary" @click="save_title">Add another</button>
+                                <div class="form-group">
+                                   <button-component variant="primary" @click.native="save_title">
+                                      Add another
+                                   </button-component>
                                 </div>
                              
                           </div>
@@ -83,43 +86,37 @@
             </div>
 
             <div class="row">
-                <div class="col-12">
-                   <div class="alert alert-success ">
-                      <div class="text-black">Did you know?</div>
-                      <div class="small text-muted">
+                <div class="col">
+                  <alert variant="success">
+                     <alert-title>Did you know?</alert-title>
+                        <alert-content>
                          You can drag and drop to re-order the position, this can be used to
                          display multiples in a specific order.
-                      </div>
-                   </div>
+                        </alert-content>
+                  </alert>
                 </div>
             </div>
 
-            <div class="m-b-3"></div>
+            <div class="mb-3"></div>
 
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-3">
+            <div class="panel">
 
                 <form action="{{ url("admin/multiple/search/$sectionid") }} " method="POST">
                    @csrf
                <div class="row">
                   <div class="col">
-                     <div class="pos-rel">
+                     <div class="relative">
 
-                        <button 
-                          type="submit"
-                          class="rm-btn-styles pos-abs"
-                          style="top:0px; right:-5px;"
-                        >
-                           <i 
-                          data-feather="x"
-                          class="icon-inside hand"
-                          ></i>
+                        <button type="submit" class="rm-btn-styles absolute" style="top:0px; right:-5px;">
+                           <i data-feather="x" class="icon-inside hand"></i>
                         </button>
 
-                        <input class="form-control" 
-                               name="searchQuery"
-                               value="" 
-                               placeholder="Start typing to search then hit enter" />
+                        <input 
+                           class="form-control" 
+                           name="searchQuery"
+                           value="" 
+                           placeholder="Start typing to search then hit enter" />
                      </div>    
                   </div>
 
@@ -127,36 +124,31 @@
                </form>
                 <form action="{{ url("admin/multiple/delete/$sectionid") }}" method="POST">
                     @csrf
-
-                    
-
-                    <div class="row">
-                       <div class="col-6">
+                    <div class="row h-e">
+                       <div>
                           <h3>{{ $sectionname }}</h3>
                        </div>
-                       <div class="col-6 right">
-                          <popover link="Delete selected items?"  class="pull-right">
-
-                          <button type="submit" class="rm-btn-styles ">Ok</button>
-
+                       <div>
+                        <span>
+                          <popover link="Delete" >
+                             <button type="submit">Ok</button> 
                           </popover>
+                        </span>
                        </div>
                     </div>
-                    <div class="clearfix"></div>
                     
                     <div id="sortable-list">
                         @foreach ($data as $row)
                             <!-- tidy this up later   -->
 
                             <a href="{{ url("admin/entry/update/$sectionid/$row->id") }}" class="rm-link-styles">
-                                <div class="panel border-fix no-padding p-t p-l-2 p-b">
-
-                                    <input type="checkbox" class="form-check-input" name="id[]"
-                                        value="{{ $row->id }}">
-                                    <span class="m-l">
-                                       {{ $row->entrytitle }}   
-                                    </span>
-                                    <span class="pull-right m-r-2">
+                                <div class="bg-white border border-[--gray] border-fix p-2 h-e">
+                                    <div>
+                                       <input type="checkbox" class="form-check-input" name="id[]"
+                                           value="{{ $row->id }}">
+                                       <span class="ml-2">{{ $row->entrytitle }}</span>
+                                    </div>
+                                    <span class="">
                                        <i data-feather="more-vertical"></i>    
                                     </span>
 
@@ -171,5 +163,6 @@
             </div>
             <div class="gap"></div>
         </div>
+      </sidebar>
     </div>
 @endsection

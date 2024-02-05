@@ -15,10 +15,10 @@ Vue.component('range-slider', {
   props: ['name','value','min', 'max'],
   template: `
     <div class="slidecontainer">
-     <label :for="name">{{name}}</label>
-     <div class="m-b"></div>
+     <label :for="name" class="dark:text-white">{{name}}</label>
+     <div class=""></div>
       <input
-        class="slider2"
+        class="slider2 dark:bg-gray-400"
         :id="name"
         :name="name"
         :value="value"
@@ -28,8 +28,8 @@ Vue.component('range-slider', {
         v-model="sliderValue"
         @input="updateSlider($event.target.value)"
       />
-      <p class="m-t-2">Value:
-        <span id="demo">
+      <p class=" dark:text-white">Value:
+        <span  >
           {{sliderValue}}
         </span>
       </p>

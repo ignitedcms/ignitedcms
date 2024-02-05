@@ -1,7 +1,14 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
+      
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
 
         <div class="main-content p-3">
             
@@ -13,20 +20,18 @@
               </div>
            </drawer>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/profile') }}">Profile</a>
-                </div>
-                <div class="breadcrumb-item">Password reset</div>
-            </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Profile" url="{{ url('admin/profile') }}"></breadcrumb-item>
+               <breadcrumb-item title="Password reset" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-black">Success</div>
                   <div class="text-muted small">
                      {{ session('status') }}
@@ -41,7 +46,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -75,13 +80,15 @@
                     
                     
                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button-component variant="primary">
+                           Save
+                        </button-component>
                     </div>
                 </form>
             </div>
 
         </div>
-
+      </sidebar>
     </div>
 @endsection
 

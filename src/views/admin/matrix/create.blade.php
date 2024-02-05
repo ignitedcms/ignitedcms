@@ -1,30 +1,34 @@
 @extends('ignitedcms::admin.matrix.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
+        <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3">
 
            <drawer title="Help">
-              <div class="p-3">
+              <div class="p-8">
                  <h4>Matrix</h4>
                  <p class="text-muted">For more help please see</p>
-                 <a href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Matrix</a>
+                 <a class="underline" href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Matrix</a>
               </div>
            </drawer>
 
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/fields') }}">Fields</a>
-                </div>
-                <div class="breadcrumb-item">Create matrix</div>
-            </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Fields" url="{{ url('admin/fields') }}"></breadcrumb-item>
+               <breadcrumb-item title="Create matrix" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             <div class="toasts">
                <toast ref="toast">
-                  <div class="p-2">
+                  <div class="p-4">
                      <div class="text-danger">Error</div>
                      <div class="text-danger small">
                         There are one or more items on the form that need addressing
@@ -34,20 +38,23 @@
 
             </div>
              
-
-            <div class="alert alert-success m-b-3">
-               <div class="text-black">Information</div>
-               <div class="small text-muted">
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
                 The matrix is a special field where you can
                 create repeatable content in your section types.
                 <br /> For more information please refer to the 
-                <a href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Documentation</a>.
-               </div>
-            </div>
+                <a class="underline" href="https://www.ignitedcms.com/documentation/matrix-fields" target="_blank">Documentation</a>.
+
+                  </alert-content>
+            </alert>
+            
 
             <div class="row">
                 <div class="col-12 right">
-                    <button type="submit" class="btn btn-primary" @click="save">Save matrix</button>
+                     <button-component variant="primary" @click.native="save">
+                        Save matrix
+                     </button-component>
                 </div>
             </div>
             <!--main part for section styles -->
@@ -72,12 +79,18 @@
                 
                 <div class="divider"></div>
 
-                <div class="row m-t-2">
+                <div class="row mt-2">
                     <h4>Configuration</h4> 
-                    
-                    <div class="small text-muted m-b-3">Define the types of blocks that can be created within this Matrix field, as well
+                   
+                     <alert variant="success" class="w-full mb-8">
+                        <alert-title>Informationn</alert-title>
+                           <alert-content>
+Define the types of blocks that can be created within this Matrix field, as well
                         as the fields each block type is made up of.
-                    </div>
+                    
+                           </alert-content>
+                     </alert>
+                    
                     <!-- start matrix container -->
                     <div class="matrix-container">
                         <div class="matrix-left">
@@ -85,11 +98,9 @@
                             <div v-for="todo in matrixContent">
                                 <div class="matrix-item no-select">
                                      @{{todo.title}} (@{{todo.type}})
-                                    <div class="hand m-l-2 p badge badge-danger" @click="deleteItem(todo)">
-                                       <span class="text-white">
-                                          Delete
-                                       </span>
-                                    </div>
+                                    
+                                   <badge variant="outline" class="cursor-pointer" @click.native="deleteItem(todo)">Delete</badge>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -175,8 +186,8 @@
                                 <div v-if="crselect=='switch'">
                                 </div>
                                 <div class="form-group p-b">
-                                    <div class="btn btn-white pull-right btn-s-xs" @click="someFunc"><strong>Add</strong>
-                                    </div>
+                                    <button class="btn-white pull-right btn-s-xs" @click="someFunc"><strong>Add</strong>
+                                    </button>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -186,22 +197,20 @@
                     <!-- <div class="code">@{{ matrixContent }} </div> -->
                 </div>
 
-                <div >
-                    <div class="form-group right">
-                        <div class="btn btn-primary " @click="save">Save matrix</div>
+                <div>
+                    <div class="form-group">
+                        <button-component variant="primary" @click.native="save">
+                           Save matrix
+                        </button-component>
                     </div>
                 </div>
-
-
-
             </div>
-
-            
 
             <div class="gap"></div>
             <!--end main part-->
 
         </div>
+       </sidebar>
     </div>
 @endsection
 

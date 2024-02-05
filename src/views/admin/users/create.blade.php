@@ -1,19 +1,23 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
         <div class="main-content p-3" id="main-content">
-            <div class="breadcrumb m-b-3">
 
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/users') }}">Users</a>
-                </div>
+           <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Users" url="{{ url('admin/users') }}"></breadcrumb-item>
+               <breadcrumb-item title="create new user" url=""></breadcrumb-item>
+            </breadcrumb>
 
-                <div class="breadcrumb-item">Create new user</div>
-            </div>
+
+            
 
             @if (session('status'))
                 <div class="alert alert-danger m-b-3">
@@ -24,7 +28,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -72,11 +76,14 @@
                         </select>
                     </div>
                     <div class="form-group right">
-                        <button type="submit" class="btn btn-primary">Create new user</button>
+                        <button-component variant="primary">
+                           Create new user
+                        </button-component>
                     </div>
                 </form>
             </div>
 
         </div>
+      </sidebar>
     </div>
 @endsection

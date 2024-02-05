@@ -1,14 +1,17 @@
 @extends('ignitedcms::admin.dashboard.layout')
 
 @section('content')
-    <div class="full-screen bg-light-grey">
+
+   <div>
+        <div class="gap"></div>
         <div class="gap"></div>
         <div class="small-container" id="app">
-         
+
+    
             @if (session('status'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Failed</div>
                   <div class="text-danger small">
                      {{ session('status') }}
@@ -23,7 +26,7 @@
             @if (session('errors'))
             <div class="toasts">
                <toast ref="toast">
-               <div class="p-2">
+               <div class="p-4">
                   <div class="text-danger">Error</div>
                   <div class="text-danger small">
                      @foreach ($errors->all() as $error)
@@ -37,17 +40,17 @@
                 
             @endif
 
-            <div class="panel m-t-2 br drop-shadow">
-                <h2 class="center">Login</h2>
+            <div class="panel mt-2">
+                <h2 class="text-center text-dark">Login</h2>
                 <form method="POST" action="{{ url('login/validate_login') }}">
                     @csrf
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="email">Email (Admin)</label>
-                                <div class="small text-muted">Enter a valid email address you can access</div>
+                                <label for="email" class="text-dark">Email (Admin)</label>
+                                <div class="small text-muted text-dark">Enter a valid email address you can access</div>
 
-                                <input type="text" name="email" class="form-control" placeholder="Email"
+                                <input type="text" name="email" class="form-control form-dark" placeholder="Email"
                                     value="{{ old('email') }}">
                                 @error('email')
                                     <div class="small text-danger">{{ $message }}</div>
@@ -60,8 +63,10 @@
                                     <div class="small text-danger">{{ $message }}</div>
                                 @enderror
                             
-                            <div class="row v-a m-t">
-                                <button class="col btn btn-primary " type="submit">Login</button>
+                            <div class="row v-a mt-4 ">
+                                 <button-component variant="primary" class="w-full">
+                                    Login
+                                 </button-component>
                             </div>
 
                         </div>
@@ -71,7 +76,9 @@
             </div>
             <div class="m-b"></div>
             <div class="row">
-               <div class="col center"><a href="{{ url('login/forgot') }}">Forgot password</a></div>
+               <div class="col text-center underline text-dark">
+                  <a href="{{ url('login/forgot') }}">Forgot password</a>
+               </div>
             </div>
         </div>
 

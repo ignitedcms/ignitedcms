@@ -1,21 +1,25 @@
 @extends('ignitedcms::admin.assets.layout')
 @section('content')
     <div id="app" class="full-screen">
-        @include('ignitedcms::admin.sidebar')
-        <div class="main-content p-3" id="main-content">
-            <div class="breadcrumb m-b-3">
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-                </div>
-                <div class="breadcrumb-item">
-                    <a href="{{ url('admin/assets') }}">Assets</a>
-                </div>
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
 
-                <div class="breadcrumb-item">View asset</div>
-            </div>
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
+        <div class="main-content p-3" id="main-content">
+
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Assets" url="{{ url('admin/assets') }}"></breadcrumb-item>
+               <breadcrumb-item title="View asset" url=""></breadcrumb-item>
+            </breadcrumb>
+
+            
 
             <!--main part for section styles -->
-            <div class="panel br drop-shadow">
+            <div class="panel">
                 <div class="row">
                     <div class="col">
                        <form action='{{ url("admin/assets/update/$assetId") }} ' method="POST">
@@ -45,7 +49,9 @@
                            @endforeach
                            <div class="row">
                               <div class="col right">
-                                 <button type="submit" class="btn btn-primary">Save</button>
+                                 <button-component variant="primary">
+                                    Save
+                                 </button-component>
 
                               </div>
                            </div>
@@ -56,6 +62,7 @@
             
             <div class="gap"></div>
         </div>
+         </sidebar>
     </div>
 @endsection
 

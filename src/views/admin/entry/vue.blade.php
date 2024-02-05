@@ -114,15 +114,15 @@
                      </div>
                      <div class="row">
                         <div class="col v-a">
-                            <div class="btn btn-white" v-on:click="part.showAssets = !part.showAssets">
+                            <button class="btn-white" @click.prevent  v-on:click="part.showAssets = !part.showAssets">
                                 <span class="v-a">
                                    Add asset
                                 </span>
-                            </div>
-                            <div class="m-l-2" v-if="part.content.length > 0">
-                               <img :src="part.thumb" alt="" class="m-l p b br"/>
-                               <div class="hand" style="max-width:80px;" v-on:click="part.content = ''">
-                                  <span class="small bg-light p-l p-r b br" style="margin-left:12px;">
+                            </button>
+                            <div class="ml-2" v-if="part.content.length > 0">
+                               <img :src="part.thumb" alt="" class="ml-2 border border-[--gray] "/>
+                               <div class="cursor-pointer" style="max-width:80px;" v-on:click="part.content = ''">
+                                  <span class="small underline" style="margin-left:10px;">
                                      Delete
                                   </span>
                                </div>
@@ -133,11 +133,29 @@
 
                     </div>
                     <!-- modal -->
-                    <div class="modal" v-if="part.showAssets">
-                            <div class="modal-content fade-in-bottom">
-                                <div class="modal-header">
-                                    <button class="rm-btn-styles close m-t" v-on:click="part.showAssets =!part.showAssets" >&times;</button>
-                                    <h4 class="m-t">Asset Library</h4>
+                    <div class="modal" v-show="part.showAssets">
+                            <div class="
+                              modal-content 
+                              bg-light-gray
+                              p-4 
+                              border
+                              border-[--gray] 
+                              rounded-[--big-radius]
+                              fade-in-bottom">
+                                <div class="modal-header relative">
+                                    <button 
+                                       type="button"
+                                       style="width:30px; height:30px; "
+                                       class="absolute 
+                                       right-0
+                                       bg-dark
+                                       m-t" 
+                                        v-on:click="part.showAssets =!part.showAssets" >
+                                       <span class="text-white mb-3 v-a h-a">
+                                             &times;
+                                       </span>
+                                       
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     
@@ -150,7 +168,6 @@
                                       <div class="row b-b">
                                          <div class="col"><h5>Preview </h5></div>
                                          <div class="col"><h5>Handle </h5></div>
-                                         <div class="col"><h5>Type </h5></div>
                                          <div class="col"><h5>Action </h5></div>
                                       </div>
 
@@ -164,14 +181,12 @@
                                             @endif
                                          </div>
                                          <div class="col v-a">
-                                            {{ \Illuminate\Support\Str::limit($field->filename, 10, '...') }}
+                                            {{ \Illuminate\Support\Str::limit($field->filename, 30, '...') }}
                                          </div>
-                                         <div class="col v-a">
-                                            {{ $field->kind }}
-                                         </div>
+                                         
                                          <div class="col v-a">
                                             <div v-on:click="part.content = '{{$field->url}}'; part.thumb = '{{ $field->thumb }}'; part.alttitle = '{{ $field->alt_title }}'; part.showAssets = false"> 
-                                               <div type="submit" class="hand p-l p-r b br bg-white">Add</div>
+                                               <div type="submit" class="bg-white text-sm cursor-pointer px-2 rounded-md border border-[--gray]">Add</div>
                                             </div>
                                          </div>
                                       </div>

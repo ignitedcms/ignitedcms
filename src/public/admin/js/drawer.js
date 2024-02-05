@@ -20,7 +20,7 @@ Vue.component('drawer', {
         aria-haspopup="dialog"
         :aria-expanded="arr"
         :aria-controls="'drawer-' + uniqueId"
-        class="btn btn-white m-b-2"
+        class="btn-white"
         @click="toggle"
         v-click-outside="away"
         @keyup.escape="escapePressed()"
@@ -30,7 +30,19 @@ Vue.component('drawer', {
       <div 
         v-if="show" 
         :id="'drawer-' + uniqueId"
-        class="drawer fade-in b-l"
+        class="
+         fixed
+         top-0
+         right-0
+         w-[350px]
+         h-full
+         bg-white
+         z-10
+         border-l
+         border-[--gray]
+         fade-in
+         dark:bg-darker
+         dark:border-l-slate-600"
         role="dialog"
         @click.stop 
       >

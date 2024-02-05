@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>IgnitedCMS | content management </title>
-        <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin/css/output.css') }}">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
     </head>
 
-    <body class="full-screen">
+    <body class="v-screen h-screen bg-light-gray">
 
         @yield('content')
 
@@ -24,6 +24,7 @@
         <!-- Click out must go before all other scripts -->
         <script src="{{ asset('admin/js/click-outside.js') }}"></script>
         <script src="{{ asset('admin/js/tabs.js') }}"></script>
+        <script src="{{ asset('admin/js/buttons.js') }}"></script>
         <script src="{{ asset('admin/js/popover.js') }}"></script>
         <script src="{{ asset('admin/js/modals.js') }}"></script>
         <script src="{{ asset('admin/js/dropdown.js') }}"></script>

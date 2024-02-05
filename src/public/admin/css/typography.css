@@ -9,8 +9,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  color: #333333;
+  font-family: var(--font-family);
+  color: #000;
   margin-bottom: 10px;
 }
 
@@ -78,7 +78,7 @@ p {
   }
 }
 .text-primary {
-  color: #292F3E;
+  color: var(--primary);
 }
 
 .text-info {
@@ -103,11 +103,6 @@ p {
 
 .text-muted {
   color: #6f6969;
-}
-
-.text-bold {
-  color: #333333;
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=typography.css.map */

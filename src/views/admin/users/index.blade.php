@@ -1,36 +1,45 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
     <div class="full-screen" id="app">
-        @include('ignitedcms::admin.sidebar')
 
-        <div class="main-content p-3">
+      <sidebar theme="light">
+            <ul slot="header" class="rm-list-styles">
+
+             @include('ignitedcms::admin.sidebar')
+               
+            </ul>
+
+        <div class="p-3">
 
            <drawer title="Help">
-           <div class="p-3">
+           <div class="p-8">
               <h4>Users</h4>
               <p class="text-muted">For more help please see</p>
-              <a href="https://www.ignitedcms.com/documentation/users" target="_blank">Users</a>
+              <a class="underline" href="https://www.ignitedcms.com/documentation/users" target="_blank">Users</a>
            </div>
            </drawer>
 
-           <div class="breadcrumb m-b-3">
-              <div class="breadcrumb-item">
-                 <a href="{{ url('admin/dashboard') }}">Dashboard</a>
-              </div>
-              <div class="breadcrumb-item">Users</div>
-           </div>
+            <breadcrumb class="mt-4 mb-4">
+               <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>
+               <breadcrumb-item title="Users" url=""></breadcrumb-item>
+            </breadcrumb>
 
-           <div class="alert alert-success m-b-3">
-              <div class="text-black">Information</div>
-              <div class="text-muted small">
-                 Create new users and assign their roles
-              </div>
-           </div>
+           
+
+            <alert variant="success">
+               <alert-title>Information</alert-title>
+                  <alert-content>
+                   Create new users and assign their roles
+                  </alert-content>
+            </alert>
+           
 
            <div class="row">
-              <div class="col-12 right">
+              <div class="col-12 ">
                  <a href="{{ url('admin/users/create') }}">
-                    <button type="button" class="btn btn-primary">New User</button>
+                     <button-component variant="primary">
+                        New user
+                     </button-component>
                  </a>
               </div>
            </div>
@@ -38,7 +47,7 @@
            @if (session('status'))
            <div class="toasts">
               <toast ref="toast">
-              <div class="p-2">
+              <div class="p-4">
                  <div class="text-black">Success</div>
                  <div class="text-muted small">
                     {{ session('status') }}
@@ -53,7 +62,7 @@
            @if (session('error'))
            <div class="toasts">
               <toast ref="toast">
-              <div class="p-2">
+              <div class="p-4">
                  <div class="text-danger">Error</div>
                  <div class="text-danger small">
                     {{ session('error') }}
@@ -65,7 +74,7 @@
 
            @endif
 
-           <div class="panel br drop-shadow">
+           <div class="panel ">
 
               <h3>Users</h3>
 
@@ -83,7 +92,7 @@
                     <tr>
                        <td>{{ $user->id }}</td>
                        <td>
-                          <a href="{{ url("admin/users/update/$user->id") }}">
+                          <a href="{{ url("admin/users/update/$user->id") }}" class="underline">
                              {{ $user->email }}
                           </a>
 
@@ -108,6 +117,6 @@
            </div>
 
         </div>
-
+      </sidebar>
     </div>
 @endsection

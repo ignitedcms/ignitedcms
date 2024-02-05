@@ -75,13 +75,13 @@
 input:focus + i {
   color: #495057;
   background-color: #fff;
-  border-color: #7f7f7f;
+  border-color: var(--primary);
   outline: 0;
-  box-shadow: 0 0 0 0.2rem #b2b2b2;
+  box-shadow: 0 0 0 0.2rem var(--primary-light);
 }
 
 .form-switch input:checked + i {
-  background-color: #292F3E;
+  background-color: var(--primary);
 }
 
 .form-switch input:checked + i::before {

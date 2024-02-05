@@ -14,47 +14,71 @@
 Vue.component('sidebar', {
   props: ['theme'],
   template: `
-    <div>
-      <div 
-       class="sidebar p-3 bg-dark scroll-y full-screen hide-desktop"
-       style="position:fixed; top:0; left:0; width:270px; float:left;"
-      >
-        <a href="https://www.ignitedcms.com/"></a>
-        <h5 class="text-white">Dashboard</h5>
-        <slot name="header"></slot>
-      </div>
-      <div 
-        class="sidebar-fixed bg-dark overflow-y full-screen fade-in" 
-        style="position:fixed; top:0; left:0; width:270px; float:left; z-index:2; padding:30px;"
-        :style="{ display: styles }" 
-        id="sidebar-fixed" 
-        @click.stop
-      >
-        <a href="https://www.ignitedcms.com/"></a>
-        <h5 class="text-white">Dashboard</h5>
-        <slot name="header"></slot>
-      </div>
-      <div 
-        class="main-content p-t-4  pos-rel m-b-2" 
-      >
-        <div class="p-l-3 show-desktop">
-          <button 
-           class=" bg-white v-a h-a icon hand b br"
-           @click="toggle" 
-           v-click-outside="away" 
-          >
-            <i data-feather="menu" class="v-a h-a"></i>
-          </button>
-          
-        </div>
-        <div class="p-3">
-          <slot></slot>
-        </div>
-      </div>
-    </div>
+<div>
+ <div 
+   class="
+     hide-tablet
+     fixed
+     top-0
+     left-0
+     border-[--gray]
+     border-r
+     h-screen
+     p-8
+     w-[270px]"
+     :class="[colorVariants[theme]]"
+ >
+   <slot name="header"></slot>
+ </div>
+ <div 
+  class="
+   fixed
+   border-[--gray]
+   border-r
+   top-0
+   left-0
+   w-[270px]
+   h-screen
+   z-20
+   p-8
+   fade-in"
+  :class="[colorVariants[theme]]"
+  :style="{ display: styles }"
+  @click.stop
+ >
+      <slot name="header"></slot>
+ </div>
+ <div class="md:ml-[280px] md:p-8 p-4  default-container">
+   <button 
+    @click="toggle"
+    v-click-outside="away"
+    class="
+     show-tablet
+     w-[40px]
+     h-[40px]
+     mb-3
+     bg-white
+     cursor-pointer
+     p-2
+     rounded-[--small-radius]
+     border
+     border-[--gray]"
+   >
+   <span class="v-a h-a">
+      <i data-feather="menu"></i>    
+   </span>
+   </button>
+    <slot/>
+ </div>
+</div>
+
   `,
   data() {
     return {
+       colorVariants:{
+         dark:'bg-dark text-white',
+         light:'bg-white'
+       },
       show: false,
       dark: false,
       styles: 'none'

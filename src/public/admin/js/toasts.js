@@ -16,7 +16,12 @@ Vue.component('toast', {
    template: `
     <div
       v-if="show"
-      class="toast fade-in-bottom"
+      class="
+       toast
+       fade-in-bottom
+       dark:shadow-none 
+       dark:bg-darkest
+       dark:border-slate-600"
       role="alert"
       aria-atomic="true"
       aria-live="assertive"
