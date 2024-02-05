@@ -13,12 +13,13 @@
 
 
             @if (session('error'))
-                <div class="alert alert-danger m-b-3">
-                    <div>Error</div>
-                       <div class="small">
+            <alert variant="destructive">
+               <alert-title>Error</alert-title>
+                  <alert-content>
                        {{ session('error') }}
-                       </div>
-                </div>
+                  </alert-content>
+            </alert>
+                
             @endif
 
 
