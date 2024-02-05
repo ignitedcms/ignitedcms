@@ -71,11 +71,11 @@
             <div class="panel br drop-shadow">
                 <form action="{{ url('admin/profile/update') }} " method="POST">
                     @csrf
-                    <h3>Profile</h3>
+                    <h3 class="text-dark">Profile</h3>
                     <div class="form-group">
-                        <label for="title">Full name</label>
-                        <div class="small text-muted">Please enter your full name</div>
-                        <input class="form-control" name="fullname" value="{{ old('fullname', $data->fullname) }}"
+                        <label for="title" class="text-dark">Full name</label>
+                        <div class="small text-muted text-dark">Please enter your full name</div>
+                        <input class="form-control form-dark" name="fullname" value="{{ old('fullname', $data->fullname) }}"
                             placeholder="Start typing" />
                         @error('fullname')
                             <div class="small text-danger">{{ $message }}</div>
