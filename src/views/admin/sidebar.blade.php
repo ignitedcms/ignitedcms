@@ -1,6 +1,6 @@
 <div>
     <div id="side_nav" class="sidebar-dark">
-        <dark-mode top="50px">
+        <dark-mode top="-20px">
         </dark-mode>
 
         <a href="{{ url('admin/dashboard') }}" class="rm-link-styles">
