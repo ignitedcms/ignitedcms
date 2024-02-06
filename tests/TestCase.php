@@ -26,10 +26,10 @@ class TestCase extends Orchestra
         $app['config']->set('database.connections.mysql', [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
-            'port' => '8889',
+            'port' => '3306',
             'database' => 'laravel',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             // Other MySQL configurations...
         ]);
     }
