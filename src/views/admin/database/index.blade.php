@@ -39,6 +39,7 @@
             </alert>
             <div class="mb-4"></div>
             <div class="panel">
+               <badge variant="destructive" class="float-right">Currently in beta</badge>
                 <h3>Database utility</h3>
 
                 <div class="form-group">
