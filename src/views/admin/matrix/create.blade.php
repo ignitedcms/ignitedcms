@@ -198,7 +198,7 @@ Define the types of blocks that can be created within this Matrix field, as well
                 </div>
 
                 <div>
-                    <div class="form-group">
+                    <div class="">
                         <button-component variant="primary" @click.native="save">
                            Save matrix
                         </button-component>
