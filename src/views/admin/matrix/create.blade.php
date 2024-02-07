@@ -67,7 +67,7 @@
                          <div class="small text-muted m-b">What this field will be called in the control panel.This MUST be
                             unique and must
                             not contain numbers or spaces. You can NOT use the following reserved names:
-                           <span class="text-black"> [url,content,id,section,field,entrytitle,entryid]</span></div>
+                           <span class="text-black"> [url, content, id, section, field, entrytitle, entryid]</span></div>
                          <input v-model="matrix_name" name="matrix_name" type="text" class="form-control" placeholder="Eg. HeroSlider"
                             value="">
                         <!-- vue must bind to v-html -->
@@ -83,7 +83,7 @@
                     <h4>Configuration</h4> 
                    
                      <alert variant="success" class="w-full mb-8">
-                        <alert-title>Informationn</alert-title>
+                        <alert-title>Information</alert-title>
                            <alert-content>
 Define the types of blocks that can be created within this Matrix field, as well
                         as the fields each block type is made up of.
@@ -111,7 +111,7 @@ Define the types of blocks that can be created within this Matrix field, as well
                                     <label>Field Name <span class="text-danger">*</span></label>
                                     <div class="small text-muted">(This cannot be empty and must be unique and contain no spaces or
                                         numbers) You can NOT use the following reserved names:<span class="text-black">
-                                        [url,content,id,section,field,entrytitle,entryid]</span>
+                                        [url, content, id, section, field, entrytitle, entryid]</span>
                                     </div>
                                     <input v-model="fieldname" type="text" class="form-control" 
                                          value="">
