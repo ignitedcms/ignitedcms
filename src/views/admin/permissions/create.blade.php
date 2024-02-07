@@ -8,7 +8,7 @@
                
             </ul>
 
-        <div class="main-content p-3" id="main-content">
+        <div class="main-content" id="main-content">
             
             <breadcrumb class="mt-4 mb-4">
                <breadcrumb-item title="Dashboard" url="{{ url('admin/dashboard') }}"></breadcrumb-item>

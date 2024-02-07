@@ -12,7 +12,7 @@
             </ul>
         <div class="main-content" id="main-content">
             <!--dashboard underneath-->
-            <div class="p-3">
+            <div>
                <div class="row">
                   <div class="col">
                      <h3>Dashboard</h3>

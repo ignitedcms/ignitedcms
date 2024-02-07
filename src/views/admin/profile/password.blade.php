@@ -10,7 +10,7 @@
             </ul>
 
 
-        <div class="main-content p-3">
+        <div class="main-content">
             
            <drawer title="Help">
               <div class="p-3">

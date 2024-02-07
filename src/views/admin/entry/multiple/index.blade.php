@@ -8,7 +8,7 @@
                
             </ul>
 
-        <div class="main-content p-3" id="main-content">
+        <div class="main-content" id="main-content">
 
 
 

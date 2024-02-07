@@ -9,7 +9,7 @@
             </ul>
 
 
-        <div class="main-content p-3" id="main-content">
+        <div class="main-content" id="main-content">
 
             <drawer title="Help">
                 <div class="p-8">

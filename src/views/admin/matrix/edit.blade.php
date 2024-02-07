@@ -8,7 +8,7 @@
                
             </ul>
 
-        <div class="main-content p-3">
+        <div class="main-content">
             <form action='{{ url("admin/matrix/update/$id") }}' method="POST">
                 @csrf
 
