@@ -26,7 +26,7 @@
                      permission role.
                   </alert-content>
             </alert>
-            <div class="mb-8"></div>
+            <div class="mb-4"></div>
 
             <div class="panel br drop-shadow">
                 <form action="{{ url("admin/users/update/$id") }} " method="POST">

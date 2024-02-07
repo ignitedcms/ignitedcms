@@ -71,9 +71,9 @@
                   </alert-content>
             </alert>
             
-            <div class="mb-8"></div>
+            <div class="mb-4"></div>
 
-            <div class="panel ">
+            <div class="panel">
 
                <div class="row">
                   <div class="col no-margin">

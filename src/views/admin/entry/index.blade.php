@@ -47,9 +47,9 @@
                   </alert-content>
             </alert>
             
-            <div class="mb-8"></div>
+            <div class="mb-4"></div>
             <!--main part for section styles -->
-            <div class="panel  pb-5">
+            <div class="panel">
 
                 <h3>Entries</h3>
                 <div class="row">

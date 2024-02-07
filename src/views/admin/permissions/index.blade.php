@@ -36,15 +36,15 @@
 
             <div class="mb"></div>
 
-            <div class="row">
-                <div class="col-12 ">
+            
+                <div class="mt-4 mb-4">
                     <a href="{{ url('admin/permissions/create') }}">
                        <button-component variant="primary">
                            New Group
                        </button-component>
                     </a>
                 </div>
-            </div>
+            
 
    
             @if (session('status'))

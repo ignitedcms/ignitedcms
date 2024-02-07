@@ -37,7 +37,7 @@
 
                   </alert-content>
             </alert>
-            <div class="mb-8"></div>
+            <div class="mb-4"></div>
             <div class="panel">
                 <h3>Database utility</h3>
 

@@ -58,7 +58,7 @@
             </alert-content>
       </alert>
      
-       <div class="mb-8"></div>
+       <div class="mb-4"></div>
 
       <tabs class="panel">
          <tab-item title="Asset settings">

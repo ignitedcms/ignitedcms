@@ -58,17 +58,17 @@
 
             
 
-            <div class="row">
-                <div class="col-12">
+            
+                <div class="mb-4 mt-4">
                    <a href="{{ url('admin/assets/create') }}">
-                        <button-component variant="outline">
+                        <button-component variant="primary">
                            New asset
                         </button-component>
                     </a>
                 </div>
-            </div>
+            
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-5">
+            <div class="panel">
 
                 <h3>Assets</h3>
 

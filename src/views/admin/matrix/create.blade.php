@@ -50,13 +50,13 @@
             </alert>
             
 
-            <div class="row">
-                <div class="col-12 right">
+            
+                <div class="mb-4 mt-4">
                      <button-component variant="primary" @click.native="save">
                         Save matrix
                      </button-component>
                 </div>
-            </div>
+            
             <!--main part for section styles -->
             <div class="panel br drop-shadow">
                 <h3>Matrix</h3>

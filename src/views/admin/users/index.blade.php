@@ -34,15 +34,15 @@
             </alert>
            
 
-           <div class="row">
-              <div class="col-12 ">
+           
+              <div class="mt-4 mb-4">
                  <a href="{{ url('admin/users/create') }}">
                      <button-component variant="primary">
                         New user
                      </button-component>
                  </a>
               </div>
-           </div>
+           
 
            @if (session('status'))
            <div class="toasts">

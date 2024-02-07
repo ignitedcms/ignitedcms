@@ -66,8 +66,8 @@
             @endif
 
 
-            <div class="row">
-                <div class="col-12 right">
+            
+                <div class="mt-4 mb-4">
                     <a href="{{ url('admin/fields/create') }}">
                       <button-component variant="primary">
                          New field
@@ -80,9 +80,9 @@
                         </button-component>
                     </a>
                 </div>
-            </div>
+            
             <!--main part for section styles -->
-            <div class="panel br drop-shadow p-b-5">
+            <div class="panel">
 
                 <h3>Fields</h3>
 
