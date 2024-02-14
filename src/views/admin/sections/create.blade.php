@@ -136,7 +136,7 @@
                               style="min-height:400px;">
 
                                 @foreach ($data as $field)
-                                    <div class="pill overflow-hidden p-3 mt-2 shadow-md border border-[--gray] rounded-lg  bg-white h-e v-a" id="{{ $field->id }}">
+                                    <div class="pill cursor-pointer overflow-hidden p-3 mt-2 shadow-sm border border-[--gray] rounded-lg  bg-white h-e v-a" id="{{ $field->id }}">
                                        
                                        <div class="v-a text-black">
                                           <span>

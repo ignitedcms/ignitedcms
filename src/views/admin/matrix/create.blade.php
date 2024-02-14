@@ -96,7 +96,7 @@ Define the types of blocks that can be created within this Matrix field, as well
                         <div class="matrix-left">
                             <div class="matrix-left-header">Fields</div>
                             <div v-for="todo in matrixContent">
-                                <div class="matrix-item no-select">
+                                <div class="matrix-item select-none p-2">
                                      @{{todo.title}} (@{{todo.type}})
                                     
                                    <badge variant="outline" class="cursor-pointer" @click.native="deleteItem(todo)">Delete</badge>
