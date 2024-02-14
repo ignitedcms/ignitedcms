@@ -37,8 +37,8 @@
                     </div>
 
                     <div class="form-group" id="file-input">
-                       <input type="file" id="pickfiles" class="form-control">
-                       <div id="filelist" class="m-t-2 m-b-2"></div>
+                       <input type="file" id="pickfiles" class="text-sm ">
+                       <div id="filelist" class="mt-2 mb-2"></div>
                     </div>
                     <div class="progress mt-8">
                        <div id="progress" class="progress-bar-primary" role="progressbar" 
