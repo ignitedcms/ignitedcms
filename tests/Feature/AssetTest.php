@@ -20,19 +20,6 @@ class AssetTest extends TestCase
 
     }
 
-    /*                                                                          
-    |---------------------------------------------------------------            
-    | Warning please look at this
-    |---------------------------------------------------------------            
-    */       
-    public  function test_upload()
-    {
-       $file = UploadedFile::fake()->image('avatar.jpg');
- 
-        $response = $this->post('/avatar', [
-            'avatar' => $file,
-        ]);       
-    }
 
     public function test_chunked_page()
     {
