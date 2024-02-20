@@ -43,6 +43,17 @@ class ProfileTest extends TestCase
             ]);
 
         $response->assertSessionHasErrors('password');
+    }
+
+    public function test_reset_password()
+    {
+        $response = $this->withSession(['logged_in' => 1, 'userid' => '1'])
+            ->post('admin/profile/password', [
+                'password' => 'juju123',
+            ])
+
+            ->assertRedirect('admin/profile/password');
 
     }
+
 }
