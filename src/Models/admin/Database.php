@@ -18,7 +18,7 @@ class Database
     public static function backup()
     {
         //grab vars from .env file
-        $host = 'localhost';
+        $host = '127.0.0.1';
         $user = env('DB_USERNAME');
         $pass = env('DB_PASSWORD');
         $dbname = env('DB_DATABASE');
