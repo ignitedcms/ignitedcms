@@ -58,7 +58,14 @@ Vue.component('tabs', {
     this.tabs = this.$children
   },
   mounted() {
-    this.selectTab(0)
+    // Retrieve the active tab index from localStorage
+    const storedIndex = localStorage.getItem('activeTabIndex');
+    if (storedIndex !== null) {
+      this.currentIndex = parseInt(storedIndex, 10);
+    } else {
+      this.currentIndex = 0;
+    }
+    this.selectTab(this.currentIndex);
   },
   methods: {
 
@@ -68,6 +75,7 @@ Vue.component('tabs', {
       this.tabs.forEach((tab, index) => {
         tab.isActive = (index === i);
       });
+      localStorage.setItem('activeTabIndex',i);
     },
      onTabKeyDown(event, index) {
         const tabsCount = this.tabs.length;
