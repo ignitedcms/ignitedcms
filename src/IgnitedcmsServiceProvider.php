@@ -25,9 +25,6 @@ class IgnitedcmsServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/app.php' => config_path('app.php'),
-            ], 'config');
 
             // Publishing ONLY the custom.
             $this->publishes([

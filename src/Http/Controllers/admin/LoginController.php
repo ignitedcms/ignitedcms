@@ -25,7 +25,6 @@ class LoginController extends Controller
 {
     public function index()
     {
-
         return view('ignitedcms::admin.login.index');
     }
 
