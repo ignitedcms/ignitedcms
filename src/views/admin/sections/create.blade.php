@@ -167,6 +167,8 @@
                                          Enabling this will automatically create and
                                          overwrite the template in the 
                                          resources > views > custom directory.
+                                         <br>
+                                         Warning, this cannot be undone!!
                                       </div>
                              </div>
                              <div class=" h-a v-a">
