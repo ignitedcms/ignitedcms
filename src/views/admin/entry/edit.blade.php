@@ -18,6 +18,8 @@
                     <a class="underline" href="https://www.ignitedcms.com/documentation/section-types" target="_blank">Templating</a>
                     <br>
                     <a class="underline"  href="https://www.ignitedcms.com/documentation/magic-routing">Enable magic routing</a>
+                    <br>
+                    <a class="underline"  href="https://www.ignitedcms.com/documentation/magic-routing">Why am I getting 404 error?</a>
                 </div>
             </drawer>
 
