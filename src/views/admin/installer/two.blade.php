@@ -4,7 +4,7 @@
     <div class="v-screen h-screen bg-light-gray">
         <div class="gap"></div>
         <div class="gap"></div>
-        <div class="small-container" id="app">
+        <div class="small-container" id="app" v-cloak>
             <div class="panel">
                 <form method="POST" action="{{ url('installer/validate_form') }}">
                     @csrf

@@ -4,7 +4,7 @@
     <div>
         <div class="gap"></div>
         <div class="gap"></div>
-        <div class="small-container" id="app">
+        <div class="small-container" id="app" v-cloak>
 
 
             @if (session('status'))

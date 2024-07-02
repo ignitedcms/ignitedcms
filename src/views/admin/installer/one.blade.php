@@ -3,14 +3,14 @@
 @section('content')
     <div class="v-screen h-screen bg-light-gray">
         <div class="gap"></div>
-        <div class="small-container" id="app">
+        <div class="small-container" id="app" v-cloak>
             <div class="panel fade-in-bottom">
                 <div class="row">
                     <div class="col-12">
                         <h3>Terms and conditions</h3>
                         MIT License <br /> <br />
 
-                        Copyright 2023, IgnitedCMS (c) <br /> <br />
+                        Copyright 2024, IgnitedCMS (c) <br /> <br />
 
                         Permission is hereby granted, free of charge, to any person obtaining
                         a copy of this software and associated documentation files ("IgnitedCMS"),
