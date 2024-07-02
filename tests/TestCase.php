@@ -27,9 +27,9 @@ class TestCase extends Orchestra
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'laravel',
+            'database' => 'ignitedcms',
             'username' => 'root',
-            'password' => '',
+            'password' => 'password',
             // Other MySQL configurations...
         ]);
     }
