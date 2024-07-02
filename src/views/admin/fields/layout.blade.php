@@ -15,6 +15,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
 
+    <style>
+    [v-cloak]{
+     display:none;
+    }
+    </style>
+
     </head>
 
     <body class="v-screen h-screen bg-light-gray">

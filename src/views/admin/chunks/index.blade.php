@@ -1,7 +1,7 @@
 @extends('ignitedcms::admin.chunks.layout')
 
 @section('content')
-    <div id="app" class="full-screen">
+    <div id="app" class="full-screen" v-cloak>
 
       <sidebar theme="light">
             <ul slot="header" class="rm-list-styles">

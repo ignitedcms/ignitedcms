@@ -1,7 +1,7 @@
 @extends('ignitedcms::admin.dashboard.layout')
 
 @section('content')
-    <div id="app" >
+    <div id="app" v-cloak>
          
 
       <sidebar theme="light">

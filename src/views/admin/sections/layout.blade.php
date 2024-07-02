@@ -17,6 +17,13 @@
 
         <!-- sortables -->
         <script src="{{ asset('admin/js/sortable.js') }}"></script>
+    
+        <style>
+        [v-cloak]{
+            display:none;
+        }
+        </style>
+
     </head>
 
     <body class="bg-light-gray">

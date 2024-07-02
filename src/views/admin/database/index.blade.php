@@ -1,6 +1,6 @@
 @extends('ignitedcms::admin.dashboard.layout')
 @section('content')
-    <div class="full-screen" id="app">
+    <div class="full-screen" id="app" v-cloak>
       <sidebar theme="light">
             <ul slot="header" class="rm-list-styles">
 
