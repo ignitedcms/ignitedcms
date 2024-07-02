@@ -4,10 +4,10 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/ignitedcms/ignitedcms.svg?style=flat-square)](https://packagist.org/packages/ignitedcms/ignitedcms)
 ![GitHub Actions](https://github.com/ignitedcms/ignitedcms/actions/workflows/main.yml/badge.svg)
 
-A  simple Laravel CMS that is completely free to use.
+A  simple Laravel 11 CMS that is completely free to use.
 
 ## Installation
-First install a fresh copy of Laravel 10, make sure you have a PHP version of 8.1 or above
+First install a fresh copy of Laravel 11, make sure you have a PHP version of 8.3 or above
 and you are using MySQL. (We strongly advise to ONLY use this with a fresh install!)
 
 You can install Laravel via composer:
@@ -31,7 +31,6 @@ Finally, publish the assets by running, do NOT skip this step!
 
 ```
 php artisan vendor:publish --tag=assets --force
-php artisan vendor:publish --tag=config --force
 php artisan vendor:publish --tag=views --force
 ```
 
@@ -45,7 +44,7 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=ignitedcms
 DB_USERNAME=root
-DB_PASSWORD=root
+DB_PASSWORD=password
 ```
 
 Run the migrations
