@@ -52,16 +52,16 @@ class TestCase extends Orchestra
             ['permissionID' => 5, 'permission' => 'Permissions', 'order_position' => 8],
             ['permissionID' => 6, 'permission' => 'Profile', 'order_position' => 1],
             ['permissionID' => 9, 'permission' => 'Users', 'order_position' => 9],
-            ['permissionID' => 7, 'permission' => 'Menu', 'order_position' => 2],
+            //['permissionID' => 7, 'permission' => 'Menu', 'order_position' => 2],
             ['permissionID' => 10, 'permission' => 'Database', 'order_position' => 10],
             ['permissionID' => 13, 'permission' => 'Fields', 'order_position' => 13],
             ['permissionID' => 14, 'permission' => 'Sections', 'order_position' => 14],
             ['permissionID' => 15, 'permission' => 'Entries', 'order_position' => 15],
             ['permissionID' => 17, 'permission' => 'Assets', 'order_position' => 17],
             ['permissionID' => 18, 'permission' => 'Site settings', 'order_position' => 18],
-            ['permissionID' => 19, 'permission' => 'Paypal', 'order_position' => 19],
-            ['permissionID' => 20, 'permission' => 'Plugins', 'order_position' => 20],
-            ['permissionID' => 21, 'permission' => 'IPN', 'order_position' => 21],
+            //['permissionID' => 19, 'permission' => 'Paypal', 'order_position' => 19],
+            //['permissionID' => 20, 'permission' => 'Plugins', 'order_position' => 20],
+            //['permissionID' => 21, 'permission' => 'IPN', 'order_position' => 21],
         ];
 
         DB::table($prefix.'permissions')->insert($sql1);
@@ -70,7 +70,7 @@ class TestCase extends Orchestra
             ['groupID' => 1, 'permissionID' => 3],
             ['groupID' => 1, 'permissionID' => 5],
             ['groupID' => 1, 'permissionID' => 6],
-            ['groupID' => 1, 'permissionID' => 7],
+            //['groupID' => 1, 'permissionID' => 7],
             ['groupID' => 1, 'permissionID' => 9],
             ['groupID' => 1, 'permissionID' => 10],
             ['groupID' => 1, 'permissionID' => 13],
@@ -78,9 +78,9 @@ class TestCase extends Orchestra
             ['groupID' => 1, 'permissionID' => 15],
             ['groupID' => 1, 'permissionID' => 17],
             ['groupID' => 1, 'permissionID' => 18],
-            ['groupID' => 1, 'permissionID' => 19],
-            ['groupID' => 1, 'permissionID' => 20],
-            ['groupID' => 1, 'permissionID' => 21],
+            //['groupID' => 1, 'permissionID' => 19],
+            //['groupID' => 1, 'permissionID' => 20],
+            //['groupID' => 1, 'permissionID' => 21],
         ];
 
         DB::table($prefix.'permission_map')->insert($sql2);
